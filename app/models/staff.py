@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
-class Staff(db.Model, Userixin):
+class Staff(db.Model, UserMixin):
     __tablename__ = 'staffs'
 
     id = db.Column(db.Integer, primary_key=True)
