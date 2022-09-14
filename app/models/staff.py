@@ -3,13 +3,18 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
-class User(db.Model, UserMixin):
-    __tablename__ = 'users'
+class Staff(db.Model, UserMixin):
+    __tablename__ = 'staff'
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
+    userName = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    firstName = db.Column(db.String(255), nullable=False, unique=True)
+    lastName = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
+
+
 
     @property
     def password(self):
@@ -25,6 +30,9 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'userName': self.userName,
+            'email': self.email,
+            'firstName': self.firstName,
+            'lastName': self.lastName,
+            'position': self.position
         }
