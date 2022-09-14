@@ -3,8 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
-class Staff(db.Model, UserMixin):
-    __tablename__ = 'staff'
+class Staff(db.Model, Userixin):
+    __tablename__ = 'staffs'
 
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(40), nullable=False, unique=True)
@@ -14,7 +14,7 @@ class Staff(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
 
-
+    role = db.relationship('Role', back_populates='staffs')
 
     @property
     def password(self):
