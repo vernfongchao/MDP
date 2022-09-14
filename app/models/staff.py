@@ -7,10 +7,10 @@ class Staff(db.Model, UserMixin):
     __tablename__ = 'staffs'
 
     id = db.Column(db.Integer, primary_key=True)
-    userName = db.Column(db.String(40), nullable=False, unique=True)
+    username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    firstName = db.Column(db.String(255), nullable=False, unique=True)
-    lastName = db.Column(db.String(255), nullable=False, unique=True)
+    first_name = db.Column(db.String(255), nullable=False, unique=True)
+    last_name = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False,
@@ -19,7 +19,7 @@ class Staff(db.Model, UserMixin):
                            server_default=db.func.now(), server_onupdate=db.func.now())
 
 
-    role = db.relationship('Role', back_populates='staffs')
+    role = db.relationship('Role', back_populates='staff')
 
     @property
     def password(self):
