@@ -13,6 +13,11 @@ class Staff(db.Model, Userixin):
     lastName = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False,
+                           server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False,
+                           server_default=db.func.now(), server_onupdate=db.func.now())
+
 
     role = db.relationship('Role', back_populates='staffs')
 
