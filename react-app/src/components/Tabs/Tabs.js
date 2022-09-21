@@ -1,11 +1,11 @@
-// import Nav Links
+import NavBar from "../NavBar"
 
 
 const Tabs = () => {
 
     return(<div>
-        {/* <Nav/> */}
-        
+        <NavBar/>
+
 
 
         </div>)
