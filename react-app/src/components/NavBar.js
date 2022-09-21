@@ -9,6 +9,7 @@ const NavBar = () => {
   const [idx,setIdx] = useState(0)
 
   const setIndex = (e,i) => {
+    console.log(i)
     setIdx(i)
   }
 
@@ -25,7 +26,7 @@ const NavBar = () => {
 
 
 
-      <Reports idx={0}/>
+      <Reports idx={idx}/>
     </>
     // <nav>
     //   <ul>
