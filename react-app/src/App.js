@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -28,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path = "/" >
+        <Route exact path="/" >
           <PortalPage />
         </Route>
         {/* <Route path='/login' exact={true}>
