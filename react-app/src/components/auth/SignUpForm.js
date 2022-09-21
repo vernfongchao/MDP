@@ -7,6 +7,9 @@ const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [position, setPosition] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -28,6 +31,18 @@ const SignUpForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+  };
+
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updatePosition = (e) => {
+    setPosition(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -67,6 +82,35 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
+      <div>
+        <label>First Name</label>
+        <input
+          type='text'
+          name='firstName'
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type='text'
+          name='lastName'
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      {/* <div>
+        <label>Position</label>
+        <select>
+          {position?.map(pos => (
+            <option type='text'
+              name='position'
+              onChange={updatePosition}
+              value={position}>pos</option>
+          ))}
+        </select>
+      </div> */}
       <div>
         <label>Password</label>
         <input
