@@ -100,17 +100,15 @@ const SignUpForm = () => {
           value={lastName}
         ></input>
       </div>
-      {/* <div>
-        <label>Position</label>
-        <select>
-          {position?.map(pos => (
-            <option type='text'
-              name='position'
-              onChange={updatePosition}
-              value={position}>pos</option>
+      <div>
+        <label htmlFor="position">Position</label>
+        <select onChange={(e) => setPosition(e.target.value)} required >
+          <option disabled selected value> </option>
+          {position.map(pos => (
+            <option value={pos}>{pos}</option>
           ))}
         </select>
-      </div> */}
+      </div>
       <div>
         <label>Password</label>
         <input
@@ -131,7 +129,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
-    </form>
+    </form >
   );
 };
 
