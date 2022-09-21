@@ -1,10 +1,10 @@
 
 import {useState} from "react"
-// import Tabs
+import Tabs from "../Tabs/Tabs"
 
 const PortalPage = () => {
 
-    const [tabs,setTabs] = useState([])
+    const [tabs,setTabs] = useState([0])
 
 
 
@@ -12,7 +12,7 @@ const PortalPage = () => {
 
     return(
         <div>
-            
+
             {tabs.map(tab => (
                 <Tabs/ >
             ))}
