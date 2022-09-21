@@ -35,9 +35,9 @@ class Staff(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'userName': self.userName,
+            'userName': self.username,
             'email': self.email,
-            'firstName': self.firstName,
-            'lastName': self.lastName,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
             'position': self.position
         }
