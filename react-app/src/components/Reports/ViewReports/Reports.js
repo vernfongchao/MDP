@@ -1,13 +1,18 @@
 
 
+import "./Reports.css"
 
-const Reports = () => {
+
+const Reports = (idx) => {
 
 
-    
-    return <>
-        <h1>Reports Page</h1>
-    </>
+
+
+    return (
+        <div className={idx === 0? "classname" : "classname hidden" }>
+            <h1>Reports Page</h1>
+        </div>
+    )
 }
 
 export default Reports
