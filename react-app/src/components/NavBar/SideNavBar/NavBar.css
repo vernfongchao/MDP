@@ -13,12 +13,13 @@
     top: 150px;
     left: 0px;
     height: 100vh;
-    width: 10vw;
+    width: max(10vw,130px);
     margin: 0;
     background-color: lightgreen;
 }
 
 .navbar-header{
+    font-size: max(1.5vw,18px);
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 10px;

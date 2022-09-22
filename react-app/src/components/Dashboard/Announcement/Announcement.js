@@ -9,6 +9,7 @@ const Announcement = ({ idx }) => {
 
     const [index,setIndex] = useState(0)
     const announcements = Object.values(useSelector(state => state.announcements)).reverse()
+    const announcement = announcements[index]
     
 
     const changeAnnouncement = (e,i) => {
@@ -27,7 +28,7 @@ const Announcement = ({ idx }) => {
                 ))}
 
             </div>
-            <AnnouncementDetails index= {index}/>
+            <AnnouncementDetails announcement={announcement}/>
             <AnnouncementForm idx={idx} />
         </div>
     )
