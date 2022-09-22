@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp } from '../../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -9,10 +9,12 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [position, setPosition] = useState('');
+  const [role, setRole] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
+  const rolesObj = useSelector(state => state.roles);
+  const roles = Object.values(rolesObj);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
@@ -41,8 +43,8 @@ const SignUpForm = () => {
     setLastName(e.target.value);
   };
 
-  const updatePosition = (e) => {
-    setPosition(e.target.value);
+  const updateRole = (e) => {
+    setRole(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -101,11 +103,11 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label htmlFor="position">Position</label>
-        <select onChange={(e) => setPosition(e.target.value)} required >
+        <label htmlFor="role">Role</label>
+        <select onChange={updateRole} required >
           <option disabled selected value> </option>
-          {position.map(pos => (
-            <option value={pos}>{pos}</option>
+          {roles?.map(singleRole => (
+            <option value={singleRole?.position_name}>{singleRole?.position_name}</option>
           ))}
         </select>
       </div>
