@@ -12,7 +12,7 @@ const Reports = ({idx}) => {
 
 
     return (
-        <div className={idx === 0 ? "classname" : "hidden" }>
+        <div className={idx === 1 ? "classname" : "hidden" }>
             <h1>Reports Page</h1>
         </div>
     )
