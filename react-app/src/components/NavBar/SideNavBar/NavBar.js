@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
-import Reports from '../Reports/ViewReports/Reports';
+import LogoutButton from '../../auth/LogoutButton';
+import Reports from '../../Reports/ViewReports/Reports';
 import './NavBar.css'
 
 const NavBar = ({ tabs, setTabs, tabIndex }) => {
