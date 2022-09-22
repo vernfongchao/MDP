@@ -35,8 +35,8 @@ const PortalPage = () => {
             <div className="tab_nav_container">
                 {tabs.map((tab,i) => (
                     <div>
-                        <h1 onClick={e => handleClick(e, i)}>Hello</h1>
-                    <div className={i===index ? "tab_container" : "tab_container hidden"}>
+                        <h1 onClick={e => handleClick(e, i)}>Tabs</h1>
+                    <div className={i===index ? "tab_container active" : "tab_container hidden"}>
                         {/* Delete Tabs button */}
                         <Tabs />
 
