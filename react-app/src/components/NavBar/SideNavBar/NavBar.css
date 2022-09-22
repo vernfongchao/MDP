@@ -1,0 +1,36 @@
+.navBar_main_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-header-container{
+    width: 100%;
+}
+
+.navBar_inner_div {
+
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    height: 100vh;
+    width: 10vw;
+    margin: 0;
+    background-color: lightgreen;
+}
+
+.navbar-header{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.navbar-header.active-navbar{
+    background-color: green;
+}
+
+.navBar_reports_div {
+    position: absolute;
+    top: 50px;
+    left: 300px;
+}
