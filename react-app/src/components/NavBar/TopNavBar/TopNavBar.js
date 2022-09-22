@@ -1,5 +1,5 @@
-
-
+import LoginFormModal from '../../auth/Login/LoginFormModal'
+import SignUpFormModal from '../../auth/SignUp/SignUpFormModal'
 import './TopNavBar.css'
 
 
@@ -10,8 +10,8 @@ const TopNavBar = () => {
 
             </div>
             <div className="login-signup-container">
-                <button>Login</button>
-                <button>Signup</button>
+                <LoginFormModal />
+                <SignUpFormModal />
             </div>
         </div>
     )
