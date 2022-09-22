@@ -2,9 +2,8 @@ import { useSelector } from "react-redux"
 
 import "./AnnouncementDetails.css"
 
-const AnnouncementDetails = ({ index }) => {
-    const announcements = Object.values(useSelector(state => state.announcements)).reverse()
-    const announcement = announcements[index]
+const AnnouncementDetails = ({ announcement }) => {
+
 
     return (
         <div className="announcements-details-page-container">
@@ -15,7 +14,7 @@ const AnnouncementDetails = ({ index }) => {
                 <span>{announcement?.content}</span>
             </div>
             <div>
-                <p>Announcement By: {announcement.staffFirstName} {announcement.staffLastName}</p>
+                <p>Announcement By: {announcement?.staffFirstName} {announcement?.staffLastName}</p>
             </div>
         </div>
     )
