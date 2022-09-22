@@ -107,7 +107,7 @@ const SignUpForm = () => {
         <select onChange={updateRole} required >
           <option disabled selected value> </option>
           {roles?.map(singleRole => (
-            <option value={singleRole?.position_name}>{singleRole?.position_name}</option>
+            <option key={singleRole.id} value={singleRole?.position_name}>{singleRole?.position_name}</option>
           ))}
         </select>
       </div>

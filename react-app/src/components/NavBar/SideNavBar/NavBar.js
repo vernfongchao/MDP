@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../../auth/LogoutButton';
+import LogoutButton from '../../auth/Login/LogoutButton';
 import Reports from '../../Reports/ViewReports/Reports';
 import './NavBar.css'
 
 const NavBar = ({ tabs, setTabs, tabIndex }) => {
+  const user = useSelector(state => state.session.user)
 
   const [idx, setIdx] = useState(0)
 
@@ -16,7 +18,10 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
     else if (tabs.length > 1) {
       setIdx(1)
     }
-  }, [])
+    if(!user){
+      setIdx(0)
+    }
+  }, [user])
 
 
   const setIndex = (e, i) => {
@@ -41,6 +46,8 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
             Dashboard
           </h1>
         </div>
+        {user &&
+        <>
         <div>
           <h1 className={idx === 1 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 1)}>
             Reports
@@ -58,6 +65,8 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
         <h1 className={idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
           Messages
         </h1>
+        </>
+        }
       </div>
 
         <Reports idx={idx} />
