@@ -5,7 +5,7 @@ import './Tabs.css'
 const Tabs = () => {
     const [index, setIndex] = useState(0)
 
-    const [tabs, setTabs] = useState([{ title: "Ann..." }])
+    const [tabs, setTabs] = useState([{ title: "Dash... "}])
 
     const addTabs = async () => {
         setTabs([...tabs, { title: "Report" }])
