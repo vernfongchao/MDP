@@ -10,7 +10,7 @@
 .navBar_inner_div {
 
     position: absolute;
-    top: 50px;
+    top: 150px;
     left: 0px;
     height: 100vh;
     width: 10vw;
@@ -27,10 +27,4 @@
 
 .navbar-header.active-navbar{
     background-color: green;
-}
-
-.navBar_reports_div {
-    position: absolute;
-    top: 50px;
-    left: 300px;
 }

@@ -49,10 +49,8 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
         </h1>
       </div>
 
-
-      <div className="navBar_reports_div">
         <Reports idx={idx} />
-      </div>
+
     </div>
     // <nav>
     //   <ul>

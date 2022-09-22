@@ -1,23 +1,30 @@
 .tab_nav_container {
+    height: 50px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    background-color: darkgreen;
+    align-items: center;
+    background-color: darkgray
 }
 
 .tab-header-container.active-tab{
-border: red 5px solid;
+    border: red 5px solid;
+    /* border: none; */
 }
 
 .tab-navbar-container{
     box-sizing: border-box;
+    height: 100%;
 }
 
 .tab-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    border: grey 5px solid;
-    width: 110px;
-    height: 40px;
+    border: grey 2px solid;
+    width: 130px;
+    height: 100%;
     
 }
 
