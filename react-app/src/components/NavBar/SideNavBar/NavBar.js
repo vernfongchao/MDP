@@ -24,6 +24,9 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
     if (i === 0) tabTitle[tabIndex].title = "Dash..."
     else if (i === 1) tabTitle[tabIndex].title = "Report"
     else if (i === 2) tabTitle[tabIndex].title = "Patient"
+    else if (i === 3) tabTitle[tabIndex].title = "Fees"
+    else if (i === 4) tabTitle[tabIndex].title = "Staff"
+    else if (i === 5) tabTitle[tabIndex].title = "Messages"
     setTabs(tabTitle)
     setIdx(i)
   }
@@ -42,10 +45,18 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
           <h1 className={idx === 1 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 1)}>
             Reports
           </h1>
-
         </div>
         <h1 className={idx === 2 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 2)}>
           Patient
+        </h1>
+        <h1 className={idx === 3 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 3)}>
+          Fees
+        </h1>
+        <h1 className={idx === 4 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 4)}>
+          Staff
+        </h1>
+        <h1 className={idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
+          Messages
         </h1>
       </div>
 
