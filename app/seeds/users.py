@@ -4,7 +4,7 @@ from app.models import db, Staff
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = Staff(
-        username='demo', email='demo@mdp.io', first_name='Dem0', last_name='Lition', password='password', position=2)
+        username='demo', email='demo@mdp.io', first_name='Demo', last_name='Lition', password='password', position=2)
     vern = Staff(
         username='vern', email='vern@mdp.io', first_name='Vern', last_name='Chao', password='password', position=1)
     chiew = Staff(

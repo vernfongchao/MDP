@@ -37,7 +37,7 @@ const Tabs = () => {
     }
 
 
-    return (user ?
+    return (
         <div >
             <div className="tab_nav_container">
                 {tabs?.map((tab, i) => (
@@ -57,23 +57,7 @@ const Tabs = () => {
                     </h1>
                 }
             </div>
-        </div> :
-        <div>
-            <div className="tab_nav_container">
-                {tabs?.map((tab, i) => (
-                    <div key={i} className="tab-navbar-container">
-                        <div className={i === index ? "active-tab tab-header-container" : "tab-header-container"} >
-                            <h1 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h1>
-                        </div>
-                        <div className={i === index ? "tab_container" : "tab_container hidden"}>
-                            {/* Delete Tabs button */}
-                            <NavBar tabIndex={i} tabs={tabs} setTabs={setTabs} />
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-        </div>
+        </div> 
     )
 }
 
