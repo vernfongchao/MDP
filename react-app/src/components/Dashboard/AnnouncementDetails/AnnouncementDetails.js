@@ -15,7 +15,7 @@ const AnnouncementDetails = ({ index }) => {
                 <span>{announcement?.content}</span>
             </div>
             <div>
-                <p>Announcement gBy: {announcement.staffFirstName} {announcement.staffLastName}</p>
+                <p>Announcement By: {announcement.staffFirstName} {announcement.staffLastName}</p>
             </div>
         </div>
     )
