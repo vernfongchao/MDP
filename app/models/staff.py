@@ -21,6 +21,8 @@ class Staff(db.Model, UserMixin):
 
     role = db.relationship('Role', back_populates='staff')
 
+    announcements = db.relationship("Announcement",back_populates="staff", cascade="all,delete")
+
     @property
     def password(self):
         return self.hashed_password

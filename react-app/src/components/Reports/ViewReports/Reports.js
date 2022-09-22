@@ -5,9 +5,9 @@ import "./Reports.css"
 
 const Reports = ({idx}) => {
 
-    useEffect(() => {
+    // useEffect(() => {
         
-    },[idx]) 
+    // },[idx]) 
 
 
 

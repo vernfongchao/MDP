@@ -8,6 +8,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import PortalPage from './components/PortalPage/PortalPage';
 import { getRoles } from './store/roles';
+import { getAnnouncements } from './store/announcements';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,6 +18,7 @@ function App() {
     (async () => {
       await dispatch(authenticate());
       await dispatch(getRoles())
+      await dispatch(getAnnouncements())
       setLoaded(true);
     })();
   }, [dispatch]);

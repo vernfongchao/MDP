@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import roleReducer from './roles'
+import announcementReducer from './announcements';
 
 const rootReducer = combineReducers({
   session,
   roles:roleReducer,
+  announcements: announcementReducer
 });
 
 
