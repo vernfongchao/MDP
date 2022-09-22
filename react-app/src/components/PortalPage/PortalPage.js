@@ -1,10 +1,12 @@
 
 import { useState } from "react"
 import Tabs from "../Tabs/Tabs"
+import './PortalPage.css'
 
 const PortalPage = () => {
 
-    const [tabs, setTabs] = useState([0])
+    const [tabs, setTabs] = useState([0, 0, 0])
+    const [index, setIndex] = useState(0)
 
     const addTabs = () => {
         setTabs([...tabs, 0])
@@ -19,7 +21,9 @@ const PortalPage = () => {
 
     // co
 
-
+    const handleClick = (e, i) => {
+        setIndex(i);
+    }
 
 
 
@@ -27,17 +31,21 @@ const PortalPage = () => {
 
 
     return (
-        <div>
+        <div className="portalPage_outer_container">
+            <div className="tab_nav_container">
+                {tabs.map((tab,i) => (
+                    <div>
+                        <h1 onClick={e => handleClick(e, i)}>Tabs</h1>
+                    <div className={i===index ? "tab_container active" : "tab_container hidden"}>
+                        {/* Delete Tabs button */}
+                        <Tabs />
 
-            {tabs.map((tab,i) => (
+                    </div>
+                    </div>
+                ))}
                 <div>
-                    {/* Delete Tabs button */}
-                    <Tabs />
-
+                    {/* Add Tabs button */}
                 </div>
-            ))}
-            <div>
-                {/* Add Tabs button */}
             </div>
 
         </div>
@@ -46,4 +54,4 @@ const PortalPage = () => {
 
 }
 
-export default PortalPage
+export default PortalPage;

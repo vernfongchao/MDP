@@ -1,0 +1,16 @@
+.navBar_main_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar_inner_div {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+.navBar_reports_div {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+}

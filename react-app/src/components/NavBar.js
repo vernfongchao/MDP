@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import Reports from './Reports/ViewReports/Reports';
+import './NavBar.css'
 
 const NavBar = () => {
 
@@ -16,18 +17,21 @@ const NavBar = () => {
   return ( 
 
 
-    <>
-      <h1 onClick={(e) => setIndex(e,0)}>
-        Reports
-      </h1>
-      <h1 onClick={(e) => setIndex(e,1)}>
-        Patient
-      </h1>
+    <div className="navBar_main_div">
+      <div className="navBar_inner_div">
+        <h1 onClick={(e) => setIndex(e,0)}>
+          Reports
+        </h1>
+        <h1 onClick={(e) => setIndex(e,1)}>
+          Patient
+        </h1>
+      </div>
 
 
-
-      <Reports idx={idx}/>
-    </>
+      <div className="navBar_reports_div">
+        <Reports idx={idx}/>
+      </div>
+    </div>
     // <nav>
     //   <ul>
     //     <li>
