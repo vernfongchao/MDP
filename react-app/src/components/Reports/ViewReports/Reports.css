@@ -5,3 +5,10 @@ fdsgsdfg
 .hidden {
     display:none;
 }
+
+
+.reports-page-container {
+    position: absolute;
+    top: 150px;
+    left: 250px;
+}
