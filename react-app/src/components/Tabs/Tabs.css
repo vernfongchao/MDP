@@ -1,0 +1,31 @@
+.tab_nav_container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.tab-header-container.active-tab{
+border: red 5px solid;
+}
+
+.tab-navbar-container{
+    box-sizing: border-box;
+}
+
+.tab-header-container {
+    box-sizing: border-box;
+    border: grey 5px solid;
+    width: 110px;
+    height: 40px;
+    
+}
+
+.tab-header{
+    margin: 0;
+}
+
+
+.add-tab-header{
+    margin: 0;
+}

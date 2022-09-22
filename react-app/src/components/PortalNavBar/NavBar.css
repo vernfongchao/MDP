@@ -5,12 +5,12 @@
 
 .navBar_inner_div {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 50px;
+    left: 50px;
 }
 
 .navBar_reports_div {
     position: absolute;
-    top: 100px;
-    left: 200px;
+    top: 50px;
+    left: 300px;
 }
