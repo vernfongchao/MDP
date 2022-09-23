@@ -8,7 +8,7 @@
 }
 
 .tab-header-container.active-tab{
-    border: red 5px solid;
+    border: red 3px solid;
     /* border: none; */
 }
 

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import NavBar from "../NavBar/SideNavBar/NavBar"
 
+import * as mdIcons from 'react-icons/md'
+
 import './Tabs.css'
 const Tabs = () => {
     const user = useSelector(state => state.session.user)
@@ -9,17 +11,20 @@ const Tabs = () => {
 
     const [index, setIndex] = useState(0)
 
-    const [tabs, setTabs] = useState([{ title: "Dash... " }])
+    const [tabs, setTabs] = useState([{ title: "Dash..." }])
 
     useEffect(() => {
         if (!user) {
             setTabs([{ title: "Dash... " }])
             setIndex(0)
         }
-    }, [user])
+        // if(tabs){
+
+        // }
+    }, [user,tabs])
 
     const addTabs = async () => {
-        setTabs([...tabs, { title: "Report" }])
+        setTabs([...tabs, { title: "Dash..." }])
         let currActive = await document.getElementsByClassName("active-tab")
         currActive[0].classList.remove("active-tab")
         currActive = await document.getElementsByClassName("tab-header-container")
@@ -27,13 +32,27 @@ const Tabs = () => {
         setIndex(tabs.length)
     }
 
-    const deleteTabs = (e, i) => {
-        const spliced = [...tabs].splice(i, 1)
-        setTabs(spliced)
-    }
 
     const handleClick = (e, i) => {
         setIndex(i);
+    }
+
+    const removeTab = (e, i) => {
+        if (tabs.length > 1) {
+            const tabsToSplice = [...tabs]
+            tabsToSplice.splice(i,1)
+            console.log(tabs)
+            // let spliceTabs = [...tabs]
+            // spliceTabs.splice(i,1)
+            // setTabs(spliceTabs)
+            // console.log(i)
+            // if(index === i & index === 0){
+            // }
+            // else if(index >= i){
+            //     setIndex(index -1)
+            // }
+            // if(index )
+        }
     }
 
 
@@ -42,6 +61,17 @@ const Tabs = () => {
             <div className="tab-nav-container">
                 {tabs?.map((tab, i) => (
                     <div key={i} className="tab-navbar-container">
+                        <div className="">
+                            <div>
+                                {tabs.length > 1 &&
+                                    <mdIcons.MdCancel
+                                        onClick={e => removeTab(e,i)}
+
+                                    />
+                                }
+
+                            </div>
+                        </div>
                         <div className={i === index ? "active-tab tab-header-container" : "tab-header-container"} >
                             <h2 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h2>
                         </div>
@@ -57,7 +87,7 @@ const Tabs = () => {
                     </h1>
                 }
             </div>
-        </div> 
+        </div>
     )
 }
 
