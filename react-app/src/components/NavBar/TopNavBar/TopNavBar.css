@@ -2,3 +2,19 @@
     background-color: darkgreen;
     height: 100px;
 }
+
+.img-logo {
+    height: 30%;
+    width: 30%;
+}
+
+.nav-logo {
+    cursor: pointer;
+    float: left;
+}
+
+.login-signup-container {
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+}
