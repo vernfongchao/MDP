@@ -50,3 +50,15 @@
 .add-tab-header:hover{
     cursor: pointer;
 }
+
+.tab-remove-icon-position{
+    position:absolute;
+}
+.tab-remove-icon-container{
+    position: relative;
+    left: max(5.9vw,114px)
+
+}
+.tab-remove-icon{
+    color: red;
+}

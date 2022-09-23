@@ -21,9 +21,7 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
     if (user?.id === announcement?.staffId) {
         isUser = (
             edit ? (
-                <button onClick={cancelEdit} >
-                    cancel
-                </button >
+                null
             ) : (
                 <button onClick={onEdit}>
                     Edit

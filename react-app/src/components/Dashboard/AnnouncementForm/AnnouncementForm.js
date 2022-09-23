@@ -77,6 +77,10 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
         setDelta(editor.getHTML(content))
     }
 
+    const cancelEdit = () => {
+        setEdit(null)
+    }
+
 
     return (
         <div className="announcement-form-page-container" onSubmit={handleSubmit}>
@@ -103,6 +107,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                         <ReactQuill
                             theme="snow"
                             value={content}
+                            placeholder={"Please add your announcement here"}
                             onChange={handleContentChange}
                             style={
                                 {
@@ -121,7 +126,10 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     </div>
                     <div className="announcement-form-button-container">
                         {edit ? (
-                            <button>Edit</button>
+                            <div>
+                                <button onClick={cancelEdit}> Cancel</button>
+                                <button>Edit</button>
+                            </div>
                         ) : (
                             <button>Add</button>
                         )}

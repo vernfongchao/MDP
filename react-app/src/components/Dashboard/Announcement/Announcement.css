@@ -53,7 +53,7 @@ body {
 }
 .announcement-delete-icon-container{
     position: relative;
-    bottom: 50px;
-    left: 415px;
+    bottom: max(5vh,50px);
+    left: max(21.6vw,100px);
 }
 

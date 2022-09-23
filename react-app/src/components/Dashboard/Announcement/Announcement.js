@@ -46,10 +46,11 @@ const Announcement = ({ idx }) => {
                         <div
                             className={index === i ? "announcement-title-container active-announcement" : "announcement-title-container"}
                             key={i}
+                            onClick={e => changeAnnouncement(e, i)}
                             onMouseEnter={(e) => onHoverEnter(e, i)}
                             onMouseLeave={(e) => onHoverLeave(e, i)}
                         >
-                            <h3 className="announcement-header" onClick={e => changeAnnouncement(e, i)}>{announcement.title}</h3>
+                            <h3 className="announcement-header">{announcement.title}</h3>
                             {hover === i ?
                                 <div className="announcement-delete-position-container">
                                     <div className="announcement-delete-icon-container">
