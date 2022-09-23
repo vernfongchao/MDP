@@ -4,11 +4,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: darkgray
+    background-color: #457B9D;
 }
 
 .tab-header-container.active-tab{
-    border: red 3px solid;
+    /* border: 1px solid #F1FAEE; */
+    box-sizing: border-box;
+    box-shadow: 1px 1px 10px 1px #1D3557;
     /* border: none; */
 }
 
@@ -22,7 +24,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    border: grey 2px solid;
+    border-bottom: #1D3557 1px solid;
     width: 130px;
     height: 100%;
     
