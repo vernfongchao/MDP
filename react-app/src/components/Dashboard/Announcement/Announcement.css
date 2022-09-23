@@ -1,19 +1,51 @@
 .announcements-page-container{
+    box-sizing: border-box;
+    height: 100%;
+    background-color: seagreen;
+}
+.announcement-border-container{
+    height: 98%;
+    border: 10px rgb(55, 155, 55) solid;
     display: flex;
     flex-direction: row;
-    position: absolute;
-    top: 150px;
-    left: min(200px,10vw);
+    /* position: absolute; */
+
 }
 
 .announcement-list-container{
+    border-right: 10px rgb(55, 155, 55) solid;
     box-sizing: border-box;
-    width: max(500px, 30vw);
+    width: max(300px, 29.3vw);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .announcement-title-container{
+    margin-bottom: 5px;
+    border: 2px black solid;
+    border-radius: 5px;
     width: 80%;
 }
+
+.announcement-title-container:hover{
+    cursor: pointer;
+}
+
+.active-announcement{
+    background-color: rgb(32, 123, 32);
+}
+.announcement-delete-hover{
+
+}
+
+
+.announcement-delete-position-container{
+    position: absolute;
+}
+.announcement-delete-icon-container{
+    position: relative;
+    bottom: 50px;
+    left: 415px;
+}
+

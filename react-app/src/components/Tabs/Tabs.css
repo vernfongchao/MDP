@@ -1,5 +1,5 @@
-.tab_nav_container {
-    height: 50px;
+.tab-nav-container {
+    height: max(5.1vh,40px);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -32,7 +32,19 @@
     margin: 0;
 }
 
+.tab-header:hover{
+    cursor: pointer;
+}
+
+.tab-container{
+    height: 100vh;
+}
+
 
 .add-tab-header{
     margin: 0;
+}
+
+.add-tab-header:hover{
+    cursor: pointer;
 }
