@@ -1,6 +1,7 @@
 .navBar_main_div {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .navbar-header-container{
@@ -8,24 +9,40 @@
 }
 
 .navBar_inner_div {
-
     position: absolute;
-    top: 150px;
+    top: max(15.4vh,140px);
     left: 0px;
     height: 100vh;
-    width: max(10vw,130px);
+    width: max(10vw,100px);
     margin: 0;
-    background-color: lightgreen;
+    background-color: rgb(32, 123, 32)
 }
 
 .navbar-header{
+    box-sizing: border-box;
     font-size: max(1.5vw,18px);
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 10px;
     margin: 0;
+    width: 100% ;
+}
+
+.navbar-header{
+    cursor: pointer;
 }
 
 .navbar-header.active-navbar{
-    background-color: green;
+    
+    background-color: seagreen;
+
+}
+
+.main-info-container{
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: max(15.4vh, 140px);
+    left: min(200px, 10vw);
 }

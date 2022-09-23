@@ -1,5 +1,3 @@
 .announcement-form-page-container {
-    /* position: absolute; */
-        /* top: 150px; */
-        /* left: 550px; */
+    width: max(300px, 29.4vw);
 }

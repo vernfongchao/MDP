@@ -1,7 +1,12 @@
 .announcements-details-page-container{
-        box-sizing: border-box;
-            width: max(500px,30vw);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+    box-sizing: border-box;
+    width: max(300px, 29.4vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 10px rgb(55, 155, 55) solid;
+}
+
+.announcement-form-container{
+    height: 500px;
 }
