@@ -22,16 +22,11 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
         isUser = (
             edit ? (
 
-                <button className="announcement-buttons" onClick={cancelEdit} >
-                    cancel
-                </button >
+                null
 
             ) : (
                 <div className="announcement-edit-button-position">
                     <div className="announcement-edit-button-container">
-                        <button className="announcement-edit-button" onClick={onEdit}>
-                            Edit
-                        </button>
                         <button className="announcement-buttons" onClick={onEdit}>
                             Edit
                         </button>

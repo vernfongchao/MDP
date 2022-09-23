@@ -128,7 +128,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                         {edit ? (
 
                             <div>
-                                <button onClick={cancelEdit}> Cancel</button>
+                                <button className="announcement-buttons" onClick={cancelEdit}> Cancel</button>
                                 <button className="announcement-buttons">Edit</button>
                             </div>
                         ) : (
