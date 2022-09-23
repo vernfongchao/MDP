@@ -52,3 +52,13 @@ body {
     left: max(21.6vw,100px);
 }
 
+.announcement-edit-button{
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #A8DADC;
+}
+
+.announcement-edit-button:hover{
+    background-color: #A8DADC;
+    
+}
