@@ -22,9 +22,32 @@
 }
 
 .announcement-title-container{
+    margin-bottom: 5px;
+    border: 2px black solid;
+    border-radius: 5px;
     width: 80%;
 }
 
-.announcement-header:hover{
+.announcement-title-container:hover{
     cursor: pointer;
+}
+
+.active-announcement{
+    background-color: rgb(32, 123, 32);
+}
+.announcement-delete-hover{
+
+}
+
+
+.announcement-delete-position-container{
+    position: absolute;
+}
+.announcement-delete-icon-container{
+    position: relative;
+    bottom: 50px;
+    left: 415px;
+}
+.announcement-delete-icon{
+
 }

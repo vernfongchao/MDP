@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useSelector } from "react-redux"
 
 import "./AnnouncementDetails.css"
+import parse from 'html-react-parser'
 
 const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
 
@@ -15,7 +16,7 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
         setEdit(null)
     }
 
-    let isUser 
+    let isUser
 
     if (user?.id === announcement?.staffId) {
         isUser = (
@@ -48,7 +49,7 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
             </div>
 
             <div>
-                <span>{announcement?.content}</span>
+                <span>{parse(announcement?.content)}</span>
             </div>
             <div>
                 <p>Announcement By: {announcement?.staffFirstName} {announcement?.staffLastName}</p>

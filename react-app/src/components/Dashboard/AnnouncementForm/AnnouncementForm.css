@@ -1,10 +1,21 @@
 .announcement-form-page-container {
     width: max(300px, 29.4vw);
 }
+.announcement-form-container{
+    
+}
+
+#announcement-form-content-quill-textarea{
+    height: 192px;
+}
 
 .form-error{
     color: red;
 }
 .form-error-input-border{
     border: 1px red solid;
+}
+
+.announcement-form-button-container{
+    margin-top: 100px;
 }

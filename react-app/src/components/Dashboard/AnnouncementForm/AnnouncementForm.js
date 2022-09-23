@@ -4,6 +4,8 @@ import Announcement from "../Announcement/Announcement"
 import { addAnnouncement } from "../../../store/announcements"
 import { editAnnouncement } from "../../../store/announcements"
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import "./AnnouncementForm.css"
 
 
@@ -14,6 +16,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     const [id, setId] = useState(null)
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
+    const [delta, setDelta] = useState('')
 
     const [titleError, setTitleError] = useState("")
     const [contentError, setContentError] = useState("")
@@ -69,6 +72,12 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     }
 
 
+    const handleContentChange = (content, delta, source, editor) => {
+        setContent(content)
+        setDelta(editor.getHTML(content))
+    }
+
+
     return (
         <div className="announcement-form-page-container" onSubmit={handleSubmit}>
             {edit ? (
@@ -82,6 +91,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     <div>
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title</label>
                         <input
+
                             type="text"
                             label="title"
                             value={title}
@@ -90,15 +100,26 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     </div>
                     <div>
                         <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content</label>
-                        <textarea
+                        <ReactQuill
+                            theme="snow"
+                            value={content}
+                            onChange={handleContentChange}
+                            style={
+                                {
+                                    width: '455px',
+                                    height: '150px',
+                                }
+                            }
+                        />
+                        {/* <textarea
                             className={contentError ? "announcement-form-title-label form-error-input-border" : "announcement-form-title-label"}
                             placeholder="Please add the description here..."
                             label="content"
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
-                        />
+                        /> */}
                     </div>
-                    <div>
+                    <div className="announcement-form-button-container">
                         {edit ? (
                             <button>Edit</button>
                         ) : (
