@@ -21,11 +21,18 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
     if (user?.id === announcement?.staffId) {
         isUser = (
             edit ? (
-                null
+
+                <button className="announcement-buttons" onClick={cancelEdit} >
+                    cancel
+                </button >
+
             ) : (
                 <div className="announcement-edit-button-position">
                     <div className="announcement-edit-button-container">
                         <button className="announcement-edit-button" onClick={onEdit}>
+                            Edit
+                        </button>
+                        <button className="announcement-buttons" onClick={onEdit}>
                             Edit
                         </button>
                     </div>

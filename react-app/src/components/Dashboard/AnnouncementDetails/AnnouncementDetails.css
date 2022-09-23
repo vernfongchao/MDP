@@ -4,13 +4,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 10px rgb(55, 155, 55) solid;
+    border-right: 10px #1D3557 solid;
 }
 
 .announcement-form-container{
     /* height: 500px; */
 }
 
+<<<<<<< HEAD
 .announcement-edit-button-position{
     position:absolute;
 }
@@ -21,3 +22,5 @@
     left: max(23.9vw, 20%);
 
 }
+=======
+>>>>>>> main
