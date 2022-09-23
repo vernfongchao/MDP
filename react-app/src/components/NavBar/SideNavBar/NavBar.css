@@ -15,7 +15,7 @@
     height: 100vh;
     width: max(10vw,130px);
     margin: 0;
-    background-color: lightgreen;
+    background-color: #A8DADC;
 }
 
 .navbar-header{
@@ -27,5 +27,8 @@
 }
 
 .navbar-header.active-navbar{
-    background-color: green;
+    background-color: #A8DADC;
+    /* border: 1px solid #F1FAEE; */
+    box-sizing: border-box;
+    box-shadow: 1px 1px 10px 1px #457B9D;
 }

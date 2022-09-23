@@ -1,5 +1,9 @@
+* {
+    font-family: 'Fira Mono', monospace;
+}
+
 .top-navbar-page-container {
-    background-color: darkgreen;
+    background-color: #1D3557;
     height: 100px;
 }
 

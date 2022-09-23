@@ -42,4 +42,4 @@ const TopNavBar = () => {
     )
 }
 
-export default TopNavBar
+export default TopNavBar;
