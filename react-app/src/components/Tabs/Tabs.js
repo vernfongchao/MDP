@@ -39,13 +39,13 @@ const Tabs = () => {
 
     return (
         <div >
-            <div className="tab_nav_container">
+            <div className="tab-nav-container">
                 {tabs?.map((tab, i) => (
                     <div key={i} className="tab-navbar-container">
                         <div className={i === index ? "active-tab tab-header-container" : "tab-header-container"} >
-                            <h1 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h1>
+                            <h2 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h2>
                         </div>
-                        <div className={i === index ? "tab_container" : "tab_container hidden"}>
+                        <div className={i === index ? "tab-container" : "tab_container hidden"}>
                             {/* Delete Tabs button */}
                             <NavBar tabIndex={i} tabs={tabs} setTabs={setTabs} />
                         </div>
