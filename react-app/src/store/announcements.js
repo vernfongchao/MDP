@@ -1,4 +1,5 @@
 const LOAD_ANNOUNCEMENTS = '/announcement/LOAD_ANNOUNCEMENTS'
+const ADD_ANNOUNCEMENT = '/announcement/ADD_ANNOUNCEMENT'
 
 const loadAnnouncements = announcements => (
     {
@@ -7,10 +8,16 @@ const loadAnnouncements = announcements => (
     }
 )
 
+const loadAnnouncement = announcement => ({
+    type: ADD_ANNOUNCEMENT,
+    announcement
+})
+
+
 export const getAnnouncements = () => async dispatch => {
 
     const response = await fetch('/api/announcements/')
-    if(response.ok){
+    if (response.ok) {
         const announcement = await response.json()
         dispatch(loadAnnouncements(announcement))
         return announcement
@@ -21,14 +28,58 @@ export const getAnnouncements = () => async dispatch => {
     }
 }
 
+export const addAnnouncement = (payload) => async dispatch => {
+    const response = await fetch('/api/announcements/', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const announcement = await response.json()
+        dispatch(loadAnnouncement(announcement))
+        return announcement
+    }
+    else if (response.status < 500) {
+        const data = await response.json()
+        return data
+    }
+}
+
+export const editAnnouncement = (payload) => async dispatch => {
+    const response = await fetch(`/api/announcements/${payload.id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const announcement = await response.json()
+        dispatch(loadAnnouncement(announcement))
+        return announcement
+    }
+    else if (response.status < 500) {
+        const data = await response.json()
+        return data
+    }
+}
+
+
 const initialState = {}
 
-export default function announcementReducer(state = initialState, action){
+export default function announcementReducer(state = initialState, action) {
     let newState;
-    switch(action.type){
+    switch (action.type) {
         case LOAD_ANNOUNCEMENTS: {
-            newState = {...state}
+            newState = { ...state }
             action.announcements.forEach(announcement => newState[announcement.id] = announcement)
+            return newState
+        }
+        case ADD_ANNOUNCEMENT: {
+            newState = { ...state }
+            newState[action.announcement.id] = action.announcement
             return newState
         }
         default:

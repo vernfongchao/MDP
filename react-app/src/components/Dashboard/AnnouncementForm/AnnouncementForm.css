@@ -1,3 +1,10 @@
 .announcement-form-page-container {
     width: max(300px, 29.4vw);
 }
+
+.form-error{
+    color: red;
+}
+.form-error-input-border{
+    border: 1px red solid;
+}
