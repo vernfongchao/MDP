@@ -59,6 +59,8 @@
     left: max(5.9vw,114px)
 
 }
-.tab-remove-icon{
+.tab-remove-icon:hover{
+    cursor: pointer;
     color: red;
 }
+
