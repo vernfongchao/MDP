@@ -39,17 +39,9 @@
 }
 
 .tab-container{
-    height: 100vh;
+    height: 60vh;
 }
 
-
-.add-tab-header{
-    margin: 0;
-}
-
-.add-tab-header:hover{
-    cursor: pointer;
-}
 
 .tab-remove-icon-position{
     position:absolute;
@@ -64,3 +56,24 @@
     color: red;
 }
 
+.navbar-add-header-container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+.navbar-add-header-container:hover{
+    box-shadow: 1px 1px 10px 1px #1D3557;
+    cursor: pointer;
+}
+
+.add-tab-header{
+    margin: 0;
+}
+
+.add-tab-header:hover{
+    color: white;
+    cursor: pointer;
+}
