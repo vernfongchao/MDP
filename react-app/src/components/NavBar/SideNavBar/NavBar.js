@@ -13,12 +13,6 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
   const [idx, setIdx] = useState(0)
 
   useEffect(() => {
-    if (tabs.length === 1) {
-      setIdx(0)
-    }
-    else if (tabs.length > 1) {
-      setIdx(1)
-    }
     if(!user){
       setIdx(0)
     }
@@ -36,6 +30,8 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
     setTabs(tabTitle)
     setIdx(i)
   }
+  console.log(tabIndex,idx)
+
 
   return (
 

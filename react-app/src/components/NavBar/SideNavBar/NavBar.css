@@ -12,7 +12,7 @@
     position: absolute;
     top: max(15.4vh,140px);
     left: 0px;
-    height: 100vh;
+    height: 100%;
     width: max(10vw,100px);
     margin: 0;
 
