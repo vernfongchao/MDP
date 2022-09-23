@@ -15,7 +15,9 @@
     height: 100vh;
     width: max(10vw,100px);
     margin: 0;
-    background-color: rgb(32, 123, 32)
+
+    background-color: #A8DADC;
+
 }
 
 .navbar-header{
@@ -33,8 +35,11 @@
 }
 
 .navbar-header.active-navbar{
-    
-    background-color: seagreen;
+
+    background-color: #A8DADC;
+    /* border: 1px solid #F1FAEE; */
+    box-sizing: border-box;
+    box-shadow: 1px 1px 10px 1px #457B9D;
 
 }
 

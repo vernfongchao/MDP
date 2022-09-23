@@ -9,9 +9,10 @@ body {
 #signup-modal-main-page,
 #login-modal-main-page {
   padding: 5px 7px;
-  border-radius: 2px;
-  border: 1px solid beige;
-  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #F1FAEE;
+  background-color: #F1FAEE;
+  /* box-shadow: 1px 1px 4px 1px #F1FAEE; */
 }
 
 #login-modal-main-page {
@@ -20,8 +21,10 @@ body {
 
 #signup-modal-main-page:hover,
 #login-modal-main-page:hover {
-  background-color: green;
-  color: white;
+  background-color: #A8DADC;
+  border: 1px solid #A8DADC;
+  box-shadow: 1px 1px 5px 1px #A8DADC;
+  /* color: #F1FAEE; */
   cursor: pointer;
 }
 
@@ -29,10 +32,10 @@ body {
 .main-user-signup {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #F1FAEE;
   padding: 30px 40px;
   justify-content: center;
-  border-radius: 7px;
+  border-radius: 15px;
 }
 
 .form-input-user {
@@ -41,6 +44,7 @@ body {
   margin: 8px 0px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: white;
 }
 
 .user-buttons,
@@ -54,6 +58,14 @@ body {
   width: 115px;
 }
 
+.user-buttons:hover,
+.demo-button:hover {
+  background-color: #A8DADC;
+  border: 1px solid #A8DADC;
+  box-shadow: 1px 1px 5px 1px #A8DADC;
+  cursor: pointer;
+}
+
 .buttons-div {
   display: flex;
   align-items: center;
@@ -62,11 +74,5 @@ body {
   justify-content: center;
 }
 
-.user-buttons:hover,
-.demo-button:hover {
-  background-color: green;
-  color: white;
-  cursor: pointer;
-}
 
 /* -------------- // ----------------- */
