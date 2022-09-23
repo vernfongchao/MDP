@@ -11,3 +11,13 @@
     /* height: 500px; */
 }
 
+.announcement-edit-button-position{
+    position:absolute;
+}
+
+.announcement-edit-button-container{
+    position: relative;
+    top: max();
+    left: max(23.9vw, 20%);
+
+}

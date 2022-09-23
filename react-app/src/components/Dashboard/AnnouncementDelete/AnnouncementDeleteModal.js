@@ -3,6 +3,7 @@ import {Modal} from '../../../context/Modal/Modal'
 import AnnouncementDelete from "./AnnouncementDelete"
 
 import * as AiIcons from 'react-icons/ai'
+import './AnnouncementDelete.css'
 
 const AnnouncementDeleteModal = ({id}) => {
     const [showModal, setShowModal] = useState(false)

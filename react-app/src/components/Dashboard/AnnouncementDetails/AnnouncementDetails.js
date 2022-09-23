@@ -22,14 +22,16 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
         isUser = (
             edit ? (
 
-                <button className="announcement-buttons" onClick={cancelEdit} >
-                    cancel
-                </button >
+                null
 
             ) : (
-                <button className="announcement-buttons" onClick={onEdit}>
-                    Edit
-                </button>
+                <div className="announcement-edit-button-position">
+                    <div className="announcement-edit-button-container">
+                        <button className="announcement-buttons" onClick={onEdit}>
+                            Edit
+                        </button>
+                    </div>
+                </div>
             )
         )
     }
@@ -42,10 +44,10 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
     return (
         <div className="announcements-details-page-container">
             <div>
+                {isUser}
                 <h1>
                     Announcement Information
                 </h1>
-                {isUser}
 
 
             </div>
