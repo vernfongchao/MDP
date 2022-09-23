@@ -1,9 +1,8 @@
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import LoginForm from '../../auth/Login/LoginForm'
-import LoginFormModal from '../../auth/Login/LoginFormModal'
-import SignUpFormModal from '../../auth/SignUp/SignUpFormModal'
-import LogoutButton from '../../auth/Login/LogoutButton'
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import LoginFormModal from '../../auth/Login/LoginFormModal';
+import SignUpFormModal from '../../auth/SignUp/SignUpFormModal';
+import LogoutButton from '../../auth/Login/LogoutButton';
 
 import './TopNavBar.css'
 

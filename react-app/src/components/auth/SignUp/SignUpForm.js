@@ -60,7 +60,7 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className="main-user-signup" onSubmit={onSignUp}>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
@@ -69,6 +69,7 @@ const SignUpForm = () => {
       <div>
         <label>User Name</label>
         <input
+          className='form-input-user'
           type='text'
           name='username'
           onChange={updateUsername}
@@ -78,6 +79,7 @@ const SignUpForm = () => {
       <div>
         <label>Email</label>
         <input
+          className='form-input-user'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -87,6 +89,7 @@ const SignUpForm = () => {
       <div>
         <label>First Name</label>
         <input
+          className='form-input-user'
           type='text'
           name='firstName'
           onChange={updateFirstName}
@@ -96,6 +99,7 @@ const SignUpForm = () => {
       <div>
         <label>Last Name</label>
         <input
+          className='form-input-user'
           type='text'
           name='lastName'
           onChange={updateLastName}
@@ -104,7 +108,8 @@ const SignUpForm = () => {
       </div>
       <div>
         <label htmlFor="role">Role</label>
-        <select onChange={updateRole} required >
+        <select className='form-input-user' onChange={updateRole} required >
+          className='form-input-user'
           <option disabled selected value> </option>
           {roles?.map(singleRole => (
             <option key={singleRole.id} value={singleRole?.position_name}>{singleRole?.position_name}</option>
@@ -114,6 +119,7 @@ const SignUpForm = () => {
       <div>
         <label>Password</label>
         <input
+          className='form-input-user'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -123,6 +129,7 @@ const SignUpForm = () => {
       <div>
         <label>Repeat Password</label>
         <input
+          className='form-input-user'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -130,7 +137,9 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <div className='buttons-div'>
+        <button className='user-buttons' type='submit'>Sign Up</button>
+      </div>
     </form >
   );
 };

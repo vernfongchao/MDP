@@ -1,5 +1,72 @@
 /* TODO Add site wide styles */
 
-body{
-    margin: 0;
+body {
+  margin: 0;
 }
+
+/* ----- LOGIN/SIGNUP MODAL STYLES ------*/
+
+#signup-modal-main-page,
+#login-modal-main-page {
+  padding: 5px 7px;
+  border-radius: 2px;
+  border: 1px solid beige;
+  background-color: white;
+}
+
+#login-modal-main-page {
+  margin-right: 20px;
+}
+
+#signup-modal-main-page:hover,
+#login-modal-main-page:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+.main-user-login,
+.main-user-signup {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px 40px;
+  justify-content: center;
+  border-radius: 7px;
+}
+
+.form-input-user {
+  width: 100%;
+  padding: 4px;
+  margin: 8px 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.user-buttons,
+.demo-button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: white;
+  color: black;
+  width: 115px;
+}
+
+.buttons-div {
+  display: flex;
+  align-items: center;
+  margin: 3px 0px px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.user-buttons:hover,
+.demo-button:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+/* -------------- // ----------------- */
