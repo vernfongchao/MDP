@@ -19,3 +19,19 @@
 .announcement-form-button-container{
     margin-top: 100px;
 }
+
+.announcement-input-form,
+.ql-editor.ql-blank {
+    background-color: white;
+}
+
+.announcement-buttons {
+    background-color: #A8DADC;
+    border-radius: 3px;
+    border: 1px solid #1D3557;
+}
+
+.announcement-buttons:hover {
+    box-shadow: 1px 1px 5px 1px #1D3557;
+    border: 1px solid #1D3557;
+}

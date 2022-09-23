@@ -9,19 +9,20 @@ body {
 .announcements-page-container{
     box-sizing: border-box;
     height: 100%;
-    background-color: seagreen;
+    background-color: #F1FAEE;
 }
 .announcement-border-container{
     height: 98%;
-    border: 10px rgb(55, 155, 55) solid;
+    border: 10px #1D3557 solid;
     display: flex;
     flex-direction: row;
+    /* box-shadow: 1px 1px 1px 2px #1D3557; */
     /* position: absolute; */
 
 }
 
 .announcement-list-container{
-    border-right: 10px rgb(55, 155, 55) solid;
+    border-right: 10px #1D3557 solid;
     box-sizing: border-box;
     width: max(300px, 29.3vw);
     display: flex;
@@ -34,14 +35,18 @@ body {
     border: 2px black solid;
     border-radius: 5px;
     width: 80%;
+    box-shadow: 1px 1px 5px 1px #F1FAEE;
+    border: 1px solid #1D3557;
 }
 
 .announcement-title-container:hover{
     cursor: pointer;
+    box-shadow: 1px 1px 5px 1px #1D3557;
+    border: 1px solid #1D3557;
 }
 
 .active-announcement{
-    background-color: rgb(32, 123, 32);
+    background-color: #A8DADC;
 }
 .announcement-delete-position-container{
     position: absolute;
