@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import AnnouncementForm from "../AnnouncementForm/AnnouncementForm"
 import AnnouncementDetails from "../AnnouncementDetails/AnnouncementDetails"
+import AnnouncementDeleteModal from "../AnnouncementDelete/AnnouncementDeleteModal"
 
 
-import * as AiIcons from 'react-icons/ai'
 import "./Announcement.css"
 
 
@@ -36,6 +36,7 @@ const Announcement = ({ idx }) => {
     }
 
 
+
     return (
         <div className={idx === 0 ? "announcements-page-container" : "hidden"}>
             <div className="announcement-border-container">
@@ -52,10 +53,7 @@ const Announcement = ({ idx }) => {
                             {hover === i ?
                                 <div className="announcement-delete-position-container">
                                     <div className="announcement-delete-icon-container">
-
-                                        <AiIcons.AiFillDelete
-                                            className="announcement-delete-icon"
-                                        />
+                                        <AnnouncementDeleteModal id={announcement.id}/>
                                     </div>
                                 </div>
                                 :

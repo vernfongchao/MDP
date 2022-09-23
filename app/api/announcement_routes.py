@@ -1,3 +1,4 @@
+from ast import Delete
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db,Announcement
@@ -42,3 +43,15 @@ def edit_announcement(id):
     else:
         print(form.errors)
         return {"errors": form.errors},400
+
+
+@announcement_routes.route('/<int:id>',methods=["DELETE"])
+@login_required
+def delete_announcement(id):
+    delete_announcement = Announcement.query.get(id)
+    if(delete_announcement):
+        db.session.delete(delete_announcement)
+        db.session.commit()
+        return delete_announcement.to_dict(),200
+    else:
+        return {"errors":"announcement not found"},400

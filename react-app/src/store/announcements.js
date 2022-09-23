@@ -1,5 +1,6 @@
 const LOAD_ANNOUNCEMENTS = '/announcement/LOAD_ANNOUNCEMENTS'
 const ADD_ANNOUNCEMENT = '/announcement/ADD_ANNOUNCEMENT'
+const REMOVE_ANNOUNCEMENT = '/announcement/REMOVE_ANNOUNCEMENT'
 
 const loadAnnouncements = announcements => (
     {
@@ -12,6 +13,13 @@ const loadAnnouncement = announcement => ({
     type: ADD_ANNOUNCEMENT,
     announcement
 })
+
+const removeAnnouncement = announcement => (
+    {
+        type: REMOVE_ANNOUNCEMENT,
+        announcement
+    }
+)
 
 
 export const getAnnouncements = () => async dispatch => {
@@ -66,6 +74,21 @@ export const editAnnouncement = (payload) => async dispatch => {
     }
 }
 
+export const deleteAnnouncement = (id) => async dispatch => {
+    const response = await fetch(`/api/announcements/${id}`,{
+        method: 'DELETE'
+    })
+    if(response.ok){
+        const announcement = await response.json()
+        dispatch(removeAnnouncement(announcement))
+        return announcement
+    }
+    else if (response.status < 500){
+        const data = await response.json()
+        return data
+    }
+}
+
 
 const initialState = {}
 
@@ -80,6 +103,11 @@ export default function announcementReducer(state = initialState, action) {
         case ADD_ANNOUNCEMENT: {
             newState = { ...state }
             newState[action.announcement.id] = action.announcement
+            return newState
+        }
+        case REMOVE_ANNOUNCEMENT: {
+            newState = {...state}
+            delete newState[action.announcement.id]
             return newState
         }
         default:
