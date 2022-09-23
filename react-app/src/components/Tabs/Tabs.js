@@ -74,9 +74,12 @@ const Tabs = () => {
                     </div>
                 ))}
                 {user &&
-                    <h1 className="add-tab-header" onClick={addTabs}>
-                        +
-                    </h1>
+                    <div className="navbar-add-header-container">
+
+                        <h1 className="add-tab-header" onClick={addTabs}>
+                            +
+                        </h1>
+                    </div>
                 }
             </div>
         </div>
