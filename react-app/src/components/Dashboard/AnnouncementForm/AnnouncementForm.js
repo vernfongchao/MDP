@@ -90,7 +90,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                 <form className="announcement-form-container">
                     <div>
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title</label>
-                        <input
+                        <input className="announcement-input-form"
 
                             type="text"
                             label="title"
@@ -121,9 +121,9 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     </div>
                     <div className="announcement-form-button-container">
                         {edit ? (
-                            <button>Edit</button>
+                            <button className="announcement-buttons">Edit</button>
                         ) : (
-                            <button>Add</button>
+                            <button className="announcement-buttons">Add</button>
                         )}
                     </div>
                 </form>
