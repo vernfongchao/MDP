@@ -21,7 +21,7 @@ const Tabs = () => {
         // if(tabs){
 
         // }
-    }, [user,tabs])
+    }, [user, tabs])
 
     const addTabs = async () => {
         setTabs([...tabs, { title: "Dash..." }])
@@ -39,19 +39,10 @@ const Tabs = () => {
 
     const removeTab = (e, i) => {
         if (tabs.length > 1) {
-            const tabsToSplice = [...tabs]
-            tabsToSplice.splice(i,1)
-            console.log(tabs)
-            // let spliceTabs = [...tabs]
-            // spliceTabs.splice(i,1)
-            // setTabs(spliceTabs)
-            // console.log(i)
-            // if(index === i & index === 0){
-            // }
-            // else if(index >= i){
-            //     setIndex(index -1)
-            // }
-            // if(index )
+            const tabsToPop = [...tabs]
+            tabsToPop.pop()
+            setTabs(tabsToPop)
+            setIndex(i - 1)
         }
     }
 
@@ -61,11 +52,12 @@ const Tabs = () => {
             <div className="tab-nav-container">
                 {tabs?.map((tab, i) => (
                     <div key={i} className="tab-navbar-container">
-                        <div className="">
-                            <div>
-                                {tabs.length > 1 &&
+                        <div className="tab-remove-icon-position">
+                            <div className="tab-remove-icon-container">
+                                {tabs.length !== 1 && tabs.length - 1 === i &&
                                     <mdIcons.MdCancel
-                                        onClick={e => removeTab(e,i)}
+                                        className="tab-remove-icon"
+                                        onClick={e => removeTab(e, i)}
 
                                     />
                                 }

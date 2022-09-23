@@ -13,27 +13,24 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
   const [idx, setIdx] = useState(0)
 
   useEffect(() => {
-    if(tabIndex){
-      setIdx(idx)
-    }
     if(!user){
       setIdx(0)
     }
-  }, [user,tabIndex])
+  }, [user])
 
 
   const setIndex = (e, i) => {
-    // let tabTitle = [...tabs]
-    // if (i === 0) tabTitle[tabIndex].title = "Dash..."
-    // else if (i === 1) tabTitle[tabIndex].title = "Report"
-    // else if (i === 2) tabTitle[tabIndex].title = "Patient"
-    // else if (i === 3) tabTitle[tabIndex].title = "Fees"
-    // else if (i === 4) tabTitle[tabIndex].title = "Staff"
-    // else if (i === 5) tabTitle[tabIndex].title = "Messages"
-    // setTabs(tabTitle)
+    let tabTitle = [...tabs]
+    if (i === 0) tabTitle[tabIndex].title = "Dash..."
+    else if (i === 1) tabTitle[tabIndex].title = "Report"
+    else if (i === 2) tabTitle[tabIndex].title = "Patient"
+    else if (i === 3) tabTitle[tabIndex].title = "Fees"
+    else if (i === 4) tabTitle[tabIndex].title = "Staff"
+    else if (i === 5) tabTitle[tabIndex].title = "Messages"
+    setTabs(tabTitle)
     setIdx(i)
   }
-  // console.log(tabIndex,idx)
+  console.log(tabIndex,idx)
 
 
   return (
