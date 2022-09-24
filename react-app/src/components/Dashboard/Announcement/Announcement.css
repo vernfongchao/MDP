@@ -55,8 +55,8 @@ body {
 }
 .announcement-delete-icon-container{
     position: relative;
-    bottom: max(5vh,50px);
-    left: max(21.6vw,100px);
+    bottom: max(6.5vh,50px);
+    left: max(22.3vw,100px);
 }
 
 .announcement-edit-button{

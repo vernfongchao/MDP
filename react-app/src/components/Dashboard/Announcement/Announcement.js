@@ -15,7 +15,7 @@ const Announcement = ({ idx }) => {
 
     const [index, setIndex] = useState(0)
     const [edit, setEdit] = useState(null)
-    const [hover, setHover] = useState(null)
+
 
 
     const announcement = announcements[index]
@@ -27,13 +27,7 @@ const Announcement = ({ idx }) => {
         setIndex(i)
     }
 
-    const onHoverEnter = (e, i) => {
-        setHover(i)
-    }
 
-    const onHoverLeave = (e, i) => {
-        setHover(null)
-    }
 
 
 
@@ -47,11 +41,10 @@ const Announcement = ({ idx }) => {
                             className={index === i ? "announcement-title-container active-announcement" : "announcement-title-container"}
                             key={i}
                             onClick={e => changeAnnouncement(e, i)}
-                            onMouseEnter={(e) => onHoverEnter(e, i)}
-                            onMouseLeave={(e) => onHoverLeave(e, i)}
+
                         >
                             <h3 className="announcement-header">{announcement.title}</h3>
-                            {hover === i ?
+                            {user?.id === announcement.staffId?
                                 <div className="announcement-delete-position-container">
                                     <div className="announcement-delete-icon-container">
                                         <AnnouncementDeleteModal id={announcement.id} />
