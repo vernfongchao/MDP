@@ -43,9 +43,9 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
 
     return (
         <div className="announcements-details-page-container">
-            <div>
+            <div className="announcements-details-page-subcontainer">
                 {isUser}
-                <h1>
+                <h1 className="announcement-information">
                     Announcement Information
                 </h1>
 

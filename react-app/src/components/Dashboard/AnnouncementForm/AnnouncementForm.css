@@ -1,8 +1,9 @@
 .announcement-form-page-container {
     width: max(300px, 29.4vw);
+
 }
 .announcement-form-container{
-    
+    padding-left: 10px;
 }
 
 #announcement-form-content-quill-textarea{
@@ -19,6 +20,9 @@
 .announcement-form-button-container{
     margin-top: 100px;
 }
+.announcement-form-page-subcontainer {
+    margin-left: 50px;
+}
 
 .announcement-input-form,
 .ql-editor.ql-blank {
@@ -29,6 +33,7 @@
     background-color: #A8DADC;
     border-radius: 3px;
     border: 1px solid #1D3557;
+    margin-top: 5px;
 }
 
 .announcement-buttons:hover {
