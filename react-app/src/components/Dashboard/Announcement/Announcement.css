@@ -32,6 +32,7 @@ body {
 
 .announcement-title-container{
     margin-bottom: 5px;
+    padding: 10px;
     border: 2px black solid;
     border-radius: 5px;
     width: 80%;
