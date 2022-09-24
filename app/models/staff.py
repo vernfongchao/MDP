@@ -11,6 +11,7 @@ class Staff(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     first_name = db.Column(db.String(255), nullable=False, unique=True)
     last_name = db.Column(db.String(255), nullable=False, unique=True)
+    notes= db.Column(db.String(5000))
     hashed_password = db.Column(db.String(255), nullable=False)
     position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False,
@@ -41,5 +42,7 @@ class Staff(db.Model, UserMixin):
             'email': self.email,
             'firstName': self.first_name,
             'lastName': self.last_name,
-            'position': self.position
+            'position': self.position,
+            'notes': self.notes,
+            'updateOn': self.updated_at
         }

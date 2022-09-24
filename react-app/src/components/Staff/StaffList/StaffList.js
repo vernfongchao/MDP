@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import StaffProfile from "../StaffProfile/StaffProfile";
 
 import './StaffList.css'
 
@@ -8,14 +9,13 @@ import * as VscIcons from 'react-icons/vsc'
 const StaffList = ({ idx }) => {
 
     const staffs = Object.values(useSelector(state => state.staffs))
-    const [search, setSearch] = useState(null)
+    const [search, setSearch] = useState("")
     const [index, setIndex] = useState(0)
     const staff = staffs[index]
 
     const changeStaff = (e, i) => {
         setIndex(i)
     }
-
 
     return (
         <div className={idx === 4 ? "staff-list-page-container" : "hidden"}>
@@ -51,7 +51,7 @@ const StaffList = ({ idx }) => {
 
                     </div>
                     {staffs?.map((staff, i) => (
-                        <div className={index === i ? 'staff-card-container active-staff'
+                        <div key={i} className={index === i ? 'staff-card-container active-staff'
                             : "staff-card-container"}
                             onClick={e => changeStaff(e, i)}
                         >
@@ -65,7 +65,7 @@ const StaffList = ({ idx }) => {
                         </div>
                     ))}
                 </div>
-
+            <StaffProfile index={index}/>
             </div>
         </div>
     )

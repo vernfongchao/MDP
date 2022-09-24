@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import Announcement from "../Announcement/Announcement"
 import { addAnnouncement } from "../../../store/announcements"
 import { editAnnouncement } from "../../../store/announcements"
 

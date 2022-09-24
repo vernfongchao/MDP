@@ -10,4 +10,4 @@ staff_routes = Blueprint('staffs', __name__)
 def getstaffs():
     staffs = Staff.query.all()
     print(staffs)
-    return jsonify([staff.to_dict() for staff in staffs]),200
+    return jsonify([staff.to_dict() for staff in staffs]),200"
