@@ -10,7 +10,6 @@ import './TopNavBar.css'
 
 const TopNavBar = () => {
     const user = useSelector(state => state.session.user)
-    console.log(user)
 
     let LoggedIn
 

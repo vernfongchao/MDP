@@ -7,17 +7,8 @@ import Announcement from '../../Dashboard/Announcement/Announcement';
 import Reports from '../../Reports/ViewReports/Reports';
 import './NavBar.css'
 
-const NavBar = ({ tabs, setTabs, tabIndex }) => {
+const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
   const user = useSelector(state => state.session.user)
-
-  const [idx, setIdx] = useState(0)
-
-  useEffect(() => {
-    if(!user){
-      setIdx(0)
-    }
-  }, [user])
-
 
   const setIndex = (e, i) => {
     let tabTitle = [...tabs]
@@ -27,10 +18,9 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
     else if (i === 3) tabTitle[tabIndex].title = "Fees"
     else if (i === 4) tabTitle[tabIndex].title = "Staff"
     else if (i === 5) tabTitle[tabIndex].title = "Messages"
+    tab.idx = i
     setTabs(tabTitle)
-    setIdx(i)
   }
-  console.log(tabIndex,idx)
 
 
   return (
@@ -39,27 +29,27 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
     <div className="navBar_main_div">
       <div className="navBar_inner_div">
         <div className='navbar-header-container'>
-          <h1 className={idx === 0 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 0)}>
+          <h1 className={tab.idx === 0 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 0)}>
             Dashboard
           </h1>
         </div>
         {user &&
         <>
         <div>
-          <h1 className={idx === 1 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 1)}>
+            <h1 className={tab.idx === 1 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 1)}>
             Reports
           </h1>
         </div>
-        <h1 className={idx === 2 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 2)}>
+          <h1 className={tab.idx === 2 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 2)}>
           Patient
         </h1>
-        <h1 className={idx === 3 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 3)}>
+          <h1 className={tab.idx === 3 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 3)}>
           Fees
         </h1>
-        <h1 className={idx === 4 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 4)}>
+          <h1 className={tab.idx === 4 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 4)}>
           Staff
         </h1>
-        <h1 className={idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
+          <h1 className={tab.idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
           Messages
         </h1>
         </>
@@ -67,8 +57,8 @@ const NavBar = ({ tabs, setTabs, tabIndex }) => {
       </div>
       <div className='main-info-container'>
 
-        <Announcement idx={idx} />
-        <Reports idx={idx} />
+        <Announcement idx={tab.idx} />
+        <Reports idx={tab.idx} />
       </div>
 
     </div>

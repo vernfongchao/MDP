@@ -11,11 +11,11 @@ const Tabs = () => {
 
     const [index, setIndex] = useState(0)
 
-    const [tabs, setTabs] = useState([{ title: "Dash..." }])
+    const [tabs, setTabs] = useState([{ title: "Dash...",idx:0 }])
 
     useEffect(() => {
         if (!user) {
-            setTabs([{ title: "Dash... " }])
+            setTabs([{ title: "Dash... ", idx: 0 }])
             setIndex(0)
         }
         // if(tabs){
@@ -24,7 +24,7 @@ const Tabs = () => {
     }, [user, tabs])
 
     const addTabs = async () => {
-        setTabs([...tabs, { title: "Dash..." }])
+        setTabs([...tabs, { title: "Dash...", idx: 0 }])
         let currActive = await document.getElementsByClassName("active-tab")
         currActive[0].classList.remove("active-tab")
         currActive = await document.getElementsByClassName("tab-header-container")
@@ -40,12 +40,19 @@ const Tabs = () => {
     const removeTab = (e, i) => {
         if (tabs.length > 1) {
             const tabsToPop = [...tabs]
-            tabsToPop.pop()
+            tabsToPop.splice(i,1)
             setTabs(tabsToPop)
-            setIndex(i - 1)
+            if(index === i && index === 0){
+                setIndex(0)
+            }
+            else if(index >= i){
+                setIndex(index-1)
+            }
+
         }
     }
 
+    console.log(index)
 
     return (
         <div >
@@ -54,7 +61,7 @@ const Tabs = () => {
                     <div key={i} className="tab-navbar-container">
                         <div className="tab-remove-icon-position">
                             <div className="tab-remove-icon-container">
-                                {tabs.length !== 1 && tabs.length - 1 === i &&
+                                {tabs.length !== 1 &&
                                     <mdIcons.MdCancel
                                         className="tab-remove-icon"
                                         onClick={e => removeTab(e, i)}
@@ -68,12 +75,11 @@ const Tabs = () => {
                             <h2 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h2>
                         </div>
                         <div className={i === index ? "tab-container" : "tab_container hidden"}>
-                            {/* Delete Tabs button */}
-                            <NavBar tabIndex={i} tabs={tabs} setTabs={setTabs} />
+                            <NavBar tabIndex={i} tabs={tabs} setTabs={setTabs} tab={tab}/>
                         </div>
                     </div>
                 ))}
-                {user &&
+                {tabs.length < 11 && user && 
                     <div className="navbar-add-header-container">
 
                         <h1 className="add-tab-header" onClick={addTabs}>

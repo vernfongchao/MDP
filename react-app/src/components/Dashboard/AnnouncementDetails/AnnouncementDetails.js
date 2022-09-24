@@ -12,10 +12,6 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
         setEdit(announcement)
     }
 
-    const cancelEdit = () => {
-        setEdit(null)
-    }
-
     let isUser
 
     if (user?.id === announcement?.staffId) {
