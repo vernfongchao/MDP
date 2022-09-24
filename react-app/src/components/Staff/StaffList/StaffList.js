@@ -16,7 +16,7 @@ const StaffList = ({ idx }) => {
     const filteredStaffs = staffs.filter(staff => {
         return (
             staff.firstName.toLowerCase().includes(search.toLowerCase()) || staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
-            staff.id === Number(search)
+            staff.id.toString().includes(search)
         )
     })
 

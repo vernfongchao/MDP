@@ -68,8 +68,6 @@ const StaffProfile = ({ index }) => {
             notes
         }))
 
-        console.log(profile)
-
         if (profile.errors) {
 
         }
@@ -179,7 +177,9 @@ const StaffProfile = ({ index }) => {
                     />
 
                     :
-                    <p>{parse(staff?.notes || "")}</p>
+                    <>  <h4>Notes:</h4>
+                        <p>{parse(staff?.notes || "")}</p>
+                    </>
                 }
             </div>
 
