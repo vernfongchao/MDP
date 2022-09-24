@@ -21,7 +21,7 @@ const Tabs = () => {
         // if(tabs){
 
         // }
-    }, [user, tabs])
+    }, [user])
 
     const addTabs = async () => {
         setTabs([...tabs, { title: "Dash...", idx: 0 }])

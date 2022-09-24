@@ -1,4 +1,3 @@
-from ast import Delete
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db,Announcement
@@ -27,7 +26,7 @@ def post_announcement():
         db.session.commit()
         return new_announcement.to_dict(), 200
     else:
-        print(form.errors)
+
         return {"errors": form.errors},400
 
 @announcement_routes.route("/<int:id>",methods=["PUT"])
@@ -41,7 +40,6 @@ def edit_announcement(id):
         db.session.commit()
         return edit_announcement.to_dict(), 200
     else:
-        print(form.errors)
         return {"errors": form.errors},400
 
 

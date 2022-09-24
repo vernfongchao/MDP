@@ -23,9 +23,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
 
     useEffect(() => {
-        // if (content === "<p><br></p>"){
-        //     setContent("")
-        // }
         if (edit) {
             setTitle(edit.title)
             setContent(edit.content)
@@ -40,7 +37,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
             setTitleError("")
             setContentError("")
         }
-    }, [edit, announcement])
+    }, [edit])
 
     const handleSubmit = async (e) => {
         e.preventDefault()

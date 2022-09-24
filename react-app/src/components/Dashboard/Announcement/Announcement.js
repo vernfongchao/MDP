@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useSelector } from "react-redux"
 import AnnouncementForm from "../AnnouncementForm/AnnouncementForm"
 import AnnouncementDetails from "../AnnouncementDetails/AnnouncementDetails"

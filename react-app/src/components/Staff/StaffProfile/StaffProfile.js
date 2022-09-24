@@ -1,29 +1,48 @@
 
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { editStaff } from '../../../store/staff';
+
+import * as RiIcons from 'react-icons/ri'
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import parse from 'html-react-parser'
+
 import './StaffProfile.css'
 
+
 const StaffProfile = ({ index }) => {
+    const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const staff = Object.values(useSelector(state => state.staffs))[index]
-    console.log(staff.firstName)
 
-    const [picture, setPicture] = useState("")
+    const [id, setId] = useState(0)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [notes, setNotes] = useState("")
+
+    const [success, setSuccess] = useState("")
+    const [firstNameError, setFirstNameError] = useState("")
+    const [lastNameError, setLastNameError] = useState("")
+    // const [picture, setPicture] = useState("")
+
+
     const [delta, setDelta] = useState('')
 
     let isEdit = user?.id === staff?.id
 
     useEffect(() => {
         if (isEdit) {
+            setId(staff?.id)
             setFirstName(staff?.firstName)
             setLastName(staff?.lastName)
             setNotes(staff?.notes)
+        }
+        else if (!isEdit) {
+            setSuccess("")
+            setFirstNameError("")
+            setLastNameError("")
         }
     }, [isEdit])
 
@@ -40,11 +59,43 @@ const StaffProfile = ({ index }) => {
         }
     }
 
+    const handleEdit = async (e) => {
+        e.preventDefault()
+        const profile = await dispatch(editStaff({
+            id,
+            first_name: firstName,
+            last_name: lastName,
+            notes
+        }))
+
+        console.log(profile)
+
+        if (profile.errors) {
+
+        }
+        else {
+            setSuccess("Saved")
+        }
+    }
+
 
     return (
         <div className="staff-profile-page-container">
             <div className='staff-profile-detail-container'>
                 <div className='staff-profile-header-container'>
+                    {isEdit &&
+                        <div className='staff-profile-edit-position'>
+                            <div className='staff-profile-edit-container'>
+                                {success ?
+                                    <span className='staff-profile-edit-success'>
+                                        {success}
+                                    </span> : null}
+                                <RiIcons.RiSave3Fill
+                                    className='staff-profile-edit-icon'
+                                    onClick={handleEdit} />
+                            </div>
+                        </div>
+                    }
                     <h1>
                         Staff Profile
                     </h1>
@@ -117,7 +168,7 @@ const StaffProfile = ({ index }) => {
                     <ReactQuill
                         theme="snow"
                         value={notes}
-                        placeholder={"Please add your announcement here"}
+                        placeholder={"Add notes here"}
                         onChange={handleContentChange}
                         style={
                             {
@@ -128,7 +179,7 @@ const StaffProfile = ({ index }) => {
                     />
 
                     :
-                    <p>{staff?.notes}</p>
+                    <p>{parse(staff?.notes || "")}</p>
                 }
             </div>
 

@@ -19,6 +19,30 @@
     /* header */
 }
 
+.staff-profile-edit-position{
+    width: max(290px, 27.4vw);
+    position:absolute;
+}
+
+.staff-profile-edit-container{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.staff-profile-edit-success{
+    font-size: 1.7em;
+}
+
+.staff-profile-edit-icon{
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.staff-profile-edit-icon:hover{
+    color: #1D3557;
+}
+
 .staff-profile-container{
     display: flex;
     justify-content: space-between;
