@@ -54,7 +54,7 @@ const Announcement = ({ idx }) => {
                             {hover === i ?
                                 <div className="announcement-delete-position-container">
                                     <div className="announcement-delete-icon-container">
-                                        <AnnouncementDeleteModal id={announcement.id}/>
+                                        <AnnouncementDeleteModal id={announcement.id} />
                                     </div>
                                 </div>
                                 :

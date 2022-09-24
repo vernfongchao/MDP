@@ -1,12 +1,16 @@
 .announcement-form-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: max(300px, 29.4vw);
+    height: 800px;
 }
 .announcement-form-container{
-    
-}
-
-#announcement-form-content-quill-textarea{
-    height: 192px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
 }
 
 .form-error{
@@ -16,13 +20,36 @@
     border: 1px red solid;
 }
 
+.announcement-form-title-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.announcement-form-content-container{
+    width: 100%;
+}
+
 .announcement-form-button-container{
-    margin-top: 100px;
+    width: 100%;
+
 }
 
 .announcement-input-form,
 .ql-editor.ql-blank {
     background-color: white;
+}
+
+.announcement-form-errors-container{
+    margin-top: 20px;
+}
+
+.announcement-form-errors{
+    color: red;
+}
+.announcement-form-button-container{
+    display: flex;
+    justify-content: space-between;
 }
 
 .announcement-buttons {

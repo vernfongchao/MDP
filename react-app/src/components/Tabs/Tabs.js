@@ -11,7 +11,7 @@ const Tabs = () => {
 
     const [index, setIndex] = useState(0)
 
-    const [tabs, setTabs] = useState([{ title: "Dash...",idx:0 }])
+    const [tabs, setTabs] = useState([{ title: "Dash...", idx: 0 }])
 
     useEffect(() => {
         if (!user) {
@@ -40,13 +40,13 @@ const Tabs = () => {
     const removeTab = (e, i) => {
         if (tabs.length > 1) {
             const tabsToPop = [...tabs]
-            tabsToPop.splice(i,1)
+            tabsToPop.splice(i, 1)
             setTabs(tabsToPop)
-            if(index === i && index === 0){
+            if (index === i && index === 0) {
                 setIndex(0)
             }
-            else if(index >= i){
-                setIndex(index-1)
+            else if (index >= i) {
+                setIndex(index - 1)
             }
 
         }
@@ -65,23 +65,20 @@ const Tabs = () => {
                                     <mdIcons.MdCancel
                                         className="tab-remove-icon"
                                         onClick={e => removeTab(e, i)}
-
                                     />
                                 }
-
                             </div>
                         </div>
                         <div className={i === index ? "active-tab tab-header-container" : "tab-header-container"} >
                             <h2 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h2>
                         </div>
                         <div className={i === index ? "tab-container" : "tab_container hidden"}>
-                            <NavBar tabIndex={i} tabs={tabs} setTabs={setTabs} tab={tab}/>
+                            <NavBar tabIndex={i} tabs={tabs} setTabs={setTabs} tab={tab} />
                         </div>
                     </div>
                 ))}
-                {tabs.length < 11 && user && 
+                {tabs.length < 11 && user &&
                     <div className="navbar-add-header-container">
-
                         <h1 className="add-tab-header" onClick={addTabs}>
                             +
                         </h1>
