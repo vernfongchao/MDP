@@ -17,7 +17,7 @@ const AnnouncementDelete = ({ id, setShowModal }) => {
     }
 
     return (
-        <div>
+        <div className="delete-announcement-header-main-container">
             <div className='delete-announcement-header-container'>
                 <h1 className="delete-announcement-header">WARNING</h1>
             </div>
@@ -32,10 +32,10 @@ const AnnouncementDelete = ({ id, setShowModal }) => {
                 }
             </div>
             <div className="delete-announcement-button-container">
-                <button onClick={handleDelete}>
+                <button className="delete-announcement-buttons" onClick={handleDelete}>
                     Delete
                 </button>
-                <button onClick={() => setShowModal(false)}>
+                <button className="delete-announcement-buttons" onClick={() => setShowModal(false)}>
                     Cancel
                 </button >
             </div>

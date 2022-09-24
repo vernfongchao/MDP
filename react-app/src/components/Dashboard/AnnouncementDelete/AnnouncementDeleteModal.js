@@ -22,7 +22,7 @@ const AnnouncementDeleteModal = ({id}) => {
                     <AnnouncementDelete setShowModal={setShowModal} id={id} />
                 </Modal>
             )}
-        </div>
+        </div> 
     );
 }
 export default AnnouncementDeleteModal
