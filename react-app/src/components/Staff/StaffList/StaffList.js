@@ -9,9 +9,20 @@ import * as VscIcons from 'react-icons/vsc'
 const StaffList = ({ idx }) => {
 
     const staffs = Object.values(useSelector(state => state.staffs))
+    
     const [search, setSearch] = useState("")
     const [index, setIndex] = useState(0)
-    const staff = staffs[index]
+
+    const filteredStaffs = staffs.filter(staff => {
+        return (
+            staff.firstName.toLowerCase().includes(search.toLowerCase()) || staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.id === Number(search)
+        )
+    })
+
+    const clearSearch = () => {
+        setSearch("")
+    }
 
     const changeStaff = (e, i) => {
         setIndex(i)
@@ -44,13 +55,14 @@ const StaffList = ({ idx }) => {
                                 />
                                 <VscIcons.VscSearchStop
                                     className="staff-search-clear-icon"
+                                    onClick={clearSearch}
                                 />
 
                             </div>
                         </div>
 
                     </div>
-                    {staffs?.map((staff, i) => (
+                    {filteredStaffs?.map((staff, i) => (
                         <div key={i} className={index === i ? 'staff-card-container active-staff'
                             : "staff-card-container"}
                             onClick={e => changeStaff(e, i)}
