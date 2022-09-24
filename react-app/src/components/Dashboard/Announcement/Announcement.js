@@ -38,13 +38,14 @@ const Announcement = ({ idx }) => {
                     <h1>Announcements</h1>
                     {announcements?.map((announcement, i) => (
                         <div
-                            className={index === i ? "announcement-title-container active-announcement" : "announcement-title-container"}
+                            className={index === i ? "announcement-title-container active-announcement"
+                                : "announcement-title-container"}
                             key={i}
                             onClick={e => changeAnnouncement(e, i)}
 
                         >
                             <h3 className="announcement-header">{announcement.title}</h3>
-                            {user?.id === announcement.staffId?
+                            {user?.id === announcement.staffId ?
                                 <div className="announcement-delete-position-container">
                                     <div className="announcement-delete-icon-container">
                                         <AnnouncementDeleteModal id={announcement.id} />

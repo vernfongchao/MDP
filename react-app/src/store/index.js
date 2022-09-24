@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import roleReducer from './roles'
 import announcementReducer from './announcements';
+import staffReducer from './staff';
 
 const rootReducer = combineReducers({
   session,
   roles:roleReducer,
-  announcements: announcementReducer
+  announcements: announcementReducer,
+  staffs:staffReducer
 });
 
 
