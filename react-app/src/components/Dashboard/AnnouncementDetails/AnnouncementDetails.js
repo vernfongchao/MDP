@@ -41,7 +41,7 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
         <div className="announcement-details-page-container">
             <div className="announcement-detail-header-container">
                 {isUser}
-                <h1>
+                <h1 className="announcement-information">
                     Announcement Information
                 </h1>
             </div>

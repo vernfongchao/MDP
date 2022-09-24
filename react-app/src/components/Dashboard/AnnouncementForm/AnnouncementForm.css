@@ -34,6 +34,9 @@
     width: 100%;
 
 }
+.announcement-form-page-subcontainer {
+    margin-left: 50px;
+}
 
 .announcement-input-form,
 .ql-editor.ql-blank {
@@ -56,6 +59,7 @@
     background-color: #A8DADC;
     border-radius: 3px;
     border: 1px solid #1D3557;
+    margin-top: 5px;
 }
 
 .announcement-buttons:hover {

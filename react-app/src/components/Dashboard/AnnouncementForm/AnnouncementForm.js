@@ -95,12 +95,14 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
     return (
         <div className="announcement-form-page-container" onSubmit={handleSubmit}>
+            <div className="announcement-form-page-subcontainer">
             {edit ? (
                 <h1>Edit Announcement</h1>
 
             ) : (
                 <h1>Add Announcement</h1>
             )}
+            </div>
             {user ?
                 <form className="announcement-form-container">
                     <div className="announcement-form-title-container">
