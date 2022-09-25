@@ -27,25 +27,18 @@ const Announcement = ({ idx }) => {
         setIndex(i)
     }
 
+    console.log(index)
 
 
 
 
     return (
         <div className={idx === 0 ? "announcements-page-container" : "hidden"}>
-            <div className="announcement-border-container">
                 <div className="announcement-list-container">
-                    <h1 className="">Announcements</h1>
+                    <h2 className="announcement-header">Announcements</h2>
                     <div className="announcement-list-header">
                         {announcements?.map((announcement, i) => (
-                            <div
-                                className={index === i ? "announcement-title-container active-announcement"
-                                    : "announcement-title-container"}
-                                key={i}
-                                onClick={e => changeAnnouncement(e, i)}
-
-                            >
-                                <h3 className="announcement-header">{announcement.title}</h3>
+                            <div className="announcement-list-title-container">
                                 {user?.id === announcement.staffId ?
                                     <div className="announcement-delete-position-container">
                                         <div className="announcement-delete-icon-container">
@@ -55,6 +48,13 @@ const Announcement = ({ idx }) => {
                                     :
                                     null
                                 }
+
+                                <div className={index === i ? "announcement-title-container active-announcement"
+                                    : "announcement-title-container"}
+                                    onClick={e => changeAnnouncement(e, i)}>
+                                    <h3 className="announcement-title">{announcement.title}</h3>
+                                </div>
+
                             </div>
                         ))}
 
@@ -63,7 +63,6 @@ const Announcement = ({ idx }) => {
                 <AnnouncementDetails edit={edit} setEdit={setEdit} announcement={announcement} />
                 <AnnouncementForm edit={edit} setEdit={setEdit} announcement={announcement} />
 
-            </div>
         </div>
     )
 }

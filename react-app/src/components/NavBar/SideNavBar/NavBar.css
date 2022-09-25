@@ -1,19 +1,20 @@
 .navBar_main_div {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     height: 100%;
 }
 
 .navbar-header-container{
-    width: 100%;
+    /* width: 100%; */
+    width: 170px;
 }
 
 .navBar_inner_div {
-    position: absolute;
     top: max(15.4vh,140px);
     left: 0px;
     height: 100%;
-    width: max(10vw,100px);
+    width: 100%;
     margin: 0;
 
     background-color: #A8DADC;
@@ -22,12 +23,12 @@
 
 .navbar-header{
     box-sizing: border-box;
-    font-size: max(1.5vw,18px);
+    font-size: min(2vw,24px);
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 10px;
     margin: 0;
-    width: 100% ;
+    /* width: 100% ; */
 }
 
 .navbar-header{
@@ -44,10 +45,13 @@
 }
 
 .main-info-container{
-    height: 100vh;
+    box-sizing: border-box;
+    border: 10px #1D3557 solid;
+    height: 100%;
+    /* width: 100vw; */
     position: absolute;
     display: flex;
     flex-direction: row;
-    top: max(15.4vh, 140px);
-    left: min(200px, 10vw);
+    /* top: max(15.4vh, 140px); */
+    left: min(170px, 15vw);
 }

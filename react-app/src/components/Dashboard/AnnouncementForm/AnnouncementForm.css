@@ -1,8 +1,9 @@
 .announcement-form-page-container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: max(300px, 29.4vw);
+    width: max(300px, 29.5vw);
     height: 800px;
 }
 .announcement-form-container{
