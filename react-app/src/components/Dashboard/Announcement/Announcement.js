@@ -27,22 +27,17 @@ const Announcement = ({ idx }) => {
         setIndex(i)
     }
 
-    console.log(index)
-
-
-
-
     return (
         <div className={idx === 0 ? "announcements-page-container" : "hidden"}>
                 <div className="announcement-list-container">
-                    <h2 className="announcement-header">Announcements</h2>
+                    <h1 className="announcement-header">Announcements</h1>
                     <div className="announcement-list-header">
                         {announcements?.map((announcement, i) => (
                             <div className="announcement-list-title-container">
                                 {user?.id === announcement.staffId ?
                                     <div className="announcement-delete-position-container">
                                         <div className="announcement-delete-icon-container">
-                                            <AnnouncementDeleteModal id={announcement.id} />
+                                            <AnnouncementDeleteModal id={announcement.id} setIndex={setIndex} i={i} index={index} />
                                         </div>
                                     </div>
                                     :

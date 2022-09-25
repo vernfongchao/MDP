@@ -46,7 +46,13 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
         if (title.length < 1000) {
             setMaxTitle("")
         }
-    }, [title])
+        if (title.length) {
+            setTitleError("")
+        }
+        if (content.length) {
+            setContentError("")
+        }
+    }, [title, content])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -107,11 +113,12 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
         }
     }
 
-    const cancelEdit = () => {
+    const cancelEdit = (e) => {
+        e.preventDefault()
         setEdit(null)
+        setTitleError("")
+        setContentError("")
     }
-
-
 
 
     return (
@@ -128,7 +135,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                 <form className="announcement-form-container">
                     <div className="announcement-form-title-container">
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title:</label>
-                        <input className="announcement-input-form"
+                        <input className={titleError ? "announcement-input-form form-error-input-border" : "announcement-input-form"}
                             maxLength="1000"
                             name="title"
                             type="text"
@@ -140,6 +147,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     <div className="announcement-form-content-container">
                         <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
                         <ReactQuill
+                            className={contentError ? "announcement-form-conntent form-error-input-border" : "announcement-form-conntent"}
                             theme="snow"
                             value={content}
                             placeholder={"Please add your announcement here"}
@@ -147,22 +155,16 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                             style={
                                 {
                                     width: '100%',
-                                    height: '400px',
+                                    height: '100%',
                                 }
                             }
                         />
-                        {/* <textarea
-                            className={contentError ? "announcement-form-title-label form-error-input-border" : "announcement-form-title-label"}
-                            placeholder="Please add the description here..."
-                            label="content"
-                            value={content}
-                            onChange={(e) => setContent(e.target.value)}
-                        /> */}
+
                         {content.length ?
-                            <div className="annoucement-form-countent-tracker-container">
-                                <div className="annoucement-form-countent-tracker-position">
-                                    <span style={{ "font-size": ".75em" }}>
-                                        character length after style added <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
+                            <div className="annoucement-form-content-tracker-container">
+                                <div className="annoucement-form-content-tracker-position">
+                                    <span style={{ fontSize: ".75em" }}>
+                                        character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
                                         /5000
                                     </span>
                                 </div>
@@ -179,11 +181,13 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
                     {edit ? (
                         <div className="announcement-form-button-container">
-                            <button className="announcement-buttons" onClick={cancelEdit}> Cancel</button>
+                            <button type="button" className="announcement-buttons" onClick={cancelEdit}> Cancel</button>
                             <button className="announcement-buttons">Edit</button>
                         </div>
                     ) : (
-                        <button className="announcement-buttons">Add</button>
+                        <div className="announcement-form-button-container">
+                            <button className="announcement-buttons announcement-add">Add</button>
+                        </div>
                     )}
 
                 </form>

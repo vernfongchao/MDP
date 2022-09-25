@@ -106,29 +106,32 @@ const StaffProfile = ({ index }) => {
     const handleEdit = async (e) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append("id",id)
+        formData.append("id", id)
         formData.append("first_name", firstName)
         formData.append("last_name", lastName)
-        formData.append('notes',notes)
-        formData.append('image',uploadPicture)
-        console.log(formData.get('image'))
+        formData.append('notes', notes)
+        if (uploadPicture) {
+            formData.append('image', uploadPicture)
+        }
+        if (deletePicture) {
+            formData.append('img_id', staff?.imgId)
+            formData.append('imgDelete', deletePicture)
+        }
 
         const profile = await dispatch(editStaff(formData))
 
-        if (profile.id) {
+        if (profile && profile.id) {
+            setPreviewPicture("")
             setFirstNameError("")
             setLastNameError("")
             setSuccess("Saved")
+            setUploadPicture("")
         }
         else {
             setFirstNameError(profile.first_name)
             setLastNameError(profile.last_name)
         }
     }
-
-    // console.log(previewPicture, deletePicture, uploadPicture)
-    // console.log(deletePicture)
-    // console.log(uploadPicture)
 
     return (
         <div className="staff-profile-page-container">

@@ -10,6 +10,7 @@ body {
     box-sizing: border-box;
     background-color: #F1FAEE;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     /* border: 10px #1D3557 solid; */
@@ -19,6 +20,15 @@ body {
 /* .announcement-header{
     font-size: max(1.5vw, 18px);
 } */
+
+.announcement-list-container{
+    box-sizing: border-box;
+    border-right: 10px #1D3557 solid;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .announcement-list-header{
     display: flex;
@@ -30,15 +40,6 @@ body {
 }
 
 
-.announcement-list-container{
-    box-sizing: border-box;
-    border-right: 10px #1D3557 solid;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* overflow-y: scroll; */
-}
 
 
 .announcement-list-title-container {
@@ -47,6 +48,7 @@ body {
 }
 
 .announcement-delete-icon-container {
+    cursor: pointer;
     position: relative;
     top: 2px;
     left: max(22.2vw, 120px);
@@ -86,5 +88,4 @@ body {
 
 .announcement-edit-button:hover{
     background-color: #A8DADC;
-    
 }

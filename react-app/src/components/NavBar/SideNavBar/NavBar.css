@@ -9,10 +9,8 @@
     box-sizing: border-box;
     height: 100%;
     width: 10vw;
-
     top: max(15.4vh,140px);
     left: 0px;
-    
     margin: 0;
     background-color: #A8DADC;
 }
@@ -29,7 +27,7 @@
 
 .navbar-header{
     box-sizing: border-box;
-    font-size: min(2vw,24px);
+    font-size: 1.25vw;
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 10px;
@@ -37,9 +35,6 @@
     cursor: pointer;
 }
 
-.navbar-header:hover{
-    /* color: black; */
-}
 
 .navbar-header.active-navbar{
 

@@ -1,15 +1,13 @@
 .staff-list-page-container{
     box-sizing: border-box;
     height: 100%;
+    width: 100%;
     background-color: #F1FAEE;
+    display: flex;
+    
 }
 
-.staff-list-border-container{
-    height: 98%;
-    border: 10px #1D3557 solid;
-    display: flex;
-    flex-direction: row;
-}
+
 
 .staff-list-container{
     border-right: 10px #1D3557 solid;
