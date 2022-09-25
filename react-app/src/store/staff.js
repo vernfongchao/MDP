@@ -30,12 +30,10 @@ export const getStaffs = () => async dispatch => {
 }
 
 export const editStaff = (payload) => async dispatch => {
-    const response = await fetch(`/api/staffs/${payload.id}`, {
+    console.log(payload)
+    const response = await fetch(`/api/staffs/${payload.get('id')}`, {
         method: 'PUT',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+        body: payload,
     })
     if (response.ok) {
         const staff = await response.json()

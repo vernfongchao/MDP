@@ -93,12 +93,15 @@ const StaffProfile = ({ index }) => {
 
     const handleEdit = async (e) => {
         e.preventDefault()
-        const profile = await dispatch(editStaff({
-            id,
-            first_name: firstName,
-            last_name: lastName,
-            notes
-        }))
+        const formData = new FormData()
+        formData.append("id",id)
+        formData.append("first_name", firstName)
+        formData.append("last_name", lastName)
+        formData.append('notes',notes)
+        formData.append('image',uploadPicture)
+        console.log(formData.get('image'))
+
+        const profile = await dispatch(editStaff(formData))
 
         if (profile.id) {
             setFirstNameError("")
@@ -111,7 +114,7 @@ const StaffProfile = ({ index }) => {
         }
     }
 
-    console.log(previewPicture, deletePicture, uploadPicture)
+    // console.log(previewPicture, deletePicture, uploadPicture)
     // console.log(deletePicture)
     // console.log(uploadPicture)
 

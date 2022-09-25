@@ -19,6 +19,7 @@ def getstaffs():
 def edit_staff_profile(id):
     form = StaffProfileForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("===========================================================================",request.files["image"])
     if form.validate_on_submit():
         profile = Staff.query.get(id)
         form.populate_obj(profile)

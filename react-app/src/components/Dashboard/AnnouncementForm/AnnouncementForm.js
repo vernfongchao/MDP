@@ -103,9 +103,8 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     <div className="announcement-form-title-container">
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title:</label>
                         <input className="announcement-input-form"
-
+                            name="title"
                             type="text"
-                            label="title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
