@@ -1,6 +1,6 @@
 .announcement-details-page-container{
     box-sizing: border-box;
-    width: max(300px, 29.5vw);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
