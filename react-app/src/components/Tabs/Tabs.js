@@ -52,8 +52,6 @@ const Tabs = () => {
         }
     }
 
-    console.log(index)
-
     return (
         <div >
             <div className="tab-nav-container">

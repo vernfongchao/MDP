@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { editStaff } from '../../../store/staff';
 
@@ -25,7 +25,13 @@ const StaffProfile = ({ index }) => {
     const [success, setSuccess] = useState("")
     const [firstNameError, setFirstNameError] = useState("")
     const [lastNameError, setLastNameError] = useState("")
-    // const [picture, setPicture] = useState("")
+
+    const imageInputRef = useRef()
+
+    const [previewPicture, setPreviewPicture] = useState("")
+    const [deletePicture, setDeletePicture] = useState()
+    const [uploadPicture, setUploadPicture] = useState()
+    // const [picture, setPicture] = useState("https://static.generated.photos/vue-static/face-generator/landing/wall/14.jpg")
 
 
     const [delta, setDelta] = useState('')
@@ -43,6 +49,9 @@ const StaffProfile = ({ index }) => {
             setSuccess("")
             setFirstNameError("")
             setLastNameError("")
+            setDeletePicture("")
+            setPreviewPicture("")
+            setUploadPicture("")
         }
     }, [isEdit])
 
@@ -59,6 +68,29 @@ const StaffProfile = ({ index }) => {
         }
     }
 
+    const handleAddImage = (e) => {
+        if (!uploadPicture) return imageInputRef.current.click()
+    }
+
+    const handleCancelImage = (e) => {
+        setPreviewPicture()
+        setUploadPicture()
+        setDeletePicture()
+    }
+
+
+    const onChangeImageFiles = (e) => {
+        if (staff.img) {
+            setDeletePicture(staff.img)
+        }
+        const file = e.target.files[0]
+        const imagePreview = URL.createObjectURL(file)
+        setPreviewPicture(imagePreview)
+        setUploadPicture(file)
+        e.target.value = null
+    }
+
+
     const handleEdit = async (e) => {
         e.preventDefault()
         const profile = await dispatch(editStaff({
@@ -68,14 +100,20 @@ const StaffProfile = ({ index }) => {
             notes
         }))
 
-        if (profile.errors) {
-
+        if (profile.id) {
+            setFirstNameError("")
+            setLastNameError("")
+            setSuccess("Saved")
         }
         else {
-            setSuccess("Saved")
+            setFirstNameError(profile.first_name)
+            setLastNameError(profile.last_name)
         }
     }
 
+    console.log(previewPicture, deletePicture, uploadPicture)
+    // console.log(deletePicture)
+    // console.log(uploadPicture)
 
     return (
         <div className="staff-profile-page-container">
@@ -104,7 +142,7 @@ const StaffProfile = ({ index }) => {
                     <div className='staff-profile-picture-container'>
                         <img
                             className='staff-profile-picture'
-                            src={""}
+                            src={previewPicture ? previewPicture : staff?.img}
                             onError={handleImageError}
                             alt="profile"
                         >
@@ -119,7 +157,9 @@ const StaffProfile = ({ index }) => {
                         {isEdit ?
                             <div className='staff-profile-id-name-update-container split-name'>
                                 <div>
-                                    <p className='staff-profile-info-header-text'>First Name</p>
+                                    <p className={firstNameError ? 'staff-profile-info-header-text staff-profile-error'
+                                        : "staff-profile-info-header-text "
+                                    }>First Name</p>
                                     <input
                                         className='staff-profile-edit-name-input'
                                         value={firstName}
@@ -128,7 +168,9 @@ const StaffProfile = ({ index }) => {
                                     />
                                 </div>
                                 <div>
-                                    <p className='staff-profile-info-header-text'>Last Name</p>
+                                    <p className={lastNameError ? 'staff-profile-info-header-text staff-profile-error'
+                                        : "staff-profile-info-header-text "
+                                    }>Last Name</p>
                                     <input
                                         className='staff-profile-edit-name-input'
                                         value={lastName}
@@ -154,6 +196,36 @@ const StaffProfile = ({ index }) => {
                             <p className='staff-profile-info-header-text'>Last Updated</p>
                             <p className='staff-profile-info-text'>{staff?.updateOn}</p>
                         </div>
+                        <div>
+                            {isEdit && (uploadPicture ?
+                                <button onClick={handleCancelImage}>
+                                    Cancel Change
+                                </button>
+                                :
+                                <button onClick={handleAddImage}>
+                                    Change Image
+                                </button>)
+                            }
+
+                            <input
+                                type="file"
+                                style={{ display: 'none' }}
+                                ref={imageInputRef}
+                                onChange={onChangeImageFiles}
+                                accept=".jpeg, .jpg, .gif , .png"
+
+                            />
+
+                        </div>
+
+                        {firstNameError && <p className='staff-profile-error'>
+                            {firstNameError}
+                        </p>
+                        }
+                        {lastNameError && <p className='staff-profile-error'>
+                            {lastNameError}
+                        </p>
+                        }
 
                     </div>
 

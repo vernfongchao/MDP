@@ -9,8 +9,8 @@ class Staff(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    first_name = db.Column(db.String(255), nullable=False, unique=True)
-    last_name = db.Column(db.String(255), nullable=False, unique=True)
+    first_name = db.Column(db.String(255), nullable=False)
+    last_name = db.Column(db.String(255), nullable=False)
     notes= db.Column(db.String(5000))
     hashed_password = db.Column(db.String(255), nullable=False)
     position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
@@ -21,8 +21,8 @@ class Staff(db.Model, UserMixin):
 
 
     role = db.relationship('Role', back_populates='staff')
-
     announcements = db.relationship("Announcement",back_populates="staff", cascade="all,delete")
+    image = db.relationship("Image",back_populates="staff", uselist=False, cascade="all,delete" )
 
     @property
     def password(self):
@@ -44,5 +44,6 @@ class Staff(db.Model, UserMixin):
             'lastName': self.last_name,
             'position': self.position,
             'notes': self.notes,
-            'updateOn': self.updated_at
+            'updateOn': self.updated_at,
+            'img':self.image.imageURL if self.image else ""
         }

@@ -49,7 +49,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                 content
             }))
             if (editedAnnouncement.errors) {
-                console.log(editedAnnouncement.errors)
                 setTitleError(editedAnnouncement.errors.title ? editedAnnouncement.errors.title[0] : "")
                 setContentError(editedAnnouncement.errors.content ? editedAnnouncement.errors.content[0] : "")
             }

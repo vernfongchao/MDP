@@ -93,3 +93,7 @@
 .staff-profile-notes-container{
     width: 100%;
 }
+
+.staff-profile-error{
+    color: red;
+}
