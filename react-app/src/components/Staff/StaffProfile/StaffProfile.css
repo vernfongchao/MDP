@@ -1,0 +1,99 @@
+.staff-profile-page-container{
+        box-sizing: border-box;
+            width: max(300px, 29.4vw);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 10px #1D3557 solid;
+            padding-left: 10px;
+            padding-right: 10px;
+}
+
+.staff-profile-detail-container{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.staff-profile-header-container{
+    /* header */
+}
+
+.staff-profile-edit-position{
+    width: max(290px, 27.4vw);
+    position:absolute;
+}
+
+.staff-profile-edit-container{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.staff-profile-edit-success{
+    font-size: 1.7em;
+}
+
+.staff-profile-edit-icon{
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.staff-profile-edit-icon:hover{
+    color: #1D3557;
+}
+
+.staff-profile-container{
+    display: flex;
+    justify-content: space-between;
+}
+.staff-profile-picture-container{
+
+}
+
+.staff-profile-picture{
+    width: 200px;
+    height: 200px;
+}
+
+
+.staff-profile-info-container{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.staff-profile-id-name-update-container{
+    border-bottom: 2px black solid;
+}
+
+.split-name{
+    
+    display:flex;
+    justify-content: space-between;
+}
+
+.staff-profile-info-header-text{
+    margin: 0;
+    font-size: 12px;
+}
+
+.staff-profile-info-text{
+    margin: 0;
+    font-size: 18px;
+}
+
+.staff-profile-edit-name-input{
+    width: 95%;
+}
+
+
+.staff-profile-notes-container{
+    width: 100%;
+}
+
+.staff-profile-error{
+    color: red;
+}

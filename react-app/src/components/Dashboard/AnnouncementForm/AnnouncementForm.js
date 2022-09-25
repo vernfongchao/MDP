@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import Announcement from "../Announcement/Announcement"
 import { addAnnouncement } from "../../../store/announcements"
 import { editAnnouncement } from "../../../store/announcements"
 
@@ -28,13 +27,17 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
             setTitle(edit.title)
             setContent(edit.content)
             setId(edit.id)
+            setTitleError("")
+            setContentError("")
         }
         else if (!edit) {
             setTitle("")
             setContent("")
             setId(null)
+            setTitleError("")
+            setContentError("")
         }
-    }, [edit, announcement])
+    }, [edit])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -46,7 +49,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                 content
             }))
             if (editedAnnouncement.errors) {
-                console.log(editedAnnouncement.errors)
                 setTitleError(editedAnnouncement.errors.title ? editedAnnouncement.errors.title[0] : "")
                 setContentError(editedAnnouncement.errors.content ? editedAnnouncement.errors.content[0] : "")
             }
@@ -75,6 +77,10 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     const handleContentChange = (content, delta, source, editor) => {
         setContent(content)
         setDelta(editor.getHTML(content))
+        const text = editor.getText()
+        if(text === "\n"){
+            setContent("")
+        }
     }
 
     const cancelEdit = () => {
@@ -94,18 +100,17 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
             </div>
             {user ?
                 <form className="announcement-form-container">
-                    <div>
-                        <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title</label>
+                    <div className="announcement-form-title-container">
+                        <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title:</label>
                         <input className="announcement-input-form"
-
+                            name="title"
                             type="text"
-                            label="title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content</label>
+                    <div className="announcement-form-content-container">
+                        <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
                         <ReactQuill
                             theme="snow"
                             value={content}
@@ -113,8 +118,8 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                             onChange={handleContentChange}
                             style={
                                 {
-                                    width: '455px',
-                                    height: '150px',
+                                    width: '100%',
+                                    height: '400px',
                                 }
                             }
                         />
@@ -126,17 +131,21 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                             onChange={(e) => setContent(e.target.value)}
                         /> */}
                     </div>
-                    <div className="announcement-form-button-container">
-                        {edit ? (
 
-                            <div>
-                                <button className="announcement-buttons" onClick={cancelEdit}> Cancel</button>
-                                <button className="announcement-buttons">Edit</button>
-                            </div>
-                        ) : (
-                            <button className="announcement-buttons">Add</button>
-                        )}
+                    <div className="announcement-form-errors-container">
+                        {titleError && <p className="announcement-form-errors">{titleError}</p>}
+                        {contentError && <p className="announcement-form-errors">{contentError}</p>}
                     </div>
+
+                    {edit ? (
+                        <div className="announcement-form-button-container">
+                            <button className="announcement-buttons" onClick={cancelEdit}> Cancel</button>
+                            <button className="announcement-buttons">Edit</button>
+                        </div>
+                    ) : (
+                        <button className="announcement-buttons">Add</button>
+                    )}
+
                 </form>
                 : <h2>Must be signed-in to make announcement</h2>
             }

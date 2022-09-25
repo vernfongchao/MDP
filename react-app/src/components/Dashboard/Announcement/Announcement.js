@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useSelector } from "react-redux"
 import AnnouncementForm from "../AnnouncementForm/AnnouncementForm"
 import AnnouncementDetails from "../AnnouncementDetails/AnnouncementDetails"
@@ -15,7 +15,7 @@ const Announcement = ({ idx }) => {
 
     const [index, setIndex] = useState(0)
     const [edit, setEdit] = useState(null)
-    const [hover, setHover] = useState(null)
+
 
 
     const announcement = announcements[index]
@@ -27,13 +27,7 @@ const Announcement = ({ idx }) => {
         setIndex(i)
     }
 
-    const onHoverEnter = (e, i) => {
-        setHover(i)
-    }
 
-    const onHoverLeave = (e, i) => {
-        setHover(null)
-    }
 
 
 
@@ -44,17 +38,17 @@ const Announcement = ({ idx }) => {
                     <h1>Announcements</h1>
                     {announcements?.map((announcement, i) => (
                         <div
-                            className={index === i ? "announcement-title-container active-announcement" : "announcement-title-container"}
+                            className={index === i ? "announcement-title-container active-announcement"
+                                : "announcement-title-container"}
                             key={i}
                             onClick={e => changeAnnouncement(e, i)}
-                            onMouseEnter={(e) => onHoverEnter(e, i)}
-                            onMouseLeave={(e) => onHoverLeave(e, i)}
+
                         >
                             <h3 className="announcement-header">{announcement.title}</h3>
-                            {hover === i ?
+                            {user?.id === announcement.staffId ?
                                 <div className="announcement-delete-position-container">
                                     <div className="announcement-delete-icon-container">
-                                        <AnnouncementDeleteModal id={announcement.id}/>
+                                        <AnnouncementDeleteModal id={announcement.id} />
                                     </div>
                                 </div>
                                 :

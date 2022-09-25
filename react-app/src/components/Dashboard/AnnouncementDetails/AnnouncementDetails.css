@@ -1,17 +1,22 @@
-.announcements-details-page-container{
+.announcement-details-page-container{
     box-sizing: border-box;
     width: max(300px, 29.4vw);
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: 10px #1D3557 solid;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.announcement-information{
-    margin-left: 70px;
+.announcement-detail-content-container{
+    width: 100%;
+    overflow-wrap: break-word;
 }
+
 
 .announcement-edit-button-position{
+
     position:absolute;
 }
 

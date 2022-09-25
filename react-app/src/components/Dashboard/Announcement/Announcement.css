@@ -38,6 +38,7 @@ body {
     width: 80%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     border: 1px solid #1D3557;
+    overflow-wrap: break-word;
 }
 
 .announcement-title-container:hover{
@@ -54,8 +55,8 @@ body {
 }
 .announcement-delete-icon-container{
     position: relative;
-    bottom: max(5vh,50px);
-    left: max(21.6vw,100px);
+    bottom: max(6.5vh,50px);
+    left: max(22.3vw,100px);
 }
 
 .announcement-edit-button{

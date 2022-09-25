@@ -9,6 +9,7 @@ import { authenticate } from './store/session';
 import PortalPage from './components/PortalPage/PortalPage';
 import { getRoles } from './store/roles';
 import { getAnnouncements } from './store/announcements';
+import { getStaffs } from './store/staff';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +20,7 @@ function App() {
       await dispatch(authenticate());
       await dispatch(getRoles())
       await dispatch(getAnnouncements())
+      await dispatch(getStaffs())
       setLoaded(true);
     })();
   }, [dispatch]);

@@ -38,20 +38,18 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
 
 
     return (
-        <div className="announcements-details-page-container">
-            <div className="announcements-details-page-subcontainer">
+        <div className="announcement-details-page-container">
+            <div className="announcement-detail-header-container">
                 {isUser}
                 <h1 className="announcement-information">
                     Announcement Information
                 </h1>
-
-
             </div>
 
-            <div>
+            <div className="announcement-detail-content-container">
                 <span>{parse(announcement?.content)}</span>
             </div>
-            <div>
+            <div className="announcement-detail-writer-container">
                 <p>Announcement By: {announcement?.staffFirstName} {announcement?.staffLastName}</p>
             </div>
         </div>
