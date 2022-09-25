@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 80%;
-    height: 80%;
+    height: 85%;
 }
 
 .form-error{
@@ -30,6 +30,19 @@
     width: 100%;
 }
 
+
+.annoucement-form-countent-tracker-container{
+    position: absolute;
+
+}
+.annoucement-form-countent-tracker-position{
+    position: relative;
+    top: 38px;
+    left: 145px;
+}
+
+
+
 .announcement-form-button-container{
     width: 100%;
 
@@ -48,6 +61,7 @@
 }
 
 .announcement-form-errors{
+    font-size: .75em;
     color: red;
 }
 .announcement-form-button-container{
@@ -56,6 +70,7 @@
 }
 
 .announcement-buttons {
+    cursor: pointer;
     background-color: #A8DADC;
     border-radius: 3px;
     border: 1px solid #1D3557;

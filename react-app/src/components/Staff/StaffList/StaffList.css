@@ -18,7 +18,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
 }
 
 .staff-list-header-search-container{
@@ -75,6 +74,17 @@
     color: red;
 }
 
+.staff-all-card-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    
+    padding-left: min(3vw,50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
 .staff-card-container{
     display: flex;
     justify-content: space-between;
@@ -82,7 +92,7 @@
     padding: 10px;
     border: 2px black solid;
     /* border-radius: 5px; */
-    width: 80%;
+    width: min(22vw,422px);
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
     border: 1px solid #1D3557;

@@ -9,7 +9,7 @@ import * as VscIcons from 'react-icons/vsc'
 const StaffList = ({ idx }) => {
 
     const staffs = Object.values(useSelector(state => state.staffs))
-    
+
     const [search, setSearch] = useState("")
     const [index, setIndex] = useState(0)
 
@@ -62,22 +62,25 @@ const StaffList = ({ idx }) => {
                         </div>
 
                     </div>
-                    {filteredStaffs?.map((staff, i) => (
-                        <div key={i} className={index === i ? 'staff-card-container active-staff'
-                            : "staff-card-container"}
-                            onClick={e => changeStaff(e, i)}
-                        >
+                    <div className="staff-all-card-container">
+                        {filteredStaffs?.map((staff, i) => (
+                            <div key={i} className={index === i ? 'staff-card-container active-staff'
+                                : "staff-card-container"}
+                                onClick={e => changeStaff(e, i)}
+                            >
 
-                            <h3>
-                                {staff.firstName} {staff.lastName}
-                            </h3>
-                            <h4>
-                                ID: {staff.id}
-                            </h4>
-                        </div>
-                    ))}
+                                <h3>
+                                    {staff.firstName} {staff.lastName}
+                                </h3>
+                                <h4>
+                                    ID: {staff.id}
+                                </h4>
+                            </div>
+                        ))}
+
+                    </div>
                 </div>
-            <StaffProfile index={index}/>
+                <StaffProfile index={index} />
             </div>
         </div>
     )

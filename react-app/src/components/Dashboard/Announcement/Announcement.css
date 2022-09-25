@@ -18,8 +18,19 @@ body {
     flex-direction: row;
     /* box-shadow: 1px 1px 1px 2px #1D3557; */
     /* position: absolute; */
+    
 
 }
+
+.announcement-list-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 
 .announcement-list-container{
     border-right: 10px #1D3557 solid;
@@ -28,6 +39,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* overflow-y: scroll; */
 }
 
 .announcement-title-container{
@@ -50,13 +62,12 @@ body {
 .active-announcement{
     background-color: #A8DADC;
 }
-.announcement-delete-position-container{
-    position: absolute;
-}
+
 .announcement-delete-icon-container{
     position: relative;
     bottom: max(6.5vh,50px);
-    left: max(22.3vw,100px);
+    left: max(21.7vw,100px);
+    height: 0px;
 }
 
 .announcement-edit-button{

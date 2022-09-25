@@ -14,13 +14,13 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
     const [id, setId] = useState(null)
     const [title, setTitle] = useState("")
+    const [maxTitle, setMaxTitle] = useState("")
     const [content, setContent] = useState("")
+    const [maxContent, setMaxContent] = useState("")
     const [delta, setDelta] = useState('')
 
     const [titleError, setTitleError] = useState("")
     const [contentError, setContentError] = useState("")
-
-
 
     useEffect(() => {
         if (edit) {
@@ -30,7 +30,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
             setTitleError("")
             setContentError("")
         }
-        else if (!edit) {
+        if (!edit) {
             setTitle("")
             setContent("")
             setId(null)
@@ -38,6 +38,15 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
             setContentError("")
         }
     }, [edit])
+
+    useEffect(() => {
+        if (title.length >= 1000) {
+            setMaxTitle("Maximum characters for title reached")
+        }
+        if (title.length < 1000) {
+            setMaxTitle("")
+        }
+    }, [title])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -58,8 +67,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                 setContentError("")
             }
         }
-
-
         else {
             const newAnnouncement = await dispatch(addAnnouncement({
                 staff_id: user.id,
@@ -70,15 +77,32 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                 setTitleError(newAnnouncement.errors.title ? newAnnouncement.errors.title[0] : "")
                 setContentError(newAnnouncement.errors.content ? newAnnouncement.errors.content[0] : "")
             }
+            else {
+                setEdit(null)
+                setTitle("")
+                setContent("")
+                setTitleError("")
+                setContentError("")
+            }
         }
+    }
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value)
     }
 
 
     const handleContentChange = (content, delta, source, editor) => {
+        if (content.length > 5000) {
+            setMaxContent("Maximum Characters Reached for Content")
+        }
+        else if (content.length < 5000) {
+            setMaxContent("")
+        }
         setContent(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
-        if(text === "\n"){
+        if (text === "\n") {
             setContent("")
         }
     }
@@ -88,26 +112,30 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     }
 
 
+
+
     return (
         <div className="announcement-form-page-container" onSubmit={handleSubmit}>
             <div className="announcement-form-page-subcontainer">
-            {edit ? (
-                <h1>Edit Announcement</h1>
+                {edit ? (
+                    <h1>Edit Announcement</h1>
 
-            ) : (
-                <h1>Add Announcement</h1>
-            )}
+                ) : (
+                    <h1>Add Announcement</h1>
+                )}
             </div>
             {user ?
                 <form className="announcement-form-container">
                     <div className="announcement-form-title-container">
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title:</label>
                         <input className="announcement-input-form"
+                            maxLength="1000"
                             name="title"
                             type="text"
                             value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            onChange={handleTitleChange}
                         />
+                        {maxTitle && <p className="announcement-form-errors">{maxTitle}</p>}
                     </div>
                     <div className="announcement-form-content-container">
                         <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
@@ -130,12 +158,24 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                         /> */}
+                        {content.length ?
+                            <div className="annoucement-form-countent-tracker-container">
+                                <div className="annoucement-form-countent-tracker-position">
+                                    <span style={{ "font-size": ".75em" }}>
+                                        character length after style added <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
+                                        /5000
+                                    </span>
+                                </div>
+                            </div>
+                            : null
+                        }
                     </div>
-
-                    <div className="announcement-form-errors-container">
-                        {titleError && <p className="announcement-form-errors">{titleError}</p>}
-                        {contentError && <p className="announcement-form-errors">{contentError}</p>}
-                    </div>
+                    {(titleError || contentError) &&
+                        <div className="announcement-form-errors-container">
+                            {titleError && <p className="announcement-form-errors">{titleError}</p>}
+                            {contentError && <p className="announcement-form-errors">{contentError}</p>}
+                        </div>
+                    }
 
                     {edit ? (
                         <div className="announcement-form-button-container">
