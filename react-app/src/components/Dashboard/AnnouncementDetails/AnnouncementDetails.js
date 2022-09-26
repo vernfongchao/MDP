@@ -56,4 +56,4 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
     )
 }
 
-export default AnnouncementDetails
+export default AnnouncementDetails;

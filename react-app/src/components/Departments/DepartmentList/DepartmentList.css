@@ -1,0 +1,18 @@
+.department-list-page-container{
+    box-sizing: border-box;
+    background-color: #F1FAEE;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* border: 10px #1D3557 solid; */
+}
+
+.department-list-container{
+    box-sizing: border-box;
+    border-right: 10px #1D3557 solid;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
