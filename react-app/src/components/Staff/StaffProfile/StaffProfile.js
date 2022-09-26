@@ -28,6 +28,8 @@ const StaffProfile = ({ index }) => {
 
     const imageInputRef = useRef()
 
+    const [isLoading,setIsLoading] = useState("")
+
     const [previewPicture, setPreviewPicture] = useState("")
     const [deletePicture, setDeletePicture] = useState()
     const [uploadPicture, setUploadPicture] = useState()
@@ -117,10 +119,12 @@ const StaffProfile = ({ index }) => {
             formData.append('img_id', staff?.imgId)
             formData.append('imgDelete', deletePicture)
         }
-
+        
+        setIsLoading("Please wait while image is loading")
         const profile = await dispatch(editStaff(formData))
 
         if (profile && profile.id) {
+            setIsLoading("")
             setPreviewPicture("")
             setFirstNameError("")
             setLastNameError("")
@@ -128,6 +132,7 @@ const StaffProfile = ({ index }) => {
             setUploadPicture("")
         }
         else {
+            setIsLoading(profile.image)
             setFirstNameError(profile.first_name)
             setLastNameError(profile.last_name)
         }
@@ -215,6 +220,10 @@ const StaffProfile = ({ index }) => {
                             <p className='staff-profile-info-text'>{staff?.updateOn}</p>
                         </div>
                         <div>
+                            {isLoading && 
+                            <span>{isLoading}
+                                </span>
+                                }
                             {isEdit && (uploadPicture ?
                                 <button onClick={handleCancelImage}>
                                     Cancel Change
