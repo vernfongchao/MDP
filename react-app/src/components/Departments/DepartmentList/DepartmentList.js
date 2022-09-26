@@ -1,7 +1,7 @@
 
-const DepartmentList = () => {
+const DepartmentList = ({idx}) => {
     return (
-        <div>
+        <div className={idx === 5 ? "department-list-page-container" : "hidden"}>
 
         </div>
     )

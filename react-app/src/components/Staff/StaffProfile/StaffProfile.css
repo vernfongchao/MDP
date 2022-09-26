@@ -15,9 +15,9 @@
 }
 
 
-.staff-profile-header-container{
-    /* header */
-}
+/* .staff-profile-header-container{
+
+} */
 
 .staff-profile-edit-position{
     width: max(290px, 27.4vw);
@@ -47,9 +47,32 @@
     display: flex;
     justify-content: space-between;
 }
-.staff-profile-picture-container{
+/* .staff-profile-picture-container{
+    position: relative;
+    height: 0px;
+    width: 0px;
+} */
 
+.staff-profile-picture-icon-position{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 0px;
+    width: 100%;
 }
+.staff-profile-picture-icon{
+    margin-top: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    font-size: 1.7em;
+    color: #1D3557;
+}
+
+.staff-profile-picture-icon:hover{
+    color: red;
+}
+
+
 
 .staff-profile-picture{
     width: 200px;

@@ -6,6 +6,7 @@ import LogoutButton from '../../auth/Login/LogoutButton';
 import Announcement from '../../Dashboard/Announcement/Announcement';
 import Reports from '../../Reports/ViewReports/Reports';
 import StaffList from '../../Staff/StaffList/StaffList';
+import DepartmentList from '../../Departments/DepartmentList/DepartmentList';
 import './NavBar.css'
 
 const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
@@ -74,6 +75,7 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         <Announcement idx={tab.idx} />
         <Reports idx={tab.idx} />
         <StaffList idx={tab.idx} />
+        <DepartmentList idx={tab.idx} />
       </div>
     </div>
   );
