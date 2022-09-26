@@ -4,12 +4,14 @@ import session from './session'
 import roleReducer from './roles'
 import announcementReducer from './announcements';
 import staffReducer from './staff';
+import departmentReducer from './department';
 
 const rootReducer = combineReducers({
   session,
   roles:roleReducer,
   announcements: announcementReducer,
-  staffs:staffReducer
+  staffs:staffReducer,
+  departments:departmentReducer
 });
 
 
