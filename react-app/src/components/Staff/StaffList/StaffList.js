@@ -16,7 +16,8 @@ const StaffList = ({ idx }) => {
 
     const filteredStaffs = staffs.filter(staff => {
         return (
-            staff.firstName.toLowerCase().includes(search.toLowerCase()) || staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.firstName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
             staff.id.toString().includes(search)
         )
     })
@@ -31,7 +32,6 @@ const StaffList = ({ idx }) => {
 
     return (
         <div className={idx === 4 ? "staff-list-page-container" : "hidden"}>
-
             <div className="staff-list-container">
                 <div className="staff-list-header-search-container">
                     <div className="staff-list-header-container">
@@ -82,7 +82,7 @@ const StaffList = ({ idx }) => {
                 </div>
             </div>
             <StaffProfile index={index} />
-            <StaffDetail index = {index} />
+            <StaffDetail index={index} />
 
         </div>
     )
