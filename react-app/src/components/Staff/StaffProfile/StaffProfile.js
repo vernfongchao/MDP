@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { editStaff } from '../../../store/staff';
 
 import * as RiIcons from 'react-icons/ri'
+import * as ImIcons from 'react-icons/im'
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -27,6 +28,8 @@ const StaffProfile = ({ index }) => {
     const [lastNameError, setLastNameError] = useState("")
 
     const imageInputRef = useRef()
+
+    const [isLoading, setIsLoading] = useState("")
 
     const [previewPicture, setPreviewPicture] = useState("")
     const [deletePicture, setDeletePicture] = useState()
@@ -118,9 +121,11 @@ const StaffProfile = ({ index }) => {
             formData.append('imgDelete', deletePicture)
         }
 
+        setIsLoading("Please wait while image is loading")
         const profile = await dispatch(editStaff(formData))
 
         if (profile && profile.id) {
+            setIsLoading("")
             setPreviewPicture("")
             setFirstNameError("")
             setLastNameError("")
@@ -128,6 +133,7 @@ const StaffProfile = ({ index }) => {
             setUploadPicture("")
         }
         else {
+            setIsLoading(profile.image)
             setFirstNameError(profile.first_name)
             setLastNameError(profile.last_name)
         }
@@ -158,6 +164,24 @@ const StaffProfile = ({ index }) => {
 
                 <div className='staff-profile-container'>
                     <div className='staff-profile-picture-container'>
+                        <div className='staff-profile-picture-icon-position'>
+                            {isEdit && (uploadPicture ?
+                                <ImIcons.ImCancelCircle
+                                    className='staff-profile-picture-icon'
+                                    onClick={handleCancelImage} />
+                                // <button onClick={handleCancelImage}>
+                                //     Cancel Change
+                                // </button>
+                                :
+                                <ImIcons.ImFilePicture
+                                    className='staff-profile-picture-icon'
+                                    onClick={handleAddImage} />
+                                // <button onClick={handleAddImage}>
+                                //     Change Image
+                                // </button>
+                            )
+                            }
+                        </div>
                         <img
                             className='staff-profile-picture'
                             src={previewPicture ? previewPicture : staff?.img}
@@ -215,16 +239,6 @@ const StaffProfile = ({ index }) => {
                             <p className='staff-profile-info-text'>{staff?.updateOn}</p>
                         </div>
                         <div>
-                            {isEdit && (uploadPicture ?
-                                <button onClick={handleCancelImage}>
-                                    Cancel Change
-                                </button>
-                                :
-                                <button onClick={handleAddImage}>
-                                    Change Image
-                                </button>)
-                            }
-
                             <input
                                 type="file"
                                 style={{ display: 'none' }}
@@ -235,14 +249,17 @@ const StaffProfile = ({ index }) => {
                             />
 
                         </div>
-
-                        {firstNameError && <p className='staff-profile-error'>
-                            {firstNameError}
-                        </p>
+                        {isLoading &&
+                            <span className='staff-profile-error'>{isLoading}
+                            </span>
                         }
-                        {lastNameError && <p className='staff-profile-error'>
+                        {firstNameError && <span className='staff-profile-error'>
+                            {firstNameError}
+                        </span>
+                        }
+                        {lastNameError && <span className='staff-profile-error'>
                             {lastNameError}
-                        </p>
+                        </span>
                         }
 
                     </div>

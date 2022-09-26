@@ -6,6 +6,7 @@ import LogoutButton from '../../auth/Login/LogoutButton';
 import Announcement from '../../Dashboard/Announcement/Announcement';
 import Reports from '../../Reports/ViewReports/Reports';
 import StaffList from '../../Staff/StaffList/StaffList';
+import DepartmentList from '../../Departments/DepartmentList/DepartmentList';
 import './NavBar.css'
 
 const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
@@ -18,7 +19,8 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
     else if (i === 2) tabTitle[tabIndex].title = "Patient"
     else if (i === 3) tabTitle[tabIndex].title = "Fees"
     else if (i === 4) tabTitle[tabIndex].title = "Staff"
-    else if (i === 5) tabTitle[tabIndex].title = "Messages"
+    else if (i === 5) tabTitle[tabIndex].title = "Depar..."
+    else if (i === 6) tabTitle[tabIndex].title = "Messages"
     tab.idx = i
     setTabs(tabTitle)
   }
@@ -56,8 +58,13 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
                 Staff
               </h1>
             </div >
+          <div className='navbar-header-container' >
+            <h1 className={tab.idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
+              Department
+            </h1>
+          </div >
             <div className='navbar-header-container' >
-              <h1 className={tab.idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
+              <h1 className={tab.idx === 6 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 6)}>
                 Messages
               </h1>
             </div >
@@ -68,6 +75,7 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         <Announcement idx={tab.idx} />
         <Reports idx={tab.idx} />
         <StaffList idx={tab.idx} />
+        <DepartmentList idx={tab.idx} />
       </div>
     </div>
   );

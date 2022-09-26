@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import StaffProfile from "../StaffProfile/StaffProfile";
+import StaffDetail from "../StaffDetail/StaffDetail";
 
 import './StaffList.css'
 
@@ -81,6 +82,7 @@ const StaffList = ({ idx }) => {
                 </div>
             </div>
             <StaffProfile index={index} />
+            <StaffDetail index = {index} />
 
         </div>
     )
