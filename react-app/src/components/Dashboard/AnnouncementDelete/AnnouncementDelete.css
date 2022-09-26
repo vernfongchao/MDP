@@ -19,6 +19,7 @@
 }
 
 .delete-announcement-buttons {
+    cursor: pointer;
     background-color: #A8DADC;
     border-radius: 3px;
     border: 1px solid #1D3557;

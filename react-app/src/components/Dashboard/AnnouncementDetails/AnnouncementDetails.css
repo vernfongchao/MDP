@@ -1,22 +1,23 @@
 .announcement-details-page-container{
     box-sizing: border-box;
-    width: max(300px, 29.4vw);
+    width: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: 10px #1D3557 solid;
     padding-left: 10px;
     padding-right: 10px;
+    overflow-wrap: break-word;
 }
 
 .announcement-detail-content-container{
     width: 100%;
     overflow-wrap: break-word;
+    overflow-y: auto;
 }
 
 
 .announcement-edit-button-position{
-
     position:absolute;
 }
 

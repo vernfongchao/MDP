@@ -1,53 +1,59 @@
 .navBar_main_div {
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     height: 100%;
 }
 
-.navbar-header-container{
-    width: 100%;
-}
-
 .navBar_inner_div {
-    position: absolute;
+    box-sizing: border-box;
+    height: 100%;
+    width: 10vw;
     top: max(15.4vh,140px);
     left: 0px;
-    height: 100%;
-    width: max(10vw,100px);
     margin: 0;
-
     background-color: #A8DADC;
-
 }
+
+.navbar-header-container {
+    width: 10vw
+}
+
+.navbar-header-container:hover{
+    background-color: #1D3557;
+    color: white;
+}
+
 
 .navbar-header{
     box-sizing: border-box;
-    font-size: max(1.5vw,18px);
+    font-size: 1.25vw;
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 10px;
     margin: 0;
-    width: 100% ;
-}
-
-.navbar-header{
     cursor: pointer;
 }
 
+
 .navbar-header.active-navbar{
 
-    background-color: #A8DADC;
+    /* background-color: #A8DADC; */
+    background-color: #1D3557;
     /* border: 1px solid #F1FAEE; */
     box-sizing: border-box;
     box-shadow: 1px 1px 10px 1px #457B9D;
-
 }
 
+
 .main-info-container{
-    height: 100vh;
+    box-sizing: border-box;
+    border: 10px #1D3557 solid;
+    height: 100%;
+    width: 90vw;
     position: absolute;
     display: flex;
     flex-direction: row;
-    top: max(15.4vh, 140px);
-    left: min(200px, 10vw);
+    /* top: max(15.4vh, 140px); */
+    left: 10vw
 }

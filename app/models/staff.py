@@ -45,5 +45,6 @@ class Staff(db.Model, UserMixin):
             'position': self.position,
             'notes': self.notes,
             'updateOn': self.updated_at,
-            'img':self.image.imageURL if self.image else ""
+            'img':self.image.imageURL if self.image else "",
+            'imgId': self.image.id if self.image else ""
         }

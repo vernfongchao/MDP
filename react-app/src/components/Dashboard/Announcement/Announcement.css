@@ -8,26 +8,51 @@ body {
 
 .announcements-page-container{
     box-sizing: border-box;
-    height: 100%;
     background-color: #F1FAEE;
-}
-.announcement-border-container{
-    height: 98%;
-    border: 10px #1D3557 solid;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    /* box-shadow: 1px 1px 1px 2px #1D3557; */
-    /* position: absolute; */
-
+    /* border: 10px #1D3557 solid; */
 }
 
+
+/* .announcement-header{
+    font-size: max(1.5vw, 18px);
+} */
+
 .announcement-list-container{
-    border-right: 10px #1D3557 solid;
     box-sizing: border-box;
-    width: max(300px, 29.3vw);
+    border-right: 10px #1D3557 solid;
+    width: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.announcement-list-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+
+
+.announcement-list-title-container {
+    width: 80%;
+
+}
+
+.announcement-delete-icon-container {
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+    left: max(22.2vw, 120px);
+    height: 0px;
 }
 
 .announcement-title-container{
@@ -35,7 +60,7 @@ body {
     padding: 10px;
     border: 2px black solid;
     border-radius: 5px;
-    width: 80%;
+    width: min(22vw, 422px);
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     border: 1px solid #1D3557;
     overflow-wrap: break-word;
@@ -50,14 +75,10 @@ body {
 .active-announcement{
     background-color: #A8DADC;
 }
-.announcement-delete-position-container{
-    position: absolute;
-}
-.announcement-delete-icon-container{
-    position: relative;
-    bottom: max(6.5vh,50px);
-    left: max(22.3vw,100px);
-}
+
+/* .annoumcent-title{
+    font-size: max(1.5vw, 18px);
+} */
 
 .announcement-edit-button{
     cursor: pointer;
@@ -67,5 +88,4 @@ body {
 
 .announcement-edit-button:hover{
     background-color: #A8DADC;
-    
 }

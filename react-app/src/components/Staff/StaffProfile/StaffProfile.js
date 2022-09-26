@@ -59,7 +59,18 @@ const StaffProfile = ({ index }) => {
         e.target.src = "https://i.pinimg.com/474x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg"
     }
 
+    const handleFirstName = (e) => {
+        setSuccess("")
+        setFirstName(e.target.value)
+    }
+
+    const handleLastName = (e) => {
+        setSuccess("")
+        setLastName(e.target.value)
+    }
+
     const handleContentChange = (content, delta, source, editor) => {
+        setSuccess("")
         setNotes(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -83,6 +94,7 @@ const StaffProfile = ({ index }) => {
         if (staff.img) {
             setDeletePicture(staff.img)
         }
+        setSuccess("")
         const file = e.target.files[0]
         const imagePreview = URL.createObjectURL(file)
         setPreviewPicture(imagePreview)
@@ -94,29 +106,32 @@ const StaffProfile = ({ index }) => {
     const handleEdit = async (e) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append("id",id)
+        formData.append("id", id)
         formData.append("first_name", firstName)
         formData.append("last_name", lastName)
-        formData.append('notes',notes)
-        formData.append('image',uploadPicture)
-        console.log(formData.get('image'))
+        formData.append('notes', notes)
+        if (uploadPicture) {
+            formData.append('image', uploadPicture)
+        }
+        if (deletePicture) {
+            formData.append('img_id', staff?.imgId)
+            formData.append('imgDelete', deletePicture)
+        }
 
         const profile = await dispatch(editStaff(formData))
 
-        if (profile.id) {
+        if (profile && profile.id) {
+            setPreviewPicture("")
             setFirstNameError("")
             setLastNameError("")
             setSuccess("Saved")
+            setUploadPicture("")
         }
         else {
             setFirstNameError(profile.first_name)
             setLastNameError(profile.last_name)
         }
     }
-
-    // console.log(previewPicture, deletePicture, uploadPicture)
-    // console.log(deletePicture)
-    // console.log(uploadPicture)
 
     return (
         <div className="staff-profile-page-container">
@@ -166,7 +181,7 @@ const StaffProfile = ({ index }) => {
                                     <input
                                         className='staff-profile-edit-name-input'
                                         value={firstName}
-                                        onChange={e => setFirstName(e.target.value)}
+                                        onChange={handleFirstName}
                                         type='text'
                                     />
                                 </div>
@@ -177,7 +192,7 @@ const StaffProfile = ({ index }) => {
                                     <input
                                         className='staff-profile-edit-name-input'
                                         value={lastName}
-                                        onChange={e => setLastName(e.target.value)}
+                                        onChange={handleLastName}
                                         type='text'
                                     />
                                 </div>

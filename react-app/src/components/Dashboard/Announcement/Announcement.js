@@ -27,41 +27,37 @@ const Announcement = ({ idx }) => {
         setIndex(i)
     }
 
-
-
-
-
     return (
         <div className={idx === 0 ? "announcements-page-container" : "hidden"}>
-            <div className="announcement-border-container">
                 <div className="announcement-list-container">
-                    <h1>Announcements</h1>
-                    {announcements?.map((announcement, i) => (
-                        <div
-                            className={index === i ? "announcement-title-container active-announcement"
-                                : "announcement-title-container"}
-                            key={i}
-                            onClick={e => changeAnnouncement(e, i)}
-
-                        >
-                            <h3 className="announcement-header">{announcement.title}</h3>
-                            {user?.id === announcement.staffId ?
-                                <div className="announcement-delete-position-container">
-                                    <div className="announcement-delete-icon-container">
-                                        <AnnouncementDeleteModal id={announcement.id} />
+                    <h1 className="announcement-header">Announcements</h1>
+                    <div className="announcement-list-header">
+                        {announcements?.map((announcement, i) => (
+                            <div className="announcement-list-title-container">
+                                {user?.id === announcement.staffId ?
+                                    <div className="announcement-delete-position-container">
+                                        <div className="announcement-delete-icon-container">
+                                            <AnnouncementDeleteModal id={announcement.id} setIndex={setIndex} i={i} index={index} />
+                                        </div>
                                     </div>
-                                </div>
-                                :
-                                null
-                            }
-                        </div>
-                    ))}
+                                    :
+                                    null
+                                }
 
+                                <div className={index === i ? "announcement-title-container active-announcement"
+                                    : "announcement-title-container"}
+                                    onClick={e => changeAnnouncement(e, i)}>
+                                    <h3 className="announcement-title">{announcement.title}</h3>
+                                </div>
+
+                            </div>
+                        ))}
+
+                    </div>
                 </div>
                 <AnnouncementDetails edit={edit} setEdit={setEdit} announcement={announcement} />
                 <AnnouncementForm edit={edit} setEdit={setEdit} announcement={announcement} />
 
-            </div>
         </div>
     )
 }

@@ -2,14 +2,20 @@ import React,{useState} from "react";
 import { useDispatch } from "react-redux";
 import { deleteAnnouncement } from "../../../store/announcements";
 
-const AnnouncementDelete = ({ id, setShowModal }) => {
+const AnnouncementDelete = ({ id, setShowModal,setIndex, i ,index}) => {
     const dispatch = useDispatch()
     const [error,setError] = useState("")
 
     const handleDelete = async (e) => {
         let announcement = await dispatch(deleteAnnouncement(id))
+        setShowModal(false)
         if(announcement.id){
-            setShowModal(false)
+            if(index === i && index === 0){
+
+            }
+            else if (i <= index) {
+                setIndex(index -1)
+            }
         }
         else {
             setError(announcement.errors)

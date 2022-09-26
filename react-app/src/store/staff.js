@@ -30,7 +30,6 @@ export const getStaffs = () => async dispatch => {
 }
 
 export const editStaff = (payload) => async dispatch => {
-    console.log(payload)
     const response = await fetch(`/api/staffs/${payload.get('id')}`, {
         method: 'PUT',
         body: payload,
