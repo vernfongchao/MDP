@@ -6,5 +6,18 @@ class Department(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False, unique=True)
-    location = db.Column(db.String(100), nullable=False)
+    building = db.Column(db.String(100), nullable=False)
+    floor = db.Column(db.String(100), nullable=False)
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'building': self.building,
+            'floor': self.floor
+
+        }
+
+    def to_departmentstaffs_dict(self):
+        return [{'staffId':staff.id} for staff in self.staffs]
+    
