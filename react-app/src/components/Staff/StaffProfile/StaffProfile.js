@@ -13,10 +13,10 @@ import parse from 'html-react-parser'
 import './StaffProfile.css'
 
 
-const StaffProfile = ({ index }) => {
+const StaffProfile = ({ index,staffs }) => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
-    const staff = Object.values(useSelector(state => state.staffs))[index]
+    const staff = staffs[index]
 
     const [id, setId] = useState(0)
     const [firstName, setFirstName] = useState("")
@@ -32,10 +32,8 @@ const StaffProfile = ({ index }) => {
     const [isLoading, setIsLoading] = useState("")
 
     const [previewPicture, setPreviewPicture] = useState("")
-    const [deletePicture, setDeletePicture] = useState()
-    const [uploadPicture, setUploadPicture] = useState()
-    // const [picture, setPicture] = useState("https://static.generated.photos/vue-static/face-generator/landing/wall/14.jpg")
-
+    const [deletePicture, setDeletePicture] = useState("")
+    const [uploadPicture, setUploadPicture] = useState("")
 
     const [delta, setDelta] = useState('')
 
@@ -43,10 +41,10 @@ const StaffProfile = ({ index }) => {
 
     useEffect(() => {
         if (isEdit) {
-            setId(staff?.id)
-            setFirstName(staff?.firstName)
-            setLastName(staff?.lastName)
-            setNotes(staff?.notes)
+            setId(staff?.id|| "")
+            setFirstName(staff?.firstName || "")
+            setLastName(staff?.lastName || "")
+            setNotes(staff?.notes || "")
         }
         else if (!isEdit) {
             setSuccess("")
@@ -56,7 +54,7 @@ const StaffProfile = ({ index }) => {
             setPreviewPicture("")
             setUploadPicture("")
         }
-    }, [isEdit])
+    }, [isEdit,staff])
 
     const handleImageError = (e) => {
         e.target.src = "https://i.pinimg.com/474x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg"
@@ -64,11 +62,13 @@ const StaffProfile = ({ index }) => {
 
     const handleFirstName = (e) => {
         setSuccess("")
+        setFirstNameError("")
         setFirstName(e.target.value)
     }
 
     const handleLastName = (e) => {
         setSuccess("")
+        setLastNameError("")
         setLastName(e.target.value)
     }
 
@@ -126,11 +126,12 @@ const StaffProfile = ({ index }) => {
 
         if (profile && profile.id) {
             setIsLoading("")
-            setPreviewPicture("")
             setFirstNameError("")
             setLastNameError("")
             setSuccess("Saved")
+            setPreviewPicture("")
             setUploadPicture("")
+            setDeletePicture("")
         }
         else {
             setIsLoading(profile.image)
@@ -139,7 +140,7 @@ const StaffProfile = ({ index }) => {
         }
     }
 
-    return (
+    return ( staff ?
         <div className="staff-profile-page-container">
             <div className='staff-profile-detail-container'>
                 <div className='staff-profile-header-container'>
@@ -169,22 +170,16 @@ const StaffProfile = ({ index }) => {
                                 <ImIcons.ImCancelCircle
                                     className='staff-profile-picture-icon'
                                     onClick={handleCancelImage} />
-                                // <button onClick={handleCancelImage}>
-                                //     Cancel Change
-                                // </button>
                                 :
                                 <ImIcons.ImFilePicture
                                     className='staff-profile-picture-icon'
                                     onClick={handleAddImage} />
-                                // <button onClick={handleAddImage}>
-                                //     Change Image
-                                // </button>
                             )
                             }
                         </div>
                         <img
                             className='staff-profile-picture'
-                            src={previewPicture ? previewPicture : staff?.img}
+                            src={previewPicture ? previewPicture : staff?.img || " "}
                             onError={handleImageError}
                             alt="profile"
                         >
@@ -292,6 +287,8 @@ const StaffProfile = ({ index }) => {
 
 
         </div>
+        :
+        <div className="staff-profile-page-container"></div>
     )
 }
 

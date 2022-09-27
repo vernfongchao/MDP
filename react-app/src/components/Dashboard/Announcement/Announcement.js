@@ -33,7 +33,7 @@ const Announcement = ({ idx }) => {
                     <h1 className="announcement-header">Announcements</h1>
                     <div className="announcement-list-header">
                         {announcements?.map((announcement, i) => (
-                            <div className="announcement-list-title-container">
+                            <div key={i} className="announcement-list-title-container">
                                 {user?.id === announcement.staffId ?
                                     <div className="announcement-delete-position-container">
                                         <div className="announcement-delete-icon-container">

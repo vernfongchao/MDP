@@ -5,12 +5,10 @@
     flex-direction: column;
     align-items: center;
     border-right: 10px #1D3557 solid;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .staff-profile-detail-container{
-    width: 100%;
+    width: 95%;
     margin-bottom: 10px;
 }
 
@@ -44,6 +42,7 @@
 }
 
 .staff-profile-container{
+    
     display: flex;
     justify-content: space-between;
 }
@@ -92,12 +91,6 @@
     border-bottom: 2px black solid;
 }
 
-.split-name{
-    
-    display:flex;
-    justify-content: space-between;
-}
-
 .staff-profile-info-header-text{
     margin: 0;
     font-size: 12px;
@@ -108,13 +101,18 @@
     font-size: 18px;
 }
 
+.split-name{
+    display:flex;
+    justify-content: space-between;
+}
+
 .staff-profile-edit-name-input{
     width: 95%;
 }
 
 
 .staff-profile-notes-container{
-    width: 100%;
+    width: 95%;
 }
 
 .staff-profile-error{

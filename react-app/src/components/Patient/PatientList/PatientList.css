@@ -1,89 +1,79 @@
-.department-list-page-container{
+.patient-list-page-container {
     box-sizing: border-box;
-    background-color: #F1FAEE;
     height: 100%;
     width: 100%;
+    background-color: #F1FAEE;
     display: flex;
-    flex-direction: row;
-    /* border: 10px #1D3557 solid; */
+
 }
 
-.department-list-container{
-    box-sizing: border-box;
+
+
+.patient-list-container {
     border-right: 10px #1D3557 solid;
+    box-sizing: border-box;
     width: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.department-list-header-search-container {
+.patient-list-header-search-container {
     width: 80%;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
 
-.department-list-header-container{
+.patient-list-header-container {
     display: flex;
     justify-content: center;
 }
 
-.department-list-search-container {
+.patient-list-search-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
 }
 
-.department-search-label-container {
+.patient-search-label-container {
     display: flex;
     align-items: center;
 }
 
-.department-search-label {
+.patient-search-label {
     font-weight: bold;
 }
 
 
 
-.department-search-icon-container {
+.patient-search-icon-container {
     display: flex;
     width: 80%;
 }
 
-.department-search-input-field {
+.patient-search-input-field {
     border: none;
     border-bottom: 2px black solid;
     width: 100%;
 }
 
-.department-search-input-field:focus {
+.patient-search-input-field:focus {
     outline: none;
 }
 
-.department-search-clear-icon {
+.patient-search-clear-icon {
     font-size: 24px;
     border-bottom: 2px black solid;
     cursor: pointer;
 }
 
-.department-search-clear-icon:hover {
+.patient-search-clear-icon:hover {
     color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-.department-list-card-container {
+.patient-all-card-container {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -94,7 +84,7 @@
 }
 
 
-.department-card-container {
+.patient-card-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
@@ -107,12 +97,12 @@
     border: 1px solid #1D3557;
 }
 
-.department-card-container:hover {
+.patient-card-container:hover {
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;
 }
 
-.active-department {
+.active-patient {
     background-color: #A8DADC;
 }

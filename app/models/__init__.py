@@ -6,3 +6,4 @@ from .announcements import Announcement
 from .departments import Department
 from .images import Image
 from .departmentstaffs import departmentstaffs
+from .emergency_contact import EmergencyContact

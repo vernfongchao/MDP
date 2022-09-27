@@ -26,9 +26,9 @@ export const getAnnouncements = () => async dispatch => {
 
     const response = await fetch('/api/announcements/')
     if (response.ok) {
-        const announcement = await response.json()
-        dispatch(loadAnnouncements(announcement))
-        return announcement
+        const announcements = await response.json()
+        dispatch(loadAnnouncements(announcements))
+        return announcements
     }
     else if (response.status < 500) {
         const data = await response.json()

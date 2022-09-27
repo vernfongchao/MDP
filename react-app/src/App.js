@@ -10,6 +10,8 @@ import PortalPage from './components/PortalPage/PortalPage';
 import { getRoles } from './store/roles';
 import { getAnnouncements } from './store/announcements';
 import { getStaffs } from './store/staff';
+import { getDepartments } from './store/department';
+import { getPatients } from './store/patient';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,8 +21,10 @@ function App() {
     (async () => {
       await dispatch(authenticate());
       await dispatch(getRoles())
-      await dispatch(getAnnouncements())
       await dispatch(getStaffs())
+      await dispatch(getPatients())
+      await dispatch(getAnnouncements())
+      await dispatch(getDepartments())
       setLoaded(true);
     })();
   }, [dispatch]);
