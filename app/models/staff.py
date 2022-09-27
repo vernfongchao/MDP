@@ -27,6 +27,7 @@ class Staff(db.Model, UserMixin):
     image = db.relationship("Image",back_populates="staff", uselist=False, cascade="all,delete" )
     departments = db.relationship('Department', secondary=departmentstaffs, backref='staffs')
 
+
     @property
     def password(self):
         return self.hashed_password

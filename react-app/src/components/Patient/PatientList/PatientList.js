@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
+
+import PatientProfile from "../PatientProfile/PatientProfile";
 import './PatientList.css'
 
 
@@ -16,13 +18,15 @@ const PatientList = ({ idx }) => {
     const [search, setSearch] = useState("")
     const [index, setIndex] = useState(0)
 
-    const filterPatients = patients.filter(patient => {
+    const filteredPatients = patients.filter(patient => {
         return (
             patient.firstName.toLowerCase().includes(search.toLowerCase()) ||
             patient.lastName.toLowerCase().includes(search.toLowerCase()) ||
             patient.id.toString().includes(search)
         )
     })
+
+    const patient = filteredPatients[index]
 
     const clearSearch = () => {
         setSearch("")
@@ -66,7 +70,7 @@ const PatientList = ({ idx }) => {
 
                 </div>
                 <div className="patient-all-card-container">
-                    {filterPatients?.map((patient, i) => (
+                    {filteredPatients?.map((patient, i) => (
                         <div key={i} className={index === i ? 'patient-card-container active-patient'
                             : "patient-card-container"}
                             onClick={e => changePatient(e, i)}
@@ -83,6 +87,8 @@ const PatientList = ({ idx }) => {
 
                 </div>
             </div>
+
+            <PatientProfile index={index}patient={patient} setIndex = {setIndex}/>
             {/* <StaffProfile index={index} />
             <StaffDetail index={index} /> */}
 

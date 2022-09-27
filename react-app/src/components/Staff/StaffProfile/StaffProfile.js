@@ -169,16 +169,10 @@ const StaffProfile = ({ index }) => {
                                 <ImIcons.ImCancelCircle
                                     className='staff-profile-picture-icon'
                                     onClick={handleCancelImage} />
-                                // <button onClick={handleCancelImage}>
-                                //     Cancel Change
-                                // </button>
                                 :
                                 <ImIcons.ImFilePicture
                                     className='staff-profile-picture-icon'
                                     onClick={handleAddImage} />
-                                // <button onClick={handleAddImage}>
-                                //     Change Image
-                                // </button>
                             )
                             }
                         </div>

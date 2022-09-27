@@ -8,6 +8,10 @@ class Department(db.Model):
     name = db.Column(db.String(100), nullable=False, unique=True)
     building = db.Column(db.String(100), nullable=False)
     floor = db.Column(db.String(100), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False,
+                           server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False,
+                           server_default=db.func.now(), server_onupdate=db.func.now())
 
     def to_dict(self):
         return {
@@ -19,5 +23,4 @@ class Department(db.Model):
         }
 
     def to_departmentstaffs_dict(self):
-        return [{'staffId':staff.id} for staff in self.staffs]
-    
+        return [{'staffId': staff.id} for staff in self.staffs]

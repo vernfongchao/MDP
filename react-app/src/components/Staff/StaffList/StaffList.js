@@ -82,7 +82,7 @@ const StaffList = ({ idx }) => {
                 </div>
             </div>
             <StaffProfile index={index} />
-            <StaffDetail index={index} />
+            <StaffDetail index={index}  />
 
         </div>
     )

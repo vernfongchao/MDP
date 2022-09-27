@@ -12,6 +12,10 @@ class Patient(db.Model):
     notes = db.Column(db.String(5000))
     emergency_contact_name = db.Column(db.String(500))
     emergency_contact_phone = db.Column(db.String(15))
+    created_at = db.Column(db.DateTime, nullable=False,
+                           server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, nullable=False,
+                           server_default=db.func.now(), server_onupdate=db.func.now())
 
     image = db.relationship("Image", back_populates="patient",
                             uselist=False, cascade="all,delete")
@@ -28,7 +32,8 @@ class Patient(db.Model):
             'emergencyContactName': self.emergency_contact_name,
             'emergencyContactPhone': self.emergency_contact_phone,
             'img': self.image.imageURL if self.image else "",
-            'imgId': self.image.id if self.image else ""
+            'imgId': self.image.id if self.image else "",
+            'updatedOn': self.updated_at
         }
 
     # def to_departmentpatients_dict(self):

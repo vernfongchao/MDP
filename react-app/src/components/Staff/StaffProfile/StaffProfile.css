@@ -91,12 +91,6 @@
     border-bottom: 2px black solid;
 }
 
-.split-name{
-    
-    display:flex;
-    justify-content: space-between;
-}
-
 .staff-profile-info-header-text{
     margin: 0;
     font-size: 12px;
@@ -105,6 +99,11 @@
 .staff-profile-info-text{
     margin: 0;
     font-size: 18px;
+}
+
+.split-name{
+    display:flex;
+    justify-content: space-between;
 }
 
 .staff-profile-edit-name-input{
