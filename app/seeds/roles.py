@@ -8,6 +8,7 @@ def seed_roles():
   nurse = Role(position_name='nurse',)
   surgeon = Role(position_name='surgeon',)
   therapist = Role(position_name='therapist',)
+  clerk = Role(position_name='clerk',)
 
 
 
@@ -16,6 +17,7 @@ def seed_roles():
   db.session.add(nurse)
   db.session.add(surgeon)
   db.session.add(therapist)
+  db.session.add(clerk)
 
 
   db.session.commit()

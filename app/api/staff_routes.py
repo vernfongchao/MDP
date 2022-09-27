@@ -14,7 +14,10 @@ staff_routes = Blueprint('staffs', __name__)
 @login_required
 def getstaffs():
     staffs = Staff.query.all()
-    return jsonify([staff.to_dict() for staff in staffs]), 200
+    if staffs:
+        return jsonify([staff.to_dict() for staff in staffs]), 200
+    else:
+        return {'errors':'staffs not found'}
 
 
 @staff_routes.route('/<int:id>', methods=["PUT"])

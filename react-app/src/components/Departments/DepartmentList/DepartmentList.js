@@ -10,11 +10,11 @@ import "./DepartmentList.css"
 const DepartmentList = ({ idx }) => {
 
     const departments = Object.values(useSelector(state => state.departments))
+    
 
     const [search, setSearch] = useState("")
     const [index, setIndex] = useState(0)
 
-    console.log(departments)
 
     const filteredDepartments = departments.filter(department => {
         return (
@@ -22,6 +22,8 @@ const DepartmentList = ({ idx }) => {
             department.id.toString().includes(search)
         )
     })
+
+    const department = filteredDepartments[index]
 
     const clearSearch = () => {
         setSearch("")
@@ -85,8 +87,8 @@ const DepartmentList = ({ idx }) => {
                     }
                 </div>
             </div>
-            <DepartmentDetails />
-            <DepartmentStaff />
+            <DepartmentDetails index={index} department={department}/>
+            <DepartmentStaff index={index} department={department}/>
         </div>
     )
 }

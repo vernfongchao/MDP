@@ -17,6 +17,8 @@ def seed_users():
         username='george', email='george@mdp.io', first_name='George', last_name='Eng', password='password', position=5)
     katerina = Staff(
         username='katerina', email='katerina@mdp.io', first_name='Katerina', last_name='Kreibich', password='password', position=5)
+    marnie = Staff(
+        username='marnie', email='marnie@mdp.io', first_name='Marnie', last_name='Lotion', password='password', position=6)
 
     db.session.add(demo)
     db.session.add(vern)
@@ -25,6 +27,7 @@ def seed_users():
     db.session.add(vu)
     db.session.add(george)
     db.session.add(katerina)
+    db.session.add(marnie)
 
     db.session.commit()
 

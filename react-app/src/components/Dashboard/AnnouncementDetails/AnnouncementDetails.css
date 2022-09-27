@@ -5,13 +5,12 @@
     flex-direction: column;
     align-items: center;
     border-right: 10px #1D3557 solid;
-    padding-left: 10px;
-    padding-right: 10px;
     overflow-wrap: break-word;
-}
+
+}   
 
 .announcement-detail-content-container{
-    width: 100%;
+    width: 95%;
     overflow-wrap: break-word;
     overflow-y: auto;
 }

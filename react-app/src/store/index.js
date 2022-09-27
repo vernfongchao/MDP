@@ -5,13 +5,17 @@ import roleReducer from './roles'
 import announcementReducer from './announcements';
 import staffReducer from './staff';
 import departmentReducer from './department';
+import departmentStaffsreducer from './departmentstaff';
+import patientReducer from './patient';
 
 const rootReducer = combineReducers({
   session,
   roles:roleReducer,
-  announcements: announcementReducer,
   staffs:staffReducer,
-  departments:departmentReducer
+  patients:patientReducer,
+  announcements: announcementReducer,
+  departments:departmentReducer,
+  departmentStaffs:departmentStaffsreducer
 });
 
 

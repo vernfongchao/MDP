@@ -8,9 +8,11 @@ def seed_departmentstaffs():
     Vu = Staff.query.get(5)
     Gerorge = Staff.query.get(6)
     Katerina = Staff.query.get(7)
+    Marnie = Staff.query.get(8)
 
     administration = Department.query.get(1)
     surgery = Department.query.get(7)
+    services = Department.query.get(8)
     therapy = Department.query.get(12)
     adult = Department.query.get(16)
     women = Department.query.get(17)
@@ -23,6 +25,11 @@ def seed_departmentstaffs():
     Vu.departments.append(surgery)
     Gerorge.departments.append(therapy)
     Katerina.departments.append(therapy)
+    Marnie.departments.append(administration)
+    Marnie.departments.append(services)
+    Marnie.departments.append(adult)
+    Marnie.departments.append(therapy)
+    Marnie.departments.append(women)
 
     db.session.commit()
 
