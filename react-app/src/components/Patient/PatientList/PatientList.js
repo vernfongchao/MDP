@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useSelector } from "react-redux";
 
 
 import PatientProfile from "../PatientProfile/PatientProfile";
+import PatientDetail from "../PatientDetail/PatientDetail";
 import './PatientList.css'
 
 
@@ -27,6 +28,11 @@ const PatientList = ({ idx }) => {
     })
 
     const patient = filteredPatients[index]
+
+    const changeSearch = (e) => {
+        setIndex()
+        setSearch(e.target.value)
+    }
 
     const clearSearch = () => {
         setSearch("")
@@ -58,7 +64,7 @@ const PatientList = ({ idx }) => {
                                 className="patient-search-input-field"
                                 type="text"
                                 value={search}
-                                onChange={e => setSearch(e.target.value)}
+                                onChange={changeSearch}
                             />
                             <VscIcons.VscSearchStop
                                 className="patient-search-clear-icon"
@@ -89,8 +95,7 @@ const PatientList = ({ idx }) => {
             </div>
 
             <PatientProfile index={index}patient={patient} setIndex = {setIndex}/>
-            {/* <StaffProfile index={index} />
-            <StaffDetail index={index} /> */}
+            <PatientDetail index={index} patient={patient} setIndex={setIndex} />
 
         </div>
     )

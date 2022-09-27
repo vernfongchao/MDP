@@ -30,6 +30,8 @@ const StaffList = ({ idx }) => {
         setIndex(i)
     }
 
+    // console.log(filteredStaffs)
+
     return (
         <div className={idx === 4 ? "staff-list-page-container" : "hidden"}>
             <div className="staff-list-container">
@@ -81,8 +83,8 @@ const StaffList = ({ idx }) => {
 
                 </div>
             </div>
-            <StaffProfile index={index} />
-            <StaffDetail index={index}  />
+            <StaffProfile index={index} staffs={filteredStaffs} />
+            <StaffDetail index={index} staffs={filteredStaffs} />
 
         </div>
     )

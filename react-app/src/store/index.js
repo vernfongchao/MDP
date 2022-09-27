@@ -7,6 +7,7 @@ import staffReducer from './staff';
 import departmentReducer from './department';
 import departmentStaffsreducer from './departmentstaff';
 import patientReducer from './patient';
+import contactReducer from './contact';
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   patients:patientReducer,
   announcements: announcementReducer,
   departments:departmentReducer,
-  departmentStaffs:departmentStaffsreducer
+  departmentStaffs:departmentStaffsreducer,
+  contact:contactReducer
 });
 
 

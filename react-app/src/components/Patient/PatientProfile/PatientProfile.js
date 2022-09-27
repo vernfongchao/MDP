@@ -3,7 +3,8 @@
 
 import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-// import { editPatient } from '../../../store/staff';
+import { addPatient } from '../../../store/patient'
+import { editPatient } from '../../../store/patient'
 
 import * as RiIcons from 'react-icons/ri'
 import * as ImIcons from 'react-icons/im'
@@ -18,7 +19,7 @@ import './PatientProfile.css'
 
 const PatientProfile = ({ index, patient, setIndex }) => {
     const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user)
+
 
     const [lastIndex, setLastIndex] = useState(index)
 
@@ -27,9 +28,12 @@ const PatientProfile = ({ index, patient, setIndex }) => {
     const [success, setSuccess] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [address, setAddress] = useState("")
     const [notes, setNotes] = useState("")
+    const [idError, setIdError] = useState("")
     const [firstNameError, setFirstNameError] = useState("")
     const [lastNameError, setLastNameError] = useState("")
+    const [addressError, setAddressError] = useState("")
 
     const imageInputRef = useRef()
 
@@ -41,25 +45,35 @@ const PatientProfile = ({ index, patient, setIndex }) => {
 
     const [delta, setDelta] = useState('')
 
+    console.log()
+
     useEffect(() => {
         if (patient) {
             setLastIndex(index)
             setId(patient?.id)
             setFirstName(patient?.firstName)
             setLastName(patient?.lastName)
+            setAddress(patient?.address)
             setNotes(patient?.notes)
+            setIdError("")
             setFirstNameError("")
             setLastNameError("")
+            setAddressError("")
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
+            setNewPatient(false)
         }
         else if (!patient) {
+            setId("")
             setFirstName("")
             setLastName("")
+            setAddress("")
             setNotes("")
+            setIdError("")
             setFirstNameError("")
             setLastNameError("")
+            setAddressError("")
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -82,12 +96,20 @@ const PatientProfile = ({ index, patient, setIndex }) => {
 
     const handleFirstName = (e) => {
         setSuccess("")
+        setFirstNameError("")
         setFirstName(e.target.value)
     }
 
     const handleLastName = (e) => {
         setSuccess("")
+        setLastNameError("")
         setLastName(e.target.value)
+    }
+
+    const handleAddressName = (e) => {
+        setSuccess("")
+        setAddressError("")
+        setAddress(e.target.value)
     }
 
     const addNewPatient = (e) => {
@@ -107,9 +129,9 @@ const PatientProfile = ({ index, patient, setIndex }) => {
     }
 
     const handleCancelImage = (e) => {
-        setPreviewPicture()
-        setUploadPicture()
-        setDeletePicture()
+        setPreviewPicture("")
+        setUploadPicture("")
+        setDeletePicture("")
     }
 
 
@@ -125,6 +147,78 @@ const PatientProfile = ({ index, patient, setIndex }) => {
         e.target.value = null
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const formData = new FormData()
+
+        formData.append("first_name", firstName)
+        formData.append("last_name", lastName)
+        formData.append('notes', notes)
+        formData.append('address', address)
+        if (uploadPicture) {
+            formData.append('image', uploadPicture)
+            setIsLoading("Please wait while image is loading")
+        }
+        if (deletePicture) {
+            formData.append('img_id', patient?.imgId)
+            formData.append('imgDelete', deletePicture)
+        }
+
+        if (newPatient) {
+            const newPatient = await dispatch(addPatient(formData))
+            if (newPatient && newPatient.id) {
+                setNewPatient(false)
+                setSuccess("Saved")
+
+                setFirstNameError("")
+                setLastNameError("")
+                setAddressError("")
+
+                setPreviewPicture("")
+                setDeletePicture("")
+                setUploadPicture("")
+
+                setIsLoading("")
+                setIndex()
+            }
+            else {
+                setIsLoading(newPatient.image)
+                setAddressError(newPatient.address)
+                setFirstNameError(newPatient.first_name)
+                setLastNameError(newPatient.last_name)
+            }
+        }
+        else if (!newPatient) {
+            if (!id) {
+                setIdError("Please Select a Patient")
+                return
+            }
+            formData.append("id", id)
+            const editedPatient = await dispatch(editPatient(formData))
+            if (editedPatient.id) {
+                setNewPatient(false)
+                setSuccess("Saved")
+
+                setFirstNameError("")
+                setLastNameError("")
+                setAddressError("")
+
+                setPreviewPicture("")
+                setDeletePicture("")
+                setUploadPicture("")
+
+                setIsLoading("")
+            }
+            else {
+                setIsLoading(editedPatient.image)
+                setAddressError(editedPatient.address)
+                setFirstNameError(editedPatient.first_name)
+                setLastNameError(editedPatient.last_name)
+            }
+        }
+    }
+
+
 
     return (
         <div className="patient-profile-page-container">
@@ -138,7 +232,7 @@ const PatientProfile = ({ index, patient, setIndex }) => {
                                 </span> : null}
                             <RiIcons.RiSave3Fill
                                 className='patient-profile-edit-icon'
-                            // onClick={handleEdit} 
+                                onClick={handleSubmit}
                             />
                             {newPatient ?
                                 <FcIcons.FcCancel
@@ -220,6 +314,17 @@ const PatientProfile = ({ index, patient, setIndex }) => {
                                 />
                             </div>
                         </div>
+                        <div>
+                            <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
+                                : "patient-profile-info-header-text "
+                            }>Address</p>
+                            <input
+                                className='patient-profile-edit-name-input'
+                                value={address}
+                                onChange={handleAddressName}
+                                type='text'
+                            />
+                        </div>
                         {newPatient ?
                             null :
                             <div className='staff-profile-id-name-update-container'>
@@ -238,10 +343,17 @@ const PatientProfile = ({ index, patient, setIndex }) => {
                             />
 
                         </div>
+
                         {isLoading &&
                             <span className='patient-profile-error'>{isLoading}
                             </span>
                         }
+                        {idError && <span className='patient-profile-error'>
+                            {idError}
+                        </span>}
+                        {addressError && <span className='patient-profile-error'>
+                            {addressError}
+                        </span>}
                         {firstNameError && <span className='patient-profile-error'>
                             {firstNameError}
                         </span>
