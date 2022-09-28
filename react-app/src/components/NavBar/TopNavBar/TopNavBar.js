@@ -6,6 +6,7 @@ import SignUpFormModal from '../../auth/SignUp/SignUpFormModal';
 import LogoutButton from '../../auth/Login/LogoutButton';
 
 import './TopNavBar.css'
+import Logo from './MDP-logo.png'
 
 
 const TopNavBar = () => {
@@ -31,7 +32,8 @@ const TopNavBar = () => {
         <div className="top-navbar-page-container">
             <div className="logo-container">
                 <NavLink className="nav-logo" to="/" exact={true} activeClassName='active'>
-                    <img className="img-logo" src="public/MDP-logo.png" alt='MDP-logo'></img>
+                    {/* <img className="img-logo" src="/MDP-logo.png" alt='MDP-logo'></img> */}
+                    <img className="img-logo" src={Logo} alt='MDP-logo'></img>
                 </NavLink>
             </div>
             <div className="login-signup-container">
