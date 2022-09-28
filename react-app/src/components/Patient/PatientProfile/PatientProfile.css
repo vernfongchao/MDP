@@ -1,4 +1,5 @@
 .patient-profile-page-container {
+    box-sizing: border-box;
     width: 33%;
     display: flex;
     flex-direction: column;

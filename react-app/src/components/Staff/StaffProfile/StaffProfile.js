@@ -21,7 +21,6 @@ const StaffProfile = ({ index, staffs }) => {
 
     const staff = staffs[index]
 
-    const [id, setId] = useState(0)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [notes, setNotes] = useState("")
@@ -45,11 +44,10 @@ const StaffProfile = ({ index, staffs }) => {
 
     useEffect(() => {
         if (isEdit) {
-            setId(staff?.id || "")
-            setFirstName(staff?.firstName || "")
-            setLastName(staff?.lastName || "")
-            setRole(staff?.position || 0)
-            setNotes(staff?.notes || "")
+            setFirstName(staff?.firstName)
+            setLastName(staff?.lastName)
+            setRole(staff?.position)
+            setNotes(staff?.notes)
         }
         else if (!isEdit) {
             setSuccess("")
@@ -78,6 +76,7 @@ const StaffProfile = ({ index, staffs }) => {
     }
 
     const updateRole = (e) => {
+        setSuccess("")
         setRole(e.target.value);
     };
 
@@ -118,7 +117,7 @@ const StaffProfile = ({ index, staffs }) => {
     const handleEdit = async (e) => {
         e.preventDefault()
         const formData = new FormData()
-        formData.append("id", id)
+        formData.append("id", staff?.id)
         formData.append("first_name", firstName)
         formData.append("last_name", lastName)
         formData.append("position", role)

@@ -26,7 +26,6 @@ def edit_staff_profile(id):
     form = StaffProfileForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("============================>",form.position)
     if form.validate_on_submit():
 
         if request.files:
