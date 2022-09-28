@@ -11,4 +11,5 @@ class StaffProfileForm(FlaskForm):
     last_name = StringField('second_name', validators=[DataRequired("Last name must not be empty"),Length(
         min=1,max=255, message="Last name must be between 1 and 1000 characters"
     )])
+    position = IntegerField('position_id',validators=[DataRequired("Must have a position")])
     notes = StringField('note')

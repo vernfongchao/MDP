@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getContact } from '../../../store/contact'
+import { removeContacts } from '../../../store/contact'
 import './PatientDetail.css'
 
 import * as RiIcons from 'react-icons/ri'
@@ -17,25 +18,30 @@ const PatientDetail = ({ patient, index, setIndex }) => {
     const [contactLastName, setContactLastName] = useState("")
     const [contactPhone, setContactPhone] = useState("")
 
-    useEffect(() => {
-        if (patient) {
-            dispatch(getContact(patient?.id))
-        }
-        else {
 
-        }
+    useEffect (() =>{
+        (async() => {
+            if (patient) {
+                let eContact = await dispatch(getContact(patient?.id))
+                if(eContact.errors){
+                    await dispatch(removeContacts())
+                    setContactFirstName("")
+                    setContactLastName("")
+                    setContactPhone("")
+                }
+            }
+            else {
+                // dispatch(removeContacts())
+
+            }
+        })()
     }, [dispatch, patient])
 
     useEffect(() => {
-        if (contact?.patientId === patient?.id) {
+        if (contact) {
             setContactFirstName(contact?.firstName)
             setContactLastName(contact?.lastName)
             setContactPhone(contact?.phone)
-        }
-        if (!patient) {
-            setContactFirstName("")
-            setContactLastName("")
-            setContactPhone("")
         }
     }, [contact, patient])
 

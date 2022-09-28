@@ -30,7 +30,7 @@ const PatientList = ({ idx }) => {
     const patient = filteredPatients[index]
 
     const changeSearch = (e) => {
-        setIndex()
+        setIndex(0)
         setSearch(e.target.value)
     }
 
@@ -94,7 +94,7 @@ const PatientList = ({ idx }) => {
                 </div>
             </div>
 
-            <PatientProfile index={index}patient={patient} setIndex = {setIndex}/>
+            <PatientProfile index={index} patient={patient} setIndex={setIndex} patients={filteredPatients} setSearch={setSearch}/>
             <PatientDetail index={index} patient={patient} setIndex={setIndex} />
 
         </div>

@@ -1,0 +1,67 @@
+.report-form-page-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+    height: 100%;
+    overflow-y: auto;
+    border-right: 10px #1D3557 solid;
+}
+
+.report-profile-detail-container{
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+.report-profile-header-container{
+
+}
+
+.report-profile-edit-position{
+    width: max(290px, 27.4vw);
+    position: absolute;
+}
+
+.report-profile-edit-position {
+    width: max(290px, 27.4vw);
+    position: absolute;
+}
+
+.report-profile-edit-container {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.report-profile-edit-success {
+    font-size: 1.7em;
+}
+
+.report-profile-edit-icon {
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.report-profile-edit-icon:hover {
+    color: #1D3557;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.report-content-container{
+
+}

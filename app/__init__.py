@@ -11,6 +11,7 @@ from .api.staff_routes import staff_routes
 from .api.auth_routes import auth_routes
 from .api.roles_routes import roles_routes
 from .api.patient_routes import patient_routes
+from .api.report_routes import report_routes
 from .api.announcement_routes import announcement_routes
 from .api.department_routes import departments_routes
 from .api.departmentstaff_routes import departmentstaffs_routes
@@ -39,6 +40,7 @@ app.register_blueprint(staff_routes, url_prefix='/api/staffs')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(roles_routes, url_prefix='/api/roles')
 app.register_blueprint(patient_routes, url_prefix='/api/patients')
+app.register_blueprint(report_routes, url_prefix='/api/reports')
 app.register_blueprint(announcement_routes, url_prefix='/api/announcements')
 app.register_blueprint(departments_routes, url_prefix='/api/departments')
 app.register_blueprint(departmentstaffs_routes,

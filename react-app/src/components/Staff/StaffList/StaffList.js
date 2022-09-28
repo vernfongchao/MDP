@@ -30,8 +30,6 @@ const StaffList = ({ idx }) => {
         setIndex(i)
     }
 
-    // console.log(filteredStaffs)
-
     return (
         <div className={idx === 4 ? "staff-list-page-container" : "hidden"}>
             <div className="staff-list-container">

@@ -3,7 +3,11 @@ from .roles import Role
 from .staff import Staff
 from .patients import Patient
 from .announcements import Announcement
+from .reports import Report
 from .departments import Department
 from .images import Image
+from .patientreports import patientreports
+from .staffreports import staffreports
+from .departmentreports import departmentreports
 from .departmentstaffs import departmentstaffs
 from .emergency_contact import EmergencyContact
