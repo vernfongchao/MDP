@@ -9,58 +9,66 @@
     border-right: 10px #1D3557 solid;
 }
 
-.report-profile-detail-container{
+.report-detail-container{
     width: 95%;
     margin-bottom: 10px;
 }
 
-.report-profile-header-container{
+.report-header-container{
 
 }
 
-.report-profile-edit-position{
+.report-edit-position{
     width: max(290px, 27.4vw);
     position: absolute;
 }
 
-.report-profile-edit-position {
+.repore-edit-position {
     width: max(290px, 27.4vw);
     position: absolute;
 }
 
-.report-profile-edit-container {
+.report-edit-container {
     display: flex;
     justify-content: flex-end;
     position: relative;
 }
 
-.report-profile-edit-success {
+.report-edit-success {
     font-size: 1.7em;
 }
 
-.report-profile-edit-icon {
+.report-edit-icon{
     cursor: pointer;
     font-size: 2em;
 }
 
-.report-profile-edit-icon:hover {
+.report-edit-icon:hover{
     color: #1D3557;
 }
 
+.report-title-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    overflow-wrap: break-word;
+}
+
+.report-title-error{
+    color: red;
+}
 
 
+.report-title-input-error{
+    border: 2px solid red;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.report-updated-container{
+    border-bottom: 2px solid black;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
 
 .report-content-container{
 

@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { addReport } from '../../../store/report'
+import { patchReport } from '../../../store/report'
+
 import * as RiIcons from 'react-icons/ri'
 import * as ImIcons from 'react-icons/im'
 import * as AiIcons from 'react-icons/ai'
@@ -11,8 +14,10 @@ import parse from 'html-react-parser'
 
 import "./Report.css"
 
-const Report = ({ index, reports, setIndex }) => {
+const Report = ({ index, reports, setIndex, setSearch }) => {
+    const dispatch = useDispatch()
 
+    const reportLength = Object.values(useSelector(state => state.reports)).length
     const report = reports[index]
 
     const [lastIndex, setLastIndex] = useState(index)
@@ -25,7 +30,6 @@ const Report = ({ index, reports, setIndex }) => {
     const [delta, setDelta] = useState('')
 
     const [titleError, setTitleError] = useState("")
-    const [contentError, setContentError] = useState("")
 
     const [success, setSuccess] = useState("")
 
@@ -36,12 +40,12 @@ const Report = ({ index, reports, setIndex }) => {
             setTitle(report?.title)
             setContent(report?.content)
             setTitleError("")
-            setContentError("")
+
         }
         else if (!report) {
             setTitle("")
             setTitleError("")
-            setContentError("")
+            setContent("")
         }
     }, [report])
 
@@ -74,72 +78,120 @@ const Report = ({ index, reports, setIndex }) => {
         }
     }
 
+    const handleSubmit = async (e) => {
+        if (newReport) {
+            const newReport = await dispatch(addReport({
+                title,
+                content,
+            }))
+
+            if (newReport.id) {
+                setSearch("")
+                setIndex(reportLength)
+                setSuccess("Saved")
+                setNewReport(false)
+            }
+            else if (newReport.errors) {
+                setTitleError(newReport.errors.title[0])
+            }
+        }
+        else if (!newReport) {
+            const editReport = await dispatch(patchReport({
+                id: report?.id,
+                title,
+                content
+            }))
+            if (editReport.id) {
+                setSearch("")
+                setSuccess("Saved")
+                setNewReport(false)
+            }
+            else if (editReport.errors) {
+
+                setTitleError(editReport.errors.title[0])
+            }
+        }
+
+    }
+
     return (
         <div className="report-form-page-container">
-            <div className='report-profile-detail-container'>
-                <div className='report-profile-header-container'>
-                    <div className='report-profile-edit-position'>
-                        <div className='report-profile-edit-container'>
+            <div className='report-detail-container'>
+                <div className='report-header-container'>
+                    <div className='report-edit-position'>
+                        <div className='report-edit-container'>
                             {success ?
-                                <span className='report-profile-edit-success'>
+                                <span className='report-edit-success'>
                                     {success}
                                 </span> : null}
                             {(report || newReport) &&
                                 <RiIcons.RiSave3Fill
-                                    className='report-profile-edit-icon'
-                                // onClick={handleSubmit}
+                                    className='report-edit-icon'
+                                    onClick={handleSubmit}
                                 />
                             }
                             {newReport ?
                                 <FcIcons.FcCancel
-                                    className='report-profile-edit-icon'
+                                    className='report-edit-icon'
                                     onClick={cancelNewReport}
                                 />
                                 :
                                 <AiIcons.AiOutlineFileAdd
-                                    className='report-profile-edit-icon'
+                                    className='report-edit-icon'
                                     onClick={addNewReport}
                                 />
                             }
                         </div>
                     </div>
-                    {newReport ?
-                        <h1>
-                            Add Report
-                        </h1>
-                        :
-                        <>
-                            <h1>
-                                Report
-                            </h1>
-                            <h3>
-                                ID: {report?.id}
-                            </h3>
-                        </>
+                    <h1>
+                        Report
+                    </h1>
+                    {report && !newReport &&
+                        <h3>
+                            ID: {report?.id}
+                        </h3>
                     }
-                </div>
-                <div>
-                    <label>Title</label>
-                    <input
-                        value={title}
-                        onChange={handleTitle}
-                    />
+
                 </div>
                 {(report || newReport) &&
-                    <div className='report-content-container'>
-                        <ReactQuill
-                            theme="snow"
-                            value={content}
-                            placeholder={"Add notes here"}
-                            onChange={handleContentChange}
-                            style={
-                                {
-                                    width: '100%',
-                                    height: '400px',
-                                }
+                    <>
+                        <div className='report-title-container'>
+                            <label
+                                className={titleError ? "report-title-error" : null} style={{ fontWeight: 'bold', fontSize: '12px' }}
+                            >Title:</label>
+                            <input
+                                className={titleError ? "report-title-input-error" : null}
+                                value={title}
+                                maxLength="1000"
+                                onChange={handleTitle}
+                            />
+
+                            {titleError &&
+                                <p className='report-title-error'>
+                                    {titleError}
+                                </p>
                             }
-                        />
-                    </div>
+                        </div>
+                        <div className='report-updated-container'>
+                            <span style={{ fontWeight: 'bold', fontSize: '12px' }}>Last Updated</span>
+                            <span>{report?.updatedOn}</span>
+                        </div>
+                        <div className='report-content-container'>
+                            <h3 >Report Details</h3>
+                            <ReactQuill
+                                theme="snow"
+                                value={content}
+                                placeholder={"Add notes here"}
+                                onChange={handleContentChange}
+                                style={
+                                    {
+                                        width: '100%',
+                                        height: '400px',
+                                    }
+                                }
+                            />
+                        </div>
+                    </>
                 }
             </div>
         </div>

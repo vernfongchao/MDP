@@ -23,6 +23,7 @@ const ReportList = ({ idx }) => {
 
     const clearSearch = () => {
         setSearch("")
+        setIndex(0)
     }
 
     const changeReport = (e, i) => {
@@ -68,7 +69,7 @@ const ReportList = ({ idx }) => {
                             : "report-card-container"}
                             onClick={e => changeReport(e, i)}
                         >
-                            <h3>
+                            <h3 className="report-title">
                                 {report.title}
                             </h3>
                             <h4>
@@ -81,7 +82,7 @@ const ReportList = ({ idx }) => {
                 </div>
             </div>
 
-            <Report index = {index} reports={filteredReports} setIndex={setIndex}/>
+            <Report index = {index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch}/>
 
         </div>
     )
