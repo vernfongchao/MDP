@@ -24,11 +24,14 @@ const DepartmentStaff = ({ index, department }) => {
                     Staff Information
                 </h1>
 
-                {departmentStaffs.map(({ staffId }) => (
-                    <p key={staffId}>
-                        {` Staff ID: ${staffId} ${staffs[staffId]?.firstName} ${staffs[staffId]?.lastName}`}
-                    </p>
-                ))}
+                {departmentStaffs.map(({ staffId }) => {
+                    let staff = staffs[staffId]
+                    return (
+                        <p key={staffId}>
+                            {` Staff ID: ${staffId} ${staff?.firstName} ${staff?.lastName}`}
+                        </p>
+                    )
+                })}
             </div>
         </div>
         :
