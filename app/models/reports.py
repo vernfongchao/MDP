@@ -29,4 +29,5 @@ class Report(db.Model):
             "id": self.id,
             "title": self.title,
             "content": self.content,
+            'updatedOn': self.updated_at,
         }
