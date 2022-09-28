@@ -1,10 +1,18 @@
 import React from "react";
 import "./DepartmentDetails.css"
 
-const DepartmentDetails = () => {
+const DepartmentDetails = ({index,department}) => {
 
 
-    return (
+    return ( department?
+        <div className="department-details-page-container">
+            <div className="department-detail-header-container">
+                <h1 className="department-information">
+                    Department Information
+                </h1>
+            </div>
+        </div>
+        :
         <div className="department-details-page-container">
             <div className="department-detail-header-container">
                 <h1 className="department-information">

@@ -24,7 +24,7 @@ def put_patient_details(id):
     if contact:
         return contact.to_dict(), 200
     else:
-        return {"errors": "contact not found"}, 400
+        return {"errors": {"contact":"contact not found"}}, 400
 
 
 @patient_routes.route('/', methods=["POST"])
@@ -49,8 +49,6 @@ def add_patient():
 def edit_patient_profile(id):
     form = EditPatientForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
-    print("============================================>")
 
     if form.validate_on_submit():
         if request.files:

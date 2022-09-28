@@ -17,9 +17,10 @@ import parse from 'html-react-parser'
 
 import './PatientProfile.css'
 
-const PatientProfile = ({ index, patient, setIndex }) => {
+const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
     const dispatch = useDispatch()
 
+    const patients = Object.values(useSelector(state => state.patients))
 
     const [lastIndex, setLastIndex] = useState(index)
 
@@ -45,8 +46,6 @@ const PatientProfile = ({ index, patient, setIndex }) => {
 
     const [delta, setDelta] = useState('')
 
-    console.log()
-
     useEffect(() => {
         if (patient) {
             setLastIndex(index)
@@ -63,6 +62,7 @@ const PatientProfile = ({ index, patient, setIndex }) => {
             setDeletePicture("")
             setUploadPicture("")
             setNewPatient(false)
+            setSuccess("")
         }
         else if (!patient) {
             setId("")
@@ -77,6 +77,7 @@ const PatientProfile = ({ index, patient, setIndex }) => {
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
+            setSuccess("")
         }
     }, [patient, index])
 
@@ -163,10 +164,10 @@ const PatientProfile = ({ index, patient, setIndex }) => {
             formData.append('img_id', patient?.imgId)
             formData.append('imgDelete', deletePicture)
         }
-
         if (newPatient) {
             const newPatient = await dispatch(addPatient(formData))
             if (newPatient && newPatient.id) {
+                setSearch("")
                 setNewPatient(false)
                 setSuccess("Saved")
 
@@ -179,7 +180,7 @@ const PatientProfile = ({ index, patient, setIndex }) => {
                 setUploadPicture("")
 
                 setIsLoading("")
-                setIndex()
+                setIndex(patients.length)
             }
             else {
                 setIsLoading(newPatient.image)
@@ -230,10 +231,12 @@ const PatientProfile = ({ index, patient, setIndex }) => {
                                 <span className='patient-profile-edit-success'>
                                     {success}
                                 </span> : null}
-                            <RiIcons.RiSave3Fill
-                                className='patient-profile-edit-icon'
-                                onClick={handleSubmit}
-                            />
+                            {(patient || newPatient) &&
+                                <RiIcons.RiSave3Fill
+                                    className='patient-profile-edit-icon'
+                                    onClick={handleSubmit}
+                                />
+                            }
                             {newPatient ?
                                 <FcIcons.FcCancel
                                     className='patient-profile-edit-icon'
@@ -258,129 +261,131 @@ const PatientProfile = ({ index, patient, setIndex }) => {
                     }
                 </div>
 
-
-                <div className='patient-profile-container'>
-                    <div className='patient-profile-picture-container'>
-                        <div className='patient-profile-picture-icon-position'>
-                            {uploadPicture ?
-                                <ImIcons.ImCancelCircle
-                                    className='patient-profile-picture-icon'
-                                    onClick={handleCancelImage} />
-                                :
-                                <ImIcons.ImFilePicture
-                                    className='patient-profile-picture-icon'
-                                    onClick={handleAddImage} />
-                            }
-                        </div>
-                        <img
-                            className='patient-profile-picture'
-                            src={previewPicture ? previewPicture : patient?.img || ""}
-                            onError={handleImageError}
-                            alt="profile"
-                        >
-                        </img>
-                    </div>
-
-                    <div className='patient-profile-info-container'>
-                        {newPatient ?
-                            null
-                            :
-                            <div className='patient-profile-id-name-update-container'>
-                                <p className='patient-profile-info-header-text'>Patient ID</p>
-                                <p className='patient-profile-info-text'>{patient?.id}</p>
+                {(patient || newPatient) &&
+                    <div className='patient-profile-container'>
+                        <div className='patient-profile-picture-container'>
+                            <div className='patient-profile-picture-icon-position'>
+                                {uploadPicture ?
+                                    <ImIcons.ImCancelCircle
+                                        className='patient-profile-picture-icon'
+                                        onClick={handleCancelImage} />
+                                    :
+                                    <ImIcons.ImFilePicture
+                                        className='patient-profile-picture-icon'
+                                        onClick={handleAddImage} />
+                                }
                             </div>
-                        }
-                        <div className='patient-profile-id-name-update-container split-name'>
-                            <div>
-                                <p className={firstNameError ? 'patient-profile-info-header-text patient-profile-error'
-                                    : "patient-profile-info-header-text "
-                                }>First Name</p>
-                                <input
-                                    className='patient-profile-edit-name-input'
-                                    value={firstName}
-                                    onChange={handleFirstName}
-                                    type='text'
-                                />
+                            <img
+                                className='patient-profile-picture'
+                                src={previewPicture ? previewPicture : patient?.img || ""}
+                                onError={handleImageError}
+                                alt="profile"
+                            >
+                            </img>
+                        </div>
+
+                        <div className='patient-profile-info-container'>
+                            {newPatient ?
+                                null
+                                :
+                                <div className='patient-profile-id-name-update-container'>
+                                    <p className='patient-profile-info-header-text'>Patient ID</p>
+                                    <p className='patient-profile-info-text'>{patient?.id}</p>
+                                </div>
+                            }
+                            <div className='patient-profile-id-name-update-container split-name'>
+                                <div>
+                                    <p className={firstNameError ? 'patient-profile-info-header-text patient-profile-error'
+                                        : "patient-profile-info-header-text "
+                                    }>First Name</p>
+                                    <input
+                                        className='patient-profile-edit-name-input'
+                                        value={firstName}
+                                        onChange={handleFirstName}
+                                        type='text'
+                                    />
+                                </div>
+                                <div>
+                                    <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
+                                        : "patient-profile-info-header-text "
+                                    }>Last Name</p>
+                                    <input
+                                        className='patient-profile-edit-name-input'
+                                        value={lastName}
+                                        onChange={handleLastName}
+                                        type='text'
+                                    />
+                                </div>
                             </div>
                             <div>
                                 <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
                                     : "patient-profile-info-header-text "
-                                }>Last Name</p>
+                                }>Address</p>
                                 <input
                                     className='patient-profile-edit-name-input'
-                                    value={lastName}
-                                    onChange={handleLastName}
+                                    value={address}
+                                    onChange={handleAddressName}
                                     type='text'
                                 />
                             </div>
-                        </div>
-                        <div>
-                            <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
-                                : "patient-profile-info-header-text "
-                            }>Address</p>
-                            <input
-                                className='patient-profile-edit-name-input'
-                                value={address}
-                                onChange={handleAddressName}
-                                type='text'
-                            />
-                        </div>
-                        {newPatient ?
-                            null :
-                            <div className='staff-profile-id-name-update-container'>
-                                <p className='staff-profile-info-header-text'>Last Updated</p>
-                                <p className='staff-profile-info-text'>{patient?.updatedOn}</p>
+                            {newPatient ?
+                                null :
+                                <div className='staff-profile-id-name-update-container'>
+                                    <p className='staff-profile-info-header-text'>Last Updated</p>
+                                    <p className='staff-profile-info-text'>{patient?.updatedOn}</p>
+                                </div>
+                            }
+                            <div>
+                                <input
+                                    type="file"
+                                    style={{ display: 'none' }}
+                                    ref={imageInputRef}
+                                    onChange={onChangeImageFiles}
+                                    accept=".jpeg, .jpg, .gif , .png"
+
+                                />
+
                             </div>
-                        }
-                        <div>
-                            <input
-                                type="file"
-                                style={{ display: 'none' }}
-                                ref={imageInputRef}
-                                onChange={onChangeImageFiles}
-                                accept=".jpeg, .jpg, .gif , .png"
 
-                            />
-
+                            {isLoading &&
+                                <span className='patient-profile-error'>{isLoading}
+                                </span>
+                            }
+                            {idError && <span className='patient-profile-error'>
+                                {idError}
+                            </span>}
+                            {addressError && <span className='patient-profile-error'>
+                                {addressError}
+                            </span>}
+                            {firstNameError && <span className='patient-profile-error'>
+                                {firstNameError}
+                            </span>
+                            }
+                            {lastNameError && <span className='patient-profile-error'>
+                                {lastNameError}
+                            </span>
+                            }
                         </div>
 
-                        {isLoading &&
-                            <span className='patient-profile-error'>{isLoading}
-                            </span>
-                        }
-                        {idError && <span className='patient-profile-error'>
-                            {idError}
-                        </span>}
-                        {addressError && <span className='patient-profile-error'>
-                            {addressError}
-                        </span>}
-                        {firstNameError && <span className='patient-profile-error'>
-                            {firstNameError}
-                        </span>
-                        }
-                        {lastNameError && <span className='patient-profile-error'>
-                            {lastNameError}
-                        </span>
-                        }
                     </div>
-
-                </div>
+                }
             </div>
-
-            <div className='staff-profile-notes-container'>
-                <ReactQuill
-                    theme="snow"
-                    value={notes}
-                    placeholder={"Add notes here"}
-                    onChange={handleContentChange}
-                    style={
-                        {
-                            width: '100%',
-                            height: '400px',
+            {(patient || newPatient) &&
+                <div className='staff-profile-notes-container'>
+                    <ReactQuill
+                        theme="snow"
+                        value={notes}
+                        placeholder={"Add notes here"}
+                        onChange={handleContentChange}
+                        style={
+                            {
+                                width: '100%',
+                                height: '400px',
+                            }
                         }
-                    }
-                />
-            </div>
+                    />
+                </div>
+            }
         </div>
     )
 }

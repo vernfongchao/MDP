@@ -3,12 +3,12 @@ from app.models import db, Role
 
 # Adds a demo user, you can add other users here if you want
 def seed_roles():
-  director = Role(position_name='director',)
-  doctor = Role(position_name='doctor',)
-  nurse = Role(position_name='nurse',)
-  surgeon = Role(position_name='surgeon',)
-  therapist = Role(position_name='therapist',)
-  clerk = Role(position_name='clerk',)
+  director = Role(position_name='Director',)
+  doctor = Role(position_name='Doctor',)
+  nurse = Role(position_name='Nurse',)
+  surgeon = Role(position_name='Surgeon',)
+  therapist = Role(position_name='Therapist',)
+  clerk = Role(position_name='Clerk',)
 
 
 

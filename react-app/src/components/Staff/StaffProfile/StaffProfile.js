@@ -13,15 +13,19 @@ import parse from 'html-react-parser'
 import './StaffProfile.css'
 
 
-const StaffProfile = ({ index,staffs }) => {
+const StaffProfile = ({ index, staffs }) => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
+    const rolesObj = useSelector(state => state.roles)
+    const roles = Object.values(useSelector(state => state.roles))
+
     const staff = staffs[index]
 
     const [id, setId] = useState(0)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [notes, setNotes] = useState("")
+    const [role, setRole] = useState(0);
 
     const [success, setSuccess] = useState("")
     const [firstNameError, setFirstNameError] = useState("")
@@ -41,9 +45,10 @@ const StaffProfile = ({ index,staffs }) => {
 
     useEffect(() => {
         if (isEdit) {
-            setId(staff?.id|| "")
+            setId(staff?.id || "")
             setFirstName(staff?.firstName || "")
             setLastName(staff?.lastName || "")
+            setRole(staff?.position || 0)
             setNotes(staff?.notes || "")
         }
         else if (!isEdit) {
@@ -54,7 +59,7 @@ const StaffProfile = ({ index,staffs }) => {
             setPreviewPicture("")
             setUploadPicture("")
         }
-    }, [isEdit,staff])
+    }, [isEdit, staff])
 
     const handleImageError = (e) => {
         e.target.src = "https://i.pinimg.com/474x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg"
@@ -71,6 +76,10 @@ const StaffProfile = ({ index,staffs }) => {
         setLastNameError("")
         setLastName(e.target.value)
     }
+
+    const updateRole = (e) => {
+        setRole(e.target.value);
+    };
 
     const handleContentChange = (content, delta, source, editor) => {
         setSuccess("")
@@ -112,6 +121,7 @@ const StaffProfile = ({ index,staffs }) => {
         formData.append("id", id)
         formData.append("first_name", firstName)
         formData.append("last_name", lastName)
+        formData.append("position", role)
         formData.append('notes', notes)
         if (uploadPicture) {
             formData.append('image', uploadPicture)
@@ -140,7 +150,7 @@ const StaffProfile = ({ index,staffs }) => {
         }
     }
 
-    return ( staff ?
+    return (
         <div className="staff-profile-page-container">
             <div className='staff-profile-detail-container'>
                 <div className='staff-profile-header-container'>
@@ -162,133 +172,156 @@ const StaffProfile = ({ index,staffs }) => {
                     </h1>
 
                 </div>
+                {staff ?
+                    <div className='staff-profile-container'>
+                        <div className='staff-profile-picture-container'>
+                            <div className='staff-profile-picture-icon-position'>
+                                {isEdit && (uploadPicture ?
+                                    <ImIcons.ImCancelCircle
+                                        className='staff-profile-picture-icon'
+                                        onClick={handleCancelImage} />
+                                    :
+                                    <ImIcons.ImFilePicture
+                                        className='staff-profile-picture-icon'
+                                        onClick={handleAddImage} />
+                                )
+                                }
+                            </div>
+                            <img
+                                className='staff-profile-picture'
+                                src={previewPicture ? previewPicture : staff?.img || " "}
+                                onError={handleImageError}
+                                alt="profile"
+                            >
+                            </img>
 
-                <div className='staff-profile-container'>
-                    <div className='staff-profile-picture-container'>
-                        <div className='staff-profile-picture-icon-position'>
-                            {isEdit && (uploadPicture ?
-                                <ImIcons.ImCancelCircle
-                                    className='staff-profile-picture-icon'
-                                    onClick={handleCancelImage} />
+                        </div>
+                        <div className='staff-profile-info-container'>
+                            <div className='staff-profile-id-name-update-container'>
+                                <p className='staff-profile-info-header-text'>Staff ID</p>
+                                <p className='staff-profile-info-text'>{staff?.id}</p>
+                            </div>
+                            {isEdit ?
+                                <div >
+                                    <div className='staff-profile-id-name-update-container split-name'>
+                                        <div>
+                                            <p className={firstNameError ? 'staff-profile-info-header-text staff-profile-error'
+                                                : "staff-profile-info-header-text "
+                                            }>First Name</p>
+                                            <input
+                                                className={firstNameError ? 'staff-profile-edit-name-input staff-profile-input-error' : 'staff-profile-edit-name-input'}
+                                                value={firstName}
+                                                onChange={handleFirstName}
+                                                type='text'
+                                            />
+                                        </div>
+                                        <div>
+                                            <p className={lastNameError ? 'staff-profile-info-header-text staff-profile-error'
+                                                : "staff-profile-info-header-text "
+                                            }>Last Name</p>
+                                            <input
+                                                className={lastNameError ? 'staff-profile-edit-name-input staff-profile-input-error' : 'staff-profile-edit-name-input'}
+                                                value={lastName}
+                                                onChange={handleLastName}
+                                                type='text'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='staff-profile-role-container'>
+                                        <label className='staff-profile-info-header-text' htmlFor="role">Role</label>
+                                        <select
+                                            className='staff-profile-role-select-container'
+                                            onChange={updateRole}
+                                            defaultValue={rolesObj[staff?.position].id}
+                                        >
+                                            {roles?.map(singleRole => (
+                                                <option key={singleRole.id} value={singleRole?.id}>{singleRole?.position_name}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+
                                 :
-                                <ImIcons.ImFilePicture
-                                    className='staff-profile-picture-icon'
-                                    onClick={handleAddImage} />
-                            )
+                                <div>
+                                    <div className='staff-profile-id-name-update-container split-name'>
+                                        <div>
+                                            <p className='staff-profile-info-header-text'>First Name</p>
+                                            <p className='staff-profile-info-text'>{staff?.firstName}</p>
+
+                                        </div>
+                                        <div>
+                                            <p className='staff-profile-info-header-text'>Last Name</p>
+                                            <p className='staff-profile-info-text'>{staff?.lastName}</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className='staff-profile-info-header-text'>Role</p>
+                                        <p className='staff-profile-info-text'>{rolesObj[staff?.position]?.position_name}</p>
+                                    </div>
+                                </div>
                             }
-                        </div>
-                        <img
-                            className='staff-profile-picture'
-                            src={previewPicture ? previewPicture : staff?.img || " "}
-                            onError={handleImageError}
-                            alt="profile"
-                        >
-                        </img>
-
-                    </div>
-                    <div className='staff-profile-info-container'>
-                        <div className='staff-profile-id-name-update-container'>
-                            <p className='staff-profile-info-header-text'>Staff ID</p>
-                            <p className='staff-profile-info-text'>{staff?.id}</p>
-                        </div>
-                        {isEdit ?
-                            <div className='staff-profile-id-name-update-container split-name'>
-                                <div>
-                                    <p className={firstNameError ? 'staff-profile-info-header-text staff-profile-error'
-                                        : "staff-profile-info-header-text "
-                                    }>First Name</p>
-                                    <input
-                                        className='staff-profile-edit-name-input'
-                                        value={firstName}
-                                        onChange={handleFirstName}
-                                        type='text'
-                                    />
-                                </div>
-                                <div>
-                                    <p className={lastNameError ? 'staff-profile-info-header-text staff-profile-error'
-                                        : "staff-profile-info-header-text "
-                                    }>Last Name</p>
-                                    <input
-                                        className='staff-profile-edit-name-input'
-                                        value={lastName}
-                                        onChange={handleLastName}
-                                        type='text'
-                                    />
-                                </div>
+                            <div className='staff-profile-id-name-update-container'>
+                                <p className='staff-profile-info-header-text'>Last Updated</p>
+                                <p className='staff-profile-info-text'>{staff?.updateOn}</p>
                             </div>
-                            :
-                            <div className='staff-profile-id-name-update-container split-name'>
-                                <div>
-                                    <p className='staff-profile-info-header-text'>First Name</p>
-                                    <p className='staff-profile-info-text'>{staff?.firstName}</p>
+                            <div>
+                                <input
+                                    type="file"
+                                    style={{ display: 'none' }}
+                                    ref={imageInputRef}
+                                    onChange={onChangeImageFiles}
+                                    accept=".jpeg, .jpg, .gif , .png"
 
-                                </div>
-                                <div>
-                                    <p className='staff-profile-info-header-text'>Last Name</p>
-                                    <p className='staff-profile-info-text'>{staff?.lastName}</p>
-                                </div>
+                                />
+
                             </div>
-                        }
-                        <div className='staff-profile-id-name-update-container'>
-                            <p className='staff-profile-info-header-text'>Last Updated</p>
-                            <p className='staff-profile-info-text'>{staff?.updateOn}</p>
-                        </div>
-                        <div>
-                            <input
-                                type="file"
-                                style={{ display: 'none' }}
-                                ref={imageInputRef}
-                                onChange={onChangeImageFiles}
-                                accept=".jpeg, .jpg, .gif , .png"
-
-                            />
-
-                        </div>
-                        {isLoading &&
-                            <span className='staff-profile-error'>{isLoading}
+                            {isLoading &&
+                                <span className='staff-profile-error'>{isLoading}
+                                </span>
+                            }
+                            {firstNameError && <span className='staff-profile-error'>
+                                {firstNameError}
                             </span>
-                        }
-                        {firstNameError && <span className='staff-profile-error'>
-                            {firstNameError}
-                        </span>
-                        }
-                        {lastNameError && <span className='staff-profile-error'>
-                            {lastNameError}
-                        </span>
-                        }
+                            }
+                            {lastNameError && <span className='staff-profile-error'>
+                                {lastNameError}
+                            </span>
+                            }
+
+                        </div>
 
                     </div>
-
-                </div>
-
-            </div>
-
-            <div className='staff-profile-notes-container'>
-                {isEdit ?
-                    <ReactQuill
-                        theme="snow"
-                        value={notes}
-                        placeholder={"Add notes here"}
-                        onChange={handleContentChange}
-                        style={
-                            {
-                                width: '100%',
-                                height: '400px',
-                            }
-                        }
-                    />
-
-                    :
-                    <>  <h4>Notes:</h4>
-                        <p>{parse(staff?.notes || "")}</p>
-                    </>
+                    : null
                 }
+
             </div>
+            {staff ?
+                <div className='staff-profile-notes-container'>
+                    {isEdit ?
+                        <ReactQuill
+                            theme="snow"
+                            value={notes}
+                            placeholder={"Add notes here"}
+                            onChange={handleContentChange}
+                            style={
+                                {
+                                    width: '100%',
+                                    height: '400px',
+                                }
+                            }
+                        />
+
+                        :
+                        <>  <h4>Notes:</h4>
+                            <p>{parse(staff?.notes || "")}</p>
+                        </>
+                    }
+                </div>
+                :null
+            }
 
 
         </div>
-        :
-        <div className="staff-profile-page-container"></div>
     )
 }
 

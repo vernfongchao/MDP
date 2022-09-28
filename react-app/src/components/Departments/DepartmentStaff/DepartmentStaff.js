@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getDepartmentStaffs } from "../../../store/departmentstaff";
 
 
@@ -13,22 +13,30 @@ const DepartmentStaff = ({ index, department }) => {
 
     useEffect(() => {
         dispatch(getDepartmentStaffs(department?.id))
-    },[dispatch,department])
+    }, [dispatch, department])
 
 
 
-    return (
+    return (department ?
         <div className="department-staff-page-container">
             <div className="department-staff-header-container">
                 <h1 className="department-staff-information">
                     Staff Information
                 </h1>
 
-                {departmentStaffs.map(({staffId}) => (
+                {departmentStaffs.map(({ staffId }) => (
                     <p key={staffId}>
                         {` Staff ID: ${staffId} ${staffs[staffId]?.firstName} ${staffs[staffId]?.lastName}`}
                     </p>
                 ))}
+            </div>
+        </div>
+        :
+        <div className="department-staff-page-container">
+            <div className="department-staff-header-container">
+                <h1 className="department-staff-information">
+                    Staff Information
+                </h1>
             </div>
         </div>
     )
