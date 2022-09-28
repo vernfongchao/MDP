@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
+
+import Report from "../Report/Report"
+
 import "./ReportList.css"
 
 import * as VscIcons from 'react-icons/vsc'
@@ -14,7 +17,7 @@ const ReportList = ({ idx }) => {
     const filteredReports = reports.filter(reports => {
         return (
             reports.title.toLowerCase().includes(search.toLowerCase()) ||
-            reports.id.toLowerCase().includes(search)
+            reports.id.toString().includes(search)
         )
     })
 
@@ -33,7 +36,7 @@ const ReportList = ({ idx }) => {
                 <div className="report-list-header-search-container">
                     <div className="report-list-header-container">
                         <h1>
-                            Staff
+                            Reports
                         </h1>
                     </div>
                     <div className="report-list-search-container">
@@ -77,6 +80,8 @@ const ReportList = ({ idx }) => {
 
                 </div>
             </div>
+
+            <Report index = {index} reports={filteredReports} setIndex={setIndex}/>
 
         </div>
     )

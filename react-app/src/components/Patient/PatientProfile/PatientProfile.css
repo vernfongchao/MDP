@@ -8,8 +8,8 @@
 }
 
 .patient-profile-detail-container{
-        width: 95%;
-        margin-bottom: 10px;
+    width: 95%;
+    margin-bottom: 10px;
 }
 
 /* .patient-profile-header-container{
@@ -22,9 +22,9 @@
 }
 
 .patient-profile-edit-container{
-        display: flex;
-        justify-content: flex-end;
-        position: relative;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
 }
 
 .patient-profile-edit-success{

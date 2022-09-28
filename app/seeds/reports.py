@@ -4,8 +4,8 @@ from app.models import db, Report
 def seed_reports():
 
     reports = [
-        Report(title='Adult Clinic Visist 9/28/22',content=''),
-        Report(title='Women Clinic Visist 9/28/22', content=''),
+        Report(title='Adult Clinic Visit 9/28/22',content=''),
+        Report(title='Women Clinic Visit 9/28/22', content=''),
         Report(title='Occupational Therapy Visit 9/28/22', content=''),
         Report(title='ICU CARE 9/28/22', content=''),
         Report(title='Neurology Visit 9/28/22', content=''),
