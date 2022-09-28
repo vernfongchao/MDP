@@ -1,0 +1,114 @@
+
+.hidden {
+    display:none;
+}
+
+.report-list-page-container{
+    box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        background-color: #F1FAEE;
+        display: flex;
+}
+
+.report-list-container{
+        border-right: 10px #1D3557 solid;
+            box-sizing: border-box;
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+}
+
+.report-list-header-search-container{
+        width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+}
+
+.report-list-header-search-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.report-list-header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.report-list-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.report-search-label-container {
+    display: flex;
+    align-items: center;
+}
+
+.report-search-label {
+    font-weight: bold;
+}
+
+.report-search-icon-container {
+    display: flex;
+    width: 80%;
+}
+
+.report-search-input-field {
+    border: none;
+    border-bottom: 2px black solid;
+    width: 100%;
+}
+
+.report-search-input-field:focus {
+    outline: none;
+}
+
+.report-search-clear-icon {
+    font-size: 24px;
+    border-bottom: 2px black solid;
+    cursor: pointer;
+}
+
+.report-search-clear-icon:hover {
+    color: red;
+}
+
+.report-all-card-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+
+    padding-left: min(3vw, 50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.report-card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 2px black solid;
+    /* border-radius: 5px; */
+    width: min(22vw, 422px);
+    box-shadow: 1px 1px 5px 1px #F1FAEE;
+    overflow-wrap: break-word;
+    border: 1px solid #1D3557;
+}
+
+.report-card-container:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 1px #1D3557;
+    border: 1px solid #1D3557;
+}
+
+.active-report {
+    background-color: #A8DADC;
+}
