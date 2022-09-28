@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError, Length
 
 class ReportForm(FlaskForm):
     id = IntegerField("id")
-    title = StringField('title', validators=[DataRequired("Please give a title to this announcement."), Length(
+    title = StringField('title', validators=[DataRequired("Please give a title to report."), Length(
         min=1, max=1000, message="Announcement titles must be between 1 and 1000 characters"
     )])
     content = StringField('content')
