@@ -20,8 +20,6 @@ const PatientDetail = ({ patient, index, setIndex }) => {
 
     const reports = useSelector(state =>state.reports)
 
-    console.log(patientReports)
-
     const [contactFirstName, setContactFirstName] = useState("")
     const [contactLastName, setContactLastName] = useState("")
     const [contactPhone, setContactPhone] = useState("")
@@ -31,7 +29,6 @@ const PatientDetail = ({ patient, index, setIndex }) => {
         (async() => {
             if (patient) {
                 const patientDetails = await dispatch(getPatientDetails(patient?.id))
-                console.log(patientDetails)
                 if(patientDetails.contact){
                     await dispatch( loadContact(patientDetails.contact))
                 }
