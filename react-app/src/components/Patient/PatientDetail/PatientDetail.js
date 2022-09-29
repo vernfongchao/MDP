@@ -61,12 +61,6 @@ const PatientDetail = ({ patient, index, setIndex }) => {
         }
     }, [contact, patient])
 
-    const test = async (e) => {
-        const details = await fetch(`/api/patients/details/${patient.id}`)
-        console.log(await details.json())
-    }
-
-
     return (
         <div className="patient-detail-page-container">
             <div className="patient-detail-emergency-container">
@@ -88,9 +82,6 @@ const PatientDetail = ({ patient, index, setIndex }) => {
                             value={contactPhone}
                             onChange={e => setContactPhone(e.target.value)}
                         />
-                        <button onClick={test}>
-                            test
-                        </button>
                     </>
                     : null
                 }
