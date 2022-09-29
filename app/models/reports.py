@@ -18,7 +18,7 @@ class Report(db.Model):
 
     patients = db.relationship(
         'Patient', secondary=patientreports, backref='reports')
-    staff = db.relationship(
+    staffs = db.relationship(
         'Staff', secondary=staffreports, backref='reports')
     departments = db.relationship(
         'Department', secondary=departmentreports, backref='reports')
@@ -31,3 +31,11 @@ class Report(db.Model):
             "content": self.content,
             'updatedOn': self.updated_at,
         }
+
+    def report_details_to_dict(self):
+        return {
+            'reportPatients': [{'patientId': patient.id} for patient in self.patients],
+            'reportDepartments': [{'departmentId': department.id} for department in self.departments],
+            'reportStaffs': [{'staffId': staff.id} for staff in self.staffs]
+        }
+    

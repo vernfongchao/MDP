@@ -36,9 +36,6 @@ class Patient(db.Model):
     def patient_details_to_dict(self):
         return {
             'patientReports': [{'reportId':report.id} for report in self.reports],
-            # 'reportPatients' : [],
-            'patientDepartments': [],
-            # 'departmentPatients': []
+            # 'patientDepartments': [],
 
-            
         }

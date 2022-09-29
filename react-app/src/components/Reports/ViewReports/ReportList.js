@@ -22,6 +22,8 @@ const ReportList = ({ idx }) => {
         )
     })
 
+    const report = filteredReports[index]
+
     const changeSearch = (e) => {
         setIndex(0)
         setSearch(e.target.value)
@@ -89,7 +91,7 @@ const ReportList = ({ idx }) => {
             </div>
 
             <Report index={index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch} />
-            <ReportDetails index={index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch} />
+            <ReportDetails index={index} reports={filteredReports} report={report}setIndex={setIndex} setSearch={setSearch} />
         </div>
     )
 }

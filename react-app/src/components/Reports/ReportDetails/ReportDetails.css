@@ -6,9 +6,49 @@
     background-color: #F1FAEE;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .report-patients-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     border-bottom: 10px #1D3557 solid;
+}
+
+.report-patient-header-container{
+    width: 95%;
+}
+
+.report-patients-card-container{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.report-patient-card-id-name-container{
+    width: 60%;
+}
+
+.report-patient-card-id-container{
+    border-bottom: #1D3557 solid 2px;
+
+}
+
+.report-patient-card-id-name-header{
+    margin: 0%;
+    font-size: 12px;
+}
+.report-patient-card-id{
+    margin: 0%;
+    font-size: 18px;
+}
+
+.report-patient-card-name-container{
+    display: flex;
+    border-bottom: #1D3557 solid 2px;
+}
+.report-patient-name-container{
+    width: 50%;
 }
