@@ -85,7 +85,8 @@ const PatientDetail = ({ patient, index, setIndex }) => {
             </div>
             <div className="patient-detail-reports-container">
                 <h2>Reports</h2>
-                {patientReports.map(({reportId})=>{
+
+                {patient && patientReports.map(({reportId})=>{
                     return(
                         <p>
                             {reports[reportId].title} ID: {reports[reportId].id}
