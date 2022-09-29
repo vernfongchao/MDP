@@ -22,6 +22,11 @@ const ReportList = ({ idx }) => {
         )
     })
 
+    const changeSearch = (e) => {
+        setIndex(0)
+        setSearch(e.target.value)
+    }
+
     const clearSearch = () => {
         setSearch("")
         setIndex(0)
@@ -54,7 +59,7 @@ const ReportList = ({ idx }) => {
                                 className="report-search-input-field"
                                 type="text"
                                 value={search}
-                                onChange={e => setSearch(e.target.value)}
+                                onChange={changeSearch}
                             />
                             <VscIcons.VscSearchStop
                                 className="report-search-clear-icon"
