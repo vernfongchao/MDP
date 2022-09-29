@@ -86,9 +86,6 @@ const PatientDetail = ({ patient, index, setIndex }) => {
                     : null
                 }
             </div>
-            <div className="patient-detail-department-container">
-                <h2>Department</h2>
-            </div>
             <div className="patient-detail-reports-container">
                 <h2>Reports</h2>
                 {patientReports.map(({reportId})=>{
