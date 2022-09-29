@@ -1,0 +1,14 @@
+.report-details-page-container{
+
+    box-sizing: border-box;
+    height: 100%;
+    width: 33%;
+    background-color: #F1FAEE;
+    display: flex;
+    flex-direction: column;
+}
+
+.report-patients-container{
+    width: 100%;
+    border-bottom: 10px #1D3557 solid;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 
 import Report from "../Report/Report"
+import ReportDetails from "../ReportDetails/ReportDetails"
 
 import "./ReportList.css"
 
@@ -82,8 +83,8 @@ const ReportList = ({ idx }) => {
                 </div>
             </div>
 
-            <Report index = {index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch}/>
-
+            <Report index={index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch} />
+            <ReportDetails index={index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch} />
         </div>
     )
 }
