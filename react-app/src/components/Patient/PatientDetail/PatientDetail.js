@@ -87,9 +87,9 @@ const PatientDetail = ({ patient, index, setIndex }) => {
                 <h2>Reports</h2>
                 {patientReports.map(({reportId})=>{
                     return(
-                        <span>
+                        <p>
                             {reports[reportId].title} ID: {reports[reportId].id}
-                        </span>
+                        </p>
                     )
                 })}
                 {/* {reports.map((report,i) => {
