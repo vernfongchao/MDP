@@ -1,5 +1,5 @@
 from .db import db
-from .departmentstaffs import departmentstaffs
+from .patientreports import patientreports
 
 
 class Patient(db.Model):
@@ -19,8 +19,7 @@ class Patient(db.Model):
     contact = db.relationship("EmergencyContact", back_populates="patient",
                               uselist=False, cascade="all,delete")
 
-    # departments = db.relationship(
-    #     'Department', secondary=departmentstaffs, backref='patients')
+    # reports = db.relationship('Report',secondary )
 
     def to_dict(self):
         return {
@@ -34,5 +33,12 @@ class Patient(db.Model):
             'updatedOn': self.updated_at
         }
 
-    # def to_departmentpatients_dict(self):
-    #     return [{'departmentId': department.id} for department in self.departments]
+    def patient_details_to_dict(self):
+        return {
+            'patientReports': [{'reportId':report.id} for report in self.reports],
+            # 'reportPatients' : [],
+            'patientDepartments': [],
+            # 'departmentPatients': []
+
+            
+        }

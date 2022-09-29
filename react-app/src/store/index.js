@@ -9,6 +9,7 @@ import departmentStaffsreducer from './departmentstaff';
 import patientReducer from './patient';
 import contactReducer from './contact';
 import reportReducer from './report';
+import patientReportsReducer from './patientreport';
 
 const rootReducer = combineReducers({
   session,
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   departments:departmentReducer,
   departmentStaffs:departmentStaffsreducer,
   contact:contactReducer,
-  reports:reportReducer
+  reports:reportReducer,
+  patientReports:patientReportsReducer
 });
 
 

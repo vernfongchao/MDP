@@ -1,8 +1,10 @@
 
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getContact } from '../../../store/contact'
+// import { getContact } from '../../../store/contact'
+import { loadContact } from '../../../store/contact'
 import { removeContacts } from '../../../store/contact'
+import { getPatientDetails } from '../../../store/patientreport'
 import './PatientDetail.css'
 
 import * as RiIcons from 'react-icons/ri'
@@ -14,6 +16,12 @@ const PatientDetail = ({ patient, index, setIndex }) => {
 
     const contact = Object.values(useSelector(state => state.contact))[0]
 
+    const patientReports = Object.values(useSelector(state=>state.patientReports.patient))
+
+    const reports = useSelector(state =>state.reports)
+
+    console.log(patientReports)
+
     const [contactFirstName, setContactFirstName] = useState("")
     const [contactLastName, setContactLastName] = useState("")
     const [contactPhone, setContactPhone] = useState("")
@@ -22,20 +30,23 @@ const PatientDetail = ({ patient, index, setIndex }) => {
     useEffect (() =>{
         (async() => {
             if (patient) {
-                let eContact = await dispatch(getContact(patient?.id))
-                if(eContact.errors){
-                    await dispatch(removeContacts())
-                    setContactFirstName("")
-                    setContactLastName("")
-                    setContactPhone("")
+                const patientDetails = await dispatch(getPatientDetails(patient?.id))
+                console.log(patientDetails)
+                if(patientDetails.contact){
+                    await dispatch( loadContact(patientDetails.contact))
+                }
+                else if(!patientDetails.contact){
+                    dispatch(removeContacts())
                 }
             }
-            else {
-                // dispatch(removeContacts())
+            // else {
+            //     // dispatch(removeContacts())
 
-            }
+            // }
         })()
     }, [dispatch, patient])
+
+    
 
     useEffect(() => {
         if (contact) {
@@ -43,7 +54,17 @@ const PatientDetail = ({ patient, index, setIndex }) => {
             setContactLastName(contact?.lastName)
             setContactPhone(contact?.phone)
         }
+        else if(!contact){
+            setContactFirstName("")
+            setContactLastName("")
+            setContactPhone("")
+        }
     }, [contact, patient])
+
+    const test = async (e) => {
+        const details = await fetch(`/api/patients/details/${patient.id}`)
+        console.log(await details.json())
+    }
 
 
     return (
@@ -67,6 +88,9 @@ const PatientDetail = ({ patient, index, setIndex }) => {
                             value={contactPhone}
                             onChange={e => setContactPhone(e.target.value)}
                         />
+                        <button onClick={test}>
+                            test
+                        </button>
                     </>
                     : null
                 }
@@ -76,6 +100,21 @@ const PatientDetail = ({ patient, index, setIndex }) => {
             </div>
             <div className="patient-detail-reports-container">
                 <h2>Reports</h2>
+                {patientReports.map(({reportId})=>{
+                    return(
+                        <span>
+                            {reports[reportId].title} ID: {reports[reportId].id}
+                        </span>
+                    )
+                })}
+                {/* {reports.map((report,i) => {
+                        
+                    return(
+                        <span>
+
+                        </span>
+                    )
+                })} */}
             </div>
         </div>
     )

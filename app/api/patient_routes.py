@@ -61,6 +61,33 @@ def edit_patient_profile(id):
         return {"errors": form.errors}, 400
 
 
+@patient_routes.route('/details/<int:id>')
+@login_required
+def get_patient_details(id):
+
+    contact = EmergencyContact.query.filter_by(patient_id=id).first()
+    patient = Patient.query.get(id)
+    response = {}
+    if not contact:
+        response["errors"] = {}
+        response["errors"]["contact"] = 'Contacts for patient not found'
+    elif contact:
+        response["contact"] = contact.to_dict()
+    if not patient:
+        response["errors"] = {**response.errors}
+        response["errors"]["report"] = 'No patient found'
+    elif patient:
+        response = {**response, **patient.patient_details_to_dict()}
+    return response,200
+    # return {"errors": {"contact":"contact not found"}}, 400
+    # return patient_details.patient_details_to_dict(), 200
+
+
+
+
+
+
+
 def upload_image(image, id):
     if not allowed_file(image.filename):
         return {"errors": {"image": "file type not permitted"}}, 400

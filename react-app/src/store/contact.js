@@ -1,7 +1,7 @@
 const LOAD_EMERGENCY_CONTACT = '/contact/LOAD_EMERGENCY_CONTACT'
 const REMOVE_EMERGENCY_CONTACT = '/contact/REMOVE_EMERGENCY_CONTACTS'
 
-const loadContact = contact => (
+export const loadContact = contact => (
     {
         type:LOAD_EMERGENCY_CONTACT,
         contact
