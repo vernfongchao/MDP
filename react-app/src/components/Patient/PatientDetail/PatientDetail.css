@@ -1,7 +1,7 @@
 .patient-detail-page-container {
     box-sizing: border-box;
     height: 100%;
-    width: 33%;
+    width: 33.3%;
     background-color: #F1FAEE;
     display: flex;
     flex-direction: column;
@@ -10,18 +10,13 @@
 .patient-detail-emergency-container{
     border-bottom: 10px #1D3557 solid;
     width: 100%;
-    height: 15 0px;
+    height: 150px;
 }
 
-.patient-detail-department-container {
-    border-bottom: 10px #1D3557 solid;
-    width: 100%;
-    height: 100px;
-}
 
 .patient-detail-reports-container {
     border-bottom: 10px #1D3557 solid;
     width: 100%;
-    height: 100px;
+
 }
 

@@ -18,13 +18,35 @@ def get_patients():
         return {"errors": "patients not found"}, 400
 
 
-@patient_routes.route('/contact/<int:id>')
-def put_patient_details(id):
+@patient_routes.route('/details/<int:id>')
+@login_required
+def get_patient_details(id):
     contact = EmergencyContact.query.filter_by(patient_id=id).first()
-    if contact:
-        return contact.to_dict(), 200
-    else:
-        return {"errors": {"contact":"contact not found"}}, 400
+    patient = Patient.query.get(id)
+    response = {}
+    if not contact:
+        response["errors"] = {}
+        response["errors"]["contact"] = 'Contacts for patient not found'
+    elif contact:
+        response["contact"] = contact.to_dict()
+    if not patient:
+        response["errors"] = {**response.errors}
+        response["errors"]["report"] = 'No patient found'
+    elif patient:
+        response = {**response, **patient.patient_details_to_dict()}
+    return response, 200
+    # return {"errors": {"contact":"contact not found"}}, 400
+    # return patient_details.patient_details_to_dict(), 200
+
+
+
+# @patient_routes.route('/contact/<int:id>')
+# def put_patient_details(id):
+#     contact = EmergencyContact.query.filter_by(patient_id=id).first()
+#     if contact:
+#         return contact.to_dict(), 200
+#     else:
+#         return {"errors": {"contact":"contact not found"}}, 400
 
 
 @patient_routes.route('/', methods=["POST"])
@@ -59,6 +81,11 @@ def edit_patient_profile(id):
         return patient.to_dict(), 200
     else:
         return {"errors": form.errors}, 400
+
+
+
+
+
 
 
 def upload_image(image, id):

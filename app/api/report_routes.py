@@ -15,6 +15,15 @@ def get_reports():
         return {"errors": "reports not found"}, 400
 
 
+@report_routes.route('/details/<int:id>')
+def get_report_details(id):
+    report = Report.query.get(id)
+    if report:
+        return report.report_details_to_dict()
+    else:
+        return {"errors": "reports not found"}, 400
+
+
 @report_routes.route('/', methods=["POST"])
 @login_required
 def post_report():
