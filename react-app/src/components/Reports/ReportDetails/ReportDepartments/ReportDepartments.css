@@ -1,0 +1,7 @@
+.report-department-container{
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            border-bottom: 10px #1D3557 solid;
+}

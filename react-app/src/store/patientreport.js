@@ -33,11 +33,11 @@ export const getPatientDetails = (id) => async dispatch => {
 
 
 export const getReportPatients = id => async dispatch => {
-    const response = await fetch(`/api/reports/details/${id}`)
+    const response = await fetch(`/api/reports/patients/${id}`)
     if (response.ok) {
-        const details = await response.json()
-        dispatch(loadReportPatients(details.reportPatients))
-        return details
+        const reportPatients = await response.json()
+        dispatch(loadReportPatients(reportPatients))
+        return reportPatients
     }
     else if (response.status < 500) {
         const error = await response.json()

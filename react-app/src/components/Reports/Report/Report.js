@@ -14,11 +14,11 @@ import parse from 'html-react-parser'
 
 import "./Report.css"
 
-const Report = ({ index, reports, setIndex, setSearch }) => {
+const Report = ({ index, setIndex, setSearch ,report }) => {
     const dispatch = useDispatch()
 
     const reportLength = Object.values(useSelector(state => state.reports)).length
-    const report = reports[index]
+
 
     const [lastIndex, setLastIndex] = useState(index)
 

@@ -15,13 +15,31 @@ def get_reports():
         return {"errors": "reports not found"}, 400
 
 
-@report_routes.route('/details/<int:id>')
-def get_report_details(id):
+@report_routes.route('/patients/<int:id>')
+def get_report_patients(id):
     report = Report.query.get(id)
     if report:
-        return report.report_details_to_dict()
+        return jsonify(report.report_patients_to_dict()), 200
     else:
-        return {"errors": "reports not found"}, 400
+        return {"errors": "report not found"}, 400
+
+@report_routes.route('/staffs/<int:id>')
+def get_report_staffs(id):
+    report = Report.query.get(id)
+
+    if report:
+        return jsonify(report.report_staffs_to_dict()), 200
+    else:
+        return {"errors": "report not found"}, 400
+
+
+@report_routes.route('/departments/<int:id>')
+def get_report_departments(id):
+    report = Report.query.get(id)
+    if report:
+        return jsonify(report.report_departments_to_dict()),200
+    else:
+        return {"errors": "report not found"}, 400
 
 
 @report_routes.route('/', methods=["POST"])
