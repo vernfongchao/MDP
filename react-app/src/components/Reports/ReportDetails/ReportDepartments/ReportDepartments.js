@@ -8,10 +8,15 @@ import './ReportDepartments.css'
 const ReportDepartments = ({ report }) => {
     const dispatch = useDispatch()
 
+    const reportDepartments = Object.values(useSelector(state => state.departmentReports.report))
+
+    const departments = useSelector(state => state.departments)
+
+    console.log(reportDepartments)
+
     useEffect(() => {
         (async () => {
             if (report) {
-                // const reportDetails = 
                 await dispatch(getReportDepartments(report?.id))
             }
         })()
@@ -19,10 +24,19 @@ const ReportDepartments = ({ report }) => {
 
     return (
         <div className="report-department-container">
+            <div className="report-department-header-container">
+                <h1>
+                    Departments
+                </h1>
+            </div>
+            <div className="report-department-list-container">
+                {report && reportDepartments.map(({ departmentId }) => (
+                    <span className="report-department-name">
+                        {departments[departmentId].name}
+                    </span>
+                ))}
 
-            <h1>
-                Departments
-            </h1>
+            </div>
         </div>
 
     )

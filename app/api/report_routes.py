@@ -36,6 +36,7 @@ def get_report_staffs(id):
 @report_routes.route('/departments/<int:id>')
 def get_report_departments(id):
     report = Report.query.get(id)
+    ("================================================= REACHED HERE",report)
     if report:
         return jsonify(report.report_departments_to_dict()),200
     else:

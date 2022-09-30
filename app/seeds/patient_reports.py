@@ -18,7 +18,7 @@ def seed_patientreports():
     fifth_report = Report.query.get(5)
     sixth_report = Report.query.get(6)
     seventh_report = Report.query.get(7)
-    eigth_report = Report.query.get(8)
+    eighth_report = Report.query.get(8)
     ninth_report = Report.query.get(9)
     tenth_report = Report.query.get(10)
 
@@ -29,7 +29,7 @@ def seed_patientreports():
     fifth_patient.reports.append(fifth_report)
     sixth_patient.reports.append(sixth_report)
     seventh_patient.reports.append(seventh_report)
-    eighth_patient.reports.append(eigth_report)
+    eighth_patient.reports.append(eighth_report)
     ninth_patient.reports.append(ninth_report)
     first_patient.reports.append(tenth_report)
     db.session.commit()
