@@ -151,27 +151,8 @@ const EditReportDepartments = ({ report, setShowModal }) => {
                         </h4>
                     </div>
                 ))
-
                 }
-
             </div>
-
-            {/* 
-            <div className="report-all-card-container">
-                {filteredReports.map((report, i) => (
-                    <div key={i} className={index === i ? 'report-card-container active-report'
-                        : "report-card-container"}
-                        onClick={e => changeReport(e, i)}
-                    >
-                        <h3 className="report-title">
-                            {report.title}
-                        </h3>
-                        <h4>
-                            ID: {report.id}
-                        </h4>
-                    </div>
-                ))}
-            </div> */}
         </div>
     )
 }

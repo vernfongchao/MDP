@@ -13,8 +13,21 @@
 .report-department-list-container{
     width: 95%;
     margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
+
+.report-department-name-container{
+    margin-top: 5px;
+    display: flex;
+    background-color: #A8DADC;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 20px;
+    height: 22px;
+}
 .report-department-name{
     font-weight: bold;
 }
+
