@@ -76,7 +76,7 @@ const EditReportDepartments = ({ report, setShowModal }) => {
             [deleteDepartmentsLength ? "delete_departments" : undefined]: deleteDepartmentsLength ? Object.values(departmentsToDelete) : null,
             [addDepartmentsLength ? "add_departments" : undefined]: addDepartmentsLength ? Object.values(departmentsToAdd) : null,
         }))
-        if (newReportDepartments.length) {
+        if (newReportDepartments.length >= 0) {
             setShowModal(false)
         }
     }
