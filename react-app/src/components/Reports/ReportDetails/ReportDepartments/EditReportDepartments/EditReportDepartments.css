@@ -116,13 +116,38 @@
     z-index: 1;
     background-color: #1D3557;
     color: white;
-    /* background-color: white;
-    color: red; */
+
 }
 .edit-report-department-remove-icon:hover{
-    /* background-color: #1D3557;
-    color: white; */
-        background-color: white;
-            color: red;
+    background-color: white;
+    color: red;
     cursor: pointer;
+}
+
+.edit-report-department-cards-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-left: min(3vw, 50px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.edit-report-department-card-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 2px black solid;
+    width: min(22vw, 422px);
+    box-shadow: 1px 1px 5px 1px #F1FAEE;
+    overflow-wrap: break-word;
+    border: 1px solid #1D3557;
+}
+
+.edit-report-department-card-container:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 1px #1D3557;
+    border: 1px solid #1D3557;
+    background-color: #A8DADC;
 }

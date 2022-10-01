@@ -136,15 +136,42 @@ const EditReportDepartments = ({ report, setShowModal }) => {
                 ))}
             </div>
 
-            {filteredDepartments.map((department) => (
-                <div
-                    key={department.id}
-                    onClick={e => handleAdd(e, department.id)}>
-                    <span>{department.name} {department.id}</span>
-                </div>
-            ))
+            <div className="edit-report-department-cards-container">
+                {filteredDepartments.map((department) => (
+                    <div
+                        className="edit-report-department-card-container"
+                        key={department.id}
+                        onClick={e => handleAdd(e, department.id)}>
 
-            }
+                        <h3 className>
+                            {department.name}
+                        </h3>
+                        <h4>
+                            Department ID: {department.id}
+                        </h4>
+                    </div>
+                ))
+
+                }
+
+            </div>
+
+            {/* 
+            <div className="report-all-card-container">
+                {filteredReports.map((report, i) => (
+                    <div key={i} className={index === i ? 'report-card-container active-report'
+                        : "report-card-container"}
+                        onClick={e => changeReport(e, i)}
+                    >
+                        <h3 className="report-title">
+                            {report.title}
+                        </h3>
+                        <h4>
+                            ID: {report.id}
+                        </h4>
+                    </div>
+                ))}
+            </div> */}
         </div>
     )
 }
