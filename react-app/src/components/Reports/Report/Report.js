@@ -14,7 +14,7 @@ import parse from 'html-react-parser'
 
 import "./Report.css"
 
-const Report = ({ index, setIndex, setSearch ,report }) => {
+const Report = ({ index, setIndex, setSearch, report }) => {
     const dispatch = useDispatch()
 
     const reportLength = Object.values(useSelector(state => state.reports)).length
@@ -26,7 +26,6 @@ const Report = ({ index, setIndex, setSearch ,report }) => {
     const [title, setTitle] = useState(report?.title)
     // const [maxTitle, setMaxTitle] = useState("")
     const [content, setContent] = useState("")
-    const [maxContent, setMaxContent] = useState("")
     const [delta, setDelta] = useState('')
 
     const [titleError, setTitleError] = useState("")
@@ -172,10 +171,12 @@ const Report = ({ index, setIndex, setSearch ,report }) => {
                                 </p>
                             }
                         </div>
-                        <div className='report-updated-container'>
-                            <span style={{ fontWeight: 'bold', fontSize: '12px' }}>Last Updated</span>
-                            <span>{report?.updatedOn}</span>
-                        </div>
+                        {report &&
+                            <div className='report-updated-container'>
+                                <span style={{ fontWeight: 'bold', fontSize: '12px' }}>Last Updated</span>
+                                <span>{report?.updatedOn}</span>
+                            </div>
+                        }
                         <div className='report-content-container'>
                             <h3 >Report Details</h3>
                             <ReactQuill

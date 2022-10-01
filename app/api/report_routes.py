@@ -79,7 +79,6 @@ def edit_report(id):
 def edit_report_patients(id):
     details = request.get_json()
     report = Report.query.get(id)
-    print("====================================",details)
     if not report:
         return {"errors": "report not found"}, 400
 

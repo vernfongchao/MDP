@@ -1,5 +1,5 @@
 
-// import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../../auth/Login/LogoutButton';
@@ -59,11 +59,11 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
                 Staff
               </h1>
             </div >
-          <div className='navbar-header-container' >
-            <h1 className={tab.idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
-              Department
-            </h1>
-          </div >
+            <div className='navbar-header-container' >
+              <h1 className={tab.idx === 5 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 5)}>
+                Department
+              </h1>
+            </div >
             <div className='navbar-header-container' >
               <h1 className={tab.idx === 6 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 6)}>
                 Messages
@@ -73,11 +73,25 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         }
       </div>
       <div className='main-info-container'>
-        <Announcement idx={tab.idx} />
-        <ReportList idx={tab.idx} />
-        <PatientList idx={tab.idx} />
-        <StaffList idx={tab.idx} />
-        <DepartmentList idx={tab.idx} />
+        {tab.idx === 0 &&
+          <Announcement idx={tab.idx} />
+        }
+        {tab.idx === 1 &&
+          <ReportList idx={tab.idx} />
+        }
+        {tab.idx === 2 &&
+          <PatientList idx={tab.idx} />
+        }
+        {/* {tab.idx === 3 &&
+          <Announcement idx={tab.idx} />
+        } */}
+        {tab.idx === 4 &&
+          <StaffList idx={tab.idx} />
+        }
+
+        {tab.idx === 5 &&
+          <DepartmentList idx={tab.idx} />
+        }
       </div>
     </div>
   );

@@ -33,9 +33,9 @@ const ReportDepartments = ({ report }) => {
                         report={report}
                     />
                 }
-                <h1>
+                <h2>
                     Departments
-                </h1>
+                </h2>
             </div>
             <div className="report-department-list-container">
                 {report && reportDepartments?.map(({ departmentId }) => (

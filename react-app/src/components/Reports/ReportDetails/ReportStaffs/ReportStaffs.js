@@ -35,7 +35,7 @@ const ReportStaffs = ({ report }) => {
                     />
             }
             <div className="report-staffs-header-container">
-                <h1>Staffs</h1>
+                <h2>Staffs</h2>
             </div>
 
             {report && reportStaffs?.map(({ staffId }) => {

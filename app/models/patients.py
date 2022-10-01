@@ -33,6 +33,9 @@ class Patient(db.Model):
             'updatedOn': self.updated_at
         }
 
+    def patient_reports_to_dict(self):
+        return[{"reportId": report.id} for report in self.reports]
+
     def patient_details_to_dict(self):
         return {
             'patientReports': [{'reportId':report.id} for report in self.reports],
