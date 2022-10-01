@@ -20,6 +20,26 @@ export const getReportDepartments = (id) => async dispatch => {
     }
 }
 
+export const patchReportDepartments = (payload) => async dispatch => {
+    const response = await fetch(`/api/reports/departments/${payload.id}`,{
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const reportDepartments = await response.json()
+        dispatch(loadReportDepartments(reportDepartments))
+        return reportDepartments
+    }
+    else if (response.status < 500) {
+        const error = await response.json()
+        return error
+    }
+}
+
+
 const initialState = { department: {}, report: {} }
 
 const departmentReportsReducer = (state = initialState,action) => {

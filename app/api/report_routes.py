@@ -1,6 +1,8 @@
+from crypt import methods
+from distutils.log import log
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Report
+from app.models import db, Report, Department
 from app.forms import ReportForm
 
 report_routes = Blueprint('report', __name__)
@@ -23,6 +25,7 @@ def get_report_patients(id):
     else:
         return {"errors": "report not found"}, 400
 
+
 @report_routes.route('/staffs/<int:id>')
 def get_report_staffs(id):
     report = Report.query.get(id)
@@ -36,9 +39,8 @@ def get_report_staffs(id):
 @report_routes.route('/departments/<int:id>')
 def get_report_departments(id):
     report = Report.query.get(id)
-    ("================================================= REACHED HERE",report)
     if report:
-        return jsonify(report.report_departments_to_dict()),200
+        return jsonify(report.report_departments_to_dict()), 200
     else:
         return {"errors": "report not found"}, 400
 
@@ -70,3 +72,28 @@ def edit_report(id):
         return edit_report.to_dict(), 200
     else:
         return {"errors": form.errors}, 400
+
+
+@report_routes.route('/departments/<int:id>', methods=["PUT"])
+@login_required
+def edit_report_departments(id):
+    details = request.get_json()
+    report = Report.query.get(id)
+    if not report:
+        return {"errors": "report not found"}, 400
+
+    if "add_departments" in details:
+        for departmentObj in details["add_departments"]:
+            department = Department.query.get(departmentObj["departmentId"])
+            if not report.departments.__contains__(department):
+                report.departments.append(department)
+                db.session.commit()
+
+    if "delete_departments" in details:
+        for departmentObj in details["delete_departments"]:
+            department = Department.query.get(departmentObj["departmentId"])
+            if report.departments.__contains__(department):
+                report.departments.remove(department)
+                db.session.commit()
+    return jsonify(report.report_departments_to_dict()), 200
+
