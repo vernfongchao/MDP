@@ -27,7 +27,7 @@ def seed_deparments():
     department = [
         Department(name="Administration", building="1", floor="1"),
         Department(name="Human Resources", building="1", floor="2"),
-        Department(name="information technology", building="10", floor="1"),
+        Department(name="Information Technology", building="10", floor="1"),
         Department(name="Accident and Emergency", building="3", floor="1"),
         Department(name="Radiology", building="5", floor="2"),
         Department(name="Cardiology", building="5", floor="3"),

@@ -20,6 +20,8 @@
 
 .report-department-name-container{
     margin-top: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
     display: flex;
     background-color: #A8DADC;
     border: 2px solid black;

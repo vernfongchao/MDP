@@ -106,3 +106,7 @@
 .active-report {
     background-color: #A8DADC;
 }
+
+.report-list-title{
+    width: 70%;
+}
