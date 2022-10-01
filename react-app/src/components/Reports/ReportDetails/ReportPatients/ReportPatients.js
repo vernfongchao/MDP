@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
+// import 
 import { getReportPatients } from "../../../../store/patientreport"
+
+
+import * as RiIcons from 'react-icons/ri'
 
 import './ReportPatients.css'
 
-const ReportPatients = ({report}) => {
+const ReportPatients = ({ report }) => {
 
     const dispatch = useDispatch()
 
@@ -24,10 +28,15 @@ const ReportPatients = ({report}) => {
         e.target.src = "https://i.pinimg.com/474x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg"
     }
 
-    return(
+    return (
         <div className='report-patients-container'>
+            {report &&
+                <div className="report-patient-add-icon-container">
+                    <RiIcons.RiFileEditFill
+                        className="report-patient-add-icon" />
+                </div>
+            }
             <div className="report-patients-header-container">
-
                 <h1>Patients</h1>
             </div>
 

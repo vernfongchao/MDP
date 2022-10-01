@@ -2,7 +2,7 @@ from crypt import methods
 from distutils.log import log
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Report, Department
+from app.models import db, Report, Department, Staff
 from app.forms import ReportForm
 
 report_routes = Blueprint('report', __name__)
@@ -97,3 +97,27 @@ def edit_report_departments(id):
                 db.session.commit()
     return jsonify(report.report_departments_to_dict()), 200
 
+
+@report_routes.route('/staffs/<int:id>', methods=['PUT'])
+@login_required
+def edit_report_staffs(id):
+    details = request.get_json()
+    report = Report.query.get(id)
+    if not report:
+        return {"errors": "report not found"}, 400
+
+    if "add_staffs" in details:
+        for staffObj in details["add_staffs"]:
+            staff = Staff.query.get(staffObj["staffId"])
+            if not report.staffs.__contains__(staff):
+                report.staffs.append(staff)
+                db.session.commit()
+
+    if "delete_staffs" in details:
+        for staffObj in details["delete_staffs"]:
+            staff = Staff.query.get(staffObj["staffId"])
+            if report.staffs.__contains__(staff):
+                report.staffs.remove(staff)
+                db.session.commit()
+
+    return jsonify(report.report_staffs_to_dict()), 200

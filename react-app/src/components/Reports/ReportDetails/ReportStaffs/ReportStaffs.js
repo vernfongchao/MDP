@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
-import './ReportStaffs.css'
-
 import { getReportStaffs } from "../../../../store/staffreport"
 
-const ReportStaffs = ({report}) => {
+import EditReportStaffModal from "./EditReportStaffs/EditReportStaffModal"
+import * as RiIcons from 'react-icons/ri'
+
+import './ReportStaffs.css'
+
+const ReportStaffs = ({ report }) => {
     const dispatch = useDispatch()
 
-    const reportStaffs = Object.values(useSelector(state=> state.staffReports.report))
-    const staffs = useSelector(state=>state.staffs)
+    const reportStaffs = Object.values(useSelector(state => state.staffReports.report))
+    const staffs = useSelector(state => state.staffs)
 
     const handleImageError = (e) => {
         e.target.src = "https://i.pinimg.com/474x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg"
@@ -24,9 +27,14 @@ const ReportStaffs = ({report}) => {
         })()
     }, [dispatch, report])
 
-    return(
+    return (
 
         <div className="report-staffs-container">
+            {report &&
+                    <EditReportStaffModal 
+                    report = {report}
+                    />
+            }
             <div className="report-staffs-header-container">
                 <h1>Staffs</h1>
             </div>

@@ -38,8 +38,10 @@ const ReportDepartments = ({ report }) => {
                 </h1>
             </div>
             <div className="report-department-list-container">
-                {report && reportDepartments?.map(({ departmentId }, i) => (
-                    <div className="report-department-name-container">
+                {report && reportDepartments?.map(({ departmentId }) => (
+                    <div
+                        key={departmentId}
+                        className="report-department-name-container">
                         <span className="report-department-name">
                             {departments[departmentId].name}
                         </span>

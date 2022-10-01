@@ -3,14 +3,14 @@ const LOAD_REPORT_STAFFS = 'staffreports/LOAD_REPORT_STAFFS'
 
 const loadStaffReports = staffReports => (
     {
-        type:LOAD_STAFF_REPORTS,
+        type: LOAD_STAFF_REPORTS,
         staffReports
     }
 )
 
 const loadReportStaffs = reportStaffs => (
     {
-        type:LOAD_REPORT_STAFFS,
+        type: LOAD_REPORT_STAFFS,
         reportStaffs
     }
 )
@@ -18,7 +18,7 @@ const loadReportStaffs = reportStaffs => (
 
 export const getReportStaffs = id => async dispatch => {
     const response = await fetch(`/api/reports/staffs/${id}`)
-    if(response.ok){
+    if (response.ok) {
         const reportStaffs = await response.json()
         dispatch(loadReportStaffs(reportStaffs))
         return reportStaffs
@@ -30,16 +30,42 @@ export const getReportStaffs = id => async dispatch => {
 }
 
 
-const initialState = {staff :{} , report:{}}
+export const patchReportStaffs = (payload) => async dispatch => {
+    const response = await fetch(`/api/reports/staffs/${payload.id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const reportStaffs = await response.json()
+        dispatch(loadReportStaffs(reportStaffs))
+        return reportStaffs
+    }
+    else if (response.status < 500) {
+        const error = await response.json()
+        return error
+    }
+}
 
-const staffReportsReducer = (state = initialState,action)=>{
+
+
+
+const initialState = { staff: {}, report: {} }
+
+const staffReportsReducer = (state = initialState, action) => {
     let newState;
-    switch(action.type){
-        case LOAD_STAFF_REPORTS:{
+    switch (action.type) {
+        case LOAD_STAFF_REPORTS: {
 
         }
-        case LOAD_REPORT_STAFFS:{
-            newState= {staff: {...state.staff},report:{}}
+        case LOAD_REPORT_STAFFS: {
+            newState = { staff: { ...state.staff }, report: {} }
+            console.log(action.reportStaffs)
+            action.reportStaffs.forEach(staff =>{
+                console.log(staff)
+            })
             action.reportStaffs.forEach(staff => newState.report[staff.staffId] = staff)
             return newState
         }

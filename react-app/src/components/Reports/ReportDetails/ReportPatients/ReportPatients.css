@@ -6,6 +6,24 @@
     border-bottom: 10px #1D3557 solid;
 }
 
+.report-patient-add-icon-container{
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 0px;
+    top: 10px;
+}
+
+.report-patient-add-icon{
+    font-size: 2em;
+}
+
+.report-patient-add-icon:hover{
+    cursor: pointer;
+    color: #1D3557;
+}
+
 .report-patients-header-container {
     width: 95%;
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { VscSearch } from "react-icons/vsc"
 import { useSelector, useDispatch } from "react-redux"
 
 import { patchReportDepartments } from "../../../../../store/departmentreport"
@@ -15,7 +14,7 @@ const EditReportDepartments = ({ report, setShowModal }) => {
     const departments = useSelector(state => state.departments)
 
     const [search, setSearch] = useState("")
-    // const [departmentsArray, setDepartmentsArray] = useState([])
+
     const [departmentsObj, setDepartmentsObj] = useState({})
     const [departmentsToAdd, setDepartmentsToAdd] = useState({})
     const [departmentsToDelete, setDepartmentsToDelete] = useState({})
@@ -40,7 +39,6 @@ const EditReportDepartments = ({ report, setShowModal }) => {
     }
 
     const handleAdd = (e, departmentId) => {
-        console.log("reached")
         setDepartmentsObj({ ...departmentsObj, [departmentId]: { departmentId } })
         if (!reportDepartments[departmentId]) {
             setDepartmentsToAdd({ ...departmentsToAdd, [departmentId]: { departmentId } })
@@ -69,12 +67,12 @@ const EditReportDepartments = ({ report, setShowModal }) => {
     }
 
     const handleSave = async e => {
-        const deleteDepartmentsLength = Object.values(departmentsToDelete).length
-        const addDepartmentsLength = Object.values(departmentsToAdd).length
+        const deleteDepartments = Object.values(departmentsToDelete)
+        const addDepartments = Object.values(departmentsToAdd)
         const newReportDepartments = await dispatch(patchReportDepartments({
             "id": report.id,
-            [deleteDepartmentsLength ? "delete_departments" : undefined]: deleteDepartmentsLength ? Object.values(departmentsToDelete) : null,
-            [addDepartmentsLength ? "add_departments" : undefined]: addDepartmentsLength ? Object.values(departmentsToAdd) : null,
+            [deleteDepartments.length ? "delete_departments" : undefined]: deleteDepartments.length ? deleteDepartments : null,
+            [addDepartments.length ? "add_departments" : undefined]: addDepartments.length ? addDepartments : null,
         }))
         if (newReportDepartments.length >= 0) {
             setShowModal(false)
@@ -143,7 +141,7 @@ const EditReportDepartments = ({ report, setShowModal }) => {
                         key={department.id}
                         onClick={e => handleAdd(e, department.id)}>
 
-                        <h3 className>
+                        <h3>
                             {department.name}
                         </h3>
                         <h4>

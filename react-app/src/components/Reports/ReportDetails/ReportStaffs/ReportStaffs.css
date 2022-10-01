@@ -6,6 +6,12 @@
     border-bottom: 10px #1D3557 solid;
 }
 
+
+.report-staff-add-icon:hover {
+    cursor: pointer;
+    color: #1D3557;
+}
+
 .report-staffs-header-container {
     width: 95%;
 }

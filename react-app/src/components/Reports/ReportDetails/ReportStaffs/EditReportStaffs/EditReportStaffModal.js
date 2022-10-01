@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../../../context/Modal/Modal';
 
-import EditReportDepartments from './EditReportDepartments.js';
+import EditReportStaff from './EditReportStaff';
+import './EditReportStaff.css'
+
 import * as RiIcons from 'react-icons/ri'
 
-import './EditReportDepartments.css'
 
-const EditReportDepartmentModal = ({ report }) => {
+const EditReportStaffModal = ({ report }) => {
     const [showModal, setShowModal] = useState(false);
     return (
-        <div className="report-department-edit-modal-container">
+        <div className="report-staff-edit-icon-modal-container">
             <RiIcons.RiFileEditFill
-                className='report-department-edit-icon'
+                className='report-staff-edit-icon'
                 onClick={() => setShowModal(true)}
             />
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditReportDepartments
+                    <EditReportStaff
                         report={report}
                         setShowModal={setShowModal}
                     />
@@ -26,4 +27,4 @@ const EditReportDepartmentModal = ({ report }) => {
     );
 }
 
-export default EditReportDepartmentModal
+export default EditReportStaffModal

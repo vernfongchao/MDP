@@ -1,25 +1,26 @@
 /* Modal */
-.report-department-edit-modal-container{
+
+.report-staff-edit-icon-modal-container {
+    width: 95%;
     display: flex;
-    width: 100%;
-    top: 10px;
     justify-content: flex-end;
     position: relative;
     height: 0px;
+    top: 10px;
 }
 
-.report-department-edit-icon{
-    cursor: pointer;
+.report-staff-edit-icon {
     font-size: 1.75em;
 }
 
-.report-department-edit-icon:hover{
+.report-staff-edit-icon:hover {
+    cursor: pointer;
     color: #1D3557;
 }
 
 /* Inside-Modal */
 
-.edit-report-department-page-container{
+.edit-report-staff-page-container{
     height: 700px;
     width: 568.75px;
     background-color: #F1FAEE;
@@ -27,7 +28,8 @@
     flex-direction: column;
     align-items: center;
 }
-.edit-report-department-icon-container{
+
+.edit-report-staff-icon-container{
     position: relative;
     width: 95%;
     height: 0px;
@@ -35,65 +37,81 @@
     display: flex;
     justify-content: flex-end;
 }
-.edit-report-department-cancel-icon{
+
+.edit-report-staff-save-icon{
+    font-size: 1.75em;
+    cursor: pointer;
+}
+
+.edit-report-staff-save-icon:hover{
+    color:#1D3557
+}
+
+.edit-report-staff-cancel-icon{
     cursor: pointer;
     font-size: 2em;
 }
 
-.edit-report-department-cancel-icon:hover{
+.edit-report-staff-cancel-icon:hover {
     color: red;
 }
 
-.edit-report-department-header-container{
+.edit-report-staff-header-container{
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.edit-report-department-search-container{
+.edit-report-staff-search-container {
     width: 80%;
     display: flex;
     justify-content: space-between;
     padding-bottom: 10px;
 
 }
-.edit-report-deparment-search-label-container{
+
+.edit-report-staff-search-label-container {
     /* display: flex;
     align-items: center; */
 }
 
-.edit-report-deparment-search-label{
+.edit-report-staff-search-label {
     font-weight: bold;
 }
-.edit-report-department-input-container{
+
+.edit-report-staff-input-container {
     display: flex;
     width: 80%;
 }
-.edit-report-department-search-input{
+
+.edit-report-staff-search-input {
     width: 100%;
-    border:none;
+    border: none;
     border-bottom: 2px black solid;
 }
-.edit-report-department-search-input:hover{
+
+.edit-report-staff-search-input:hover {
     outline: none;
 }
 
-.edit-report-department-search-clear-icon{
+.edit-report-staff-search-clear-icon {
     font-size: 24px;
     border-bottom: 2px black solid;
     cursor: pointer;
 }
-.edit-report-department-search-clear-icon:hover{
+
+.edit-report-staff-search-clear-icon:hover {
     color: red;
 }
 
-.edit-report-department-remove-container{
+
+.edit-report-staff-remove-container{
     width: 80%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.edit-report-department-name-container{
+.edit-report-staff-name-container{
     margin-top: 5px;
     display: flex;
     padding-left: 3px;
@@ -105,10 +123,11 @@
     height: 22px;
 }
 
-.edit-report-department-remove-icon-container{
+.edit-report-staff-remove-icon-container {
     width: 0px;
 }
-.edit-report-department-remove-icon{
+
+.edit-report-staff-remove-icon {
     border-radius: 5px;
     border: #1D3557 solid 2px;
     position: relative;
@@ -120,13 +139,14 @@
     color: white;
 
 }
-.edit-report-department-remove-icon:hover{
+
+.edit-report-staff-remove-icon:hover {
     background-color: white;
     color: red;
     cursor: pointer;
 }
 
-.edit-report-department-cards-container{
+.edit-report-staff-cards-container{
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -134,7 +154,8 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-.edit-report-department-card-container{
+
+.edit-report-staff-card-container {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -147,9 +168,30 @@
     border: 1px solid #1D3557;
 }
 
-.edit-report-department-card-container:hover {
+.edit-report-staff-card-container:hover {
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;
     background-color: #A8DADC;
+}
+
+.edit-report-staff-img{
+    width: 100px;
+    height: 100px;
+}
+
+
+.edit-report-staff-card-id-name-container{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-report-staff-id-name-header{
+    font-size: 12px;
+    font-weight: bold;
+}
+.edit-report-staff-id-name{
+    width: 100%;
+    border-bottom: 2px black solid;
 }
