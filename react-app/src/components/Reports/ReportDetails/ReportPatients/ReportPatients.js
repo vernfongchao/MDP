@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
-// import 
+import EditReportPatientModal from "./EditReportPatients/EditReportPatientModal"
 import { getReportPatients } from "../../../../store/patientreport"
 
 
@@ -19,7 +19,7 @@ const ReportPatients = ({ report }) => {
     useEffect(() => {
         (async () => {
             if (report) {
-                const reportDetails = await dispatch(getReportPatients(report?.id))
+                dispatch(getReportPatients(report?.id))
             }
         })()
     }, [dispatch, report])
@@ -31,10 +31,10 @@ const ReportPatients = ({ report }) => {
     return (
         <div className='report-patients-container'>
             {report &&
-                <div className="report-patient-add-icon-container">
-                    <RiIcons.RiFileEditFill
-                        className="report-patient-add-icon" />
-                </div>
+                <EditReportPatientModal 
+                report = {report}
+                />
+
             }
             <div className="report-patients-header-container">
                 <h1>Patients</h1>

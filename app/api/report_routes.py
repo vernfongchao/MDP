@@ -2,7 +2,7 @@ from crypt import methods
 from distutils.log import log
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Report, Department, Staff
+from app.models import db, Report, Department, Staff, Patient
 from app.forms import ReportForm
 
 report_routes = Blueprint('report', __name__)
@@ -74,28 +74,28 @@ def edit_report(id):
         return {"errors": form.errors}, 400
 
 
-@report_routes.route('/departments/<int:id>', methods=["PUT"])
+@report_routes.route('/patients/<int:id>', methods=['PUT'])
 @login_required
-def edit_report_departments(id):
+def edit_report_patients(id):
     details = request.get_json()
     report = Report.query.get(id)
+    print("====================================",details)
     if not report:
         return {"errors": "report not found"}, 400
 
-    if "add_departments" in details:
-        for departmentObj in details["add_departments"]:
-            department = Department.query.get(departmentObj["departmentId"])
-            if not report.departments.__contains__(department):
-                report.departments.append(department)
+    if "add_patients" in details:
+        for patient_id in details["add_patients"]:
+            patient = Patient.query.get(patient_id["patientId"])
+            if not report.patients.__contains__(patient):
+                report.patients.append(patient)
                 db.session.commit()
-
-    if "delete_departments" in details:
-        for departmentObj in details["delete_departments"]:
-            department = Department.query.get(departmentObj["departmentId"])
-            if report.departments.__contains__(department):
-                report.departments.remove(department)
+    if "delete_patients" in details:
+        for patient_id in details["delete_patients"]:
+            patient = Patient.query.get(patient_id["patientId"])
+            if report.patients.__contains__(patient):
+                report.patients.remove(patient)
                 db.session.commit()
-    return jsonify(report.report_departments_to_dict()), 200
+    return jsonify(report.report_patients_to_dict()), 200
 
 
 @report_routes.route('/staffs/<int:id>', methods=['PUT'])
@@ -119,5 +119,28 @@ def edit_report_staffs(id):
             if report.staffs.__contains__(staff):
                 report.staffs.remove(staff)
                 db.session.commit()
-
     return jsonify(report.report_staffs_to_dict()), 200
+
+
+@report_routes.route('/departments/<int:id>', methods=["PUT"])
+@login_required
+def edit_report_departments(id):
+    details = request.get_json()
+    report = Report.query.get(id)
+    if not report:
+        return {"errors": "report not found"}, 400
+
+    if "add_departments" in details:
+        for departmentObj in details["add_departments"]:
+            department = Department.query.get(departmentObj["departmentId"])
+            if not report.departments.__contains__(department):
+                report.departments.append(department)
+                db.session.commit()
+
+    if "delete_departments" in details:
+        for departmentObj in details["delete_departments"]:
+            department = Department.query.get(departmentObj["departmentId"])
+            if report.departments.__contains__(department):
+                report.departments.remove(department)
+                db.session.commit()
+    return jsonify(report.report_departments_to_dict()), 200

@@ -45,6 +45,26 @@ export const getReportPatients = id => async dispatch => {
     }
 }
 
+export const patchReportPatients = payload => async dispatch => {
+    const response = await fetch(`/api/reports/patients/${payload.id}`,{
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const reportPatients = await response.json()
+        console.log(reportPatients)
+        dispatch(loadReportPatients(reportPatients))
+        return reportPatients
+    }
+    else if (response.status < 500) {
+        const error = await response.json()
+        return error
+    }
+}
+
 
 const initialState = { patient: {}, report: {} }
 
@@ -52,12 +72,12 @@ const patientReportsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case LOAD_PATIENT_REPORTS: {
-            newState = { patient: {}, report: {...state.report} }
+            newState = { patient: {}, report: { ...state.report } }
             action.patientReports.forEach(report => newState.patient[report.reportId] = report)
             return newState
         }
         case LOAD_REPORT_PATIENTS: {
-            newState = { patient: {...state.patient}, report: {} }
+            newState = { patient: { ...state.patient }, report: {} }
             action.reportPatients.forEach(patient => newState.report[patient.patientId] = patient)
             return newState
         }

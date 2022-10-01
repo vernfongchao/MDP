@@ -21,7 +21,6 @@ const ReportStaffs = ({ report }) => {
     useEffect(() => {
         (async () => {
             if (report) {
-                // const reportDetails = 
                 await dispatch(getReportStaffs(report?.id))
             }
         })()

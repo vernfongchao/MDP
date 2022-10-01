@@ -62,10 +62,6 @@ const staffReportsReducer = (state = initialState, action) => {
         }
         case LOAD_REPORT_STAFFS: {
             newState = { staff: { ...state.staff }, report: {} }
-            console.log(action.reportStaffs)
-            action.reportStaffs.forEach(staff =>{
-                console.log(staff)
-            })
             action.reportStaffs.forEach(staff => newState.report[staff.staffId] = staff)
             return newState
         }
