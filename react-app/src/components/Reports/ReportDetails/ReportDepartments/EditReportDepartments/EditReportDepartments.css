@@ -38,10 +38,11 @@
 .edit-report-department-cancel-icon{
     cursor: pointer;
     font-size: 2em;
+    color: red;
 }
 
 .edit-report-department-cancel-icon:hover{
-    color: red;
+    box-shadow: 1px 1px 5px 1px red;
 }
 
 .edit-report-department-header-container{

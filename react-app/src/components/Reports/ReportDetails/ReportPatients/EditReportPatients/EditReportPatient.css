@@ -48,10 +48,11 @@
 .edit-report-patient-cancel-icon {
     cursor: pointer;
     font-size: 2em;
+    color: red;
 }
 
 .edit-report-patient-cancel-icon:hover {
-    color: red;
+    box-shadow: 1px 1px 5px 1px red;
 }
 
 .edit-report-patient-header-container{

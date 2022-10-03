@@ -22,5 +22,5 @@ class Department(db.Model):
 
         }
 
-    def to_departmentstaffs_dict(self):
+    def department_staffs_to_dict(self):
         return [{'staffId': staff.id} for staff in self.staffs]

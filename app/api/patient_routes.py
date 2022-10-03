@@ -7,6 +7,8 @@ from app.forms import AddPatientForm, EditPatientForm
 from app.s3_config import (
     upload_file_to_s3, allowed_file, get_unique_filename, delete_image_from_s3)
 
+from datetime import datetime
+
 patient_routes = Blueprint('patients', __name__)
 
 
@@ -69,6 +71,8 @@ def edit_patient_profile(id):
             upload_image(request.files["image"], id)
         patient = Patient.query.get(id)
         form.populate_obj(patient)
+        date = datetime.now()
+        patient.updated_at = date
         db.session.commit()
         return patient.to_dict(), 200
     else:

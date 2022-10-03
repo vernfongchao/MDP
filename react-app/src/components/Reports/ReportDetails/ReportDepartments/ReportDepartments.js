@@ -10,20 +10,14 @@ import './ReportDepartments.css'
 const ReportDepartments = ({ report }) => {
     const dispatch = useDispatch()
 
-
-    const [departmentsArray, setDepartmentsArray] = useState([])
-
     const reportDepartments = Object.values(useSelector(state => state.departmentReports.report))
     const departments = useSelector(state => state.departments)
 
     useEffect(() => {
-        (async () => {
-            if (report) {
-                const departments = await dispatch(getReportDepartments(report?.id))
-                setDepartmentsArray([...departments])
-            }
-        })()
-    }, [dispatch, report])
+        if (report) {
+            dispatch(getReportDepartments(report?.id))
+        }
+    }, [dispatch,report])
 
     return (
         <div className="report-department-container">

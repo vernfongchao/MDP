@@ -4,6 +4,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, Report, Department, Staff, Patient
 from app.forms import ReportForm
+from datetime import datetime
 
 report_routes = Blueprint('report', __name__)
 
@@ -29,7 +30,6 @@ def get_report_patients(id):
 @report_routes.route('/staffs/<int:id>')
 def get_report_staffs(id):
     report = Report.query.get(id)
-
     if report:
         return jsonify(report.report_staffs_to_dict()), 200
     else:
@@ -68,6 +68,8 @@ def edit_report(id):
     if form.validate_on_submit():
         edit_report = Report.query.get(id)
         form.populate_obj(edit_report)
+        date = datetime.now()
+        edit_report.updated_at = date
         db.session.commit()
         return edit_report.to_dict(), 200
     else:
@@ -127,7 +129,7 @@ def edit_report_departments(id):
     details = request.get_json()
     report = Report.query.get(id)
     if not report:
-        return {"errors": "report not found"}, 400
+        return {"errors": {"report": "Report not found"}}, 400
 
     if "add_departments" in details:
         for departmentObj in details["add_departments"]:
