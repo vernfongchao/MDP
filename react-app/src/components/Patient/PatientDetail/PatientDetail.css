@@ -6,17 +6,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.patient-detail-emergency-container{
-    border-bottom: 10px #1D3557 solid;
-    width: 100%;
-    height: 150px;
-}
-
-
-.patient-detail-reports-container {
-    border-bottom: 10px #1D3557 solid;
-    width: 100%;
-
-}
-

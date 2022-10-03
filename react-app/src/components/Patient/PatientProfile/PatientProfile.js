@@ -317,12 +317,12 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                     />
                                 </div>
                             </div>
-                            <div>
+                            <div className='patient-profile-id-name-update-container'>
                                 <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
                                     : "patient-profile-info-header-text "
                                 }>Address</p>
                                 <input
-                                    className='patient-profile-edit-name-input'
+                                    className='patient-profile-address-input'
                                     value={address}
                                     onChange={handleAddressName}
                                     type='text'

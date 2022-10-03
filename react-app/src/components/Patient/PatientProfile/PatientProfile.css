@@ -100,6 +100,10 @@
     width: 95%;
 }
 
+.patient-profile-address-input{
+width: 97%;
+}
+
 
 .patient-profile-notes-container {
     width: 95%;
@@ -108,3 +112,4 @@
 .patient-profile-error {
     color: red;
 }
+
