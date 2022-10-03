@@ -14,6 +14,7 @@
     /* justify-content: space-between; */
     width: 80%;
     height: 80%;
+    
 }
 
 .form-error{
@@ -40,15 +41,14 @@
 }
 
 .annoucement-form-content-tracker-container{
-    position: absolute;
-    overflow-x: hidden;
-}
-.annoucement-form-content-tracker-position{
     position: relative;
-    display: flex;
-    justify-content: flex-end;
+    height: 0px;
 }
 
+.annoucement-form-content-tracker-text{
+    font-size: .75em;
+    height: 0px;
+}
 
 
 .announcement-form-button-container{
@@ -81,6 +81,7 @@
 .announcement-form-errors{
     font-size: .75em;
     color: red;
+    margin-bottom: 6px;
 }
 
 

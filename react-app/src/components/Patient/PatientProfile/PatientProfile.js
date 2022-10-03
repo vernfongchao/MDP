@@ -32,6 +32,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
     const [address, setAddress] = useState("")
     const [notes, setNotes] = useState("")
     const [idError, setIdError] = useState("")
+    const [notesError, setNotesError] = useState("")
     const [firstNameError, setFirstNameError] = useState("")
     const [lastNameError, setLastNameError] = useState("")
     const [addressError, setAddressError] = useState("")
@@ -58,6 +59,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             setFirstNameError("")
             setLastNameError("")
             setAddressError("")
+            setNotesError("")
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -74,6 +76,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             setFirstNameError("")
             setLastNameError("")
             setAddressError("")
+            setNotesError("")
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -87,6 +90,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
 
     const handleContentChange = (content, delta, source, editor) => {
         setSuccess("")
+        setNotesError("")
         setNotes(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -187,6 +191,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setAddressError(newPatient.address)
                 setFirstNameError(newPatient.first_name)
                 setLastNameError(newPatient.last_name)
+                setNotesError(newPatient.notes)
             }
         }
         else if (!newPatient) {
@@ -215,6 +220,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setAddressError(editedPatient.address)
                 setFirstNameError(editedPatient.first_name)
                 setLastNameError(editedPatient.last_name)
+                setNotesError(editedPatient.notes)
             }
         }
     }
@@ -303,6 +309,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                         value={firstName}
                                         onChange={handleFirstName}
                                         type='text'
+                                        maxLength="255"
                                     />
                                 </div>
                                 <div>
@@ -314,6 +321,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                         value={lastName}
                                         onChange={handleLastName}
                                         type='text'
+                                        maxLength="255"
                                     />
                                 </div>
                             </div>
@@ -326,6 +334,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                     value={address}
                                     onChange={handleAddressName}
                                     type='text'
+                                    maxLength="500"
                                 />
                             </div>
                             {newPatient ?
@@ -386,6 +395,26 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                     />
                 </div>
             }
+            {notes.length ?
+                <div style={{ width: "95%", top: "5px", position: "relative" }}>
+
+                    <div className="annoucement-form-content-tracker-container">
+                        <span className="annoucement-form-content-tracker-text" >
+                            character length after styling <span style={(notes.length > 5000 ? { color: "red" } : null)}>{notes.length}</span>
+                            /5000
+                        </span>
+                    </div>
+                </div>
+                : null
+            }
+            {notesError &&
+                <div style={{ width: "95%", paddingTop:"5px",color:"red"}}>
+                    <p>
+                        {notesError}
+                    </p>
+                </div>
+            }
+
         </div>
     )
 }

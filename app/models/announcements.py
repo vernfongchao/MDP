@@ -4,7 +4,7 @@ class Announcement(db.Model):
     __tablename__ = 'announcements'
 
     id = db.Column(db.Integer(), primary_key=True)
-    title = db.Column(db.String(1000) ,nullable=False)
+    title = db.Column(db.String(100) ,nullable=False)
     content = db.Column(db.String(5000) ,nullable=False)
     staff_id = db.Column(db.Integer(),db.ForeignKey('staffs.id'),nullable =False)
     created_at = db.Column(db.DateTime, nullable=False,

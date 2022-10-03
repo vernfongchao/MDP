@@ -29,6 +29,7 @@ const StaffProfile = ({ index, staffs }) => {
     const [success, setSuccess] = useState("")
     const [firstNameError, setFirstNameError] = useState("")
     const [lastNameError, setLastNameError] = useState("")
+    const [notesError, setNotesError] = useState("")
 
     const imageInputRef = useRef()
 
@@ -54,6 +55,7 @@ const StaffProfile = ({ index, staffs }) => {
             setFirstNameError("")
             setLastNameError("")
             setDeletePicture("")
+            setNotesError("")
             setPreviewPicture("")
             setUploadPicture("")
         }
@@ -82,6 +84,7 @@ const StaffProfile = ({ index, staffs }) => {
 
     const handleContentChange = (content, delta, source, editor) => {
         setSuccess("")
+        setNotesError("")
         setNotes(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -146,6 +149,7 @@ const StaffProfile = ({ index, staffs }) => {
             setIsLoading(profile.image)
             setFirstNameError(profile.first_name)
             setLastNameError(profile.last_name)
+            setNotesError(profile.notes)
         }
     }
 
@@ -294,7 +298,7 @@ const StaffProfile = ({ index, staffs }) => {
                 }
 
             </div>
-            {staff ?
+            {staff &&
                 <div className='staff-profile-notes-container'>
                     {isEdit ?
                         <ReactQuill
@@ -316,10 +320,38 @@ const StaffProfile = ({ index, staffs }) => {
                         </>
                     }
                 </div>
-                :null
             }
+            { isEdit && notes.length ?
+                <div style={{ width: "95%", top: "5px", position: "relative" }}>
 
+                    <div className="annoucement-form-content-tracker-container">
+                        <span className="annoucement-form-content-tracker-text" >
+                            character length after styling <span style={(notes.length > 5000 ? { color: "red" } : null)}>{notes.length}</span>
+                            /5000
+                        </span>
+                    </div>
+                </div>
+                : null
+            }
+            {isEdit && notes.length ?
+                <div style={{ width: "95%", top: "5px", position: "relative" }}>
 
+                    <div className="annoucement-form-content-tracker-container">
+                        <span className="annoucement-form-content-tracker-text" >
+                            character length after styling <span style={(notes.length > 5000 ? { color: "red" } : null)}>{notes.length}</span>
+                            /5000
+                        </span>
+                    </div>
+                </div>
+                : null
+            }
+            {isEdit && notesError &&
+                <div style={{ width: "95%", paddingTop: "5px", color: "red" }}>
+                    <p>
+                        {notesError}
+                    </p>
+                </div>
+            }
         </div>
     )
 }

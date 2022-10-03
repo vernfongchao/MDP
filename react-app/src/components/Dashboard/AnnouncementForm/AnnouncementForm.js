@@ -16,7 +16,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     const [title, setTitle] = useState("")
     const [maxTitle, setMaxTitle] = useState("")
     const [content, setContent] = useState("")
-    const [maxContent, setMaxContent] = useState("")
     const [delta, setDelta] = useState('')
 
     const [titleError, setTitleError] = useState("")
@@ -40,10 +39,10 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     }, [edit])
 
     useEffect(() => {
-        if (title.length >= 1000) {
+        if (title.length >= 100) {
             setMaxTitle("Maximum characters for title reached")
         }
-        if (title.length < 1000) {
+        if (title.length < 100) {
             setMaxTitle("")
         }
         if (title.length) {
@@ -99,12 +98,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
 
     const handleContentChange = (content, delta, source, editor) => {
-        if (content.length > 5000) {
-            setMaxContent("Maximum Characters Reached for Content")
-        }
-        else if (content.length < 5000) {
-            setMaxContent("")
-        }
         setContent(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -136,7 +129,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     <div className="announcement-form-title-container">
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title:</label>
                         <input className={titleError ? "announcement-input-form form-error-input-border" : "announcement-input-form"}
-                            maxLength="1000"
+                            maxLength="100"
                             name="title"
                             type="text"
                             value={title}
@@ -162,12 +155,10 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
                         {content.length ?
                             <div className="annoucement-form-content-tracker-container">
-                                <div className="annoucement-form-content-tracker-position">
-                                    <span style={{ fontSize: ".75em" }}>
-                                        character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
-                                        /5000
-                                    </span>
-                                </div>
+                                <span className="annoucement-form-content-tracker-text" >
+                                    character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
+                                    /5000
+                                </span>
                             </div>
                             : null
                         }

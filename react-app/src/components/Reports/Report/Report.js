@@ -24,7 +24,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
 
     const [newReport, setNewReport] = useState(false)
     const [title, setTitle] = useState(report?.title)
-    // const [maxTitle, setMaxTitle] = useState("")
+    const [maxTitle, setMaxTitle] = useState("")
     const [content, setContent] = useState("")
     const [delta, setDelta] = useState('')
 
@@ -42,11 +42,21 @@ const Report = ({ index, setIndex, setSearch, report }) => {
 
         }
         else if (!report) {
+            setMaxTitle("")
             setTitle("")
             setTitleError("")
             setContent("")
         }
     }, [report])
+
+    useEffect(() => {
+        if (title.length >= 100) {
+            setMaxTitle("Maximum characters for title reached")
+        }
+        if (title.length < 100) {
+            setMaxTitle("")
+        }
+    }, [title])
 
 
     const addNewReport = (e) => {
@@ -161,9 +171,18 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                             <input
                                 className={titleError ? "report-title-input-error" : null}
                                 value={title}
-                                maxLength="1000"
+                                maxLength="100"
                                 onChange={handleTitle}
                             />
+
+                            {maxTitle &&
+                                <div className='report-title-max-text-container'>
+                                    <span className='report-title-max-text'>
+                                        {maxTitle}
+                                    </span>
+                                </div>
+
+                            }
 
                             {titleError &&
                                 <p className='report-title-error'>

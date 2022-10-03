@@ -8,7 +8,7 @@ class Report(db.Model):
     __tablename__ = 'reports'
 
     id = db.Column(db.Integer(), primary_key=True)
-    title = db.Column(db.String(1000), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String())
     created_at = db.Column(db.DateTime, nullable=False,
                            server_default=db.func.now())

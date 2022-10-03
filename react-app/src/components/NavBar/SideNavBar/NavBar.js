@@ -8,6 +8,8 @@ import ReportList from '../../Reports/ViewReports/ReportList';
 import PatientList from '../../Patient/PatientList/PatientList';
 import StaffList from '../../Staff/StaffList/StaffList';
 import DepartmentList from '../../Departments/DepartmentList/DepartmentList';
+import Fee from '../../Fees/Fee';
+
 import './NavBar.css'
 
 const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
@@ -82,9 +84,9 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         {tab.idx === 2 &&
           <PatientList idx={tab.idx} />
         }
-        {/* {tab.idx === 3 &&
-          <Announcement idx={tab.idx} />
-        } */}
+        {tab.idx === 3 &&
+          <Fee idx={tab.idx} />
+        }
         {tab.idx === 4 &&
           <StaffList idx={tab.idx} />
         }
