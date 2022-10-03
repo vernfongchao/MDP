@@ -17,7 +17,16 @@ def getstaffs():
     if staffs:
         return jsonify([staff.to_dict() for staff in staffs]), 200
     else:
-        return {'errors':'staffs not found'}
+        return {'errors':'staffs not found'},400
+
+@staff_routes.route('/reports/<int:id>')
+def get_staff_reports(id):
+    staff = Staff.query.get(id)
+    if staff:
+        print("============================to dict",staff.staff_reports_to_dict())
+        return jsonify(staff.staff_reports_to_dict()),200
+    else :
+        return {'errors': {'staff': 'Staff not found'}}
 
 
 @staff_routes.route('/<int:id>', methods=["PUT"])

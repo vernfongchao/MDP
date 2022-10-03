@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+
+import StaffReport from './StaffReports/StaffReport'
 import './StaffDetail.css'
 
 import * as RiIcons from 'react-icons/ri'
@@ -16,9 +18,7 @@ const StaffDetail = ({ index, staffs }) => {
                 <div className="staff-detail-department-container">
                     <h2>Department</h2>
                 </div>
-                <div className="staff-detail-reports-container">
-                    <h2>Reports</h2>
-                </div>
+                <StaffReport staff={staff} />
             </div>
     )
 }

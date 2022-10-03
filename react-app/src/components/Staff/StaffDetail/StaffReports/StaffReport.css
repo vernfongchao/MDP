@@ -1,0 +1,33 @@
+.staff-report-page-container{
+    border-bottom: 10px #1D3557 solid;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.staff-report-header-container{
+    width: 95%;
+}
+
+.staff-report-map-container {
+    display: flex;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+.staff-report-info-container {
+    margin-top: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    display: flex;
+    background-color: #A8DADC;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 22px;
+}
+
+.staff-report-info-text {
+    font-weight: bold;
+}
