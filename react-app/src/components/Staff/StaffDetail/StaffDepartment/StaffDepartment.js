@@ -19,7 +19,7 @@ const StaffDepartment = ({ staff }) => {
 
     return (
         <div className="staff-department-page-container">
-            {/*  */}
+
             <div className="staff-department-header-container">
                 {staff &&
                     <EditStaffDepartmentModal

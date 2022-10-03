@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 
 import * as VscIcons from 'react-icons/vsc'
 
-import DepartmentDetails from '../DepartmentDetails/DepartmentDetails'
-import DepartmentStaff from '../DepartmentStaff/DepartmentStaff'
+import DepartmentInfo from '../DepartmentInfo/DepartmentInfo'
+import DepartmentDetail from '../DepartmentDetails/DepartmentDetail'
 import "./DepartmentList.css"
 
 const DepartmentList = ({ idx }) => {
@@ -87,8 +87,8 @@ const DepartmentList = ({ idx }) => {
                     }
                 </div>
             </div>
-            <DepartmentDetails index={index} department={department}/>
-            <DepartmentStaff index={index} department={department}/>
+            <DepartmentInfo index={index} department={department}/>
+            <DepartmentDetail index={index} department={department}/>
         </div>
     )
 }

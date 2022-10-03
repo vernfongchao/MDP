@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDepartmentStaffs } from "../../../store/departmentstaff";
+import { getDepartmentStaffs } from "../../../../store/departmentstaff";
 
 
 import "./DepartmentStaff.css"
@@ -12,34 +12,30 @@ const DepartmentStaff = ({ index, department }) => {
     const departmentStaffs = Object.values(useSelector(state => state.departmentStaffs).department)
 
     useEffect(() => {
+
         dispatch(getDepartmentStaffs(department?.id))
     }, [dispatch, department])
 
 
 
-    return (department ?
+    return (
         <div className="department-staff-page-container">
             <div className="department-staff-header-container">
-                <h1 className="department-staff-information">
-                    Staff Information
-                </h1>
-
-                {departmentStaffs.map(({ staffId }) => {
+                <h2 className="department-staff-header">
+                    Staff
+                </h2>
+            </div>
+            <div className="department-staff-list-container">
+                {department && departmentStaffs.map(({ staffId }) => {
                     let staff = staffs[staffId]
                     return (
-                        <p key={staffId}>
-                            {` Staff ID: ${staffId} ${staff?.firstName} ${staff?.lastName}`}
-                        </p>
+                        <div
+                            key={staffId}
+                            className="department-staff-name-container">
+                            <span className="department-staff-name">{`${staff?.firstName} ${staff?.lastName}|Staff ID: ${staffId}`}</span>
+                        </div>
                     )
                 })}
-            </div>
-        </div>
-        :
-        <div className="department-staff-page-container">
-            <div className="department-staff-header-container">
-                <h1 className="department-staff-information">
-                    Staff Information
-                </h1>
             </div>
         </div>
     )

@@ -1,0 +1,14 @@
+/* Modal */
+
+
+
+.department-info-modal-container{
+    display: flex;
+    justify-content: center;
+    width: 95%;
+}
+
+.department-info-layout {
+    width: 100%;
+    cursor: pointer;
+}
