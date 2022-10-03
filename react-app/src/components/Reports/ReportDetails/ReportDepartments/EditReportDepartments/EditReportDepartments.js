@@ -137,8 +137,8 @@ const EditReportDepartments = ({ report, setShowModal }) => {
             <div className="edit-report-department-cards-container">
                 {filteredDepartments.map((department) => (
                     <div
-                        className="edit-report-department-card-container"
                         key={department.id}
+                        className="edit-report-department-card-container"
                         onClick={e => handleAdd(e, department.id)}>
 
                         <h3>

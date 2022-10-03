@@ -9,6 +9,7 @@ import PatientList from '../../Patient/PatientList/PatientList';
 import StaffList from '../../Staff/StaffList/StaffList';
 import DepartmentList from '../../Departments/DepartmentList/DepartmentList';
 import Fee from '../../Fees/Fee';
+import Message from '../../Message/Message';
 
 import './NavBar.css'
 
@@ -93,6 +94,9 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
 
         {tab.idx === 5 &&
           <DepartmentList idx={tab.idx} />
+        }
+        {tab.idx === 6 &&
+          <Message idx={tab.idx} />
         }
       </div>
     </div>

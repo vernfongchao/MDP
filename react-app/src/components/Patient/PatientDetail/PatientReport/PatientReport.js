@@ -31,7 +31,7 @@ const PatientReport = ({ patient }) => {
                 {patientReports.map(({ reportId }) => {
                     const report = reports[reportId]
                     return (
-                        <div className='patient-report-info-container'>
+                        <div key = {reportId} className='patient-report-info-container'>
                             <span className='patient-report-info-text'>
                                 Report ID: {report.id}
                             </span>

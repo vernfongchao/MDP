@@ -27,7 +27,9 @@ const StaffReport = ({ staff }) => {
                 {staffReports.map(({ reportId }) => {
                     const report = reports[reportId]
                     return (
-                        <div className='staff-report-info-container'>
+                        <div 
+                        key = {reportId}
+                        className='staff-report-info-container'>
                             <span className='staff-report-info-text'>
                                 Report ID: {report.id}
                             </span>
