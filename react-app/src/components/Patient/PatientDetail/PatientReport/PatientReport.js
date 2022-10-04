@@ -14,7 +14,7 @@ const PatientReport = ({ patient }) => {
     useEffect(() => {
         (async () => {
             if (patient) {
-                const reports = await dispatch(getPatientReports(patient.id))
+                await dispatch(getPatientReports(patient.id))
             }
             else {
                 await dispatch(removePatientReports())
@@ -33,7 +33,7 @@ const PatientReport = ({ patient }) => {
                     return (
                         <div key = {reportId} className='patient-report-info-container'>
                             <span className='patient-report-info-text'>
-                                Report ID: {report.id}
+                                Report ID: {report?.id}
                             </span>
                         </div>
                     )

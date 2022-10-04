@@ -37,7 +37,7 @@ const ReportDepartments = ({ report }) => {
                         key={departmentId}
                         className="report-department-name-container">
                         <span className="report-department-name">
-                            {departments[departmentId].name}
+                            {departments[departmentId]?.name}
                         </span>
                     </div>
 

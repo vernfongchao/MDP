@@ -27,7 +27,7 @@ const DepartmentStaff = ({ index, department }) => {
             </div>
             <div className="department-staff-list-container">
                 {department && departmentStaffs.map(({ staffId }) => {
-                    let staff = staffs[staffId]
+                    const staff = staffs[staffId]
                     return (
                         <div
                             key={staffId}

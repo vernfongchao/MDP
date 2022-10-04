@@ -32,7 +32,7 @@ const StaffReport = ({ staff }) => {
                                 key={reportId}
                                 className='staff-report-info-container'>
                                 <span className='staff-report-info-text'>
-                                    Report ID: {report.id}
+                                    Report ID: {report?.id}
                                 </span>
                             </div>
                         )
