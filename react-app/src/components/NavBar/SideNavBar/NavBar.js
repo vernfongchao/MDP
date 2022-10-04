@@ -10,6 +10,7 @@ import StaffList from '../../Staff/StaffList/StaffList';
 import DepartmentList from '../../Departments/DepartmentList/DepartmentList';
 import Fee from '../../Fees/Fee';
 import Message from '../../Message/Message';
+import Credit from '../../Credit/Credit';
 
 import './NavBar.css'
 
@@ -25,6 +26,7 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
     else if (i === 4) tabTitle[tabIndex].title = "Staff"
     else if (i === 5) tabTitle[tabIndex].title = "Depar..."
     else if (i === 6) tabTitle[tabIndex].title = "Messages"
+    else if (i === 7) tabTitle[tabIndex].title = "Credits"
     tab.idx = i
     setTabs(tabTitle)
   }
@@ -72,6 +74,11 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
                 Messages
               </h1>
             </div >
+          <div className='navbar-header-container' >
+            <h1 className={tab.idx === 7 ? "navbar-header active-navbar" : "navbar-header"} onClick={(e) => setIndex(e, 7)}>
+              Credits
+            </h1>
+          </div >
           </>
         }
       </div>
@@ -97,6 +104,9 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         }
         {tab.idx === 6 &&
           <Message idx={tab.idx} />
+        }
+        {tab.idx === 7 &&
+          <Credit idx={tab.idx} />
         }
       </div>
     </div>

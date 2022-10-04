@@ -10,10 +10,10 @@ const StaffReport = ({ staff }) => {
     const reports = useSelector(state => state.reports)
 
     useEffect(() => {
-        if(staff) {
+        if (staff) {
             dispatch(getStaffReports(staff.id))
         }
-    },[dispatch,staff])
+    }, [dispatch, staff])
 
 
 
@@ -23,20 +23,22 @@ const StaffReport = ({ staff }) => {
             <div className='staff-report-header-container'>
                 <h2>Reports</h2>
             </div>
-            <div className='staff-report-map-container'>
-                {staffReports.map(({ reportId }) => {
-                    const report = reports[reportId]
-                    return (
-                        <div 
-                        key = {reportId}
-                        className='staff-report-info-container'>
-                            <span className='staff-report-info-text'>
-                                Report ID: {report.id}
-                            </span>
-                        </div>
-                    )
-                })}
-            </div>
+            {staff &&
+                <div className='staff-report-map-container'>
+                    {staffReports.map(({ reportId }) => {
+                        const report = reports[reportId]
+                        return (
+                            <div
+                                key={reportId}
+                                className='staff-report-info-container'>
+                                <span className='staff-report-info-text'>
+                                    Report ID: {report.id}
+                                </span>
+                            </div>
+                        )
+                    })}
+                </div>
+            }
         </div>
     )
 
