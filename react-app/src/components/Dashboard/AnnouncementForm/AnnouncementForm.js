@@ -116,7 +116,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
     return (
         <div className="announcement-form-page-container" onSubmit={handleSubmit}>
-            <div className="announcement-form-page-subcontainer">
+            <div className="announcement-form-header-container">
                 {edit ? (
                     <h1>Edit Announcement</h1>
 
@@ -137,32 +137,31 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                         />
                         {maxTitle && <p className="announcement-form-errors">{maxTitle}</p>}
                     </div>
-                    <div className="announcement-form-content-container">
-                        <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
-                        <ReactQuill
-                            className={contentError ? "announcement-form-conntent form-error-input-border" : "announcement-form-conntent"}
-                            theme="snow"
-                            value={content}
-                            placeholder={"Please add your announcement here"}
-                            onChange={handleContentChange}
-                            style={
-                                {
-                                    width: '100%',
-                                    height: '100%',
-                                }
+                    {/* <div className="announcement-form-content-container"> */}
+                    <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
+                    <ReactQuill
+                        className={contentError ? "announcement-form-content form-error" : "announcement-form-content"}
+                        theme="snow"
+                        value={content}
+                        placeholder={"Please add your announcement here"}
+                        onChange={handleContentChange}
+                        style={
+                            {
+                                width: '100%',
+                                height: '70%',
                             }
-                        />
-
-                        {content.length ?
-                            <div className="annoucement-form-content-tracker-container">
-                                <span className="annoucement-form-content-tracker-text" >
-                                    character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
-                                    /5000
-                                </span>
-                            </div>
-                            : null
                         }
-                    </div>
+                        />
+                    {content.length ?
+                        <div className="annoucement-form-content-tracker-container">
+                            <span className="annoucement-form-content-tracker-text" >
+                                character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
+                                /5000
+                            </span>
+                        </div>
+                        : null
+                    }
+                    {/* </div> */}
                     {(titleError || contentError) &&
                         <div className="announcement-form-errors-container">
                             {titleError && <p className="announcement-form-errors">{titleError}</p>}

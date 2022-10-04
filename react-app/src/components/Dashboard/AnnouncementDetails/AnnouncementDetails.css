@@ -4,10 +4,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 10px #1D3557 solid;
+    border-right: min(.8vw, 30px) #1D3557 solid;
     overflow-wrap: break-word;
 
 }   
+
+
+.announcement-detail-header-container{
+    width: 100%;
+}
+.announcement-information{
+    display: flex;
+    justify-content: center;
+    font-size: max(1.67vw, 32px);
+}
 
 .announcement-detail-content-container{
     width: 95%;
@@ -15,14 +25,46 @@
     overflow-y: auto;
 }
 
-
-.announcement-edit-button-position{
-    position:absolute;
+.announcement-detail-content-container > h1 {
+    font-size: max(1.67vw, 32px);
+}
+.announcement-detail-content-container>h2 {
+    font-size: max(1.25vw, 24px);
+}
+.announcement-detail-content-container>h3 {
+    font-size: max(.975vw, 18.72px);
+}
+.announcement-detail-content-container>p{
+    font-size: max(.8vw, 16px);
+}
+.announcement-detail-content-container>span {
+font-size: max(.625vw, 12px);
+}
+.announcement-detail-content-container>ol >li {
+font-size: max(.625vw, 12px);
 }
 
-.announcement-edit-button-container{
-    position: relative;
-    top: max();
-    left: max(23.9vw, 20%);
+.announcement-detail-content-container>ul>li {
+font-size: max(.625vw, 12px);
+}
 
+.announcement-detail-writer-container{
+font-size: max(.625vw, 12px);
+}
+
+
+
+
+.announcement-edit-button-position{
+    height: 0px;
+    width: 98%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.announcement-buttons{
+    height: max(2vh,18px);
+    aspect-ratio: 2.5/1;
+    font-size: .8vw;
 }

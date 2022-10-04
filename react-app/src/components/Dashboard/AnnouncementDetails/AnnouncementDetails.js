@@ -22,11 +22,9 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
 
             ) : (
                 <div className="announcement-edit-button-position">
-                    <div className="announcement-edit-button-container">
-                        <button className="announcement-buttons" onClick={onEdit}>
-                            Edit
-                        </button>
-                    </div>
+                    <button className="announcement-buttons" onClick={onEdit}>
+                        Edit
+                    </button>
                 </div>
             )
         )
@@ -47,7 +45,7 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
             </div>
 
             <div className="announcement-detail-content-container">
-                <span>{parse(announcement?.content)}</span>
+                {parse(announcement?.content)}
             </div>
             <div className="announcement-detail-writer-container">
                 <p>Announcement By: {announcement?.staffFirstName} {announcement?.staffLastName}</p>

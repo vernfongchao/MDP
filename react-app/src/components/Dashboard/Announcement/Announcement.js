@@ -35,11 +35,9 @@ const Announcement = ({ idx }) => {
                         {announcements?.map((announcement, i) => (
                             <div key={i} className="announcement-list-title-container">
                                 {user?.id === announcement.staffId ?
-                                    <div className="announcement-delete-position-container">
                                         <div className="announcement-delete-icon-container">
                                             <AnnouncementDeleteModal id={announcement.id} setIndex={setIndex} i={i} index={index} />
                                         </div>
-                                    </div>
                                     :
                                     null
                                 }
