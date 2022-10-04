@@ -28,7 +28,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
     const [content, setContent] = useState("")
     const [delta, setDelta] = useState('')
 
-    const [titleError, setTitleError] = useState("")
+    const [titleError, setTitleError] = useState([])
 
     const [success, setSuccess] = useState("")
 
@@ -38,13 +38,13 @@ const Report = ({ index, setIndex, setSearch, report }) => {
             setNewReport(false)
             setTitle(report?.title)
             setContent(report?.content)
-            setTitleError("")
+            setTitleError([])
 
         }
         else if (!report) {
             setMaxTitle("")
             setTitle("")
-            setTitleError("")
+            setTitleError([])
             setContent("")
         }
     }, [report])
@@ -73,6 +73,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
 
     const handleTitle = (e) => {
         setSuccess("")
+        setTitleError([])
         setTitle(e.target.value)
     }
 
@@ -101,7 +102,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                 setNewReport(false)
             }
             else if (newReport.errors) {
-                setTitleError(newReport.errors.title[0])
+                setTitleError(newReport.errors.title)
             }
         }
         else if (!newReport) {
@@ -117,7 +118,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
             }
             else if (editReport.errors) {
 
-                setTitleError(editReport.errors.title[0])
+                setTitleError(editReport.errors.title)
             }
         }
 
@@ -166,10 +167,10 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                     <>
                         <div className='report-title-container'>
                             <label
-                                className={titleError ? "report-title-error" : null} style={{ fontWeight: 'bold', fontSize: '12px' }}
+                                className={titleError.length ? "report-title-error" : null} style={{ fontWeight: 'bold', fontSize: '12px' }}
                             >Title:</label>
                             <input
-                                className={titleError ? "report-title-input-error" : null}
+                                className={titleError.length ? "report-title-input-error" : null}
                                 value={title}
                                 maxLength="100"
                                 onChange={handleTitle}
@@ -183,12 +184,14 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                                 </div>
 
                             }
-
-                            {titleError &&
-                                <p className='report-title-error'>
-                                    {titleError}
-                                </p>
+                            {titleError.length ?
+                                titleError.map(error => (
+                                    <span className='patient-profile-error-text'>
+                                        {error}
+                                    </span>
+                                )) : null
                             }
+
                         </div>
                         {report &&
                             <div className='report-updated-container'>

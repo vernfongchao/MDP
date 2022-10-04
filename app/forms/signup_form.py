@@ -1,6 +1,7 @@
+from email import message
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, Length, EqualTo
 from app.models import Staff
 
 
@@ -21,9 +22,20 @@ def username_exists(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    first_name = StringField('first_name', validators=[DataRequired()])
-    last_name = StringField('last_name', validators=[DataRequired()])
-    position = IntegerField('position', validators=[DataRequired()])
-    password = StringField('password', validators=[DataRequired()])
+    username = StringField('username', validators=[DataRequired("Username must not be empty."), username_exists, Length(
+        min=1, max=40, message="Username must be between 1 and 40 characters"
+    )])
+    email = StringField('email', validators=[DataRequired(
+        "Email must not be empty."), user_exists, Email("Email must be valid."), Length(
+            max=255, message="Emails be no longer than 255 characters."
+    )])
+    first_name = StringField('first_name', validators=[
+                             DataRequired("First name must not be empty."), Length(min=1, max=255, message="First name must be between 1 and 255 characters.")])
+    last_name = StringField('last_name', validators=[
+                            DataRequired("Last name must not be empty."), Length(min=1, max=255, message="Last name must be between 1 and 255 characters.")])
+    position = IntegerField('position', validators=[
+                            DataRequired("Role must be chosen.")])
+    password = StringField('password', validators=[
+                           DataRequired("Password must not be empty"),EqualTo("repeat_password",message="Passwords must match"),Length(min=6,message="Passwords must be at least 6 characters long.")])
+    repeat_password = StringField('repeat_password', validators=[
+        DataRequired("Confirm Password must not be empty.")])

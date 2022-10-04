@@ -16,7 +16,7 @@ class EditPatientForm(FlaskForm):
         min=1, max=500, message="Address must be between 1 and 500 characters"
     )])
     notes = StringField('note', validators=[Length(
-        min=1, max=5000, message="Notes must be between 1 and 5000 characters")
+        max=5000, message="Notes must be no longer than 5000 characters")
     ])
 
 
@@ -31,5 +31,5 @@ class AddPatientForm(FlaskForm):
         min=1, max=500, message="Address must be between 1 and 500 characters"
     )])
     notes = StringField('note', validators=[Length(
-        min=1, max=5000, message="Notes must be between 1 and 5000 characters")
+        max=5000, message="Notes must be no longer than 5000 characters")
     ])

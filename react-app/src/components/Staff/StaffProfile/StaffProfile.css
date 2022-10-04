@@ -122,6 +122,7 @@
 }
 
 .staff-profile-error{
+    font-weight: bold;
     color: red;
 }
 

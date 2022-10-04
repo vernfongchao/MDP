@@ -101,7 +101,7 @@
 }
 
 .patient-profile-address-input{
-width: 97%;
+    width: 97%;
 }
 
 
@@ -112,4 +112,11 @@ width: 97%;
 .patient-profile-error {
     color: red;
 }
+.patient-profile-input-error{
+    border: 2px red solid;
+}
 
+.patient-profile-error-text{
+    padding-bottom: 5px;
+    font-weight: bold;
+}

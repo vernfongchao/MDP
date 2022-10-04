@@ -42,7 +42,8 @@ def login():
         user = Staff.query.filter(Staff.username == form.data['username']).first()
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    print(dir(form.errors),form.errors) 
+    return {'errors': form.errors}, 401
 
 
 @auth_routes.route('/logout')
@@ -63,15 +64,15 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = Staff(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
         )
+        form.populate_obj(user)
+        user.notes=""
         db.session.add(user)
         db.session.commit()
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    print(form.errors)
+    return {'errors': form.errors}, 401
 
 
 @auth_routes.route('/unauthorized')

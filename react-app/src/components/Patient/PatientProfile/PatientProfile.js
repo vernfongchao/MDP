@@ -31,11 +31,12 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
     const [lastName, setLastName] = useState("")
     const [address, setAddress] = useState("")
     const [notes, setNotes] = useState("")
-    const [idError, setIdError] = useState("")
-    const [notesError, setNotesError] = useState("")
-    const [firstNameError, setFirstNameError] = useState("")
-    const [lastNameError, setLastNameError] = useState("")
-    const [addressError, setAddressError] = useState("")
+
+
+    const [notesError, setNotesError] = useState([])
+    const [firstNameError, setFirstNameError] = useState([])
+    const [lastNameError, setLastNameError] = useState([])
+    const [addressError, setAddressError] = useState([])
 
     const imageInputRef = useRef()
 
@@ -55,11 +56,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             setLastName(patient?.lastName)
             setAddress(patient?.address)
             setNotes(patient?.notes)
-            setIdError("")
-            setFirstNameError("")
-            setLastNameError("")
-            setAddressError("")
-            setNotesError("")
+            setFirstNameError([])
+            setLastNameError([])
+            setAddressError([])
+            setNotesError([])
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -72,11 +72,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             setLastName("")
             setAddress("")
             setNotes("")
-            setIdError("")
-            setFirstNameError("")
-            setLastNameError("")
-            setAddressError("")
-            setNotesError("")
+            setFirstNameError([])
+            setLastNameError([])
+            setAddressError([])
+            setNotesError([])
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -90,7 +89,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
 
     const handleContentChange = (content, delta, source, editor) => {
         setSuccess("")
-        setNotesError("")
+        setNotesError([])
         setNotes(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -101,19 +100,19 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
 
     const handleFirstName = (e) => {
         setSuccess("")
-        setFirstNameError("")
+        setFirstNameError([])
         setFirstName(e.target.value)
     }
 
     const handleLastName = (e) => {
         setSuccess("")
-        setLastNameError("")
+        setLastNameError([])
         setLastName(e.target.value)
     }
 
     const handleAddressName = (e) => {
         setSuccess("")
-        setAddressError("")
+        setAddressError([])
         setAddress(e.target.value)
     }
 
@@ -175,9 +174,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setNewPatient(false)
                 setSuccess("Saved")
 
-                setFirstNameError("")
-                setLastNameError("")
-                setAddressError("")
+                setFirstNameError([])
+                setLastNameError([])
+                setAddressError([])
+                setNotesError([])
 
                 setPreviewPicture("")
                 setDeletePicture("")
@@ -187,27 +187,26 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setIndex(patients.length)
             }
             else {
-                setIsLoading(newPatient.image)
-                setAddressError(newPatient.address)
-                setFirstNameError(newPatient.first_name)
-                setLastNameError(newPatient.last_name)
-                setNotesError(newPatient.notes)
+                const errors = newPatient.errors
+                setIsLoading(errors.image)
+                setIsLoading(errors.image)
+                setAddressError(errors.address)
+                setFirstNameError(errors.first_name)
+                setLastNameError(errors.last_name)
+                setNotesError(errors.notes)
             }
         }
         else if (!newPatient) {
-            if (!id) {
-                setIdError("Please Select a Patient")
-                return
-            }
             formData.append("id", id)
             const editedPatient = await dispatch(editPatient(formData))
             if (editedPatient.id) {
                 setNewPatient(false)
                 setSuccess("Saved")
 
-                setFirstNameError("")
-                setLastNameError("")
-                setAddressError("")
+                setFirstNameError([])
+                setLastNameError([])
+                setAddressError([])
+                setNotesError([])
 
                 setPreviewPicture("")
                 setDeletePicture("")
@@ -216,11 +215,13 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setIsLoading("")
             }
             else {
-                setIsLoading(editedPatient.image)
-                setAddressError(editedPatient.address)
-                setFirstNameError(editedPatient.first_name)
-                setLastNameError(editedPatient.last_name)
-                setNotesError(editedPatient.notes)
+                const errors = editPatient.errors
+                setIsLoading(errors.image)
+                setIsLoading(errors.image)
+                setAddressError(errors.address)
+                setFirstNameError(errors.first_name)
+                setLastNameError(errors.last_name)
+                setNotesError(errors.notes)
             }
         }
     }
@@ -301,11 +302,11 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                             }
                             <div className='patient-profile-id-name-update-container split-name'>
                                 <div>
-                                    <p className={firstNameError ? 'patient-profile-info-header-text patient-profile-error'
+                                    <p className={firstNameError.length ? 'patient-profile-info-header-text patient-profile-error'
                                         : "patient-profile-info-header-text "
                                     }>First Name</p>
                                     <input
-                                        className='patient-profile-edit-name-input'
+                                        className={firstNameError.length ? 'patient-profile-edit-name-input patient-profile-input-error' : "patient-profile-edit-name-input "}
                                         value={firstName}
                                         onChange={handleFirstName}
                                         type='text'
@@ -313,11 +314,11 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                     />
                                 </div>
                                 <div>
-                                    <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
+                                    <p className={lastNameError.length ? 'patient-profile-info-header-text patient-profile-error'
                                         : "patient-profile-info-header-text "
                                     }>Last Name</p>
                                     <input
-                                        className='patient-profile-edit-name-input'
+                                        className={lastNameError.length ? 'patient-profile-edit-name-input patient-profile-input-error' : 'patient-profile-edit-name-input'}
                                         value={lastName}
                                         onChange={handleLastName}
                                         type='text'
@@ -326,11 +327,11 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                 </div>
                             </div>
                             <div className='patient-profile-id-name-update-container'>
-                                <p className={lastNameError ? 'patient-profile-info-header-text patient-profile-error'
+                                <p className={addressError.length ? 'patient-profile-info-header-text patient-profile-error'
                                     : "patient-profile-info-header-text "
                                 }>Address</p>
                                 <input
-                                    className='patient-profile-address-input'
+                                    className={addressError.length ? 'patient-profile-address-input patient-profile-input-error' : "patient-profile-address-input"}
                                     value={address}
                                     onChange={handleAddressName}
                                     type='text'
@@ -360,17 +361,14 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                 <span className='patient-profile-error'>{isLoading}
                                 </span>
                             }
-                            {idError && <span className='patient-profile-error'>
-                                {idError}
-                            </span>}
-                            {addressError && <span className='patient-profile-error'>
+                            {addressError && <span className='patient-profile-error-text'>
                                 {addressError}
                             </span>}
-                            {firstNameError && <span className='patient-profile-error'>
+                            {firstNameError && <span className='patient-profile-error-text'>
                                 {firstNameError}
                             </span>
                             }
-                            {lastNameError && <span className='patient-profile-error'>
+                            {lastNameError && <span className='patient-profile-error-text'>
                                 {lastNameError}
                             </span>
                             }
@@ -408,7 +406,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 : null
             }
             {notesError &&
-                <div style={{ width: "95%", paddingTop:"5px",color:"red"}}>
+                <div className="patient-profile-error-text" style={{ width: "95%", paddingTop:"10px",color:"red"}}>
                     <p>
                         {notesError}
                     </p>

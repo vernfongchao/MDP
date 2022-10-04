@@ -47,6 +47,11 @@ body {
   background-color: white;
 }
 
+.form-input-error{
+    border: 1px solid red;
+}
+
+
 .user-buttons,
 .demo-button {
   padding: 6px 10px;
@@ -74,7 +79,16 @@ body {
   justify-content: center;
 }
 
+.signup-error{
+  color: red;
 
+}
+
+.signup-error-text{
+  padding-bottom: 5px;
+  font-size: .75em;
+  font-weight: bold;
+}
 /* -------------- // ----------------- */
 
 ::-webkit-scrollbar {
