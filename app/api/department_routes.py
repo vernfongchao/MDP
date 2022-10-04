@@ -5,7 +5,6 @@ from app.models import Department, db
 departments_routes = Blueprint('departments', __name__)
 
 @departments_routes.route('/')
-@login_required
 def get_departments():
     departments = Department.query.all()
     if departments:

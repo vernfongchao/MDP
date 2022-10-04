@@ -11,7 +11,6 @@ staff_routes = Blueprint('staffs', __name__)
 
 
 @staff_routes.route('/')
-@login_required
 def get_staffs():
     staffs = Staff.query.all()
     if staffs:
