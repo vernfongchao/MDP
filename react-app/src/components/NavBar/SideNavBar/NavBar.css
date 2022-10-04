@@ -50,7 +50,7 @@
 
 .main-info-container{
     box-sizing: border-box;
-    border: min(.8vw,30px) #1D3557 solid;
+    border: .83vw #1D3557 solid;
     height: 100%;
     width: 90vw;
     position: absolute;

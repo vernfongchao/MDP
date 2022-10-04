@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: min(.8vw, 30px) #1D3557 solid;
+    border-right: .83vw #1D3557 solid;
     overflow-wrap: break-word;
 
 }   

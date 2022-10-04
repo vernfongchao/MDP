@@ -18,7 +18,7 @@ body {
 
 .announcement-list-container{
     box-sizing: border-box;
-    border-right: min(.8vw, 30px) #1D3557 solid;
+    border-right: .83vw #1D3557 solid;
     width: 33.3%;
     display: flex;
     flex-direction: column;
