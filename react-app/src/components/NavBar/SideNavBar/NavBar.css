@@ -16,7 +16,8 @@
 }
 
 .navbar-header-container {
-    width: 10vw
+    width: 10vw;
+    height: min(4.4vh,200px);
 }
 
 .navbar-header-container:hover{
@@ -24,23 +25,24 @@
     color: white;
 }
 
-
 .navbar-header{
     box-sizing: border-box;
-    font-size: 1.25vw;
-    padding-top: 10px;
+    font-size: 1.40vw;
+    
+    padding-left: 1vw;
+    padding-top: .75vh;
+    padding-bottom: .75vh;
+    /* padding-top: 10px;
     padding-left: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 10px; */
     margin: 0;
     cursor: pointer;
 }
 
 
-.navbar-header.active-navbar{
+.navbar-header-container.active-navbar{
 
-    /* background-color: #A8DADC; */
     background-color: #1D3557;
-    /* border: 1px solid #F1FAEE; */
     box-sizing: border-box;
     box-shadow: 1px 1px 10px 1px #457B9D;
 }
@@ -48,7 +50,7 @@
 
 .main-info-container{
     box-sizing: border-box;
-    border: 10px #1D3557 solid;
+    border: min(.8vw,30px) #1D3557 solid;
     height: 100%;
     width: 90vw;
     position: absolute;

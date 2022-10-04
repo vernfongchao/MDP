@@ -4,23 +4,35 @@
 
 .top-navbar-page-container {
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #1D3557;
 
-    height: 100px;
+    height: max(10vh,100px);
+}
+
+.logo-container{
+    height: 100%;
+    width: 90%;
 }
 
 .img-logo {
-    height: 30%;
-    width: 30%;
+    height: 100%;
+    /* width: 100%; */
 }
 
-.nav-logo {
+/* .nav-logo {
+    height: 100%;
     cursor: pointer;
     float: left;
-}
+} */
 
 .login-signup-container {
-    float: right;
-    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: max(10%,200px);
     margin-right: 20px;
 }

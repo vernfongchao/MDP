@@ -15,26 +15,23 @@ const TopNavBar = () => {
     let LoggedIn
 
     if (user) {
-        LoggedIn = (<div>
+        LoggedIn = (<>
             <LogoutButton />
-        </div>)
+        </>)
     }
     else if (!user) {
         LoggedIn = (
-            <div>
+            <>
                 <LoginFormModal />
                 <SignUpFormModal />
-            </div>
+            </>
         )
     }
 
     return (
         <div className="top-navbar-page-container">
             <div className="logo-container">
-                <NavLink className="nav-logo" to="/" exact={true} activeClassName='active'>
-                    {/* <img className="img-logo" src="/MDP-logo.png" alt='MDP-logo'></img> */}
-                    <img className="img-logo" src={Logo} alt='MDP-logo'></img>
-                </NavLink>
+                <img className="img-logo" src={Logo} alt='MDP-logo'></img>
             </div>
             <div className="login-signup-container">
                 {LoggedIn}
