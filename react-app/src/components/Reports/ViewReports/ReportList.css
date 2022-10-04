@@ -4,8 +4,11 @@
 }
 
 .report-list-page-container{
-    box-sizing: border-box;
-    height: 100%;
+    position: relative;
+        box-sizing: border-box;
+        border-right: .52vw #1D3557 solid;
+        bottom: .03vh;
+        height: 100.5%;
     width: 100%;
     background-color: #F1FAEE;
     display: flex;

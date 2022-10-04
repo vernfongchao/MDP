@@ -1,10 +1,14 @@
 .announcement-details-page-container{
+    position: relative;
     box-sizing: border-box;
+    border-right: .52vw #1D3557 solid;
+    bottom: .03vh;
+    height: 100.5%;
     width: 33.3%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: .83vw #1D3557 solid;
+    border-right: .52vw #1D3557 solid;
     overflow-wrap: break-word;
 
 }   
