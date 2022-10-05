@@ -67,10 +67,7 @@ font-size: max(.8vw, 16px);
 .ql-snow.ql-toolbar {
     height: 20%;
 }
-
-
-.ql-snow.ql-toolbar span > svg {
-} */
+ */
 
 .ql-editor.ql-blank {
     background-color: white;

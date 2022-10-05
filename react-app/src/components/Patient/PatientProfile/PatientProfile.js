@@ -33,10 +33,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
     const [notes, setNotes] = useState("")
 
 
-    const [notesError, setNotesError] = useState([])
-    const [firstNameError, setFirstNameError] = useState([])
-    const [lastNameError, setLastNameError] = useState([])
-    const [addressError, setAddressError] = useState([])
+    const [firstNameError, setFirstNameError] = useState("")
+    const [lastNameError, setLastNameError] = useState("")
+    const [addressError, setAddressError] = useState("")
+    const [notesError, setNotesError] = useState("")
 
     const imageInputRef = useRef()
 
@@ -56,10 +56,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             setLastName(patient?.lastName)
             setAddress(patient?.address)
             setNotes(patient?.notes)
-            setFirstNameError([])
-            setLastNameError([])
-            setAddressError([])
-            setNotesError([])
+            setFirstNameError("")
+            setLastNameError("")
+            setAddressError("")
+            setNotesError("")
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -72,10 +72,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             setLastName("")
             setAddress("")
             setNotes("")
-            setFirstNameError([])
-            setLastNameError([])
-            setAddressError([])
-            setNotesError([])
+            setFirstNameError("")
+            setLastNameError("")
+            setAddressError("")
+            setNotesError("")
             setPreviewPicture("")
             setDeletePicture("")
             setUploadPicture("")
@@ -89,7 +89,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
 
     const handleContentChange = (content, delta, source, editor) => {
         setSuccess("")
-        setNotesError([])
+        setNotesError("")
         setNotes(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -100,19 +100,19 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
 
     const handleFirstName = (e) => {
         setSuccess("")
-        setFirstNameError([])
+        setFirstNameError("")
         setFirstName(e.target.value)
     }
 
     const handleLastName = (e) => {
         setSuccess("")
-        setLastNameError([])
+        setLastNameError("")
         setLastName(e.target.value)
     }
 
     const handleAddressName = (e) => {
         setSuccess("")
-        setAddressError([])
+        setAddressError("")
         setAddress(e.target.value)
     }
 
@@ -174,10 +174,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setNewPatient(false)
                 setSuccess("Saved")
 
-                setFirstNameError([])
-                setLastNameError([])
-                setAddressError([])
-                setNotesError([])
+                setFirstNameError("")
+                setLastNameError("")
+                setAddressError("")
+                setNotesError("")
 
                 setPreviewPicture("")
                 setDeletePicture("")
@@ -188,12 +188,11 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
             }
             else {
                 const errors = newPatient.errors
-                setIsLoading(errors.image)
-                setIsLoading(errors.image)
-                setAddressError(errors.address)
-                setFirstNameError(errors.first_name)
-                setLastNameError(errors.last_name)
-                setNotesError(errors.notes)
+                if (errors.image) setIsLoading(errors.image[0])
+                if (errors.address) setAddressError(errors.address[0])
+                if (errors.first_name) setFirstNameError(errors.first_name[0])
+                if (errors.last_name) setLastNameError(errors.last_name[0])
+                if (errors.notes) setNotesError(errors.notes[0])
             }
         }
         else if (!newPatient) {
@@ -203,10 +202,10 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setNewPatient(false)
                 setSuccess("Saved")
 
-                setFirstNameError([])
-                setLastNameError([])
-                setAddressError([])
-                setNotesError([])
+                setFirstNameError("")
+                setLastNameError("")
+                setAddressError("")
+                setNotesError("")
 
                 setPreviewPicture("")
                 setDeletePicture("")
@@ -215,16 +214,17 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setIsLoading("")
             }
             else {
-                const errors = editPatient.errors
-                setIsLoading(errors.image)
-                setIsLoading(errors.image)
-                setAddressError(errors.address)
-                setFirstNameError(errors.first_name)
-                setLastNameError(errors.last_name)
-                setNotesError(errors.notes)
+                const errors = await editedPatient.errors
+                if (errors.image)setIsLoading(errors.image[0])
+                if (errors.address)setAddressError(errors.address[0])
+                if (errors.first_name)setFirstNameError(errors.first_name[0])
+                if (errors.last_name)setLastNameError(errors.last_name[0])
+                if (errors.notes)setNotesError(errors.notes[0])
             }
         }
     }
+
+    // console.log(addressError)
 
 
 

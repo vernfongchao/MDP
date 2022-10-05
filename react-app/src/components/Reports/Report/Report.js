@@ -117,7 +117,6 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                 setNewReport(false)
             }
             else if (editReport.errors) {
-
                 setTitleError(editReport.errors.title)
             }
         }

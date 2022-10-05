@@ -72,7 +72,6 @@ const SignUpForm = () => {
   };
 
   const updateRole = (e) => {
-    console.log(e.target.value)
     setRole(e.target.value);
     setPositionError([])
   };
@@ -191,7 +190,7 @@ const SignUpForm = () => {
       </div>
       <div className='signup-error-text'>
         {passwordError.length ? passwordError.map(error => (
-          <span key={error}> {error}</span>
+          <p key={error}> {error}</p>
         )) : null}
       </div>
       <div>

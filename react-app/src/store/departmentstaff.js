@@ -50,7 +50,6 @@ export const patchStaffDepartments = (payload) => async dispatch => {
     })
     if (response.ok) {
         const departments = await response.json()
-        console.log(departments)
         dispatch(loadStaffDepartments(departments))
         return departments
     }

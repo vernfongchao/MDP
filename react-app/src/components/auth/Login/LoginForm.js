@@ -22,8 +22,6 @@ const LoginForm = () => {
     }
   };
 
-  // console.log(usernameError)
-  // console.log(passwordError)
 
   const updateUsername = (e) => {
     setUsernameError([])
@@ -37,11 +35,7 @@ const LoginForm = () => {
 
   return (
     <form className='main-user-login' onSubmit={onLogin}>
-      {/* <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div> */}
+
       <div>
         <label
           style={usernameError.length ? { color: "red" }: {}}
