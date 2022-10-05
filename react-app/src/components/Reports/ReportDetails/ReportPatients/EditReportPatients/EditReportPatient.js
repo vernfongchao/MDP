@@ -128,7 +128,7 @@ const EditReportPatient = ({ report, setShowModal }) => {
                     return (
                         <div className="edit-report-patient-name-container"
                             key={patientId}>
-                            <span>
+                            <span className="edit-report-patient-name">
                                 {patient.firstName} {patient.lastName} Patient ID: {patient.id}
                             </span>
                             <div className="edit-report-patient-remove-icon-container">

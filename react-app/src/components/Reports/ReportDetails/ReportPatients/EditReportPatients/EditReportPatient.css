@@ -118,7 +118,13 @@
     border: 2px solid black;
     border-radius: 5px;
     margin-right: 10px;
-    height: 22px;
+    /* height: 22px; */
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.edit-report-patient-name{
+    width: 22.4vw;
 }
 
 .edit-report-patient-remove-icon-container {

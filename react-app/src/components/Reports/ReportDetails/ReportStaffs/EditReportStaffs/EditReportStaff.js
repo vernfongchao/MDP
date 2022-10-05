@@ -123,7 +123,7 @@ const EditReportStaff = ({ report, setShowModal }) => {
                         <div className="edit-report-staff-name-container"
                             key={staffId}
                         >
-                            <span>
+                            <span className="edit-report-staff-name">
                                 {staff.firstName} {staff.lastName} Staff ID: {staff.id}
                             </span>
                             <div className="edit-report-staff-remove-icon-container">
