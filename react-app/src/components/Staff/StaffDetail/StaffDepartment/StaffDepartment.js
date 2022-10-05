@@ -8,8 +8,11 @@ import './StaffDepartment.css'
 
 const StaffDepartment = ({ staff }) => {
     const dispatch = useDispatch()
+    const user = useSelector(state=>state.session.user)
     const staffDepartments = Object.values(useSelector(state => state.departmentStaffs.staff))
     const departments = useSelector(state => state.departments)
+
+    const isEdit = user?.id === staff.id
 
     useEffect(() => {
         if (staff) {
@@ -21,7 +24,7 @@ const StaffDepartment = ({ staff }) => {
         <div className="staff-department-page-container">
 
             <div className="staff-department-header-container">
-                {staff &&
+                {isEdit &&
                     <EditStaffDepartmentModal
                         staff={staff}
                     />

@@ -1,25 +1,31 @@
 .creator-social-page-container{
     position: relative;
     bottom: .03vh;
-    height: 100.5%;
+    height: 15%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 33.4%;
     overflow-y: auto;
+    border-bottom: .52vw #1D3557 solid;
 }
 
 .creator-social-header-link-container{
     width: 95%;
+        /* border-bottom: 10px #1D3557 solid; */
 }
+
+/* .creator-social-header-container{
+    width: 95%;
+} */
 
 .creator-social-header-link-container h2 {
     font-size: max(1.25vw, 24px);
 }
 
 .creator-social-verns-links{
-    width: 100%;
+    width: 95%;
     display: flex;
 }
 

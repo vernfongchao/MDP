@@ -5,7 +5,10 @@ const CreatorSocial = ({ index }) => {
     return (
         <div className='creator-social-page-container'>
             <div className='creator-social-header-link-container'>
-                <h2>Socials</h2>
+                <div className='creator-social-header-container'>
+                    <h2>Socials</h2>
+
+                </div>
                 {index === 0 &&
                     <div className='creator-social-verns-links'>
                         <div className="creator-social-links-container">
