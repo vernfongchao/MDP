@@ -69,6 +69,6 @@ font-size: max(.625vw, 12px);
 
 .announcement-buttons{
     height: max(2vh,18px);
-    aspect-ratio: 2.5/1;
+    aspect-ratio: 2.7/1;
     font-size: .8vw;
 }
