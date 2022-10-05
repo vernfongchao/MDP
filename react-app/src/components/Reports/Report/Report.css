@@ -10,6 +10,7 @@
 }
 
 .report-detail-container{
+    height: 90%;
     width: 95%;
     margin-bottom: 10px;
 }
@@ -19,32 +20,33 @@
 }
 
 .report-edit-position{
-    width: max(290px, 27.4vw);
-    position: absolute;
-}
-
-.repore-edit-position {
-    width: max(290px, 27.4vw);
-    position: absolute;
-}
-
-.report-edit-container {
+    top: 1vh;
     display: flex;
     justify-content: flex-end;
     position: relative;
+    height: 0px;
+    width: 100%;
 }
 
+
 .report-edit-success {
-    font-size: 1.7em;
+    font-size: max(1.25vw, 24px);
 }
 
 .report-edit-icon{
     cursor: pointer;
-    font-size: 2em;
+    font-size: max(1.67vw, 32px);
 }
 
 .report-edit-icon:hover{
     color: #1D3557;
+}
+.report-form-header{
+    font-size: max(1.67vw, 32px);
+}
+
+.report-form-id{
+    font-size: max(.975vw, 18.72px);
 }
 
 .report-title-container{
@@ -54,10 +56,24 @@
     overflow-wrap: break-word;
 }
 
+.report-title-label{
+    font-size: max(.625vw, 12px);
+    font-weight: bold;
+    margin-bottom: .1vh;
+}
 .report-title-error{
     color: red;
 }
 
+.report-title-input{
+    font-size: max(.8vw, 16px);
+    height: (1.64vh,16px);
+    margin-bottom: .1vh;
+}
+
+.report-title-input-error{
+    border: 2px solid red;
+}
 .report-title-max-text-container{
     position: relative;
     width: 100%;
@@ -68,21 +84,34 @@
 
 .report-title-max-text{
     height: 0px;
-    font-size: .75em;
+    font-size: max(.625vw, 12px);
     color: red;
 }
+.report-title-error{
+    font-size: max(.625vw, 12px);
+    font-weight: bold;
+}
 
-.report-title-input-error{
-    border: 2px solid red;
+.report-title-error-text{
+    font-size: max(.8vw, 16px);
+    font-weight: bold;
 }
 
 .report-updated-container{
     border-bottom: 2px solid black;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
     display: flex;
     flex-direction: column;
 }
 
-.report-content-container{
+.report-update-text{
+        font-size: max(.8vw, 16px);
+}
 
+.report-content-container{
+    height: 80%;
+}
+
+.report-details-title{
+    font-size: max(.975vw, 18.72px);
 }

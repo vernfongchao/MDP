@@ -9,6 +9,10 @@
     width: 95%;
 }
 
+.report-department-header{
+    font-size: max(1.25vw, 24px);
+}
+
 
 .report-department-list-container{
     width: 95%;
@@ -27,7 +31,7 @@
     border: 2px solid black;
     border-radius: 5px;
     margin-right: 10px;
-    height: 22px;
+font-size: max(.8vw, 16px);
 }
 .report-department-name{
     font-weight: bold;

@@ -70,8 +70,8 @@
 
 
 .patient-profile-picture{
-    width: 200px;
-    height: 200px;
+    height: max(10vw,200px);
+    aspect-ratio: 1/1;
 }
 
 
@@ -88,7 +88,7 @@
 
 .patient-profile-info-header-text {
     margin: 0;
-    font-size: 12px;
+font-size: max(.625vw, 12px);
 }
 
 .patient-profile-info-text {

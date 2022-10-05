@@ -38,6 +38,7 @@
 
 .announcement-form-title-label{
 font-size: max(.8vw, 16px);
+    padding-bottom: .6vh;
 }
 
 .announcement-form-title-container{
@@ -47,7 +48,9 @@ font-size: max(.8vw, 16px);
 }
 
 .announcement-input-form{
-font-size: max(.8vw, 16px);
+    box-sizing: border-box;
+    height: max(1.64vh,16px);
+    font-size   : max(.8vw, 16px);
 }
 
 .announcement-form-content-container{
@@ -76,31 +79,31 @@ font-size: max(.8vw, 16px);
 }
 
 .ql-snow .ql-editor h1 {
-    font-size: max(1.25vw, 24px);
+    font-size: max(1.67vw, 32px);
 }
 
 .ql-snow .ql-editor > h2 {
-    font-size: max(.975vw, 18.72px);
+    font-size: max(1.25vw, 24px);
 }
 
 .ql-snow .ql-editor > h3 {
-    font-size: max(.8vw, 16px);
+font-size: max(.975vw, 18.72px);
 }
 
 .ql-snow .ql-editor > p {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 
 .ql-snow .ql-editor > span {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 
 .ql-snow .ql-editor>ol>li {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 
 .ql-snow .ql-editor>ul>li {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 
 
@@ -140,14 +143,15 @@ font-size: max(.8vw, 16px);
 }
 
 .announcement-form-button-container{
+    height: 3vh;
     margin-top: auto;
     display: flex;
     justify-content: space-between;
 }
 
 .announcement-buttons {
-    width: max(1.6vw,60px);
-    height: max(1vh, 20px);
+    width: max(3vw, 60px);
+    height: max(2vh, 20px);
     cursor: pointer;
     background-color: #A8DADC;
     border-radius: 3px;

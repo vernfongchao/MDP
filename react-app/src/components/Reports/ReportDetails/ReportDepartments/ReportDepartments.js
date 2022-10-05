@@ -27,7 +27,7 @@ const ReportDepartments = ({ report }) => {
                         report={report}
                     />
                 }
-                <h2>
+                <h2 className="report-department-header">
                     Departments
                 </h2>
             </div>

@@ -30,6 +30,10 @@
     justify-content: center;
 }
 
+.staff-list-header{
+    font-size: max(1.67vw, 32px);
+}
+
 .staff-list-search-container{
     display: flex;
     flex-direction: row;

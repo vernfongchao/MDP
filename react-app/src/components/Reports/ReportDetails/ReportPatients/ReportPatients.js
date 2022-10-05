@@ -37,7 +37,7 @@ const ReportPatients = ({ report }) => {
 
             }
             <div className="report-patients-header-container">
-                <h2>Patients</h2>
+                <h2 className="report-patients-header">Patients</h2>
             </div>
 
             {report && reportPatients?.map(({ patientId }) => {

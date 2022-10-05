@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import SignUpForm from '../SignUp/SignUpForm';
 import Demo from './Demo';
 import { login } from '../../../store/session';
 
-const LoginForm = () => {
+
+const LoginForm = ({setShowModal}) => {
   const [username, setUsername] = useState('');
   const [usernameError, setUsernameError] = useState([])
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState([])
+  const [isLogin, setIsLogin] = useState(true)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -17,8 +20,8 @@ const LoginForm = () => {
     const data = await dispatch(login(username, password));
     if (data.errors) {
       const errors = data.errors
-      if(errors.username)setUsernameError(errors.username)
-      if(errors.password)setPasswordError(errors.password)
+      if (errors.username) setUsernameError(errors.username)
+      if (errors.password) setPasswordError(errors.password)
     }
   };
 
@@ -33,12 +36,12 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  return (
+  return (isLogin ?
     <form className='main-user-login' onSubmit={onLogin}>
 
       <div>
         <label
-          style={usernameError.length ? { color: "red" }: {}}
+          style={usernameError.length ? { color: "red" } : {}}
           htmlFor='username'>Username</label>
         <input
           className={usernameError.length ? 'form-input-user form-input-error' : 'form-input-user'}
@@ -74,7 +77,15 @@ const LoginForm = () => {
         <button className='user-buttons' type='submit'>Login</button>
         <Demo />
       </div>
+      <div className='login-form-to-signup-container'>
+        <span>
+          Don't have an account? <span className='login-form-to-signup-text' onClick={() => setIsLogin(false)}>Sign-Up</span> here
+        </span>
+      </div>
     </form>
+
+    :
+    (!isLogin && <SignUpForm setShowModal={setShowModal} />)
   );
 };
 

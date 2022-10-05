@@ -44,7 +44,7 @@ const ReportList = ({ idx }) => {
             <div className="report-list-container">
                 <div className="report-list-header-search-container">
                     <div className="report-list-header-container">
-                        <h1>
+                        <h1 className="report-list-header">
                             Reports
                         </h1>
                     </div>
@@ -80,7 +80,7 @@ const ReportList = ({ idx }) => {
                             <h3 className="report-list-title">
                                 {report.title}
                             </h3>
-                            <h4>
+                            <h4 className="report-list-Id">
                                 ID: {report.id}
                             </h4>
                         </div>

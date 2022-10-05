@@ -75,8 +75,8 @@
 
 
 .staff-profile-picture{
-    width: 200px;
-    height: 200px;
+    height: max(10vw, 200px);
+        aspect-ratio: 1/1;
 }
 
 
