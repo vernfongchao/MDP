@@ -64,8 +64,18 @@ font-size: max(.8vw, 16px);
     position: relative;
 }
 
-.announcement-buttons{
-    height: max(2vh,18px);
-    aspect-ratio: 2.7/1;
-    font-size: .8vw;
+.announcement-edit-button{
+    cursor: pointer;
+    background-color: #A8DADC;
+    border: 1px solid #1D3557;
+    border-radius: 3px;
+    margin-top: 5px;
+    width: max(1.6vw, 60px);
+    height: max(1vh, 20px);
+    font-size: max(.625vw, 12px);
+}
+
+.announcement-edit-button:hover{
+    box-shadow: 1px 1px 5px 1px #1D3557;
+    /* border: 1px solid #1D3557; */
 }

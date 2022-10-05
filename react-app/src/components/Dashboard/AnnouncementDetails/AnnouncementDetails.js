@@ -22,7 +22,7 @@ const AnnouncementDetails = ({ edit, setEdit, announcement }) => {
 
             ) : (
                 <div className="announcement-edit-button-position">
-                    <button className="announcement-buttons" onClick={onEdit}>
+                    <button className="announcement-edit-button" onClick={onEdit}>
                         Edit
                     </button>
                 </div>

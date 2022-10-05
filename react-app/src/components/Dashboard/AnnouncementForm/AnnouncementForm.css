@@ -146,11 +146,14 @@ font-size: max(.8vw, 16px);
 }
 
 .announcement-buttons {
+    width: max(1.6vw,60px);
+    height: max(1vh, 20px);
     cursor: pointer;
     background-color: #A8DADC;
     border-radius: 3px;
     border: 1px solid #1D3557;
     margin-top: 5px;
+    font-size: max(.625vw, 12px);
 }
 
 .announcement-buttons:hover {

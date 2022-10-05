@@ -112,15 +112,12 @@ body {
   width: max(100%, 90px);
   font-size: min(.8vw, 36px);
   border: 2px solid #ccc;
-  border-radius: 5px
+  border-radius: 5px;
+  cursor: pointer;
 }
-/* padding: 6px 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-margin: 5px;
-background-color: white;
-color: black;
-width: 115px; */
+#logout-button:hover{
+  background-color: #A8DADC;
+}
 
 .signup-error{
   color: red;

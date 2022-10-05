@@ -78,13 +78,3 @@ body {
     overflow-wrap: break-word;
     font-size: max(1vw, 16px);
 }
-
-.announcement-edit-button{
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #A8DADC;
-}
-
-.announcement-edit-button:hover{
-    background-color: #A8DADC;
-}
