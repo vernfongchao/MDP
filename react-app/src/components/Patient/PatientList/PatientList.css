@@ -10,7 +10,7 @@
 
 
 .patient-list-container {
-    border-right: 10px #1D3557 solid;
+    border-right: .625vw #1D3557 solid;
     box-sizing: border-box;
     width: 33.3%;
     display: flex;

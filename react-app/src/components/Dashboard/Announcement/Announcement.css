@@ -17,11 +17,9 @@ body {
 }
 
 .announcement-list-container{
-    position: relative;
     box-sizing: border-box;
-    border-right: .52vw #1D3557 solid;
-    bottom: .03vh;
-    height: 100.5%;
+    border-right: .625vw #1D3557 solid;
+    height: 100%;
     width: 33.3%;
     display: flex;
     flex-direction: column;
