@@ -321,18 +321,6 @@ const StaffProfile = ({ index, staffs }) => {
                     }
                 </div>
             }
-            { isEdit && notes.length ?
-                <div style={{ width: "95%", top: "5px", position: "relative" }}>
-
-                    <div className="annoucement-form-content-tracker-container">
-                        <span className="annoucement-form-content-tracker-text" >
-                            character length after styling <span style={(notes.length > 5000 ? { color: "red" } : null)}>{notes.length}</span>
-                            /5000
-                        </span>
-                    </div>
-                </div>
-                : null
-            }
             {isEdit && notes.length ?
                 <div style={{ width: "95%", top: "5px", position: "relative" }}>
 
