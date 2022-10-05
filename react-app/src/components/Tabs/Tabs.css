@@ -17,6 +17,7 @@
 .tab-navbar-container{
     box-sizing: border-box;
     height: 100%;
+    width: min(8vw, 300px);
 }
 
 .tab-header-container {
@@ -25,12 +26,13 @@
     align-items: center;
     box-sizing: border-box;
     border-bottom: #1D3557 1px solid;
-    width: 130px;
+    width: 100%;
     height: 100%;
     
 }
 
 .tab-header{
+    font-size:1.5vw;
     margin: 0;
 }
 
@@ -50,25 +52,31 @@
 
 
 .tab-remove-icon-position{
-    position:absolute;
-}
-.tab-remove-icon-container{
+    width: 95%;
+    top: min(.2vh,20px);
+    display: flex;
+    justify-content: flex-end;
     position: relative;
-    left: max(5.9vw,114px)
+    height: 0px;
 
 }
+
+.tab-remove-icon{
+    font-size: min(1vw,36px);
+}
+
 .tab-remove-icon:hover{
     cursor: pointer;
     color: red;
 }
 
 .navbar-add-header-container{
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    aspect-ratio: 1 /1;
+    height: 100%;
+    /* width: max(1vw,50px); */
 }
 .navbar-add-header-container:hover{
     box-shadow: 1px 1px 10px 1px #1D3557;
@@ -76,7 +84,8 @@
 }
 
 .add-tab-header{
-    margin: 0;
+    font-size: 2vw;
+    font-weight: bold;
 }
 
 .add-tab-header:hover{

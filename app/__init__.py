@@ -14,7 +14,6 @@ from .api.patient_routes import patient_routes
 from .api.report_routes import report_routes
 from .api.announcement_routes import announcement_routes
 from .api.department_routes import departments_routes
-from .api.departmentstaff_routes import departmentstaffs_routes
 
 from .seeds import seed_commands
 
@@ -43,8 +42,6 @@ app.register_blueprint(patient_routes, url_prefix='/api/patients')
 app.register_blueprint(report_routes, url_prefix='/api/reports')
 app.register_blueprint(announcement_routes, url_prefix='/api/announcements')
 app.register_blueprint(departments_routes, url_prefix='/api/departments')
-app.register_blueprint(departmentstaffs_routes,
-                       url_prefix='/api/departmentstaffs')
 db.init_app(app)
 Migrate(app, db)
 

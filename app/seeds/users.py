@@ -4,21 +4,21 @@ from app.models import db, Staff
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = Staff(
-        username='demo', email='demo@mdp.io', first_name='Demo', last_name='Lition', password='password', position=2)
+        username='demo', email='demo@mdp.io', first_name='Demo', last_name='Lition', password='password', position=2 ,notes = "")
     vern = Staff(
-        username='vern', email='vern@mdp.io', first_name='Vern', last_name='Chao', password='password', position=1)
+        username='vern', email='vern@mdp.io', first_name='Vern', last_name='Chao', password='password', position=1, notes="")
     chiew = Staff(
-        username='chiew', email='chiew@mdp.io', first_name='Chiew', last_name='Saetern', password='password', position=2)
+        username='chiew', email='chiew@mdp.io', first_name='Chiew', last_name='Saetern', password='password', position=2, notes="")
     lucas = Staff(
-        username='lucas', email='lucas@mdp.io', first_name='Lucas', last_name='Costa', password='password', position=3)
+        username='lucas', email='lucas@mdp.io', first_name='Lucas', last_name='Costa', password='password', position=3, notes="")
     vu = Staff(
-        username='vu', email='vu@mdp.io', first_name='Vu', last_name='Co', password='password', position=4)
+        username='vu', email='vu@mdp.io', first_name='Vu', last_name='Co', password='password', position=4, notes="")
     george = Staff(
-        username='george', email='george@mdp.io', first_name='George', last_name='Eng', password='password', position=5)
+        username='george', email='george@mdp.io', first_name='George', last_name='Eng', password='password', position=5, notes="")
     katerina = Staff(
-        username='katerina', email='katerina@mdp.io', first_name='Katerina', last_name='Kreibich', password='password', position=5)
+        username='katerina', email='katerina@mdp.io', first_name='Katerina', last_name='Kreibich', password='password', position=5, notes="")
     marnie = Staff(
-        username='marnie', email='marnie@mdp.io', first_name='Marnie', last_name='Lotion', password='password', position=6)
+        username='marnie', email='marnie@mdp.io', first_name='Marnie', last_name='Lotion', password='password', position=6, notes="")
 
     db.session.add(demo)
     db.session.add(vern)

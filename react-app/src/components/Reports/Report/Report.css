@@ -1,12 +1,12 @@
 .report-form-page-container{
     box-sizing: border-box;
+    border-right: .625vw #1D3557 solid;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 33.3%;
-    height: 100%;
     overflow-y: auto;
-    border-right: 10px #1D3557 solid;
 }
 
 .report-detail-container{
@@ -58,6 +58,19 @@
     color: red;
 }
 
+.report-title-max-text-container{
+    position: relative;
+    width: 100%;
+    height: 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.report-title-max-text{
+    height: 0px;
+    font-size: .75em;
+    color: red;
+}
 
 .report-title-input-error{
     border: 2px solid red;

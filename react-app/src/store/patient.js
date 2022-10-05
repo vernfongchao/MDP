@@ -41,7 +41,7 @@ export const addPatient = (payload) => async dispatch => {
     }
     else if (response.status < 500) {
         const data = await response.json()
-        return data.errors
+        return data
     }
 }
 
@@ -57,7 +57,7 @@ export const editPatient = (payload) => async dispatch => {
     }
     else if (response.status < 500) {
         const data = await response.json()
-        return data.errors
+        return data
     }
 }
 

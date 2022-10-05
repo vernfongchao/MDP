@@ -10,7 +10,7 @@
 
 
 .staff-list-container{
-    border-right: 10px #1D3557 solid;
+    border-right: .625vw #1D3557 solid;
     box-sizing: border-box;
     width: 33.3%;
     display: flex;
@@ -99,6 +99,10 @@
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;
+}
+
+.staff-card-name-text{
+    width: 75%;
 }
 
 .active-staff{

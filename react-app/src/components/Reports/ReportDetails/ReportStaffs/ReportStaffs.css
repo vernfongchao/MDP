@@ -1,0 +1,51 @@
+.report-staffs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-bottom: 10px #1D3557 solid;
+}
+
+
+.report-staff-add-icon:hover {
+    cursor: pointer;
+    color: #1D3557;
+}
+
+.report-staffs-header-container {
+    width: 95%;
+}
+
+.report-staffs-card-container {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.report-staff-card-id-name-container {
+    width: 60%;
+}
+
+.report-staff-card-id-container {
+    border-bottom: #1D3557 solid 2px;
+
+}
+
+.report-staff-card-id-name-header {
+    margin: 0%;
+    font-size: 12px;
+}
+
+.report-staff-card-id {
+    margin: 0%;
+    font-size: 18px;
+}
+
+.report-staff-card-name-container {
+    display: flex;
+    border-bottom: #1D3557 solid 2px;
+}
+
+.report-staff-name-container {
+    width: 50%;
+}

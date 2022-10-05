@@ -3,6 +3,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .departmentstaffs import departmentstaffs
+from .staffreports import staffreports
 
 
 class Staff(db.Model, UserMixin):
@@ -25,8 +26,8 @@ class Staff(db.Model, UserMixin):
     role = db.relationship('Role', back_populates='staff')
     announcements = db.relationship("Announcement",back_populates="staff", cascade="all,delete")
     image = db.relationship("Image",back_populates="staff", uselist=False, cascade="all,delete" )
+    
     departments = db.relationship('Department', secondary=departmentstaffs, backref='staffs')
-
 
     @property
     def password(self):
@@ -53,5 +54,8 @@ class Staff(db.Model, UserMixin):
             'imgId': self.image.id if self.image else ""
         }
 
-    def to_departmentstaffs_dict(self):
+    def staff_departments_to_dict(self):
         return [{'departmentId':department.id} for department in self.departments]
+
+    def staff_reports_to_dict(self):
+        return[{'reportId':report.id} for report in self.reports]

@@ -9,7 +9,7 @@ const loadStaffs = (staffs) => (
     }
 )
 
-const loadStaff = (staff) => (
+export const loadStaff = (staff) => (
     {
         type: LOAD_STAFF,
         staff

@@ -1,7 +1,3 @@
-/* * {
-    font-family: 'Courier Prime', monospace;
-} */
-
 body {
     background-color: #F1FAEE;
 }
@@ -13,17 +9,17 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* border: 10px #1D3557 solid; */
 }
 
 
-/* .announcement-header{
-    font-size: max(1.5vw, 18px);
-} */
+.announcement-header{
+    font-size: max(1.67vw, 32px);
+}
 
 .announcement-list-container{
     box-sizing: border-box;
-    border-right: 10px #1D3557 solid;
+    border-right: .625vw #1D3557 solid;
+    height: 100%;
     width: 33.3%;
     display: flex;
     flex-direction: column;
@@ -39,9 +35,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
-
 .announcement-list-title-container {
     width: 80%;
 
@@ -50,17 +43,20 @@ body {
 .announcement-delete-icon-container {
     cursor: pointer;
     position: relative;
-    top: 2px;
-    left: max(22.2vw, 120px);
+    top: 5%;
+    left: 99%;
     height: 0px;
 }
 
 .announcement-title-container{
-    margin-bottom: 5px;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    margin-bottom: 1vh;
+    padding-left: 1vw;
     border: 2px black solid;
     border-radius: 5px;
-    width: min(22vw, 422px);
+    width: 100%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     border: 1px solid #1D3557;
     overflow-wrap: break-word;
@@ -75,17 +71,10 @@ body {
 .active-announcement{
     background-color: #A8DADC;
 }
-
-/* .annoumcent-title{
-    font-size: max(1.5vw, 18px);
-} */
-
-.announcement-edit-button{
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #A8DADC;
+.announcement-title-container{
 }
-
-.announcement-edit-button:hover{
-    background-color: #A8DADC;
+.announcement-title{
+    width: 100%;
+    overflow-wrap: break-word;
+    font-size: max(1vw, 16px);
 }

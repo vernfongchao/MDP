@@ -1,0 +1,33 @@
+.patient-report-page-container{
+    border-bottom: .625vw #1D3557 solid;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.patient-report-header-container{
+    width: 95%;
+}
+
+.patient-report-map-container{
+    display: flex;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+.patient-report-info-container{
+    margin-top: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    display: flex;
+    background-color: #A8DADC;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 22px;
+}
+
+.patient-report-info-text{
+    font-weight: bold;
+}

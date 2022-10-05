@@ -16,7 +16,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     const [title, setTitle] = useState("")
     const [maxTitle, setMaxTitle] = useState("")
     const [content, setContent] = useState("")
-    const [maxContent, setMaxContent] = useState("")
     const [delta, setDelta] = useState('')
 
     const [titleError, setTitleError] = useState("")
@@ -40,10 +39,10 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
     }, [edit])
 
     useEffect(() => {
-        if (title.length >= 1000) {
+        if (title.length >= 100) {
             setMaxTitle("Maximum characters for title reached")
         }
-        if (title.length < 1000) {
+        if (title.length < 100) {
             setMaxTitle("")
         }
         if (title.length) {
@@ -99,12 +98,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
 
     const handleContentChange = (content, delta, source, editor) => {
-        if (content.length > 5000) {
-            setMaxContent("Maximum Characters Reached for Content")
-        }
-        else if (content.length < 5000) {
-            setMaxContent("")
-        }
         setContent(content)
         setDelta(editor.getHTML(content))
         const text = editor.getText()
@@ -123,7 +116,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
 
     return (
         <div className="announcement-form-page-container" onSubmit={handleSubmit}>
-            <div className="announcement-form-page-subcontainer">
+            <div className="announcement-form-header-container">
                 {edit ? (
                     <h1>Edit Announcement</h1>
 
@@ -136,7 +129,7 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                     <div className="announcement-form-title-container">
                         <label className={titleError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Title:</label>
                         <input className={titleError ? "announcement-input-form form-error-input-border" : "announcement-input-form"}
-                            maxLength="1000"
+                            maxLength="100"
                             name="title"
                             type="text"
                             value={title}
@@ -144,34 +137,31 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                         />
                         {maxTitle && <p className="announcement-form-errors">{maxTitle}</p>}
                     </div>
-                    <div className="announcement-form-content-container">
-                        <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
-                        <ReactQuill
-                            className={contentError ? "announcement-form-conntent form-error-input-border" : "announcement-form-conntent"}
-                            theme="snow"
-                            value={content}
-                            placeholder={"Please add your announcement here"}
-                            onChange={handleContentChange}
-                            style={
-                                {
-                                    width: '100%',
-                                    height: '100%',
-                                }
+                    {/* <div className="announcement-form-content-container"> */}
+                    <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
+                    <ReactQuill
+                        className={contentError ? "announcement-form-content form-error" : "announcement-form-content"}
+                        theme="snow"
+                        value={content}
+                        placeholder={"Please add your announcement here"}
+                        onChange={handleContentChange}
+                        style={
+                            {
+                                width: '100%',
+                                height: '70%',
                             }
-                        />
-
-                        {content.length ?
-                            <div className="annoucement-form-content-tracker-container">
-                                <div className="annoucement-form-content-tracker-position">
-                                    <span style={{ fontSize: ".75em" }}>
-                                        character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
-                                        /5000
-                                    </span>
-                                </div>
-                            </div>
-                            : null
                         }
-                    </div>
+                        />
+                    {content.length ?
+                        <div className="annoucement-form-content-tracker-container">
+                            <span className="annoucement-form-content-tracker-text" >
+                                character length after styling <span style={(content.length > 5000 ? { color: "red" } : null)}>{content.length}</span>
+                                /5000
+                            </span>
+                        </div>
+                        : null
+                    }
+                    {/* </div> */}
                     {(titleError || contentError) &&
                         <div className="announcement-form-errors-container">
                             {titleError && <p className="announcement-form-errors">{titleError}</p>}

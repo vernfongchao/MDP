@@ -10,7 +10,7 @@
 
 
 .patient-list-container {
-    border-right: 10px #1D3557 solid;
+    border-right: .625vw #1D3557 solid;
     box-sizing: border-box;
     width: 33.3%;
     display: flex;
@@ -29,6 +29,9 @@
     display: flex;
     justify-content: center;
 }
+
+
+
 
 .patient-list-search-container {
     display: flex;
@@ -101,6 +104,10 @@
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;
+}
+
+.patient-card-name-text{
+    width: 70%;
 }
 
 .active-patient {

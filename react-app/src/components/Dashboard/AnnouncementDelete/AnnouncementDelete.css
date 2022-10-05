@@ -1,9 +1,6 @@
-
-
-
-
-
-
+.announcement-delete-icon{
+    font-size: max(1vw,12px);
+}
 
 .announcement-delete-icon:hover{
     color: red;

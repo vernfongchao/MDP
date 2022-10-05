@@ -77,7 +77,7 @@ const ReportList = ({ idx }) => {
                             : "report-card-container"}
                             onClick={e => changeReport(e, i)}
                         >
-                            <h3 className="report-title">
+                            <h3 className="report-list-title">
                                 {report.title}
                             </h3>
                             <h4>
@@ -90,8 +90,8 @@ const ReportList = ({ idx }) => {
                 </div>
             </div>
 
-            <Report index={index} reports={filteredReports} setIndex={setIndex} setSearch={setSearch} />
-            <ReportDetails index={index} reports={filteredReports} report={report}setIndex={setIndex} setSearch={setSearch} />
+            <Report index={index} report={report} setIndex={setIndex} setSearch={setSearch} />
+            <ReportDetails index={index} report={report} setIndex={setIndex} setSearch={setSearch} />
         </div>
     )
 }

@@ -7,7 +7,7 @@ function SignUpFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
+    <div className='signup-modal-page-container'>
       <button id='signup-modal-main-page'
         onClick={() => setShowModal(true)}>Sign Up</button>
       {showModal && (
@@ -15,7 +15,7 @@ function SignUpFormModal() {
           <SignUpForm />
         </Modal>
       )}
-    </>
+    </div>
   );
 }
 

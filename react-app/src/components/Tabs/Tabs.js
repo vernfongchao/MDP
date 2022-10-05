@@ -58,14 +58,12 @@ const Tabs = () => {
                 {tabs?.map((tab, i) => (
                     <div key={i} className="tab-navbar-container">
                         <div className="tab-remove-icon-position">
-                            <div className="tab-remove-icon-container">
                                 {tabs.length !== 1 &&
                                     <mdIcons.MdCancel
                                         className="tab-remove-icon"
                                         onClick={e => removeTab(e, i)}
                                     />
                                 }
-                            </div>
                         </div>
                         <div className={i === index ? "active-tab tab-header-container" : "tab-header-container"} >
                             <h2 className="tab-header" onClick={e => handleClick(e, i)}>{tab.title}</h2>

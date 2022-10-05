@@ -1,11 +1,23 @@
 .announcement-form-page-container {
+    position: relative;
+    bottom: .03vh;
+    height: 100.5%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 33.4%;
-    height: 100%;
     overflow-y: auto;
+}
+
+.announcement-form-header-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.announcement-form-header-container > h1{
+    font-size: max(1.75vw, 16px);
 }
 .announcement-form-container{
     overflow-y: auto;
@@ -13,7 +25,8 @@
     flex-direction: column;
     /* justify-content: space-between; */
     width: 80%;
-    height: 80%;
+    height: 75%;
+    
 }
 
 .form-error{
@@ -23,10 +36,18 @@
     border: 1px red solid;
 }
 
+.announcement-form-title-label{
+font-size: max(.8vw, 16px);
+}
+
 .announcement-form-title-container{
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.announcement-input-form{
+font-size: max(.8vw, 16px);
 }
 
 .announcement-form-content-container{
@@ -35,20 +56,64 @@
     height: 75%;
 }
 
-.announcement-form-conntent{
+.announcement-form-content{
     box-sizing: border-box;
 }
 
-.annoucement-form-content-tracker-container{
-    position: absolute;
-    overflow-x: hidden;
+.ql-container {
+    height: 90%;
 }
-.annoucement-form-content-tracker-position{
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
+/* 
+.ql-snow.ql-toolbar {
+    height: 20%;
+}
+ */
+
+.ql-editor.ql-blank {
+    background-color: white;
+    height: 100%;
+    font-size: max(.625vw, 12px);
 }
 
+.ql-snow .ql-editor h1 {
+    font-size: max(1.25vw, 24px);
+}
+
+.ql-snow .ql-editor > h2 {
+    font-size: max(.975vw, 18.72px);
+}
+
+.ql-snow .ql-editor > h3 {
+    font-size: max(.8vw, 16px);
+}
+
+.ql-snow .ql-editor > p {
+font-size: max(.625vw, 12px);
+}
+
+.ql-snow .ql-editor > span {
+font-size: max(.625vw, 12px);
+}
+
+.ql-snow .ql-editor>ol>li {
+font-size: max(.625vw, 12px);
+}
+
+.ql-snow .ql-editor>ul>li {
+font-size: max(.625vw, 12px);
+}
+
+
+
+.annoucement-form-content-tracker-container{
+    position: relative;
+    height: 0px;
+}
+
+.annoucement-form-content-tracker-text{
+    font-size: max(.625vw, 12px);
+    height: 0px;
+}
 
 
 .announcement-form-button-container{
@@ -59,31 +124,20 @@
     margin-left: 50px;
 }
 
-.ql-snow.ql-toolbar{
-    /* height: 20%; */
-}
-
-.announcement-input-form,
-.ql-editor.ql-blank {
-    background-color: white;
-    height: 100%;
-}
-
-.ql-container{
-    height: 91.4%;
+.announcement-detail-writer-container {
+font-size: max(.8vw, 16px);
 }
 
 
 .announcement-form-errors-container{
-    margin-top: 30px;
+    margin-top: max(1.23vh,12px);
 }
 
 .announcement-form-errors{
-    font-size: .75em;
+    font-size: max(.625vw, 12px);
     color: red;
+    margin-bottom: max(.625vw, 12px);
 }
-
-
 
 .announcement-form-button-container{
     margin-top: auto;
@@ -92,11 +146,14 @@
 }
 
 .announcement-buttons {
+    width: max(1.6vw,60px);
+    height: max(1vh, 20px);
     cursor: pointer;
     background-color: #A8DADC;
     border-radius: 3px;
     border: 1px solid #1D3557;
     margin-top: 5px;
+    font-size: max(.625vw, 12px);
 }
 
 .announcement-buttons:hover {

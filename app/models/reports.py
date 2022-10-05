@@ -8,13 +8,12 @@ class Report(db.Model):
     __tablename__ = 'reports'
 
     id = db.Column(db.Integer(), primary_key=True)
-    title = db.Column(db.String(1000), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String())
     created_at = db.Column(db.DateTime, nullable=False,
                            server_default=db.func.now())
     updated_at = db.Column(db.DateTime, nullable=False,
                            server_default=db.func.now(), server_onupdate=db.func.now())
-
 
     patients = db.relationship(
         'Patient', secondary=patientreports, backref='reports')
@@ -22,7 +21,6 @@ class Report(db.Model):
         'Staff', secondary=staffreports, backref='reports')
     departments = db.relationship(
         'Department', secondary=departmentreports, backref='reports')
-    
 
     def to_dict(self):
         return {
@@ -32,10 +30,11 @@ class Report(db.Model):
             'updatedOn': self.updated_at,
         }
 
-    def report_details_to_dict(self):
-        return {
-            'reportPatients': [{'patientId': patient.id} for patient in self.patients],
-            'reportDepartments': [{'departmentId': department.id} for department in self.departments],
-            'reportStaffs': [{'staffId': staff.id} for staff in self.staffs]
-        }
-    
+    def report_patients_to_dict(self):
+        return [{'patientId': patient.id} for patient in self.patients] 
+
+    def report_staffs_to_dict(self):
+        return [{'staffId': staff.id} for staff in self.staffs]
+
+    def report_departments_to_dict(self):
+        return [{'departmentId': department.id} for department in self.departments]

@@ -22,6 +22,11 @@ const StaffList = ({ idx }) => {
         )
     })
 
+    const changeSearch = (e) => {
+        setIndex(0)
+        setSearch(e.target.value)
+    }
+
     const clearSearch = () => {
         setSearch("")
     }
@@ -52,7 +57,7 @@ const StaffList = ({ idx }) => {
                                 className="staff-search-input-field"
                                 type="text"
                                 value={search}
-                                onChange={e => setSearch(e.target.value)}
+                                onChange={changeSearch}
                             />
                             <VscIcons.VscSearchStop
                                 className="staff-search-clear-icon"
@@ -70,7 +75,7 @@ const StaffList = ({ idx }) => {
                             onClick={e => changeStaff(e, i)}
                         >
 
-                            <h3>
+                            <h3 className="staff-card-name-text">
                                 {staff.firstName} {staff.lastName}
                             </h3>
                             <h4>

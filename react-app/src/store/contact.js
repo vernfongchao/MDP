@@ -27,6 +27,25 @@ export const getContact = (id) => async dispatch => {
     }
 }
 
+export const updateContact = (payload) => async dispatch => {
+    const response = await fetch(`/api/patients/contact/${payload.id}`,{
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const contact = await response.json()
+        dispatch(loadContact(contact))
+        return contact
+    }
+    else if (response.status < 500) {
+        const data = await response.json()
+        return data
+    }
+}
+
 const initialState = {}
 
 export default function contactReducer(state = initialState, action){

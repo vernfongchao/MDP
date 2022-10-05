@@ -1,3 +1,4 @@
+from calendar import firstweekday
 from curses.ascii import EM
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
@@ -5,6 +6,8 @@ from app.models import db, Patient, EmergencyContact, Image
 from app.forms import AddPatientForm, EditPatientForm
 from app.s3_config import (
     upload_file_to_s3, allowed_file, get_unique_filename, delete_image_from_s3)
+
+from datetime import datetime
 
 patient_routes = Blueprint('patients', __name__)
 
@@ -18,35 +21,26 @@ def get_patients():
         return {"errors": "patients not found"}, 400
 
 
-@patient_routes.route('/details/<int:id>')
-@login_required
-def get_patient_details(id):
+@patient_routes.route('/contact/<int:id>')
+def get_patient_contact(id):
     contact = EmergencyContact.query.filter_by(patient_id=id).first()
     patient = Patient.query.get(id)
-    response = {}
-    if not contact:
-        response["errors"] = {}
-        response["errors"]["contact"] = 'Contacts for patient not found'
-    elif contact:
-        response["contact"] = contact.to_dict()
-    if not patient:
-        response["errors"] = {**response.errors}
-        response["errors"]["report"] = 'No patient found'
-    elif patient:
-        response = {**response, **patient.patient_details_to_dict()}
-    return response, 200
-    # return {"errors": {"contact":"contact not found"}}, 400
-    # return patient_details.patient_details_to_dict(), 200
+    if patient:
+        if contact:
+            return contact.to_dict(), 200
+        else:
+            return {"errors": {"contact": "contact not found"}}, 400
+    else:
+        return {"errors": {"patient": "patient not found"}}, 400
 
+@patient_routes.route('/reports/<int:id>')
+def get_patient_report(id):
+    patient = patient = Patient.query.get(id)
+    if(patient):
+        return jsonify(patient.patient_reports_to_dict()),200
+    else:
+        return {"errors": {"patient": "patient not found"}}, 400
 
-
-# @patient_routes.route('/contact/<int:id>')
-# def put_patient_details(id):
-#     contact = EmergencyContact.query.filter_by(patient_id=id).first()
-#     if contact:
-#         return contact.to_dict(), 200
-#     else:
-#         return {"errors": {"contact":"contact not found"}}, 400
 
 
 @patient_routes.route('/', methods=["POST"])
@@ -77,15 +71,41 @@ def edit_patient_profile(id):
             upload_image(request.files["image"], id)
         patient = Patient.query.get(id)
         form.populate_obj(patient)
+        date = datetime.now()
+        patient.updated_at = date
         db.session.commit()
         return patient.to_dict(), 200
     else:
         return {"errors": form.errors}, 400
 
 
+@patient_routes.route('/contact/<int:id>', methods=["PUT"])
+@login_required
+def put_patient_contact(id):
+    contact_info = request.get_json()
+    contact = EmergencyContact.query.filter_by(patient_id=id).first()
+    patient = Patient.query.get(id)
 
-
-
+    if patient:
+        if contact:
+            print(dir(contact))
+            contact.first_name = contact_info["first_name"]
+            contact.last_name = contact_info["last_name"]
+            contact.phone = contact_info["phone"]
+            db.session.commit()
+            return contact.to_dict(), 200
+        else:
+            contact = EmergencyContact(
+                first_name=contact_info["first_name"],
+                last_name=contact_info["last_name"],
+                phone=contact_info["phone"],
+                patient_id=contact_info["id"],
+            )
+            db.session.add(contact)
+            db.session.commit()
+            return contact.to_dict(), 200
+    else:
+        return {"errors": {"patient": "patient not found"}}, 400
 
 
 def upload_image(image, id):
