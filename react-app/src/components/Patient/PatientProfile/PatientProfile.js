@@ -224,8 +224,6 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
         }
     }
 
-    // console.log(addressError)
-
 
 
     return (
@@ -361,9 +359,6 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                 <span className='patient-profile-error'>{isLoading}
                                 </span>
                             }
-                            {addressError && <span className='patient-profile-error-text'>
-                                {addressError}
-                            </span>}
                             {firstNameError && <span className='patient-profile-error-text'>
                                 {firstNameError}
                             </span>
@@ -372,6 +367,9 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                                 {lastNameError}
                             </span>
                             }
+                            {addressError && <span className='patient-profile-error-text'>
+                                {addressError}
+                            </span>}
                         </div>
 
                     </div>

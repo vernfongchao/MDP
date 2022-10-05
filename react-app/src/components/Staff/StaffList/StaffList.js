@@ -75,7 +75,7 @@ const StaffList = ({ idx }) => {
                             onClick={e => changeStaff(e, i)}
                         >
 
-                            <h3>
+                            <h3 className="staff-card-name-text">
                                 {staff.firstName} {staff.lastName}
                             </h3>
                             <h4>

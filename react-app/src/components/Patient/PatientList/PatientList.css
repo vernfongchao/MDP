@@ -30,6 +30,9 @@
     justify-content: center;
 }
 
+
+
+
 .patient-list-search-container {
     display: flex;
     flex-direction: row;
@@ -101,6 +104,10 @@
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;
+}
+
+.patient-card-name-text{
+    width: 70%;
 }
 
 .active-patient {

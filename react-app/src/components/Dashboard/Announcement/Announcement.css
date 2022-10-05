@@ -71,8 +71,11 @@ body {
 .active-announcement{
     background-color: #A8DADC;
 }
-
+.announcement-title-container{
+}
 .announcement-title{
+    width: 100%;
+    overflow-wrap: break-word;
     font-size: max(1vw, 16px);
 }
 

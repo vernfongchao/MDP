@@ -101,6 +101,10 @@
     border: 1px solid #1D3557;
 }
 
+.staff-card-name-text{
+    width: 75%;
+}
+
 .active-staff{
     background-color: #A8DADC;
 }

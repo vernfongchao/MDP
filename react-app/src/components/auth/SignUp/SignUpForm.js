@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
+import { loadStaff } from '../../../store/staff';
+
 const SignUpForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +21,7 @@ const SignUpForm = () => {
   const [positionError, setPositionError] = useState([])
   const [passwordError, setPasswordError] = useState([])
   const [repeatPasswordError, setRepeatPasswordError] = useState([])
+
 
 
   const user = useSelector(state => state.session.user);
@@ -48,7 +51,9 @@ const SignUpForm = () => {
       if(errors.password)setPasswordError(errors.password)
       if(errors.repeat_password)setRepeatPasswordError(errors.repeat_password)
     }
-
+    else {
+      dispatch(loadStaff(data))
+    }
   };
 
   const updateUsername = (e) => {

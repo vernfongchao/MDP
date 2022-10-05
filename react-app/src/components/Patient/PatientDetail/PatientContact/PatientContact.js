@@ -87,6 +87,7 @@ const PatientContact = ({ patient }) => {
                             <input
                                 value={firstName}
                                 onChange={handleFirstName}
+                                maxLength="255"
                             />
                         </div>
                         <div className='patient-contact-last-name-container'>
@@ -94,6 +95,7 @@ const PatientContact = ({ patient }) => {
                             <input
                                 value={lastName}
                                 onChange={handleLastName}
+                                maxLength="255"
                             />
                         </div>
 

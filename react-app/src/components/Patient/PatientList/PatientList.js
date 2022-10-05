@@ -82,7 +82,7 @@ const PatientList = ({ idx }) => {
                             onClick={e => changePatient(e, i)}
                         >
 
-                            <h3>
+                            <h3 className="patient-card-name-text">
                                 {patient.firstName} {patient.lastName}
                             </h3>
                             <h4>
