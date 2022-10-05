@@ -23,6 +23,10 @@
     font-size: max(1.25vw, 24px);
 }
 
+.creator-picture-contributions-ul{
+    margin: 0;
+}
+
 .creator-picture-about-container li {
     font-size: max(.8vw, 16px);
 }

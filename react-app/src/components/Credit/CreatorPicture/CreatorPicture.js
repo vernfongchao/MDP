@@ -14,22 +14,22 @@ const CreatorPicture = ({ index, creators }) => {
             <img className='creator-picture'
                 src={creator?.img}
                 onError={handleImageError}
-                ></img>
+            ></img>
             <h2 className='creator-picture-contribution-header'>
                 Contributions
             </h2>
             <div className='creator-picture-about-container'>
                 {index === 0 &&
 
-                    <ul>
+                    <ul className='creator-picture-contributions-ul'>
                         <li>
-                            Integrated backend framework Flask/SQLalchemy with Amazon S3 bucket allowing users to store live image.
+                            Harnessed <span style={{ fontWeight: "bold" }}>Redux</span> for unidirectional state management simplifying <span style={{ fontWeight: "bold" }}>React</span> components and directly managing data for form inputs and submissions.
                         </li>
                         <li>
-                            Refactored algorithm calls to help reduce update time by over 50%
+                            Interconnected <span style={{ fontWeight: "bold" }}>AWS</span> for cloud storage to allow users to store live image files and storing its live url with Flask backend to ensure images display correctly with the utmost quality.
                         </li>
                         <li>
-
+                            Refactored algorithm calls to help reduce function calls from multiple <span style={{ fontWeight: "bold" }}>CRUD</span> features quadratic to linear time.
                         </li>
                     </ul>
                 }
