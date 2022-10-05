@@ -1,0 +1,46 @@
+.creator-social-page-container{
+    position: relative;
+    bottom: .03vh;
+    height: 100.5%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.4%;
+    overflow-y: auto;
+}
+
+.creator-social-header-link-container{
+    width: 95%;
+}
+
+.creator-social-header-link-container h2 {
+    font-size: max(1.25vw, 24px);
+}
+
+.creator-social-verns-links{
+    width: 100%;
+    display: flex;
+}
+
+.creator-social-links-container{
+    margin-top: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    display: flex;
+    background-color: #A8DADC;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.creator-social-portfolio-link{
+    color: black;
+    font-size: max(.8vw, 16px);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.creator-social-portfolio-link:hover{
+    color: #1D3557;
+}

@@ -1,0 +1,30 @@
+.creator-picture-page-container{
+    position: relative;
+    box-sizing: border-box;
+    border-right: .52vw #1D3557 solid;
+    bottom: .03vh;
+    height: 100.5%;
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-wrap: break-word;
+}
+
+.creator-picture{
+    padding-top: 1vh;
+    width: 96%;
+}
+
+.creator-picture-about-container{
+
+    width: 96%;
+}
+
+.creator-picture-contribution-header{
+    font-size: max(1.25vw, 24px);
+}
+
+.creator-picture-about-container li {
+    font-size: max(.8vw, 16px);
+}

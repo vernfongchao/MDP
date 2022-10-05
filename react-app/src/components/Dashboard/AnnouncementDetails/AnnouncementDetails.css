@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: .52vw #1D3557 solid;
     overflow-wrap: break-word;
 
 }   
@@ -42,21 +41,21 @@
     font-size: max(.8vw, 16px);
 }
 .announcement-detail-content-container>span {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 .announcement-detail-content-container>ol >li {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 
 .announcement-detail-content-container>ul>li {
-font-size: max(.625vw, 12px);
+font-size: max(.8vw, 16px);
 }
 
 .announcement-detail-writer-container{
 font-size: max(.625vw, 12px);
 }
 
-
+/* font-size: max(.625vw, 12px); */
 
 
 .announcement-edit-button-position{

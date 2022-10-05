@@ -5,11 +5,7 @@ import * as VscIcons from 'react-icons/vsc'
 
 import './CreatorList.css'
 
-const CreatorList = ({index,setIndex}) => {
-
-    const creators = Object.values(useSelector(state => state.staffs)).filter(staff => {
-        return staff.id === 2 || staff.id === 3 || staff.id === 4 || staff.id === 5 || staff.id === 6 || staff.id === 7
-    })
+const CreatorList = ({index,setIndex ,creators}) => {
 
     const [search, setSearch] = useState("")
 
@@ -34,7 +30,7 @@ const CreatorList = ({index,setIndex}) => {
             <div className="staff-list-header-search-container">
                 <div className="staff-list-header-container">
                     <h1>
-                        Staff
+                        Creators
                     </h1>
                 </div>
                 <div className="staff-list-search-container">
