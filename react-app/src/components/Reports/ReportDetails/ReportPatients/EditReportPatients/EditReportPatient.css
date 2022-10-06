@@ -21,7 +21,7 @@
 /*  */
 
 .edit-report-patient-page-container{
-    height: max(55vh,700px);
+    height: max(69.5vh,500px);
     width: max(29.6vw,568.75px);
     background-color: #F1FAEE;
     display: flex;
@@ -72,7 +72,7 @@ font-size: max(1.67vw, 32px);
     width: 80%;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
+    padding-bottom: max(10px,1vh);
 
 }
 
@@ -113,15 +113,17 @@ font-size: max(1.67vw, 32px);
 }
 
 .edit-report-patient-remove-container{
-    width: 80%;
+    box-sizing: border-box;
+    padding-left: max(3vw, 57px);
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    overflow-wrap:anywhere;
-    /* overflow-x: ; */
+    flex-direction: column;
 }
 
 .edit-report-patient-name-container{
-    margin-top: max(.5vh,5px);
+    box-sizing: border-box;
+    width: 88.5%;
+    margin-top: max(1vh,10px);
     display: flex;
     padding-left: 3px;
     padding-right: 3px;
@@ -129,31 +131,38 @@ font-size: max(1.67vw, 32px);
     border: 2px solid black;
     border-radius: 5px;
     margin-right: max(.5vw,10px);
-
     font-size: max(.8vw, 16px);
-    /* width: 100%; */
-    overflow-wrap: nywhere;
+    overflow-wrap: anywhere;
+}
+.edit-report-patient-name-id-container{
+    width: 100%;
+}
+.edit-report-patient-name{
+    
 }
 
-.edit-report-patient-name{
-    width: 22.4vw;
+.edit-report-id{
+    
 }
 
 .edit-report-patient-remove-icon-container {
-    width: 0px;
+    display: flex;
+    justify-content: flex-end;
+    height: 0%;
+    position: relative;
+    left: .5vw;
+    bottom: 10px;
 }
 
 .edit-report-patient-remove-icon {
     border-radius: 5px;
     border: #1D3557 solid 2px;
-    position: relative;
     font-size: .75em;
     bottom: 10px;
     right: 3px;
     z-index: 1;
     background-color: #1D3557;
     color: white;
-
 }
 
 .edit-report-patient-remove-icon:hover {
@@ -163,25 +172,26 @@ font-size: max(1.67vw, 32px);
 }
 
 .edit-report-patient-cards-container {
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding-left: min(3vw, 50px);
+    padding-left: max(2.8vw, 53px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .edit-report-patient-card-container{
-    margin-top: max(.5vh, 5px);
-    margin-left: max(.75vw, 5px);
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    width: max(23.6vw, 422px);
+    margin-top: max(.5vh, 5px);
+    margin-left: max(.25vw, 5px);
     padding: max(.5vw,10px);
     border: 2px black solid;
-    width: max(22vw, 422px);
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
-    border: 1px solid #1D3557;
 }
 
 .edit-report-patient-card-container:hover {

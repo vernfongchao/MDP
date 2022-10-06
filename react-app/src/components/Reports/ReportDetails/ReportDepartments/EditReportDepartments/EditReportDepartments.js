@@ -93,7 +93,7 @@ const EditReportDepartments = ({ report, setShowModal }) => {
                 />
             </div>
             <div className="edit-report-department-header-container">
-                <h1>
+                <h1 className="edit-report-department-header">
                     Departments
                 </h1>
 
@@ -141,10 +141,10 @@ const EditReportDepartments = ({ report, setShowModal }) => {
                         className="edit-report-department-card-container"
                         onClick={e => handleAdd(e, department.id)}>
 
-                        <h3>
+                        <h3 className="edit-report-department-card-name">
                             {department.name}
                         </h3>
-                        <h4>
+                        <h4 className="edit-report-department-card-id">
                             Department ID: {department.id}
                         </h4>
                     </div>

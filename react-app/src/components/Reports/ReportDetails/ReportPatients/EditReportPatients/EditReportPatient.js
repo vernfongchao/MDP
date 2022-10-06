@@ -128,14 +128,10 @@ const EditReportPatient = ({ report, setShowModal }) => {
                     return (
                         <div className="edit-report-patient-name-container"
                             key={patientId}>
-                            <div>
+                            <div className="edit-report-patient-name-id-container">
                                 <span className="edit-report-patient-name">
-                                    {patient.firstName} {patient.lastName}
+                                    {patient.firstName} {patient.lastName} <span className="edit-report-id">Patient ID: {patient.id}</span>
                                 </span>
-                                <span>
-                                    Patient ID: {patient.id}
-                                </span>
-
                             </div>
                             <div className="edit-report-patient-remove-icon-container">
                                 <Mdicons.MdOutlineClear
