@@ -18,6 +18,8 @@ List of features needed for the Minimum Viable Product (MVP) and its CRUD featur
 
 ## Screenshots
 
+[![Image from Gyazo](https://i.gyazo.com/5c059e368f9ce3c25610bb8360cbfb94.gif)](https://gyazo.com/5c059e368f9ce3c25610bb8360cbfb94)
+
 ### Announcement:
 
 ![image](https://user-images.githubusercontent.com/91238232/194731243-ac5afff2-2250-42a7-905c-e9e531472ba2.png)
