@@ -28,6 +28,10 @@
     width: 95%;
 }
 
+.report-patients-header{
+    font-size: max(1.25vw, 24px);
+}
+
 .report-patients-card-container {
     width: 95%;
     display: flex;
@@ -44,13 +48,14 @@
 }
 
 .report-patient-card-id-name-header {
+    font-weight: bold;
     margin: 0%;
-    font-size: 12px;
+font-size: max(.625vw, 12px);
 }
 
 .report-patient-card-id {
     margin: 0%;
-    font-size: 18px;
+font-size: max(.8vw, 16px);
 }
 
 .report-patient-card-name-container {

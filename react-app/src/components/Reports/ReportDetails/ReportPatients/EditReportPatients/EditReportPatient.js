@@ -98,7 +98,7 @@ const EditReportPatient = ({ report, setShowModal }) => {
                 />
             </div>
             <div className="edit-report-patient-header-container">
-                <h1>
+                <h1 className="edit-report-patient-header">
                     Patients
                 </h1>
 
@@ -128,9 +128,11 @@ const EditReportPatient = ({ report, setShowModal }) => {
                     return (
                         <div className="edit-report-patient-name-container"
                             key={patientId}>
-                            <span className="edit-report-patient-name">
-                                {patient.firstName} {patient.lastName} Patient ID: {patient.id}
-                            </span>
+                            <div className="edit-report-patient-name-id-container">
+                                <span className="edit-report-patient-name">
+                                    {patient.firstName} {patient.lastName} <span className="edit-report-id">Patient ID: {patient.id}</span>
+                                </span>
+                            </div>
                             <div className="edit-report-patient-remove-icon-container">
                                 <Mdicons.MdOutlineClear
                                     className="edit-report-patient-remove-icon"

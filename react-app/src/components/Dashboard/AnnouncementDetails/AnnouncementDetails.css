@@ -70,8 +70,8 @@ font-size: max(.8vw, 16px);
     border: 1px solid #1D3557;
     border-radius: 3px;
     margin-top: 5px;
-    width: max(1.6vw, 60px);
-    height: max(1vh, 20px);
+    width: max(3vw, 60px);
+    height: max(2vh, 20px);
     font-size: max(.625vw, 12px);
 }
 

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../../store/session';
 
+import LoginForm from '../Login/LoginForm';
+
+import { signUp } from '../../../store/session';
 import { loadStaff } from '../../../store/staff';
 
-const SignUpForm = () => {
+const SignUpForm = ({setShowModal}) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -21,6 +23,8 @@ const SignUpForm = () => {
   const [positionError, setPositionError] = useState([])
   const [passwordError, setPasswordError] = useState([])
   const [repeatPasswordError, setRepeatPasswordError] = useState([])
+
+  const [isSignup,setIsSignup] = useState(true)
 
 
 
@@ -95,7 +99,7 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
-  return (
+  return ( isSignup ?
     <form className="main-user-signup" onSubmit={onSignUp}>
       <div>
         <label
@@ -218,7 +222,13 @@ const SignUpForm = () => {
       <div className='buttons-div'>
         <button className='user-buttons' type='submit'>Sign Up</button>
       </div>
-    </form >
+      <div className='login-form-to-signup-container'>
+        <span>
+          Already a staff member? <span className='login-form-to-signup-text' onClick={() => setIsSignup(false)}>Login</span> here
+        </span>
+      </div>
+    </form > :
+    (!isSignup && <LoginForm setShowModal={setShowModal}/>)
   );
 };
 

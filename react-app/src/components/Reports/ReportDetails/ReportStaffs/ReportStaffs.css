@@ -16,6 +16,9 @@
     width: 95%;
 }
 
+.report-staffs-header{
+    font-size: max(1.25vw, 24px);
+}
 .report-staffs-card-container {
     width: 95%;
     display: flex;
@@ -32,13 +35,14 @@
 }
 
 .report-staff-card-id-name-header {
-    margin: 0%;
-    font-size: 12px;
+    font-weight: bold;
+        margin: 0%;
+        font-size: max(.625vw, 12px);
 }
 
 .report-staff-card-id {
     margin: 0%;
-    font-size: 18px;
+        font-size: max(.8vw, 16px);
 }
 
 .report-staff-card-name-container {

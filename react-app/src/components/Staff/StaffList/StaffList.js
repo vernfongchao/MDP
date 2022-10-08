@@ -40,7 +40,7 @@ const StaffList = ({ idx }) => {
             <div className="staff-list-container">
                 <div className="staff-list-header-search-container">
                     <div className="staff-list-header-container">
-                        <h1>
+                        <h1 className="staff-list-header">
                             Staff
                         </h1>
                     </div>

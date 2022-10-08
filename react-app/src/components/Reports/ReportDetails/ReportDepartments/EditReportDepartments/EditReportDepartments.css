@@ -10,7 +10,7 @@
 
 .report-department-edit-icon{
     cursor: pointer;
-    font-size: 1.75em;
+    font-size: max(1.25vw, 24px);
 }
 
 .report-department-edit-icon:hover{
@@ -20,8 +20,8 @@
 /* Inside-Modal */
 
 .edit-report-department-page-container{
-    height: 700px;
-    width: 568.75px;
+    height: max(69.5vh, 500px);
+    width: max(29.6vw, 568.75px);
     background-color: #F1FAEE;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@
 }
 .edit-report-department-cancel-icon{
     cursor: pointer;
-    font-size: 2em;
+    font-size: max(1.67vw, 32px);
     color: red;
 }
 
@@ -49,6 +49,10 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.edit-report-department-header{
+        font-size: max(1.67vw, 32px);
 }
 
 .edit-report-department-search-container{
@@ -65,12 +69,15 @@
 
 .edit-report-deparment-search-label{
     font-weight: bold;
+    font-size: max(.8vw, 16px);
+        
 }
 .edit-report-department-input-container{
     display: flex;
     width: 80%;
 }
 .edit-report-department-search-input{
+    font-size: max(.8vw, 16px);
     width: 100%;
     border:none;
     border-bottom: 2px black solid;
@@ -80,7 +87,7 @@
 }
 
 .edit-report-department-search-clear-icon{
-    font-size: 24px;
+    font-size: max(1.25vw, 24px);
     border-bottom: 2px black solid;
     cursor: pointer;
 }
@@ -95,15 +102,16 @@
 }
 
 .edit-report-department-name-container{
-    margin-top: 5px;
+    margin-top: max(.5vh, 5px);
     display: flex;
     padding-left: 3px;
     padding-right: 3px;
     background-color: #A8DADC;
     border: 2px solid black;
     border-radius: 5px;
-    margin-right: 10px;
-    height: 22px;
+    margin-right: max(.625vw, 12px);
+    font-size: max(.8vw, 16px);
+    height: max(1.8vh,22px);
 }
 
 .edit-report-department-remove-icon-container{
@@ -128,24 +136,25 @@
 }
 
 .edit-report-department-cards-container{
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding-left: min(3vw, 50px);
+    padding-left: max(2.8vw, 53px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 .edit-report-department-card-container{
-    margin-top: 10px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
-    padding: 10px;
+    width: max(23.6vw, 422px);
+    margin-top: max(.5vh, 5px);
+    margin-left: max(.25vw, 5px);
+    padding: max(.5vw, 10px);
     border: 2px black solid;
-    width: min(22vw, 422px);
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
-    border: 1px solid #1D3557;
 }
 
 .edit-report-department-card-container:hover {
@@ -153,4 +162,13 @@
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;
     background-color: #A8DADC;
+}
+
+.edit-report-department-card-name{
+    font-size: max(.8vw, 16px);
+}
+
+.edit-report-department-card-id{
+    font-size: max(.625vw, 12px);
+    font-weight: bold;
 }

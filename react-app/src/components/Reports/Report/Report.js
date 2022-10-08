@@ -128,7 +128,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
             <div className='report-detail-container'>
                 <div className='report-header-container'>
                     <div className='report-edit-position'>
-                        <div className='report-edit-container'>
+                        {/* <div className='report-edit-container'> */}
                             {success ?
                                 <span className='report-edit-success'>
                                     {success}
@@ -150,13 +150,13 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                                     onClick={addNewReport}
                                 />
                             }
-                        </div>
+                        {/* </div> */}
                     </div>
-                    <h1>
+                    <h1 className='report-form-header'>
                         Report
                     </h1>
                     {report && !newReport &&
-                        <h3>
+                        <h3 className='report-form-id'>
                             ID: {report?.id}
                         </h3>
                     }
@@ -166,10 +166,10 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                     <>
                         <div className='report-title-container'>
                             <label
-                                className={titleError.length ? "report-title-error" : null} style={{ fontWeight: 'bold', fontSize: '12px' }}
+                            className={titleError.length ? "report-title-label report-title-error" :"report-title-label"}
                             >Title:</label>
                             <input
-                                className={titleError.length ? "report-title-input-error" : null}
+                            className={titleError.length ? "report-title-input report-title-input-error" : "report-title-input"}
                                 value={title}
                                 maxLength="100"
                                 onChange={handleTitle}
@@ -185,7 +185,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                             }
                             {titleError.length ?
                                 titleError.map(error => (
-                                    <span className='patient-profile-error-text'>
+                                    <span className='report-title-error-text'>
                                         {error}
                                     </span>
                                 )) : null
@@ -194,12 +194,12 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                         </div>
                         {report &&
                             <div className='report-updated-container'>
-                                <span style={{ fontWeight: 'bold', fontSize: '12px' }}>Last Updated</span>
-                                <span>{report?.updatedOn}</span>
+                            <span className='report-title-label'>Last Updated</span>
+                            <span className='report-update-text'>{report?.updatedOn}</span>
                             </div>
                         }
                         <div className='report-content-container'>
-                            <h3 >Report Details</h3>
+                            <h3 className='report-details-title'>Report Details</h3>
                             <ReactQuill
                                 theme="snow"
                                 value={content}
@@ -208,7 +208,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
                                 style={
                                     {
                                         width: '100%',
-                                        height: '400px',
+                                        height: '90%',
                                     }
                                 }
                             />
