@@ -10,12 +10,15 @@
 
 
 .patient-list-container {
-    border-right: .625vw #1D3557 solid;
     box-sizing: border-box;
-    width: 33.3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        border-right: .625vw #1D3557 solid;
+        height: 100%;
+        background-color: #F1FAEE;
+        display: flex;
+        width: 33.3%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 }
 
 .patient-list-header-search-container {
@@ -30,7 +33,9 @@
     justify-content: center;
 }
 
-
+.patient-list-header {
+    font-size: max(1.67vw, 32px);
+}
 
 
 .patient-list-search-container {
@@ -46,7 +51,8 @@
 }
 
 .patient-search-label {
-    font-weight: bold;
+    font-size: max(.8vw, 16px);
+        font-weight: bold;
 }
 
 
@@ -57,6 +63,7 @@
 }
 
 .patient-search-input-field {
+    font-size: max(.8vw, 16px);
     border: none;
     border-bottom: 2px black solid;
     width: 100%;
@@ -67,7 +74,7 @@
 }
 
 .patient-search-clear-icon {
-    font-size: 24px;
+    font-size: max(1.25vw, 24px);
     border-bottom: 2px black solid;
     cursor: pointer;
 }
@@ -77,24 +84,24 @@
 }
 
 .patient-all-card-container {
-    width: 90%;
+
+    width: 100%;
     display: flex;
     flex-direction: column;
-
-    padding-left: min(3vw, 50px);
+    align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 
 .patient-card-container {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
     padding: 10px;
     border: 2px black solid;
-    /* border-radius: 5px; */
-    width: min(22vw, 422px);
+    width: 83%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
     border: 1px solid #1D3557;
@@ -106,10 +113,15 @@
     border: 1px solid #1D3557;
 }
 
-.patient-card-name-text{
-    width: 70%;
-}
 
 .active-patient {
     background-color: #A8DADC;
+}
+
+.patient-card-name-text{
+    font-size: max(.975vw, 18.72px);
+    width: 70%;
+}
+.patient-list-id {
+    font-size: max(.8vw, 16px);
 }

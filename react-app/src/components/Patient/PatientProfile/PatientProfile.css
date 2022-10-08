@@ -28,17 +28,22 @@
 }
 
 .patient-profile-edit-success{
-    font-size: 1.7em;
+    font-size: max(1.25vw, 24px);
 }
 
 .patient-profile-edit-icon{
     cursor: pointer;
-    font-size: 2em;
+    font-size: max(1.67vw, 32px);
 }
 
 .patient-profile-edit-icon:hover {
     color: #1D3557;
 }
+
+.patient-profile-header{
+    font-size: max(1.67vw, 32px);
+}
+
 
 .patient-profile-container{
     display: flex;
@@ -49,6 +54,7 @@
 
 } */
 
+
 .patient-profile-picture-icon-position{
     display: flex;
     justify-content: flex-end;
@@ -58,10 +64,10 @@
 }
 
 .patient-profile-picture-icon {
-    margin-top: 2px;
-    margin-right: 2px;
+    margin-top: max(.4vh,4px);
+    margin-right: max(.4vh, 4px);
     cursor: pointer;
-    font-size: 1.7em;
+    font-size: max(1.67vw, 32px);
     color: #1D3557;
 }
 .patient-profile-picture-icon:hover {
@@ -88,25 +94,29 @@
 
 .patient-profile-info-header-text {
     margin: 0;
-font-size: max(.625vw, 12px);
+    font-weight: bold;
+    font-size: max(.625vw, 12px);
 }
 
 .patient-profile-info-text {
     margin: 0;
-    font-size: 18px;
+    font-size: max(.8vw, 16px);
 }
 
 .patient-profile-edit-name-input {
     width: 95%;
+    font-size: max(.8vw, 16px);
 }
 
 .patient-profile-address-input{
     width: 97%;
+    font-size: max(.8vw, 16px);
 }
 
 
 .patient-profile-notes-container {
     width: 95%;
+    height: 60%;
 }
 
 .patient-profile-error {
