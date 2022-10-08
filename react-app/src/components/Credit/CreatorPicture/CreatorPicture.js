@@ -29,7 +29,7 @@ const CreatorPicture = ({ index, creators }) => {
                             Refactored algorithm calls to help reduce function calls from quadratic time to linear time.
                         </li>
                         <li>
-                            Constructed <strong>REST APIs</strong> and <strong>System Designs</strong> allowing app to reliably and efficiently read and send consistent data between user UI React server and Flask server.
+                            Constructed <strong>REST APIs</strong> and <strong>System Designs</strong> allowing app to reliably and efficiently read and send consistent data between User UI <strong>React</strong> server and Flask server.
                         </li>
                     </ul>
                 }
