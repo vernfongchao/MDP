@@ -127,6 +127,7 @@
 }
 
 .patient-profile-error-text{
-    padding-bottom: 5px;
+    padding-bottom: max(.5vh,5px);
     font-weight: bold;
+    font-size: max(.625vw, 12px);
 }
