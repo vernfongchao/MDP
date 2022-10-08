@@ -138,7 +138,9 @@ font-size: max(1.67vw, 32px);
     width: 100%;
 }
 .edit-report-patient-name{
-    
+    /* box-sizing: border-box;
+    overflow-x: hidden;
+    width: 22.5vw; */
 }
 
 .edit-report-id{

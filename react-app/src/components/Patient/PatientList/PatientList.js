@@ -47,7 +47,7 @@ const PatientList = ({ idx }) => {
             <div className="patient-list-container">
                 <div className="patient-list-header-search-container">
                     <div className="patient-list-header-container">
-                        <h1>
+                        <h1 className="patient-list-header">
                             Patients
                         </h1>
                     </div>
@@ -85,7 +85,7 @@ const PatientList = ({ idx }) => {
                             <h3 className="patient-card-name-text">
                                 {patient.firstName} {patient.lastName}
                             </h3>
-                            <h4>
+                            <h4 className="patient-list-id">
                                 ID: {patient.id}
                             </h4>
                         </div>

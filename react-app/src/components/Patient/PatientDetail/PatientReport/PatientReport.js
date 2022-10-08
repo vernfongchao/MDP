@@ -25,7 +25,7 @@ const PatientReport = ({ patient }) => {
     return (
         <div className="patient-report-page-container">
             <div className='patient-report-header-container'>
-                <h2>Reports</h2>
+                <h2 className='patient-report-header'>Reports</h2>
             </div>
             <div className='patient-report-map-container'>
                 {patientReports.map(({ reportId }) => {

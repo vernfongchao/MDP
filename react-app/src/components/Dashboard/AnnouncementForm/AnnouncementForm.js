@@ -137,21 +137,22 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                         />
                         {maxTitle && <p className="announcement-form-errors">{maxTitle}</p>}
                     </div>
-                    {/* <div className="announcement-form-content-container"> */}
                     <label className={contentError ? "announcement-form-title-label form-error" : "announcement-form-title-label"}>Content:</label>
-                    <ReactQuill
-                        className={contentError ? "announcement-form-content form-error" : "announcement-form-content"}
-                        theme="snow"
-                        value={content}
-                        placeholder={"Please add your announcement here"}
-                        onChange={handleContentChange}
-                        style={
-                            {
-                                width: '100%',
-                                height: '70%',
+                    <div className="announcement-form-content-container">
+                        <ReactQuill
+                            className={contentError ? "announcement-form-content form-error" : "announcement-form-content"}
+                            theme="snow"
+                            value={content}
+                            placeholder={"Please add your announcement here"}
+                            onChange={handleContentChange}
+                            style={
+                                {
+                                    width: '100%',
+                                    height: '100%',
+                                }
                             }
-                        }
                         />
+                    </div>
                     {content.length ?
                         <div className="annoucement-form-content-tracker-container">
                             <span className="annoucement-form-content-tracker-text" >
@@ -161,7 +162,6 @@ const AnnouncementForm = ({ edit, setEdit, announcement }) => {
                         </div>
                         : null
                     }
-                    {/* </div> */}
                     {(titleError || contentError) &&
                         <div className="announcement-form-errors-container">
                             {titleError && <p className="announcement-form-errors">{titleError}</p>}

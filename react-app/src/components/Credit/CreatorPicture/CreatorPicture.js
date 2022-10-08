@@ -23,13 +23,13 @@ const CreatorPicture = ({ index, creators }) => {
 
                     <ul className='creator-picture-contributions-ul'>
                         <li>
-                            Harnessed <span style={{ fontWeight: "bold" }}>Redux</span> for unidirectional state management simplifying <span style={{ fontWeight: "bold" }}>React</span> components and directly managing data for form inputs and submissions.
+                            Homogenized <strong>AWS</strong> cloud storage and Flask allowing users to upload or delete image file objects from my <strong>S3 bucket</strong> for patient and staff profiles.
                         </li>
                         <li>
-                            Interconnected <span style={{ fontWeight: "bold" }}>AWS</span> for cloud storage to allow users to store live image files and storing its live url with Flask backend to ensure images display correctly with the utmost quality.
+                            Refactored algorithm calls to help reduce function calls from quadratic time to linear time.
                         </li>
                         <li>
-                            Refactored algorithm calls to help reduce function calls from multiple <span style={{ fontWeight: "bold" }}>CRUD</span> features quadratic to linear time.
+                            Constructed <strong>REST APIs</strong> and <strong>System Designs</strong> allowing app to reliably and efficiently read and send consistent data between User UI <strong>React</strong> server and Flask server.
                         </li>
                     </ul>
                 }
@@ -37,5 +37,7 @@ const CreatorPicture = ({ index, creators }) => {
         </div>
     )
 }
+
+
 
 export default CreatorPicture

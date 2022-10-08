@@ -256,11 +256,11 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                         </div>
                     </div>
                     {newPatient ?
-                        <h1>
+                        <h1 className='patient-profile-header'>
                             Add Patient
                         </h1>
                         :
-                        <h1>
+                        <h1 className='patient-profile-header'>
                             Patient Profile
                         </h1>
                     }
@@ -338,9 +338,9 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                             </div>
                             {newPatient ?
                                 null :
-                                <div className='staff-profile-id-name-update-container'>
-                                    <p className='staff-profile-info-header-text'>Last Updated</p>
-                                    <p className='staff-profile-info-text'>{patient?.updatedOn}</p>
+                                <div className='patient-profile-id-name-update-container'>
+                                    <p className='patient-profile-info-header-text'>Last Updated</p>
+                                    <p className='patient-profile-info-text'>{patient?.updatedOn}</p>
                                 </div>
                             }
                             <div>
@@ -376,7 +376,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 }
             </div>
             {(patient || newPatient) &&
-                <div className='staff-profile-notes-container'>
+                <div className='patient-profile-notes-container'>
                     <ReactQuill
                         theme="snow"
                         value={notes}
@@ -385,7 +385,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                         style={
                             {
                                 width: '100%',
-                                height: '400px',
+                                height: '100%',
                             }
                         }
                     />

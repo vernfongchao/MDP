@@ -37,7 +37,8 @@
 }
 
 .announcement-form-title-label{
-font-size: max(.8vw, 16px);
+    font-size: max(.8vw, 16px);
+    padding-top: .6vh;
     padding-bottom: .6vh;
 }
 
@@ -49,14 +50,12 @@ font-size: max(.8vw, 16px);
 
 .announcement-input-form{
     box-sizing: border-box;
-    height: max(1.64vh,16px);
-    font-size   : max(.8vw, 16px);
+    font-size : max(.8vw, 16px);
 }
 
 .announcement-form-content-container{
-    padding-top: 5px;
     width: 100%;
-    height: 75%;
+    height: 70%;
 }
 
 .announcement-form-content{

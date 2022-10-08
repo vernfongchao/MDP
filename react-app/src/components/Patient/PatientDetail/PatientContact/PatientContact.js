@@ -68,7 +68,7 @@ const PatientContact = ({ patient }) => {
     return (
         <div className="patient-contact-page-container">
             <div className='patient-contact-header-container'>
-                <h2>Emergency Contact</h2>
+                <h2 className='patient-contact-header'>Emergency Contact</h2>
             </div>
             {patient &&
                 <div className='patient-contact-save-icon-container'>
@@ -84,7 +84,7 @@ const PatientContact = ({ patient }) => {
                     <div className='patient-contact-name-container'>
                         <div className='patient-contact-first-name-container'>
                             <label className='patient-contact-first-name-header'>First Name</label>
-                            <input
+                            <input className='patient-contact-input-fields'
                                 value={firstName}
                                 onChange={handleFirstName}
                                 maxLength="255"
@@ -92,7 +92,7 @@ const PatientContact = ({ patient }) => {
                         </div>
                         <div className='patient-contact-last-name-container'>
                             <label className='patient-contact-first-name-header'>Last Name</label>
-                            <input
+                            <input className='patient-contact-input-fields'
                                 value={lastName}
                                 onChange={handleLastName}
                                 maxLength="255"
@@ -102,7 +102,7 @@ const PatientContact = ({ patient }) => {
                     </div>
                     <div className='patient-contact-phone-container'>
                         <label className='patient-contact-phone-header'>Phone</label>
-                        <input
+                        <input className='patient-contact-input-fields'
                             value={phone}
                             onChange={handlePhone}
                             maxLength="10"

@@ -92,9 +92,9 @@ font-size: max(1.67vw, 32px);
 
 .edit-report-staff-search-input {
     font-size: max(.8vw, 16px);
-        width: 100%;
-        border: none;
-        border-bottom: 2px black solid;
+    width: 100%;
+    border: none;
+    border-bottom: 2px black solid;
 }
 
 .edit-report-staff-search-input:hover {
@@ -140,10 +140,14 @@ font-size: max(1.67vw, 32px);
 }
 
 .edit-report-staff-name{
-    box-sizing: border-box;
+    /* box-sizing: border-box;
     overflow-x: hidden;
-    width: 22.5vw;
+    width: 22.5vw; */
 }
+
+
+
+
 .edit-report-staff-remove-icon-container {
     display: flex;
     justify-content: flex-end;
