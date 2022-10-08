@@ -20,19 +20,36 @@ List of features needed for the Minimum Viable Product (MVP) and its CRUD featur
 
 ### Announcement:
 
+![image](https://user-images.githubusercontent.com/91238232/194731243-ac5afff2-2250-42a7-905c-e9e531472ba2.png)
+
 ### Reports:
+
+![image](https://user-images.githubusercontent.com/91238232/194731248-e64b8d54-9ae1-4364-a5b9-db73368b53dc.png)
 
 ### Staff and Patients:
 
+![image](https://user-images.githubusercontent.com/91238232/194731260-cdd7d174-fe4d-4202-92e9-dbaacc36d9c6.png)
+![image](https://user-images.githubusercontent.com/91238232/194731271-c8e45a22-ad19-4025-8fb0-871124b8548c.png)
+
 ### Departments:
 
+![image](https://user-images.githubusercontent.com/91238232/194731278-2860fe5d-8397-4d18-b0b4-54a70a87e2b0.png)
+
 ### Many to Many Relationships:
+
+![image](https://user-images.githubusercontent.com/91238232/194731285-d349be31-3be8-43da-bb9e-ee864d791528.png)
+
 
 ## Technical Difficulties
 
 The most difficult challenge was finishing the Many to Many relationship feature. Because I wanted to the many to many relationships to be edited when a staff clicked on save, I had to keep in mind the current state so I can accurately pass in the correct data to my REST API to whether add or delete a relationship. Not only was this a challenge for the front-end but also the backend. I have to accurently parse the information making sure that the relationship must exist before deleteting and that the relationship must not exsist before deleting. I know there could be duplicates of relationships that can cause errors and break the server.
 
 ### Screenshots
+
+![image](https://user-images.githubusercontent.com/91238232/194731311-218e3988-9f09-4e59-99c8-be5d4e73a007.png)
+
+![image](https://user-images.githubusercontent.com/91238232/194731334-fdc66d06-c5e6-4d84-9ba6-169c63143859.png)
+
 
 
 ## Features
