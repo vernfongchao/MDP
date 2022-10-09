@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { getContact } from '../../../../store/contact'
 import { updateContact } from '../../../../store/contact'
@@ -46,8 +46,11 @@ const PatientContact = ({ patient }) => {
     }
 
     const handlePhone = (e) => {
-        setSuccess("")
-        setPhone(e.target.value)
+        let last = e.target.value.split("")[e.target.value.length - 1]
+        if (!last || /\d/.test(last)){
+            setSuccess("")
+            setPhone(e.target.value)
+        }
     }
 
     const handleSave = async () => {
@@ -72,7 +75,7 @@ const PatientContact = ({ patient }) => {
             </div>
             {patient &&
                 <div className='patient-contact-save-icon-container'>
-                    {success && <span style={{fontSize:"1.5em"}}>{success}</span>}
+                    {success && <span className='patient-contact-edit-success'>{success}</span>}
                     <RiIcons.RiSave3Fill
                         className='patient-contact-save-icon'
                         onClick={handleSave}

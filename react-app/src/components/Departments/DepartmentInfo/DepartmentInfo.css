@@ -10,6 +10,10 @@
     overflow-wrap: break-word;
 }
 
-.department-information {
-    
+.department-info-header {
+    font-size: max(1.67vw, 32px);
+}
+
+.department-layout-info{
+    font-size: max(1.25vw, 24px);
 }

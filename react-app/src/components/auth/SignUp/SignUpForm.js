@@ -103,7 +103,7 @@ const SignUpForm = ({setShowModal}) => {
     <form className="main-user-signup" onSubmit={onSignUp}>
       <div>
         <label
-          className={usernameError.length ? "signup-error" : ""}
+          className={usernameError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >Username</label>
         <input
           className={usernameError.length ? 'form-input-user form-input-error' : "form-input-user"}
@@ -120,7 +120,7 @@ const SignUpForm = ({setShowModal}) => {
       </div>
       <div>
         <label
-          className={emailError.length ? "signup-error" : ""}
+          className={emailError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >Email</label>
         <input
           className={emailError.length ? 'form-input-user form-input-error' : "form-input-user"}
@@ -136,7 +136,7 @@ const SignUpForm = ({setShowModal}) => {
         )) : null}
       </div>
       <div>
-        <label className={firstNameError.length ? "signup-error" : ""}
+        <label className={firstNameError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >First Name</label>
         <input
           className={firstNameError.length ? 'form-input-user form-input-error' : "form-input-user"}
@@ -153,7 +153,7 @@ const SignUpForm = ({setShowModal}) => {
       </div>
       <div>
         <label
-          className={lastNameError.length ? "signup-error" : ""}
+          className={lastNameError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >Last Name</label>
         <input
           className={lastNameError.length ? 'form-input-user form-input-error' : "form-input-user"}
@@ -170,7 +170,7 @@ const SignUpForm = ({setShowModal}) => {
       </div>
       <div>
         <label htmlFor="role"
-          className={positionError.length ? "signup-error" : ""}
+          className={positionError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >Role</label>
         <select className={positionError.length ? 'form-input-user form-input-error' : "form-input-user"}
           onChange={updateRole} required >
@@ -187,7 +187,7 @@ const SignUpForm = ({setShowModal}) => {
       </div>
       <div>
         <label
-          className={passwordError.length ? "signup-error" : ""}
+          className={passwordError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
           >Password</label>
         <input
           className={passwordError.length ? 'form-input-user form-input-error' : "form-input-user"}
@@ -204,7 +204,7 @@ const SignUpForm = ({setShowModal}) => {
       </div>
       <div>
         <label
-          className={repeatPasswordError.length ? "signup-error" : ""}
+          className={repeatPasswordError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >Repeat Password</label>
         <input
           className={repeatPasswordError.length ? 'form-input-user form-input-error' : "form-input-user"}

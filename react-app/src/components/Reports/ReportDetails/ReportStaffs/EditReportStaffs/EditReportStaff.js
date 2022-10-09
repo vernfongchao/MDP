@@ -29,7 +29,7 @@ const EditReportStaff = ({ report, setShowModal }) => {
         if (report) {
             setStaffIds(reportStaffs)
         }
-    }, [report])
+    }, [report,reportStaffs])
 
     const clearSearch = () => {
         setSearch("")
@@ -149,6 +149,7 @@ const EditReportStaff = ({ report, setShowModal }) => {
                         <div>
                             <img
                                 className='edit-report-staff-img'
+                                alt="staff profile"
                                 src={staff?.img}
                                 onError={handleImageError}
                             >

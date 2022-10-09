@@ -17,7 +17,7 @@
 }
 
 .department-list-header-search-container {
-    width: 80%;
+    width: 83%;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -28,11 +28,15 @@
     justify-content: center;
 }
 
+.department-list-header{
+    font-size: max(1.67vw, 32px);
+}
+
 .department-list-search-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 99%;
 }
 
 .department-search-label-container {
@@ -41,6 +45,7 @@
 }
 
 .department-search-label {
+    font-size: max(.8vw, 16px);
     font-weight: bold;
 }
 
@@ -52,6 +57,7 @@
 }
 
 .department-search-input-field {
+    font-size: max(.8vw, 16px);
     border: none;
     border-bottom: 2px black solid;
     width: 100%;
@@ -62,7 +68,7 @@
 }
 
 .department-search-clear-icon {
-    font-size: 24px;
+    font-size: max(1.25vw, 24px);
     border-bottom: 2px black solid;
     cursor: pointer;
 }
@@ -71,36 +77,24 @@
     color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .department-list-card-container {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-
-    padding-left: min(3vw, 50px);
+    align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 
 .department-card-container {
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
     padding: 10px;
     border: 2px black solid;
-    /* border-radius: 5px; */
-    width: min(22vw, 422px);
+    width: 83%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
     border: 1px solid #1D3557;
@@ -114,4 +108,13 @@
 
 .active-department {
     background-color: #A8DADC;
+}
+
+.department-card-name-text {
+    font-size: max(.975vw, 18.72px);
+    width: 70%;
+}
+
+.department-list-id {
+    font-size: max(.8vw, 16px);
 }

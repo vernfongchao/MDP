@@ -19,7 +19,7 @@
 }
 
 .staff-list-header-search-container{
-    width: 80%;
+    width: 83%;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 99%;
 }
 
 .staff-search-label-container{
@@ -47,6 +47,7 @@
 }
 
 .staff-search-label{
+    font-size: max(.8vw, 16px);
     font-weight: bold;
 }
 
@@ -58,6 +59,7 @@
 }
 
 .staff-search-input-field{
+    font-size: max(.8vw, 16px);
     border: none;
     border-bottom: 2px black solid;
     width: 100%;
@@ -68,7 +70,7 @@
 }
 
 .staff-search-clear-icon{
-    font-size: 24px;
+    font-size: max(1.25vw, 24px);
     border-bottom: 2px black solid;
     cursor: pointer;
 }
@@ -77,24 +79,23 @@
 }
 
 .staff-all-card-container{
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    
-    padding-left: min(3vw,50px);
+    align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 
 .staff-card-container{
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
     padding: 10px;
     border: 2px black solid;
-    /* border-radius: 5px; */
-    width: min(22vw,422px);
+    width: 83%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
     border: 1px solid #1D3557;
@@ -105,10 +106,14 @@
     border: 1px solid #1D3557;
 }
 
-.staff-card-name-text{
-    width: 75%;
-}
-
 .active-staff{
     background-color: #A8DADC;
+}
+
+.staff-card-name-text{
+    font-size: max(.975vw, 18.72px);
+    width: 70%;
+}
+.staff-list-id {
+    font-size: max(.8vw, 16px);
 }

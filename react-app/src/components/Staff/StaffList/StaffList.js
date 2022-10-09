@@ -78,7 +78,7 @@ const StaffList = ({ idx }) => {
                             <h3 className="staff-card-name-text">
                                 {staff.firstName} {staff.lastName}
                             </h3>
-                            <h4>
+                            <h4 className="staff-list-id">
                                 ID: {staff.id}
                             </h4>
                         </div>

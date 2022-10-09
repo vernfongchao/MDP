@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import SignUpForm from '../SignUp/SignUpForm';
 import Demo from './Demo';
 import { login } from '../../../store/session';
@@ -12,7 +11,6 @@ const LoginForm = ({setShowModal}) => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState([])
   const [isLogin, setIsLogin] = useState(true)
-  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onLogin = async (e) => {
@@ -41,6 +39,7 @@ const LoginForm = ({setShowModal}) => {
 
       <div>
         <label
+          className='form-input-user-label'
           style={usernameError.length ? { color: "red" } : {}}
           htmlFor='username'>Username</label>
         <input
@@ -58,6 +57,7 @@ const LoginForm = ({setShowModal}) => {
       </div>
       <div>
         <label
+          className='form-input-user-label'
           style={passwordError.length ? { color: "red" } : {}}
           htmlFor='password'>Password</label>
         <input
@@ -78,7 +78,7 @@ const LoginForm = ({setShowModal}) => {
         <Demo />
       </div>
       <div className='login-form-to-signup-container'>
-        <span>
+        <span className='swap-form-text'>
           Don't have an account? <span className='login-form-to-signup-text' onClick={() => setIsLogin(false)}>Sign-Up</span> here
         </span>
       </div>

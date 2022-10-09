@@ -127,6 +127,7 @@
 }
 
 .patient-profile-error-text{
+    color: red;
     padding-bottom: max(.5vh,5px);
     font-weight: bold;
     font-size: max(.625vw, 12px);

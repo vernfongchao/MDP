@@ -9,7 +9,7 @@ const DepartmentInfo = ({ index, department }) => {
     return (
         <div className="department-info-page-container">
             <div className="department-info-header-container">
-                <h1 className="department-information">
+                <h1 className="department-info-header">
                     Department Information
                 </h1>
             </div>
@@ -18,9 +18,9 @@ const DepartmentInfo = ({ index, department }) => {
             }
             {department &&
                 <div className="department-layout-info-container">
-                    <h3>
+                    <h2 className="department-layout-info">
                         Building #{department?.building} Floor #{department?.floor}
-                    </h3>
+                    </h2>
                 </div>
             }
         </div>

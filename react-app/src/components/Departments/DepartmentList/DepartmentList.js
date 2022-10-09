@@ -39,7 +39,8 @@ const DepartmentList = ({ idx }) => {
                 <div className="department-list-header-search-container">
 
                     <div className='department-list-header-container'>
-                        <h1 className="department-header">Departments</h1>
+                        <h1 className="department-list-header">
+                            Departments</h1>
                     </div>
 
                     <div className="department-list-search-container">
@@ -75,10 +76,10 @@ const DepartmentList = ({ idx }) => {
                             }
                             onClick={e => changeDepartment(e, i)}
                         >
-                            <h3>
+                            <h3 className='department-card-name-text'>
                                 {department?.name}
                             </h3>
-                            <h4>
+                            <h4 className='department-list-id'>
                                 Department ID: {department?.id}
                             </h4>
                         </div>

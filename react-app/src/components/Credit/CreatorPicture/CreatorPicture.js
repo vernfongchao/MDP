@@ -12,6 +12,7 @@ const CreatorPicture = ({ index, creators }) => {
     return (
         <div className='creator-picture-page-container'>
             <img className='creator-picture'
+                alt='creator'
                 src={creator?.img}
                 onError={handleImageError}
             ></img>

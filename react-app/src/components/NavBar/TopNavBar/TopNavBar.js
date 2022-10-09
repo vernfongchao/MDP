@@ -1,6 +1,5 @@
 
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import LoginFormModal from '../../auth/Login/LoginFormModal';
 import SignUpFormModal from '../../auth/SignUp/SignUpFormModal';
 import LogoutButton from '../../auth/Login/LogoutButton';

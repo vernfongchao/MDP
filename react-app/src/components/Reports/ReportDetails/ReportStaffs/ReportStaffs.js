@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react"
+import {useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
 import { getReportStaffs } from "../../../../store/staffreport"
 
 import EditReportStaffModal from "./EditReportStaffs/EditReportStaffModal"
-import * as RiIcons from 'react-icons/ri'
 
 import './ReportStaffs.css'
 
@@ -46,6 +45,7 @@ const ReportStaffs = ({ report }) => {
                         <div >
                             <img
                                 className='staff-profile-picture'
+                                alt="staff profile"
                                 src={staff?.img}
                                 onError={handleImageError}
                             >

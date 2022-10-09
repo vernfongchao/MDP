@@ -1,13 +1,6 @@
-
-import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-
 import StaffDepartment from './StaffDepartment/StaffDepartment'
 import StaffReport from './StaffReports/StaffReport'
 import './StaffDetail.css'
-
-import * as RiIcons from 'react-icons/ri'
-
 
 const StaffDetail = ({ index, staffs }) => {
 

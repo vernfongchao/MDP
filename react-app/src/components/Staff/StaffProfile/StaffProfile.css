@@ -29,16 +29,20 @@
 }
 
 .staff-profile-edit-success{
-    font-size: 1.7em;
+    font-size: max(1.25vw, 24px);
 }
 
 .staff-profile-edit-icon{
     cursor: pointer;
-    font-size: 2em;
+    font-size: max(1.67vw, 32px);
 }
 
 .staff-profile-edit-icon:hover{
     color: #1D3557;
+}
+
+.patient-profile-header {
+    font-size: max(1.67vw, 32px);
 }
 
 .staff-profile-container{
@@ -61,10 +65,10 @@
     width: 100%;
 }
 .staff-profile-picture-icon{
-    margin-top: 2px;
-    margin-right: 2px;
+    margin-top: max(.4vh, 4px);
+    margin-right: max(.4vh, 4px);
     cursor: pointer;
-    font-size: 1.7em;
+    font-size: max(1.67vw, 32px);
     color: #1D3557;
 }
 
@@ -76,7 +80,7 @@
 
 .staff-profile-picture{
     height: max(10vw, 200px);
-        aspect-ratio: 1/1;
+    aspect-ratio: 1/1;
 }
 
 
@@ -89,16 +93,37 @@
 
 .staff-profile-id-name-update-container{
     border-bottom: 2px black solid;
+    width: 100%;
+    overflow-wrap: anywhere;
 }
+.staff-profile-first-name-container{
+    height: max(4vh,40px);
+    overflow-y: auto;
+}
+.staff-profile-last-name-container{
+    height: max(4vh, 40px);
+    overflow-y: auto;
+}
+
 
 .staff-profile-info-header-text{
     margin: 0;
-    font-size: 12px;
+    font-weight: bold;
+    font-size: max(.625vw, 12px);
 }
 
 .staff-profile-info-text{
     margin: 0;
-    font-size: 18px;
+    font-size: max(.8vw, 16px);
+}
+
+.staff-profile-edit-name-input {
+    width: 95%;
+    font-size: max(.8vw, 16px);
+}
+
+.staff-profile-role-select-container{
+    font-size: max(.8vw, 16px);
 }
 
 .staff-profile-role-container{
@@ -111,13 +136,11 @@
     justify-content: space-between;
 }
 
-.staff-profile-edit-name-input{
-    width: 95%;
-}
-
-
 .staff-profile-notes-container{
     width: 95%;
+    height: 60%;
+    overflow-wrap: anywhere;
+    overflow-y: auto;
 }
 
 .staff-profile-error{
@@ -127,4 +150,37 @@
 
 .staff-profile-input-error{
     border: 2px solid red;
+}
+
+
+.staff-profile-notes-container>h1 {
+    font-size: max(1.67vw, 32px);
+}
+
+.staff-profile-notes-container>h2 {
+    font-size: max(1.25vw, 24px);
+}
+
+.staff-profile-notes-container>h3 {
+    font-size: max(.975vw, 18.72px);
+}
+
+.staff-profile-notes-container>p {
+    font-size: max(.8vw, 16px);
+}
+
+.staff-profile-notes-container>span {
+    font-size: max(.8vw, 16px);
+}
+
+.staff-profile-notes-container>ol>li {
+    font-size: max(.8vw, 16px);
+}
+
+.staff-profile-notes-container>ul>li {
+    font-size: max(.8vw, 16px);
+}
+
+.announcement-detail-writer-container {
+    font-size: max(.8vw, 16px);
 }

@@ -31,7 +31,7 @@ const EditReportPatient = ({ report, setShowModal }) => {
         if (report) {
             setPatientIds(reportPatients)
         }
-    }, [report])
+    }, [report,reportPatients])
 
     const clearSearch = () => {
         setSearch("")
@@ -154,6 +154,7 @@ const EditReportPatient = ({ report, setShowModal }) => {
                         <div>
                             <img
                                 className='edit-report-patient-img'
+                                alt="patient profile"
                                 src={patient?.img}
                                 onError={handleImageError}
                             >

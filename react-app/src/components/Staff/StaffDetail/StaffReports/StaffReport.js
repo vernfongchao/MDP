@@ -21,7 +21,7 @@ const StaffReport = ({ staff }) => {
     return (
         <div className="staff-report-page-container">
             <div className='staff-report-header-container'>
-                <h2>Reports</h2>
+                <h2 className='staff-report-header'>Reports</h2>
             </div>
             {staff &&
                 <div className='staff-report-map-container'>
