@@ -30,7 +30,7 @@ const EditReportDepartments = ({ report, setShowModal }) => {
         if (report) {
             setDepartmentsObj(reportDepartments)
         }
-    }, [report])
+    }, [report,reportDepartments])
 
 
 

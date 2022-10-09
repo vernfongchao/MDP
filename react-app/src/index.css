@@ -4,6 +4,7 @@ body {
   margin: 0;
 }
 
+
 /* ----- LOGIN/SIGNUP MODAL STYLES ------*/
 
 #signup-modal-main-page,
@@ -61,7 +62,12 @@ body {
   border-radius: 5px;
 }
 
+.form-input-user-label{
+  font-size: max(.8vw, 16px);
+}
+
 .form-input-user {
+  font-size: max(.8vw, 16px);
   width: 100%;
   padding: 4px;
   margin: 8px 0px;
@@ -83,7 +89,8 @@ body {
   margin: 5px;
   background-color: white;
   color: black;
-  width: 115px;
+  width: max(6vw, 115px);
+  font-size: max(.8vw, 16px);
 }
 
 .user-buttons:hover,
@@ -126,7 +133,7 @@ body {
 
 .signup-error-text{
   padding-bottom: 5px;
-  font-size: .75em;
+  font-size: max(.625vw, 12px);
   font-weight: bold;
 }
 
@@ -135,7 +142,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 10px;
-    font-size: max(.625vw, 12px);
+  font-size: max(.625vw, 12px);
 }
 
 .login-form-to-signup-text{
@@ -146,6 +153,10 @@ body {
 .login-form-to-signup-text:hover{
 color: red;
 }
+
+.swap-form-text{
+}
+
 /* -------------- // ----------------- */
 
 ::-webkit-scrollbar {

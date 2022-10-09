@@ -7,7 +7,7 @@ import * as RiIcons from 'react-icons/ri'
 import * as Mdicons from 'react-icons/md'
 import * as VscIcons from 'react-icons/vsc'
 
-const EditStaffDepartment = ({staff,setShowModal}) => {
+const EditStaffDepartment = ({ staff, setShowModal }) => {
     const dispatch = useDispatch()
 
     const staffDepartments = useSelector(state => state.departmentStaffs.staff)
@@ -29,7 +29,7 @@ const EditStaffDepartment = ({staff,setShowModal}) => {
         if (staff) {
             setDepartmentsObj(staffDepartments)
         }
-    }, [staff])
+    }, [staff,staffDepartments])
 
     const clearSearch = () => {
         setSearch("")
@@ -61,7 +61,7 @@ const EditStaffDepartment = ({staff,setShowModal}) => {
             setDepartmentsToAdd(departments)
         }
     }
-    const handleSave = async e =>{
+    const handleSave = async e => {
         const deleteDepartments = Object.values(departmentsToDelete)
         const addDepartments = Object.values(departmentsToAdd)
         const newStaffDepartments = await dispatch(patchStaffDepartments({
@@ -87,7 +87,7 @@ const EditStaffDepartment = ({staff,setShowModal}) => {
                 />
             </div>
             <div className="edit-staff-department-header-container">
-                <h1>
+                <h1 className="edit-staff-department-header">
                     Departments
                 </h1>
             </div>
@@ -134,10 +134,10 @@ const EditStaffDepartment = ({staff,setShowModal}) => {
                         key={department.id}
                         onClick={e => handleAdd(e, department.id)}>
 
-                        <h3>
+                        <h3 className="edit-staff-department-card-name">
                             {department.name}
                         </h3>
-                        <h4>
+                        <h4 className="edit-staff-department-card-id">
                             Department ID: {department.id}
                         </h4>
                     </div>

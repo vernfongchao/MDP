@@ -170,7 +170,7 @@ const StaffProfile = ({ index, staffs }) => {
                             </div>
                         </div>
                     }
-                    <h1>
+                    <h1 className='patient-profile-header'>
                         Staff Profile
                     </h1>
 
@@ -247,12 +247,12 @@ const StaffProfile = ({ index, staffs }) => {
                                 :
                                 <div>
                                     <div className='staff-profile-id-name-update-container split-name'>
-                                        <div>
+                                        <div className='staff-profile-first-name-container'>
                                             <p className='staff-profile-info-header-text'>First Name</p>
                                             <p className='staff-profile-info-text'>{staff?.firstName}</p>
 
                                         </div>
-                                        <div>
+                                        <div className='staff-profile-last-name-container'>
                                             <p className='staff-profile-info-header-text'>Last Name</p>
                                             <p className='staff-profile-info-text'>{staff?.lastName}</p>
                                         </div>
@@ -309,7 +309,7 @@ const StaffProfile = ({ index, staffs }) => {
                             style={
                                 {
                                     width: '100%',
-                                    height: '400px',
+                                    height: '100%',
                                 }
                             }
                         />

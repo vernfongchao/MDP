@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
 import { getStaffDepartment } from "../../../../store/departmentstaff"
@@ -29,7 +29,7 @@ const StaffDepartment = ({ staff }) => {
                         staff={staff}
                     />
                 }
-                <h2>
+                <h2 className="staff-department-header">
                     Departments
                 </h2>
             </div>

@@ -20,7 +20,7 @@
 /* Inside-Modal */
 
 .edit-report-department-page-container{
-    height: max(69.5vh, 500px);
+    height: max(72vh, 700px);
     width: max(29.6vw, 568.75px);
     background-color: #F1FAEE;
     display: flex;
@@ -52,7 +52,7 @@
 }
 
 .edit-report-department-header{
-        font-size: max(1.67vw, 32px);
+    font-size: max(1.67vw, 32px);
 }
 
 .edit-report-department-search-container{
@@ -140,7 +140,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-left: max(2.8vw, 53px);
+    padding-left: max(2.68vw, 52px);
     overflow-y: auto;
     overflow-x: hidden;
 }

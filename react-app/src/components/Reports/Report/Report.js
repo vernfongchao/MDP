@@ -4,13 +4,11 @@ import { addReport } from '../../../store/report'
 import { patchReport } from '../../../store/report'
 
 import * as RiIcons from 'react-icons/ri'
-import * as ImIcons from 'react-icons/im'
 import * as AiIcons from 'react-icons/ai'
 import * as FcIcons from 'react-icons/fc'
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import parse from 'html-react-parser'
 
 import "./Report.css"
 
@@ -47,7 +45,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
             setTitleError([])
             setContent("")
         }
-    }, [report])
+    }, [report,index])
 
     useEffect(() => {
         if (title.length >= 100) {

@@ -28,15 +28,20 @@
     position: relative;
     display: flex;
     justify-content: flex-end;
-    bottom: 50px;
+    bottom: max(5vh,50px);
+}
+
+.patient-contact-edit-success{
+    font-size: max(1.25vw, 24px);
 }
 
 .patient-contact-save-icon{
     font-size: 1.75em;
+    cursor: pointer;
+    font-size: max(1.67vw, 32px);
 }
 
 .patient-contact-save-icon:hover{
-    cursor: pointer;
     color: #1D3557;
 }
 

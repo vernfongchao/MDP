@@ -11,7 +11,7 @@
 }
 
 .department-staff-header{
-
+    font-size: max(1.67vw, 32px);
 }
 
 .department-staff-list-container{
@@ -22,15 +22,15 @@
 }
 
 .department-staff-name-container{
-    margin-top: 5px;
+    margin-top: max(.5vh, 6px);
     padding-left: 3px;
     padding-right: 3px;
     display: flex;
     background-color: #A8DADC;
     border: 2px solid black;
     border-radius: 5px;
-    margin-right: 10px;
-    height: 22px;
+    margin-right: max(.5vw, 10px);
+    font-size: max(.8vw, 16px);
 }
 
 .department-staff-name {

@@ -10,22 +10,27 @@
     width: 95%;
 }
 
+.staff-report-header {
+    font-size: max(1.25vw, 24px);
+}
+
 .staff-report-map-container {
     display: flex;
     width: 95%;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 .staff-report-info-container {
-    margin-top: 5px;
+    margin-top: max(.5vh, 6px);
     padding-left: 3px;
     padding-right: 3px;
     display: flex;
     background-color: #A8DADC;
     border: 2px solid black;
     border-radius: 5px;
-    margin-right: 10px;
-    height: 22px;
+    margin-right: max(.5vw, 10px);
+    font-size: max(.8vw, 16px);
 }
 
 .staff-report-info-text {

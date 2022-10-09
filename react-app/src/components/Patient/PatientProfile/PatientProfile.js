@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addPatient } from '../../../store/patient'
@@ -13,7 +10,6 @@ import * as FcIcons from 'react-icons/fc'
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import parse from 'html-react-parser'
 
 import './PatientProfile.css'
 

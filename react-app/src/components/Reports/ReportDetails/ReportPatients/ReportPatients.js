@@ -1,11 +1,8 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
 import EditReportPatientModal from "./EditReportPatients/EditReportPatientModal"
 import { getReportPatients } from "../../../../store/patientreport"
-
-
-import * as RiIcons from 'react-icons/ri'
 
 import './ReportPatients.css'
 
@@ -48,6 +45,7 @@ const ReportPatients = ({ report }) => {
                         <div >
                             <img
                                 className='patient-profile-picture'
+                                alt="patient profile"
                                 src={patient.img}
                                 onError={handleImageError}
                             >
