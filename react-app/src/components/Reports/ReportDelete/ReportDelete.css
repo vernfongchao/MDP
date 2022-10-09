@@ -1,0 +1,54 @@
+.delete-report-icon-position{
+    height: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 1px;
+}
+
+
+.delete-report-icon {
+    font-size: max(1vw, 12px);
+}
+
+.delete-report-icon:hover {
+    color: red;
+}
+
+.delete-report-header-main-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-report-header{
+    font-size: max(1.67vw, 32px);
+    color: red;
+}
+
+.delete-report-warning{
+    font-size: max(.8vw, 16px);
+}
+
+.delete-report-error{
+    color: red;
+}
+
+.delete-report-buttons {
+    cursor: pointer;
+    background-color: #A8DADC;
+    border-radius: max(.1vw, 3px);
+    border: 2px solid #1D3557;
+    margin: max(1vw, 38.4px);
+    font-size: max(.8vw, 16px);
+}
+
+
+.delete-report-buttons:hover {
+    box-shadow: 1px 1px 5px 1px #1D3557;
+
+}

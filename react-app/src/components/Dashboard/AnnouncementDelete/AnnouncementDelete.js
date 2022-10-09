@@ -11,7 +11,6 @@ const AnnouncementDelete = ({ id, setShowModal,setIndex, i ,index}) => {
         setShowModal(false)
         if(announcement.id){
             if(index === i && index === 0){
-
             }
             else if (i <= index) {
                 setIndex(index -1)
@@ -28,11 +27,11 @@ const AnnouncementDelete = ({ id, setShowModal,setIndex, i ,index}) => {
                 <h1 className="delete-announcement-header">WARNING</h1>
             </div>
             <div className="delete-announcement-message-container">
-                <p className="delete-announcement-header">
+                <p className="delete-announcement-warning">
                     Warning, This action is irreversible! Please confirm to delete.
                 </p>
                 {error?
-                <p>
+                <p className="delete-announcement-error">
                     {error}
                 </p>: null
                 }
@@ -48,7 +47,6 @@ const AnnouncementDelete = ({ id, setShowModal,setIndex, i ,index}) => {
 
         </div>
     )
-
 }
 
 export default AnnouncementDelete

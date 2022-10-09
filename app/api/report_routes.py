@@ -145,3 +145,13 @@ def edit_report_departments(id):
                 report.departments.remove(department)
                 db.session.commit()
     return jsonify(report.report_departments_to_dict()), 200
+
+@report_routes.route('/<int:id>',methods=['DELETE'])
+@login_required
+def delete_report(id):
+    report = Report.query.get(id)
+    if not report:
+        return {"errors":"Report not found"}, 400
+    db.session.delete(report)
+    db.session.commit()
+    return report.to_dict(),200

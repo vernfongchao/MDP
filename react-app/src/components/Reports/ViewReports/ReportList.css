@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 99%;
+    width: 98%;
 }
 
 .report-search-label-container {
@@ -92,20 +92,24 @@
     overflow-x: hidden;
 }
 
-.report-card-container {
+.report-card-container{
+    width: 83%;
+}
+
+.report-card-name-container {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin-bottom: 1vh;
     padding: 10px;
     border: 2px black solid;
-    width: 83%;
+    width: 100%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
     border: 1px solid #1D3557;
 }
 
-.report-card-container:hover {
+.report-card-name-container:hover {
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
     border: 1px solid #1D3557;

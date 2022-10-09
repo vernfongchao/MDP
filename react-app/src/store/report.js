@@ -1,5 +1,6 @@
 const LOAD_REPORTS = '/reports/LOAD_REPORTS'
 const LOAD_REPORT = '/reports/LOAD_REPORT'
+const REMOVE_REPORT = '/reports/REMOVE_REPORT'
 
 const loadReports = reports => (
     {
@@ -12,6 +13,13 @@ const loadReport = report => (
     {
         type: LOAD_REPORT,
         report
+    }
+)
+
+const removeReport = reportId => (
+    {
+        type:REMOVE_REPORT,
+        reportId
     }
 )
 
@@ -67,6 +75,21 @@ export const patchReport = (payload) => async dispatch => {
     }
 }
 
+export const deleteReport = (reportId) => async dispatch => {
+    const response = await fetch(`/api/reports/${reportId}`,{
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        const report = await response.json()
+        dispatch(removeReport(report.id))
+        return report
+    }
+    else if (response.status < 500) {
+        const data = await response.json()
+        return data
+    }
+}
+
 
 
 
@@ -84,6 +107,11 @@ export default function reportReducer(state = initialState, action) {
         case LOAD_REPORT : {
             newState = { ...state }
             newState[action.report.id] = action.report
+            return newState
+        }
+        case REMOVE_REPORT: {
+            newState = { ...state }
+            delete newState[action.reportId]
             return newState
         }
         default:
