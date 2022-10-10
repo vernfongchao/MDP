@@ -15,16 +15,31 @@
     align-items: center;
 }
 
+.delete-announcement-header{
+    font-size: max(1.67vw, 32px);
+    color: red;
+}
+
+.delete-announcement-warning{
+    font-size: max(.8vw, 16px);
+}
+
+.delete-announcement-error{
+    color: red;
+    font-size: max(.8vw, 16px);
+}
+
 .delete-announcement-buttons {
     cursor: pointer;
     background-color: #A8DADC;
-    border-radius: 3px;
-    border: 1px solid #1D3557;
-    margin: 5px;
+    border-radius: max(.1vw,3px);
+    border: 2px solid #1D3557;
+    margin: max(1vw,38.4px);
+    font-size: max(.8vw, 16px);
 }
 
 
 .delete-announcement-buttons:hover {
     box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 1px solid #1D3557;
+
 }

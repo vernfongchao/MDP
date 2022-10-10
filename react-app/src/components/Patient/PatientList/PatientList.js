@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import PatientProfile from "../PatientProfile/PatientProfile";
 import PatientDetail from "../PatientDetail/PatientDetail";
+import PatientDeleteModal from "../PatientDelete/PatientDeleteModal";
 import './PatientList.css'
 
 
@@ -77,24 +78,33 @@ const PatientList = ({ idx }) => {
                 </div>
                 <div className="patient-all-card-container">
                     {filteredPatients?.map((patient, i) => (
-                        <div key={i} className={index === i ? 'patient-card-container active-patient'
-                            : "patient-card-container"}
+                        <div key={i} className="patient-card-container"
                             onClick={e => changePatient(e, i)}
                         >
+                            <PatientDeleteModal 
+                                id={patient.id}
+                                setIndex={setIndex}
+                                i={i}
+                                index={index}
+                            />
+                            <div className={index === i ? 'patient-card-name-container active-patient'
+                                : "patient-card-name-container"}>
 
-                            <h3 className="patient-card-name-text">
-                                {patient.firstName} {patient.lastName}
-                            </h3>
-                            <h4 className="patient-list-id">
-                                ID: {patient.id}
-                            </h4>
+                                <h3 className="patient-card-name-text">
+                                    {patient.firstName} {patient.lastName}
+                                </h3>
+                                <h4 className="patient-list-id">
+                                    ID: {patient.id}
+                                </h4>
+                            </div>
+
                         </div>
                     ))}
 
                 </div>
             </div>
 
-            <PatientProfile index={index} patient={patient} setIndex={setIndex} patients={filteredPatients} setSearch={setSearch}/>
+            <PatientProfile index={index} patient={patient} setIndex={setIndex} patients={filteredPatients} setSearch={setSearch} />
             <PatientDetail index={index} patient={patient} setIndex={setIndex} />
 
         </div>

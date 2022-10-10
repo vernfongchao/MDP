@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"
 
 import Report from "../Report/Report"
 import ReportDetails from "../ReportDetails/ReportDetails"
+import ReportDeleteModal from "../ReportDelete/ReportDeleteModal"
 
 import "./ReportList.css"
 
@@ -73,16 +74,24 @@ const ReportList = ({ idx }) => {
 
                 <div className="report-all-card-container">
                     {filteredReports.map((report, i) => (
-                        <div key={i} className={index === i ? 'report-card-container active-report'
-                            : "report-card-container"}
-                            onClick={e => changeReport(e, i)}
-                        >
-                            <h3 className="report-list-title">
-                                {report.title}
-                            </h3>
-                            <h4 className="report-list-id">
-                                ID: {report.id}
-                            </h4>
+                        <div key={i} className="report-card-container">
+                            <ReportDeleteModal
+                                id={report.id}
+                                setIndex={setIndex}
+                                i={i}
+                                index={index}
+                            />
+                            <div className={index === i ? 'report-card-name-container active-report'
+                                : "report-card-name-container"}
+                                onClick={e => changeReport(e, i)}
+                            >
+                                <h3 className="report-list-title">
+                                    {report.title}
+                                </h3>
+                                <h4 className="report-list-id">
+                                    ID: {report.id}
+                                </h4>
+                            </div>
                         </div>
                     ))}
 

@@ -107,6 +107,27 @@ def put_patient_contact(id):
     else:
         return {"errors": {"patient": "patient not found"}}, 400
 
+@patient_routes.route('/<int:id>',methods=["DELETE"])
+@login_required
+def delete_patient(id):
+    patient = Patient.query.get(id)
+    if not patient:
+        return {"errors": "Patient not found"},400
+    if patient.to_dict()['imgId']:
+        delete_image = Image.query.get(patient.to_dict()['imgId'])
+        name = delete_image.imageURL
+
+        if 'amazonaws' in name:
+            delete_image_from_s3(name)
+
+        db.session.delete(delete_image)
+        db.session.commit()
+
+    db.session.delete(patient)
+    db.session.commit()
+    print("================================ patient",patient.to_dict())
+    return patient.to_dict(),200
+    
 
 def upload_image(image, id):
     if not allowed_file(image.filename):
