@@ -80,7 +80,7 @@ const DepartmentList = ({ idx }) => {
                                 {department?.name}
                             </h3>
                             <h4 className='department-list-id'>
-                                Department ID: {department?.id}
+                                ID: {department?.id}
                             </h4>
                         </div>
                     ))

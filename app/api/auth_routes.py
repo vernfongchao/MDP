@@ -42,7 +42,6 @@ def login():
         user = Staff.query.filter(Staff.username == form.data['username']).first()
         login_user(user)
         return user.to_dict()
-    print(dir(form.errors),form.errors) 
     return {'errors': form.errors}, 401
 
 
@@ -71,7 +70,6 @@ def sign_up():
         db.session.commit()
         login_user(user)
         return user.to_dict()
-    print(form.errors)
     return {'errors': form.errors}, 401
 
 

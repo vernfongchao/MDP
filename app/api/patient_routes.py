@@ -88,7 +88,6 @@ def put_patient_contact(id):
 
     if patient:
         if contact:
-            print(dir(contact))
             contact.first_name = contact_info["first_name"]
             contact.last_name = contact_info["last_name"]
             contact.phone = contact_info["phone"]
@@ -125,7 +124,6 @@ def delete_patient(id):
 
     db.session.delete(patient)
     db.session.commit()
-    print("================================ patient",patient.to_dict())
     return patient.to_dict(),200
     
 
