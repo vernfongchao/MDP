@@ -9,6 +9,7 @@
 
 
 .delete-patient-icon {
+    cursor: pointer;
     font-size: max(1vw, 12px);
 }
 
