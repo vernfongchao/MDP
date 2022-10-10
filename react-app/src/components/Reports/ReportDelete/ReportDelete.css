@@ -8,12 +8,12 @@
 }
 
 
-.delete-report-icon {
+.delete-report-icon{
     cursor: pointer;
     font-size: max(1vw, 12px);
 }
 
-.delete-report-icon:hover {
+.delete-report-icon:hover{
     color: red;
 }
 

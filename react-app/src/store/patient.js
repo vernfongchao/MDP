@@ -76,7 +76,6 @@ export const deletePatient = (patientId) => async dispatch => {
     })
     if (response.ok) {
         const patient = await response.json()
-        console.log(patient)
         dispatch(removePatient(patient.id))
         return patient
     }
