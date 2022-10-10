@@ -97,13 +97,12 @@
     width: 83%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
-    border: 1px solid #1D3557;
 }
 
 .department-card-container:hover {
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 1px solid #1D3557;
+    border: 2px solid #1D3557;
 }
 
 .active-department {

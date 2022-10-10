@@ -1,5 +1,6 @@
 const LOAD_PATIENTS = '/patients/LOAD_PATIENTS'
 const LOAD_PATIENT= '/patients/LOAD_PATIENT'
+const REMOVE_PATIENT = '/patients/REMOVE_PATIENT'
 
 const loadPatients = patients => (
     {
@@ -15,6 +16,14 @@ const loadPatient = patient => (
         patient
     }
 )
+
+const removePatient = patientId => (
+    {
+        type: REMOVE_PATIENT,
+        patientId
+    }
+)
+
 
 export const getPatients = () => async dispatch => {
     const response = await fetch('/api/patients/')
@@ -61,6 +70,22 @@ export const editPatient = (payload) => async dispatch => {
     }
 }
 
+export const deletePatient = (patientId) => async dispatch => {
+    const response = await fetch(`/api/patients/${patientId}`,{
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        const patient = await response.json()
+        console.log(patient)
+        dispatch(removePatient(patient.id))
+        return patient
+    }
+    else if (response.status < 500) {
+        const data = await response.json()
+        return data
+    }
+}
+
 
 
 const initialState = {}
@@ -76,6 +101,11 @@ export default function patientReducer(state=initialState, action){
         case LOAD_PATIENT : {
             newState = { ...state }
             newState[action.patient.id] = action.patient
+            return newState
+        }
+        case REMOVE_PATIENT : {
+            newState = { ...state }
+            delete newState[action.patientId]
             return newState
         }
         default:

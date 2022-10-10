@@ -93,24 +93,27 @@
     overflow-x: hidden;
 }
 
-
 .patient-card-container {
+    width: 83%;
+}
+
+
+.patient-card-name-container {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin-bottom: 1vh;
     padding: 10px;
     border: 2px black solid;
-    width: 83%;
+    width: 100%;
     box-shadow: 1px 1px 5px 1px #F1FAEE;
     overflow-wrap: break-word;
-    border: 1px solid #1D3557;
 }
 
-.patient-card-container:hover {
+.patient-card-name-container:hover {
     cursor: pointer;
     box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 1px solid #1D3557;
+    border: 2px solid #1D3557;
 }
 
 

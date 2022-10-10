@@ -81,7 +81,7 @@ const ReportList = ({ idx }) => {
                                 i={i}
                                 index={index}
                             />
-                            <div key={i} className={index === i ? 'report-card-name-container active-report'
+                            <div className={index === i ? 'report-card-name-container active-report'
                                 : "report-card-name-container"}
                                 onClick={e => changeReport(e, i)}
                             >

@@ -7,8 +7,8 @@ const ReportDelete = ({ id, setShowModal, setIndex, i, index }) => {
     const [error, setError] = useState("")
 
     const handleDelete = async (e) => {
-        let announcement = await (dispatch(deleteReport(id)))
-        if(announcement.id){
+        let report = await (dispatch(deleteReport(id)))
+        if(report.id){
             setShowModal(false)
             if (index === i && index === 0) {
                 setIndex(0)
@@ -18,7 +18,7 @@ const ReportDelete = ({ id, setShowModal, setIndex, i, index }) => {
             }
         }
         else {
-            setError(announcement.errors)
+            setError(report.errors)
         }
     }
 
