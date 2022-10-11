@@ -1,26 +1,76 @@
-import { useState } from "react";
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 
+import { getRooms } from "../../../store/room";
 import * as VscIcons from 'react-icons/vsc'
 
 import './MessageList.css'
 
-const MessageList = ({ messagedStaffs, index, setIndex,setIsLoaded }) => {
+const MessageList = ({ setCurrStaff, index, setIndex, setIsLoaded }) => {
+
+
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.session.user)
+    const staffs = useSelector(state => state.staffs)
+    const rooms = useSelector(state => state.rooms)
 
     const [search, setSearch] = useState("")
+    const [filtered, setFiltered] = useState([])
 
-    const filteredStaffs = messagedStaffs.filter(staff => {
-        return (
-            staff.firstName.toLowerCase().includes(search.toLowerCase()) ||
-            staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
-            staff.id.toString().includes(search)
-        )
+    const staffsWithUser = {}
+    Object.values(rooms).forEach(room => {
+        if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
+            (staffs[room?.staffId1] || staffs[room?.staffId2])
+        ) {
+            if (room?.staffId1 === user.id) {
+                staffsWithUser[room.staffId2] = staffs[room?.staffId2]
+            }
+            else {
+                staffsWithUser[room.staffId1] = staffs[room?.staffId1]
+            }
+        }
     })
+    const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
+
+    useEffect(() => {
+        (async () => {
+            if (user && staffs) {
+                const rooms = await dispatch(getRooms(user.id))
+                const staffsWithUser = {}
+                const roomsArray = await Object.values(rooms).forEach(room => {
+                    if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
+                        (staffs[room?.staffId1] || staffs[room?.staffId2])
+                    ) {
+                        if (room?.staffId1 === user.id) {
+                            staffsWithUser[room.staffId2] = staffs[room?.staffId2]
+                        }
+                        else {
+                            staffsWithUser[room.staffId1] = staffs[room?.staffId1]
+                        }
+                    }
+                })
+                const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
+                setCurrStaff(staffsArrays[index])
+                setFiltered(staffsArrays)
+            }
+        })()
+    }, [dispatch, user,staffs])
+
 
 
     const changeSearch = (e) => {
         setIndex(0)
         setSearch(e.target.value)
+        const filtered = [...staffsArrays]
+        const filteredStaffs = filtered.filter(staff => {
+            return (
+                staff.firstName.toLowerCase().includes(e.target.value.toLowerCase()) ||
+                staff.lastName.toLowerCase().includes(e.target.value.toLowerCase()) ||
+                staff.id.toString().includes(e.target.value)
+            )
+        })
+        setFiltered(filteredStaffs)
+        setCurrStaff(filteredStaffs[0])
     }
 
     const clearSearch = () => {
@@ -28,9 +78,10 @@ const MessageList = ({ messagedStaffs, index, setIndex,setIsLoaded }) => {
     }
 
     const changeStaff = (e, i) => {
-        if(index === i) return
+        if (index === i) return
         setIndex(i)
         setIsLoaded(false)
+        setCurrStaff(filtered[i])
     }
 
     return (
@@ -65,7 +116,7 @@ const MessageList = ({ messagedStaffs, index, setIndex,setIsLoaded }) => {
                 </div>
             </div>
             <div className="message-all-card-container">
-                {filteredStaffs?.map((staff, i) => (
+                {filtered?.map((staff, i) => (
                     <div key={i} className={index === i ? 'message-card-container active-staff'
                         : "message-card-container"}
                         onClick={e => changeStaff(e, i)}

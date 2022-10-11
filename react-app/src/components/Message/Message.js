@@ -10,83 +10,64 @@ import './Message.css'
 
 
 const Message = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
 
-    const user = useSelector(state => state.session.user)
-    const staffs = useSelector(state => state.staffs)
+    // const user = useSelector(state => state.session.user)
+    // const staffs = useSelector(state => state.staffs)
 
-    // const roomsArray = Object.values(useSelector(state => state.rooms)).forEach(room => {
-    //     if((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
-    //         (staffs[room?.staffId1] || staffs[room?.staffId2])
-    //         ){
-    //             if(room?.staffId1 === user.id){
-    //                 staffsWithUser[room.staffId2] = staffs[room?.staffId2]
-    //             }
-    //             else {
-    //                 staffsWithUser[room.staffId1] = staffs[room?.staffId1]
-    //             }
-    //     }
-    // })
-
-    // const staffsArray = Object.values(staffs).sort((a,b) => {
-    //     if (staffsWithUser[a.id] && !staffsWithUser[b.id]){
-    //         return -1
-    //     }
-    // })
-
-    const [messagedStaffs, setMessagedStaffs] = useState([])
-    const [unmessagedStaffs, setUnmessagedStaffs] = useState([])
+    // const [messagedStaffs, setMessagedStaffs] = useState([])
+    
     const [index, setIndex] = useState(0)
     const [isLoaded, setIsLoaded] = useState(false)
 
-    const currStaff = messagedStaffs[index]
+    const [currStaff,setCurrStaff] = useState(null)
 
-    useEffect(() => {
-        (async () => {
-            if (user) {
-                const rooms = await dispatch(getRooms(user.id))
-                const staffsWithUser = {}
-                const roomsArray = await Object.values(rooms).forEach(room => {
-                    if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
-                        (staffs[room?.staffId1] || staffs[room?.staffId2])
-                    ) {
-                        if (room?.staffId1 === user.id) {
-                            staffsWithUser[room.staffId2] = staffs[room?.staffId2]
-                        }
-                        else {
-                            staffsWithUser[room.staffId1] = staffs[room?.staffId1]
-                        }
-                    }
-                })
-                // const staffsArray = Object.values(staffs).sort((a,b) => {
-                //     if (staffsWithUser[a.id] && !staffsWithUser[b.id]){
-                //         return -1
-                //     }
-                // })
-                const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
-                setMessagedStaffs(staffsArrays)
-            }
 
-        })()
-    }, [dispatch, user])
+    // useEffect(() => {
+    //     (async () => {
+    //         if (user) {
+    //             const rooms = await dispatch(getRooms(user.id))
+    //             const staffsWithUser = {}
+    //             const roomsArray = await Object.values(rooms).forEach(room => {
+    //                 if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
+    //                     (staffs[room?.staffId1] || staffs[room?.staffId2])
+    //                 ) {
+    //                     if (room?.staffId1 === user.id) {
+    //                         staffsWithUser[room.staffId2] = staffs[room?.staffId2]
+    //                     }
+    //                     else {
+    //                         staffsWithUser[room.staffId1] = staffs[room?.staffId1]
+    //                     }
+    //                 }
+    //             })
+    //             const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
+    //             setMessagedStaffs(staffsArrays)
+    //         }
+
+    //     })()
+    // }, [dispatch, user])
+
+    console.log(currStaff)
 
     return (
         <div className="message-page-container">
             <MessageList
-                messagedStaffs={messagedStaffs}
                 index={index}
                 setIndex={setIndex}
                 isLoaded={isLoaded}
-                setIsLoaded={setIsLoaded} />
+                setIsLoaded={setIsLoaded}
+                setCurrStaff={setCurrStaff} />
             <Chat
                 currStaff={currStaff}
+                index={index}
                 isLoaded={isLoaded}
                 setIsLoaded={setIsLoaded}
             />
             <DiscoverList
                 currStaff={currStaff}
-                messagedStaffs={messagedStaffs}
+                index={index}
+                isLoaded={isLoaded}
                 // setMappedStaffs = {setMappedStaffs}
             />
         </div>

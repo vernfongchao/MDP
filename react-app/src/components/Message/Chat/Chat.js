@@ -30,7 +30,8 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
         }
     })[0]
 
-    console.log(currStaff)
+    
+
 
     useEffect(() => {
         (async () => {
