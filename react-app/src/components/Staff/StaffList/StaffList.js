@@ -36,7 +36,7 @@ const StaffList = ({ idx }) => {
     }
 
     return (
-        <div className={idx === 4 ? "staff-list-page-container" : "hidden"}>
+        <div className="staff-list-page-container">
             <div className="staff-list-container">
                 <div className="staff-list-header-search-container">
                     <div className="staff-list-header-container">

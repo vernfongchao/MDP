@@ -95,7 +95,6 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         {tab.idx === 4 &&
           <StaffList idx={tab.idx} />
         }
-
         {tab.idx === 5 &&
           <DepartmentList idx={tab.idx} />
         }

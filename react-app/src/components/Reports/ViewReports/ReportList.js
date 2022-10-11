@@ -9,7 +9,7 @@ import "./ReportList.css"
 
 import * as VscIcons from 'react-icons/vsc'
 
-const ReportList = ({ idx }) => {
+const ReportList = () => {
 
     const reports = Object.values(useSelector(state => state.reports))
 
@@ -41,7 +41,7 @@ const ReportList = ({ idx }) => {
 
 
     return (
-        <div className={idx === 1 ? "report-list-page-container" : "hidden"}>
+        <div className="report-list-page-container">
             <div className="report-list-container">
                 <div className="report-list-header-search-container">
                     <div className="report-list-header-container">
