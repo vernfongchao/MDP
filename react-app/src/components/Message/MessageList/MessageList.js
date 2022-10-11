@@ -5,7 +5,7 @@ import * as VscIcons from 'react-icons/vsc'
 
 import './MessageList.css'
 
-const MessageList = ({ messagedStaffs, index, setIndex }) => {
+const MessageList = ({ messagedStaffs, index, setIndex,setIsLoaded }) => {
 
     const [search, setSearch] = useState("")
 
@@ -28,7 +28,9 @@ const MessageList = ({ messagedStaffs, index, setIndex }) => {
     }
 
     const changeStaff = (e, i) => {
+        if(index === i) return
         setIndex(i)
+        setIsLoaded(false)
     }
 
     return (

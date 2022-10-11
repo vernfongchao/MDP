@@ -5,9 +5,9 @@ from app.models import Room
 room_routes = Blueprint('rooms', __name__)
 
 
-@room_routes.route('/')
-def get_all_rooms():
-    return {'message':'okay'},200
+# @room_routes.route('/')
+# def get_all_rooms():
+#     return {'message':'okay'},200
 
 @room_routes.route('/staff/<int:id>') 
 def get_rooms(id):

@@ -38,6 +38,7 @@ const Message = () => {
     const [messagedStaffs, setMessagedStaffs] = useState([])
     const [unmessagedStaffs, setUnmessagedStaffs] = useState([])
     const [index, setIndex] = useState(0)
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const currStaff = messagedStaffs[index]
 
@@ -46,7 +47,7 @@ const Message = () => {
             if (user) {
                 const rooms = await dispatch(getRooms(user.id))
                 const staffsWithUser = {}
-                const roomsArray = Object.values(rooms).forEach(room => {
+                const roomsArray = await Object.values(rooms).forEach(room => {
                     if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
                         (staffs[room?.staffId1] || staffs[room?.staffId2])
                     ) {
@@ -75,9 +76,13 @@ const Message = () => {
             <MessageList
                 messagedStaffs={messagedStaffs}
                 index={index}
-                setIndex={setIndex} />
+                setIndex={setIndex}
+                isLoaded={isLoaded}
+                setIsLoaded={setIsLoaded} />
             <Chat
                 currStaff={currStaff}
+                isLoaded={isLoaded}
+                setIsLoaded={setIsLoaded}
             />
             <DiscoverList
                 currStaff={currStaff}

@@ -12,7 +12,7 @@ const loadRooms = rooms => (
 export const getRooms = (id) => async dispatch => {
     const response = await fetch(`/api/rooms/staff/${id}`)
     if (response.ok) {
-        let rooms = await response.json()
+        const rooms = await response.json()
         dispatch(loadRooms(rooms))
         return rooms
     }
