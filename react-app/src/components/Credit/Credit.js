@@ -7,7 +7,7 @@ import CreatorList from './CreatorList/CreatorList'
 import CreatorPicture from './CreatorPicture/CreatorPicture'
 import CreatorSocial from './CreatorSocial/CreatorSocial'
 
-const Credit = ({ idx }) => {
+const Credit = () => {
 
     const creators = Object.values(useSelector(state => state.staffs)).filter(staff => {
         return staff.id === 2 

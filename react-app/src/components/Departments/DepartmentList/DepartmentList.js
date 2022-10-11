@@ -34,7 +34,7 @@ const DepartmentList = ({ idx }) => {
     }
 
     return (
-        <div className={idx === 5 ? "department-list-page-container" : "hidden"}>
+        <div className="department-list-page-container">
             <div className="department-list-container">
                 <div className="department-list-header-search-container">
 

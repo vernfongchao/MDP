@@ -1,0 +1,12 @@
+.message-list-page-container{
+    border-right: .625vw #1D3557 solid;
+    box-sizing: border-box;
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.message-header {
+    font-size: max(1.67vw, 32px);
+}

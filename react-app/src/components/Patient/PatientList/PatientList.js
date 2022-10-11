@@ -13,7 +13,7 @@ import * as VscIcons from 'react-icons/vsc'
 
 
 
-const PatientList = ({ idx }) => {
+const PatientList = () => {
 
     const patients = Object.values(useSelector(state => state.patients))
 
@@ -44,7 +44,7 @@ const PatientList = ({ idx }) => {
     }
 
     return (
-        <div className={idx === 2 ? "patient-list-page-container" : "hidden"}>
+        <div className="patient-list-page-container">
             <div className="patient-list-container">
                 <div className="patient-list-header-search-container">
                     <div className="patient-list-header-container">

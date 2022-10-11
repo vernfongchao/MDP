@@ -8,7 +8,7 @@ import AnnouncementDeleteModal from "../AnnouncementDelete/AnnouncementDeleteMod
 import "./Announcement.css"
 
 
-const Announcement = ({ idx }) => {
+const Announcement = () => {
 
     const user = useSelector(state => state.session.user)
     const announcements = Object.values(useSelector(state => state.announcements)).reverse()
@@ -28,7 +28,7 @@ const Announcement = ({ idx }) => {
     }
 
     return (
-        <div className={idx === 0 ? "announcements-page-container" : "hidden"}>
+        <div className="announcements-page-container">
                 <div className="announcement-list-container">
                     <h1 className="announcement-header">Announcements</h1>
                     <div className="announcement-list-header">
