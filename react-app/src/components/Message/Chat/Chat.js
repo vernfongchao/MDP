@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { io } from 'socket.io-client';
+
+import './Chat.css'
+
 let socket;
+
+
 
 const Chat = ({ reciever }) => {
     const [messages, setMessages] = useState([])
     const [chatInput, setChatInput] = useState("");
 
     const user = useSelector(state => state.session.user)
-
-
-    console.log(user)
 
     useEffect(() => {
         // dispatch to get room from user and receiver/ exepcted room
@@ -64,8 +66,12 @@ const Chat = ({ reciever }) => {
 
     return (
 
-        <div>
-            // include this in the return statement
+        <div className="chat-page-container">
+            <div>
+                <h1 className="chat-header">
+                    Message Log
+                </h1>
+            </div>
             <div>
                 {messages.map((message, ind) => (
                     <div key={ind}>{`${message.user}: ${message.msg}`}</div>

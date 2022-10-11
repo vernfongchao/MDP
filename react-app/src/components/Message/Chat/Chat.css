@@ -1,0 +1,14 @@
+.chat-page-container{
+    box-sizing: border-box;
+    border-right: .625vw #1D3557 solid;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.3%;
+    overflow-y: auto;
+}
+
+.chat-header{
+    font-size: max(1.67vw, 32px);
+}
