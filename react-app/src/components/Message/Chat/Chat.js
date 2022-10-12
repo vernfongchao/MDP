@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { io } from 'socket.io-client';
 
@@ -11,12 +11,15 @@ import './Chat.css'
 
 let socket;
 
-
-
 const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
     const dispatch = useDispatch()
-    const [messages, setMessages] = useState([])
+
+    const messages = Object.values(useSelector(state => state.messages))
     const [content, setContent] = useState("");
+
+
+    const [index, setIndex] = useState(-1)
+    const menuRef = useRef()
 
     const user = useSelector(state => state.session.user)
     const staffs = useSelector(state => state.staffs)
@@ -30,33 +33,39 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
         }
     })[0]
 
-    
+    useEffect(() => {
 
+        const handler = (e) => {
+            if (!menuRef.current?.contains(e.target)) {
+                setIndex(-1)
+            }
+        }
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler)
+        }
+    })
 
     useEffect(() => {
-        (async () => {
-            socket = io();
-            if (currStaff) {
-                const incomingMessages = await dispatch(getMessages(room.id))
-                const messagesArray = Object.values(incomingMessages)
-                setMessages(messagesArray)
-                socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: `${room.id}` })
-                setIsLoaded(true)
-            }
-            else {
-                setMessages([])
-            }
-        })()
+        
+        socket = io();
+        if (room) {
+            dispatch(getMessages(room?.id))
+            socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
+            setIsLoaded(true)
+        }
+
 
         socket.on("chat", (chat) => {
+            console.log(chat)
             dispatch(loadMessage(chat))
-            setMessages([...messages, chat])
-        }
-        )
+        })
+
         return (() => {
             socket.disconnect()
         })
-    }, [currStaff])
+    }, [room])
 
 
     const handleContent = (e) => {
@@ -72,11 +81,13 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
         }))
 
         if (message.id) {
-            setMessages([...messages, message])
             socket.emit("chat", message);
         }
     }
 
+    const handleChange = (e, i) => {
+        setIndex(i)
+    }
 
     return (
 
@@ -88,17 +99,32 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
             </div>
             {isLoaded &&
                 <div className="chat-messages-container">
-                    {messages.map((message, ind) => {
+                    {messages.map((message, i) => {
                         const staff = staffs[message.staffId]
 
                         return (
                             <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
-                                key={ind}
+                                key={i}
                             >
-                                {staff.id === user?.id ?
-                                    <p className="chat-user-content">
-                                        {message.content}
-                                    </p>
+                                {message?.staffId === user?.id ?
+                                    <div>
+                                        <div className="chat-edit-remove-menu-container">
+                                            <span className="chat-edit-remove-menu-button" ref={menuRef} onClick={e => handleChange(e, i)}> ...</span>
+                                            {index === i &&
+                                                <div className="chat-edit-remove-menu">
+                                                    <div>
+                                                        edit
+                                                    </div>
+                                                    <div>
+                                                        remove
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        <p className="chat-user-content">
+                                            {message.content}
+                                        </p>
+                                    </div>
                                     :
                                     (
                                         <div className="chat-user-name-content-container">

@@ -10,7 +10,7 @@ const DiscoverList = ({ currStaff,isLoaded}) => {
     return (
         <div className="discover-list-page-container">
             {currStaff && isLoaded &&
-                <div className="report-staffs-card-container">
+                <div className="discover-staffs-card-container">
                     <div >
                         <img
                             className='staff-profile-picture'
@@ -51,6 +51,8 @@ const DiscoverList = ({ currStaff,isLoaded}) => {
                     </div>
                 </div>
             }
+
+
         </div>
     )
 }

@@ -8,3 +8,10 @@
         align-items: center;
         overflow-y: auto;
 }
+
+.discover-staffs-card-container{
+    margin-top: max(1.3vh,10px);
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
