@@ -55,6 +55,9 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
             socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
             setIsLoaded(true)
         }
+        else if(!room){
+            setIsLoaded(false)
+        }
 
 
         socket.on("chat", (chat) => {
