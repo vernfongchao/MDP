@@ -1,5 +1,3 @@
-from calendar import firstweekday
-from curses.ascii import EM
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, Patient, EmergencyContact, Image

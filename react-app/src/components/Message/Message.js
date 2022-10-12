@@ -1,41 +1,75 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import MessageList from './MessageList/MessageList'
 import Chat from './Chat/Chat'
+import DiscoverList from './DiscoverList/DiscoverList'
+
+import { getRooms } from '../../store/room'
 import './Message.css'
 
+
 const Message = () => {
-
-    const user = useSelector(state => state.session.user)
-    const staffs = Object.values(useSelector(state => state.staffs))
-
-    const removedUserStaffs = staffs.filter(staffs => staffs.id !== user.id)
-    const [mappedStaffs, setMappedStaffs] = useState([])
-    const [index,setIndex] = useState(0)
+    // const dispatch = useDispatch()
 
 
-    const receiver = removedUserStaffs[index]
+    // const user = useSelector(state => state.session.user)
+    // const staffs = useSelector(state => state.staffs)
 
-    useEffect(() => {
-        if (receiver){
-            // dispatch(receiver room)
-            // setMappedStaffs(removedUserStaffs)
-        }
-    },[staffs])
+    // const [messagedStaffs, setMessagedStaffs] = useState([])
+    
+    const [index, setIndex] = useState(0)
+    const [isLoaded, setIsLoaded] = useState(false)
 
- 
+    const [currStaff,setCurrStaff] = useState(null)
 
-    console.log(user)
+
+    // useEffect(() => {
+    //     (async () => {
+    //         if (user) {
+    //             const rooms = await dispatch(getRooms(user.id))
+    //             const staffsWithUser = {}
+    //             const roomsArray = await Object.values(rooms).forEach(room => {
+    //                 if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
+    //                     (staffs[room?.staffId1] || staffs[room?.staffId2])
+    //                 ) {
+    //                     if (room?.staffId1 === user.id) {
+    //                         staffsWithUser[room.staffId2] = staffs[room?.staffId2]
+    //                     }
+    //                     else {
+    //                         staffsWithUser[room.staffId1] = staffs[room?.staffId1]
+    //                     }
+    //                 }
+    //             })
+    //             const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
+    //             setMessagedStaffs(staffsArrays)
+    //         }
+
+    //     })()
+    // }, [dispatch, user])
+
+    console.log(currStaff)
+
     return (
         <div className="message-page-container">
-            <MessageList 
-                mappedStaffs={mappedStaffs}
-                setMappedStaffs = {setMappedStaffs}
+            <MessageList
                 index={index}
-                setIndex={setIndex}/>
-            <Chat 
-                receiver={receiver}/>
+                setIndex={setIndex}
+                isLoaded={isLoaded}
+                setIsLoaded={setIsLoaded}
+                setCurrStaff={setCurrStaff} />
+            <Chat
+                currStaff={currStaff}
+                index={index}
+                isLoaded={isLoaded}
+                setIsLoaded={setIsLoaded}
+            />
+            <DiscoverList
+                currStaff={currStaff}
+                index={index}
+                isLoaded={isLoaded}
+                // setMappedStaffs = {setMappedStaffs}
+            />
         </div>
     )
 }

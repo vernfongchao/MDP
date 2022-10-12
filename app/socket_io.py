@@ -24,6 +24,7 @@ def handle_chat(data):
 
 @socketio.on('join')
 def on_join(data):
+    
     user = data['user']
     room = data['room']
     join_room(room)

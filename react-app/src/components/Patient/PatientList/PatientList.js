@@ -43,6 +43,7 @@ const PatientList = () => {
         setIndex(i)
     }
 
+
     return (
         <div className="patient-list-page-container">
             <div className="patient-list-container">

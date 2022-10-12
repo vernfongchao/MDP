@@ -1,85 +1,133 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { io } from 'socket.io-client';
+
+import { getMessages } from "../../../store/messages";
+import { postMessage } from "../../../store/messages";
+import { loadMessage } from "../../../store/messages";
+
+
+import './Chat.css'
+
 let socket;
 
-const Chat = ({ reciever }) => {
+
+
+const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
+    const dispatch = useDispatch()
     const [messages, setMessages] = useState([])
-    const [chatInput, setChatInput] = useState("");
+    const [content, setContent] = useState("");
 
     const user = useSelector(state => state.session.user)
+    const staffs = useSelector(state => state.staffs)
 
+    const rooms = Object.values(useSelector(state => state.rooms))
 
-    console.log(user)
+    const room = rooms.filter(room => {
+        if ((room.staffId1 === user?.id || room.staffId2 === user?.id) &&
+            (room.staffId1 === currStaff?.id || room.staffId2 === currStaff?.id)) {
+            return room
+        }
+    })[0]
+
+    
+
 
     useEffect(() => {
-        // dispatch to get room from user and receiver/ exepcted room
-    })
-
-    useEffect(() => {
-        (async() => {
+        (async () => {
             socket = io();
-
-            // if(reciever) {
-            //     //  const room = dispatch to get room from user and receiver/ exepcted room
-            //     // socket.emit("join", { user: `${user.firstName} ${user.lastName}`, room: '1' })
-            //     // const messages = await dispatch get Messages from room Id
-            //     // setMessages(messages)
-
-            // }
-            socket.on("chat", (chat) => {
-                setMessages([...messages, chat])
-                }
-            )
+            if (currStaff) {
+                const incomingMessages = await dispatch(getMessages(room.id))
+                const messagesArray = Object.values(incomingMessages)
+                setMessages(messagesArray)
+                socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: `${room.id}` })
+                setIsLoaded(true)
+            }
+            else {
+                setMessages([])
+            }
         })()
 
-        // socket = io();
-        // socket.on("chat", (chat) => {
-        //     setMessages([...messages, chat])
-        //     }
-        // )
+        socket.on("chat", (chat) => {
+            dispatch(loadMessage(chat))
+            setMessages([...messages, chat])
+        }
+        )
         return (() => {
             socket.disconnect()
         })
-    }, [reciever])
-    
-    
-    // if (reciever) {
-    // }
+    }, [currStaff])
 
-    const updateChatInput = (e) => {
-        setChatInput(e.target.value)
+
+    const handleContent = (e) => {
+        setContent(e.target.value)
     };
 
-    const sendChat = async(e) => {
+    const sendChat = async (e) => {
         e.preventDefault()
-        //const message = dispatch sending a message
-        // if(message.id){
-            // }
-            socket.emit("chat", { user: `${user.firstName} ${user.lastName}`, msg: chatInput });
-        // clear the input field after the message is sent
-        // setChatInput("")
+        const message = await dispatch(postMessage({
+            'staff_id': user.id,
+            'room_id': room.id,
+            content,
+        }))
+
+        if (message.id) {
+            setMessages([...messages, message])
+            socket.emit("chat", message);
+        }
     }
 
 
     return (
 
-        <div>
-            // include this in the return statement
+        <div className="chat-page-container">
             <div>
-                {messages.map((message, ind) => (
-                    <div key={ind}>{`${message.user}: ${message.msg}`}</div>
-                ))}
+                <h1 className="chat-header">
+                    Message Log
+                </h1>
             </div>
+            {isLoaded &&
+                <div className="chat-messages-container">
+                    {messages.map((message, ind) => {
+                        const staff = staffs[message.staffId]
 
-            <form onSubmit={sendChat}>
-                <input
-                    value={chatInput}
-                    onChange={updateChatInput}
-                />
-                <button type="submit">Send</button>
-            </form>
-        </div>
+                        return (
+                            <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
+                                key={ind}
+                            >
+                                {staff.id === user?.id ?
+                                    <p className="chat-user-content">
+                                        {message.content}
+                                    </p>
+                                    :
+                                    (
+                                        <div className="chat-user-name-content-container">
+                                            <span>
+                                                {staff.firstName} {staff.lastName}
+                                            </span>
+                                            <p className="chat-staff-content">
+                                                {message.content}
+                                            </p>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        )
+
+                    }
+                    )}
+                </div>
+            }
+            {isLoaded &&
+                < form onSubmit={sendChat}>
+                    <input
+                        value={content}
+                        onChange={handleContent}
+                    />
+                    <button type="submit">Send</button>
+                </form>
+            }
+        </div >
     )
 }
 
