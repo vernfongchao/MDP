@@ -1,5 +1,6 @@
 const LOAD_MESSAGES = 'messages/LOAD_MESSAGES'
 const LOAD_MESSAGE = 'messages/LOAD_MESSAGE'
+const REMOVE_MESSAGE = 'messages/REMOVE_MESSAGE'
 const REMOVE_MESSAGES = 'messages/REMOVE_MESSAGES'
 
 const loadMessages = messages => (
@@ -15,6 +16,14 @@ export const loadMessage = message => (
         message
     }
 )
+
+export const removeMessage = message => (
+    {
+        type:REMOVE_MESSAGE,
+        message
+    }
+)
+
 
 export const removeMessages = () => (
     {
@@ -74,6 +83,21 @@ export const editMessage = (payload) => async dispatch => {
     }
 }
 
+export const deleteMessage = (messageId) => async dispatch => {
+    const response = await fetch(`/api/messages/${messageId}`,{
+        method: 'DELETE',
+    })
+    if (response.ok) {
+        const message = await response.json()
+        dispatch(removeMessage(message))
+        return message
+    }
+    else if (response.status < 500) {
+        const data = response.json()
+        return data
+    }
+}
+
 const initialState = {}
 
 export default function messageReducer(state = initialState, action) {
@@ -87,6 +111,11 @@ export default function messageReducer(state = initialState, action) {
         case LOAD_MESSAGE: {
             newState = { ...state }
             newState[action.message.id] = action.message
+            return newState
+        }
+        case REMOVE_MESSAGE: {
+            newState = { ...state }
+            delete newState[action.message.id]
             return newState
         }
         case REMOVE_MESSAGES : {

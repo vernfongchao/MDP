@@ -25,6 +25,13 @@
     overflow-wrap: anywhere;
 }
 
+.chat-staff-name-content-container{
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
+}
+
+
 .chat-user-content-container{
     display: flex;
     justify-content: flex-end;

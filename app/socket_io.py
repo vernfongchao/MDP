@@ -20,6 +20,10 @@ def handle_chat(data):
     emit("chat", data, broadcast=True, to = data["roomId"])
     # 
 
+# handle delete message
+@socketio.on("delete")
+def handle_delete(data):
+    emit("delete", data, broadcast=True, to=data["roomId"])
 
 @socketio.on('join')
 def on_join(data):

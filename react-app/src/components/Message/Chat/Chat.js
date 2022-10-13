@@ -8,6 +8,8 @@ import { loadMessage } from "../../../store/messages";
 import { postRoom } from "../../../store/room";
 import { editMessage } from "../../../store/messages";
 import { removeMessages } from "../../../store/messages";
+import { deleteMessage } from "../../../store/messages";
+import { removeMessage } from "../../../store/messages";
 
 import './Chat.css'
 
@@ -58,6 +60,10 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
 
         socket.on("chat", (chat) => {
             dispatch(loadMessage(chat))
+        })
+
+        socket.on("delete", (chat) => {
+            dispatch(removeMessage(chat))
         })
 
         return (() => {
@@ -145,6 +151,16 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         // e.target.style.height = `${e.target.scrollHeight}px`;
     };
 
+    const deleteChat = async (e ,id) => {
+        console.log(id)
+        const message = await dispatch(deleteMessage(id))
+        if (message.id){
+            socket.emit("delete", message);
+            setEditI(-1)
+            setIsEdit(false)
+        }        
+    }
+
     const sendChat = async (e) => {
         e.preventDefault()
         if (!room && currStaff) {
@@ -219,7 +235,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                                                         <p className="chat-edit-remove-buttons" onClick={e => handleEdit(e, i, message.id)}>
                                                             edit
                                                         </p>
-                                                        <p className="chat-edit-remove-buttons">
+                                                        <p className="chat-edit-remove-buttons" onClick={e => deleteChat(e,message.id)}>
                                                             remove
                                                         </p>
                                                     </div>

@@ -58,3 +58,14 @@ def edit_message(id):
         return message.to_dict(),200
     else:
         return {"errors": form.errors}, 400
+
+@message_routes.route('/<int:id>',methods=['DELETE'])
+@login_required
+def delete_message(id):
+    message = Message.query.get(id)
+    if not message:
+        return {'errors': {'message': "Message not found"}}, 400
+
+    db.session.delete(message)
+    db.session.commit()
+    return message.to_dict(),200
