@@ -10,65 +10,83 @@ import './Message.css'
 
 
 const Message = () => {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
+    const user = useSelector(state => state.session.user)
+    const staffs = useSelector(state => state.staffs)
+    const rooms = useSelector(state => state.rooms)
 
-    // const user = useSelector(state => state.session.user)
-    // const staffs = useSelector(state => state.staffs)
-
-    // const [messagedStaffs, setMessagedStaffs] = useState([])
-    
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(-1)
     const [isLoaded, setIsLoaded] = useState(false)
+    const [search, setSearch] = useState("")
 
     const [currStaff,setCurrStaff] = useState(null)
 
+    const staffsWithUser = {}
+    Object.values(rooms).forEach(room => {
+        if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
+            (staffs[room?.staffId1] || staffs[room?.staffId2])
+        ) {
+            if (room?.staffId1 === user.id) {
+                staffsWithUser[room.staffId2] = staffs[room?.staffId2]
+            }
+            else {
+                staffsWithUser[room.staffId1] = staffs[room?.staffId1]
+            }
+        }
+    })
+    const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
 
-    // useEffect(() => {
-    //     (async () => {
-    //         if (user) {
-    //             const rooms = await dispatch(getRooms(user.id))
-    //             const staffsWithUser = {}
-    //             const roomsArray = await Object.values(rooms).forEach(room => {
-    //                 if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
-    //                     (staffs[room?.staffId1] || staffs[room?.staffId2])
-    //                 ) {
-    //                     if (room?.staffId1 === user.id) {
-    //                         staffsWithUser[room.staffId2] = staffs[room?.staffId2]
-    //                     }
-    //                     else {
-    //                         staffsWithUser[room.staffId1] = staffs[room?.staffId1]
-    //                     }
-    //                 }
-    //             })
-    //             const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
-    //             setMessagedStaffs(staffsArrays)
-    //         }
+    const filteredStaffs = staffsArrays.filter(staff => {
+        return (
+            staff.firstName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.id.toString().includes(search)
+        )
+    })
 
-    //     })()
-    // }, [dispatch, user])
+    useEffect(() => {
+        dispatch(getRooms(user?.id))
+    },[dispatch])
 
-    console.log(currStaff)
+    useEffect(() => {
+        if(currStaff){
+            setIsLoaded(true)
+        }
+        else if(!currStaff){
+            setIsLoaded(false)
+        }
+    },[currStaff])
+
 
     return (
         <div className="message-page-container">
             <MessageList
+                filteredStaffs={filteredStaffs}
                 index={index}
                 setIndex={setIndex}
                 isLoaded={isLoaded}
                 setIsLoaded={setIsLoaded}
-                setCurrStaff={setCurrStaff} />
+                setCurrStaff={setCurrStaff}
+                search={search}
+                setSearch={setSearch} />
             <Chat
+                filteredStaffs={filteredStaffs}
                 currStaff={currStaff}
                 index={index}
+                setIndex={setIndex}
                 isLoaded={isLoaded}
                 setIsLoaded={setIsLoaded}
+                search={search}
+                setSearch={setSearch}
             />
             <DiscoverList
                 currStaff={currStaff}
-                index={index}
+                setCurrStaff={setCurrStaff} 
+                setIndex={setIndex}
                 isLoaded={isLoaded}
-                // setMappedStaffs = {setMappedStaffs}
+                search={search}
+                setSearch={setSearch}
             />
         </div>
     )

@@ -17,14 +17,12 @@ socketio = SocketIO(cors_allowed_origins = origins)
 # handle chat messages
 @socketio.on("chat")
 def handle_chat(data):
-    print(data)
-    emit("chat", data, broadcast=True, )
+    emit("chat", data, broadcast=True, to = data["roomId"])
     # 
 
 
 @socketio.on('join')
 def on_join(data):
-    
     user = data['user']
     room = data['room']
     join_room(room)
@@ -34,7 +32,7 @@ def on_join(data):
 
 @socketio.on('leave')
 def on_leave(data):
-    username = data['username']
+    user = data['user']
     room = data['room']
     leave_room(room)
-    send(username + ' has left the room.', to=room)
+    # send(username + ' has left the room.', to=room)

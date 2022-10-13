@@ -2,6 +2,7 @@ import json
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, Message, Room
+from app.forms import PostMessageForm
 
 message_routes = Blueprint('messages', __name__)
 
@@ -17,16 +18,13 @@ def get_messages(id):
 @message_routes.route('/room/<int:id>',methods=["POST"])
 @login_required
 def post_message(id):
-    room = Room.query.get(id)
-    if not room:
-        return {'errors': "Room not found"}
-    details = request.get_json()
-    staff_id = details["staff_id"]
-    room_id = details["room_id"]
-    content = details["content"]
-
-    message = Message(staff_id=staff_id,room_id=room_id,content=content)
-    db.session.add(message)
-    db.session.commit()
-
-    return(message.to_dict()),200
+    form = PostMessageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if(form.validate_on_submit()):
+        message = Message()
+        form.populate_obj(message)
+        db.session.add(message)
+        db.session.commit()
+        return(message.to_dict()),200
+    else:
+        return {"errors": form.errors}, 400

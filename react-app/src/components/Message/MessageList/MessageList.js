@@ -6,71 +6,21 @@ import * as VscIcons from 'react-icons/vsc'
 
 import './MessageList.css'
 
-const MessageList = ({ setCurrStaff, index, setIndex, setIsLoaded }) => {
+const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex, setIsLoaded,search,setSearch }) => {
 
+    
+    // useEffect(() => {
+    //     if(search){
+    //         setCurrStaff(filteredStaffs[0])
+    //     }
+    //     else if(!search){
+    //         setCurrStaff(filteredStaffs[0])
+    //     }
+    // },[search])
 
-    const dispatch = useDispatch()
-    const user = useSelector(state => state.session.user)
-    const staffs = useSelector(state => state.staffs)
-    const rooms = useSelector(state => state.rooms)
-
-    const [search, setSearch] = useState("")
-    const [filtered, setFiltered] = useState([])
-
-    const staffsWithUser = {}
-    Object.values(rooms).forEach(room => {
-        if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
-            (staffs[room?.staffId1] || staffs[room?.staffId2])
-        ) {
-            if (room?.staffId1 === user.id) {
-                staffsWithUser[room.staffId2] = staffs[room?.staffId2]
-            }
-            else {
-                staffsWithUser[room.staffId1] = staffs[room?.staffId1]
-            }
-        }
-    })
-    const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
-
-    useEffect(() => {
-        (async () => {
-            if (user && staffs) {
-                const rooms = await dispatch(getRooms(user.id))
-                const staffsWithUser = {}
-                const roomsArray = await Object.values(rooms).forEach(room => {
-                    if ((room?.staffId1 === user?.id || room?.staffId2 === user?.id) &&
-                        (staffs[room?.staffId1] || staffs[room?.staffId2])
-                    ) {
-                        if (room?.staffId1 === user.id) {
-                            staffsWithUser[room.staffId2] = staffs[room?.staffId2]
-                        }
-                        else {
-                            staffsWithUser[room.staffId1] = staffs[room?.staffId1]
-                        }
-                    }
-                })
-                const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
-                setCurrStaff(staffsArrays[index])
-                setFiltered(staffsArrays)
-            }
-        })()
-    }, [dispatch, user,staffs])
-
-
-
-    const changeSearch = (e) => {
-        setIndex(0)
+    const changeSearch = async(e) => {
         setSearch(e.target.value)
-        const filtered = [...staffsArrays]
-        const filteredStaffs = filtered.filter(staff => {
-            return (
-                staff.firstName.toLowerCase().includes(e.target.value.toLowerCase()) ||
-                staff.lastName.toLowerCase().includes(e.target.value.toLowerCase()) ||
-                staff.id.toString().includes(e.target.value)
-            )
-        })
-        setFiltered(filteredStaffs)
-        setCurrStaff(filteredStaffs[0])
+        setIndex(-1)
     }
 
     const clearSearch = () => {
@@ -80,8 +30,7 @@ const MessageList = ({ setCurrStaff, index, setIndex, setIsLoaded }) => {
     const changeStaff = (e, i) => {
         if (index === i) return
         setIndex(i)
-        setIsLoaded(false)
-        setCurrStaff(filtered[i])
+        setCurrStaff(filteredStaffs[i])
     }
 
     return (
@@ -116,7 +65,7 @@ const MessageList = ({ setCurrStaff, index, setIndex, setIsLoaded }) => {
                 </div>
             </div>
             <div className="message-all-card-container">
-                {filtered?.map((staff, i) => (
+                {filteredStaffs?.map((staff, i) => (
                     <div key={i} className={index === i ? 'message-card-container active-staff'
                         : "message-card-container"}
                         onClick={e => changeStaff(e, i)}
@@ -136,3 +85,6 @@ const MessageList = ({ setCurrStaff, index, setIndex, setIsLoaded }) => {
 }
 
 export default MessageList
+
+
+

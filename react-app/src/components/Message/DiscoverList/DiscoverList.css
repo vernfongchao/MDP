@@ -8,3 +8,84 @@
         align-items: center;
         overflow-y: auto;
 }
+.discover-current-staff-card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-bottom: .625vw #1D3557 solid;
+    padding-bottom: max(1vh, 8px);
+}
+
+.discover-staff-list-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.discover-staffs-card-container{
+    margin-top: max(1.3vh,10px);
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.discover-staff-cards-container {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.discover-staff-card-container {
+    box-sizing: border-box;
+    margin-top: max(.5vh, 5px);
+    margin-left: max(.25vw, 5px);
+    display: flex;
+    justify-content: space-between;
+    padding: max(.5vw, 10px);
+    border: 2px black solid;
+    width: max(23.6vw, 422px);
+    box-shadow: 1px 1px 5px 1px #F1FAEE;
+    overflow-wrap: break-word;
+}
+
+.discover-staff-card-container:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 1px #1D3557;
+    border: 1px solid #1D3557;
+    background-color: #A8DADC;
+}
+
+.discover-staff-img {
+    width: max(7.81vh, 100px);
+    aspect-ratio: 1/1;
+}
+
+
+.discover-staff-card-id-name-container {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.discover-staff-id-name-header {
+    font-size: max(.625vw, 12px);
+    font-weight: bold;
+}
+
+.discover-staff-id-name {
+    font-size: max(.8vw, 16px);
+    width: 100%;
+    border-bottom: 2px black solid;
+}
+
+.discover-staff-list-header{
+    font-size: max(1.67vw, 32px);
+}
