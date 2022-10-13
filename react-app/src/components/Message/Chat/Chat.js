@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { io } from 'socket.io-client';
 
@@ -20,7 +20,8 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
 
 
     const [messageIdx, setMessageIdx] = useState(-1)
-    const menuRef = useRef()
+    const menuRef = useRef([])
+
     const scrollRef = useRef()
 
     const user = useSelector(state => state.session.user)
@@ -35,32 +36,20 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
         }
     })[0]
 
-
     useEffect(() => {
-
-        const handler = (e) => {
-            if (!menuRef.current?.contains(e.target)) {
-                setMessageIdx(-1)
-            }
-        }
-        document.addEventListener("mousedown", handler);
-
-        return () => {
-            document.removeEventListener("mousedown", handler)
-        }
-    })
-
-    useEffect(() => {
-
         socket = io();
-        if (room) {
-            dispatch(getMessages(room?.id))
-            socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
-            setIsLoaded(true)
-        }
-        else if (!room) {
-            // setIsLoaded(false)
-        }
+        (async () => {
+            if (room) {
+                let messages = await dispatch(getMessages(room?.id))
+                socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
+                setIsLoaded(true)
+                menuRef.current = await messages.map((messages) => createRef())
+            }
+            else if (!room) {
+                // setIsLoaded(false)
+            }
+
+        })()
 
 
         socket.on("chat", (chat) => {
@@ -77,6 +66,30 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
             scrollRef.current?.scrollIntoView({ behavior: "smooth" });
         }
     }, [messages, isLoaded])
+
+    useEffect(() => {
+        document.addEventListener("mousedown",handleMenu)
+        return () => {
+            document.removeEventListener("mousedown", handleMenu)
+        }
+    },[messageIdx])
+
+    const handleMenu = (e) => {
+        console.log(messageIdx)
+        if (!menuRef.current[messageIdx]?.current?.contains(e.target)) {
+            setMessageIdx(-1)
+        }
+    }
+
+    const handleEdit = (e) => {
+        console.log("Here")
+    }
+
+
+    const handleChange = (e, i) => {
+        setMessageIdx(i)
+    }
+
 
     const handleContent = (e) => {
         setContent(e.target.value)
@@ -119,10 +132,6 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
         }
     }
 
-    const handleChange = (e, i) => {
-        setMessageIdx(i)
-    }
-
     return (
 
         <div className="chat-page-container">
@@ -142,11 +151,11 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
                             >
                                 {message?.staffId === user?.id ?
                                     <div>
-                                        <div className="chat-edit-remove-menu-container">
-                                            <span className="chat-edit-remove-menu-button" ref={menuRef} onClick={e => handleChange(e, i)}> ...</span>
+                                        <div className="chat-edit-remove-menu-container" ref={menuRef.current[i]} onClick={e => handleChange(e, i)}>
+                                            <span className="chat-edit-remove-menu-button" > ...</span>
                                             {messageIdx === i &&
                                                 <div className="chat-edit-remove-menu">
-                                                    <div>
+                                                    <div onClick={handleEdit}>
                                                         edit
                                                     </div>
                                                     <div>
