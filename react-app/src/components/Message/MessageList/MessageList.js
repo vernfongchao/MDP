@@ -6,7 +6,7 @@ import * as VscIcons from 'react-icons/vsc'
 
 import './MessageList.css'
 
-const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex, setIsLoaded,search,setSearch }) => {
+const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex,search,setSearch }) => {
 
     
     // useEffect(() => {

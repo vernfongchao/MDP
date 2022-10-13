@@ -6,20 +6,20 @@ import { getMessages } from "../../../store/messages";
 import { postMessage } from "../../../store/messages";
 import { loadMessage } from "../../../store/messages";
 import { postRoom } from "../../../store/room";
+import { editMessage } from "../../../store/messages";
 
 
 import './Chat.css'
 
 let socket;
 
-const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoaded, setSearch }) => {
+const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }) => {
     const dispatch = useDispatch()
 
     const messages = Object.values(useSelector(state => state.messages))
     const [content, setContent] = useState("");
-
-
     const [messageIdx, setMessageIdx] = useState(-1)
+    const [editI, setEditI] = useState(null)
     const menuRef = useRef([])
 
     const scrollRef = useRef()
@@ -68,28 +68,35 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
     }, [messages, isLoaded])
 
     useEffect(() => {
-        document.addEventListener("mousedown",handleMenu)
+        document.addEventListener("mousedown", handleMenu)
         return () => {
             document.removeEventListener("mousedown", handleMenu)
         }
-    },[messageIdx])
+
+    }, [messageIdx])
 
     const handleMenu = (e) => {
-        console.log(messageIdx)
         if (!menuRef.current[messageIdx]?.current?.contains(e.target)) {
             setMessageIdx(-1)
         }
     }
 
-    const handleEdit = (e) => {
-        console.log("Here")
-    }
-
-
     const handleChange = (e, i) => {
         setMessageIdx(i)
     }
 
+    const handleEdit = async (e, i, messageId) => {
+        await setIsEdit(true)
+        await setEditI(messageId)
+        await setContent(messages[i].content)
+        await setMessageIdx(-1)
+    }
+
+    const handleCancel = (e) => {
+        setIsEdit(false)
+        setEditI(null)
+        setContent("")
+    }
 
     const handleContent = (e) => {
         setContent(e.target.value)
@@ -119,6 +126,18 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
                 }
             }
         }
+        else if (isEdit && currStaff) {
+            const message = await dispatch(editMessage({
+                'id': editI,
+                'staff_id': user.id,
+                'room_id': room.id,
+                content,
+            }))
+            if (message.id) {
+                socket.emit("chat", message);
+                setContent("")
+            }
+        }
         else {
             const message = await dispatch(postMessage({
                 'staff_id': user.id,
@@ -142,35 +161,40 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
             </div>
             {(isLoaded && room) &&
                 <div className="chat-messages-container">
-                    {messages.map((message, i) => {
+                    {messages?.map((message, i) => {
                         const staff = staffs[message.staffId]
-
                         return (
                             <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
                                 key={i}
                             >
                                 {message?.staffId === user?.id ?
-                                    <div>
+                                    <div className="chat-user-edit-content-container">
                                         <div className="chat-edit-remove-menu-container" ref={menuRef.current[i]} onClick={e => handleChange(e, i)}>
                                             <span className="chat-edit-remove-menu-button" > ...</span>
                                             {messageIdx === i &&
                                                 <div className="chat-edit-remove-menu">
-                                                    <div onClick={handleEdit}>
+                                                    <div className="chat-edit-button-container" onClick={e => handleEdit(e, i, message.id)}>
                                                         edit
                                                     </div>
-                                                    <div>
+                                                    <div className="chat-edit-button-container">
                                                         remove
                                                     </div>
                                                 </div>
                                             }
                                         </div>
-                                        <p className="chat-user-content">
-                                            {message.content}
-                                        </p>
+                                        <div className="chat-user-content-edit-container">
+                                            <p className={editI === message.id ? "chat-user-content chat-user-edit-content" : "chat-user-content"}>
+                                                {message.content}
+                                            </p>
+                                            {message.isEdited &&
+                                                <span className="chat-user-edited-text">
+                                                    edited
+                                                </span>}
+                                        </div>
                                     </div>
                                     :
                                     (
-                                        <div className="chat-user-name-content-container">
+                                        <div className="chat-staff-name-content-container">
                                             <span>
                                                 {staff.firstName} {staff.lastName}
                                             </span>
@@ -195,9 +219,17 @@ const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoade
                         onChange={handleContent}
 
                     />
-                    <div className="message-form-submit-button-container">
-                        <button className="message-form-submit-button" type="submit">Send</button>
-                    </div>
+                    {isEdit ?
+                        <div className="message-form-submit-button-container">
+                            <button className="message-form-cancel-button"  type="button" onClick={handleCancel}>Cancel</button>
+                            <button className="message-form-submit-button" type="submit">Send</button>
+                        </div>
+                        :
+                        <div className="message-form-submit-button-container">
+                            <button className="message-form-submit-button" type="submit">Send</button>
+                        </div>
+
+                    }
                 </form>
             }
         </div >

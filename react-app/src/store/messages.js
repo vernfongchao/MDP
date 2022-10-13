@@ -3,7 +3,7 @@ const LOAD_MESSAGE = 'messages/LOAD_MESSAGE'
 
 const loadMessages = messages => (
     {
-        type:LOAD_MESSAGES,
+        type: LOAD_MESSAGES,
         messages
     }
 )
@@ -17,9 +17,9 @@ export const loadMessage = message => (
 
 export const getMessages = (id) => async dispatch => {
     const response = await fetch(`/api/messages/room/${id}`)
-    if(response.ok){
+    if (response.ok) {
         const messages = await response.json()
-        dispatch(loadMessages(messages)) 
+        dispatch(loadMessages(messages))
         return messages
     }
     else if (response.status < 500) {
@@ -29,15 +29,35 @@ export const getMessages = (id) => async dispatch => {
 }
 
 export const postMessage = (payload) => async dispatch => {
-    
-    const response = await fetch(`/api/messages/room/${payload.room_id}`,{
+
+    const response = await fetch(`/api/messages/room/${payload.room_id}`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(payload)
     })
-    if (response.ok){
+    if (response.ok) {
+        const message = await response.json()
+        dispatch(loadMessage(message))
+        return message
+    }
+    else if (response.status < 500) {
+        const data = response.json()
+        return data
+    }
+}
+
+export const editMessage = (payload) => async dispatch => {
+    console.log(payload)
+    const response = await fetch(`/api/messages/${payload.id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
         const message = await response.json()
         dispatch(loadMessage(message))
         return message
@@ -50,16 +70,16 @@ export const postMessage = (payload) => async dispatch => {
 
 const initialState = {}
 
-export default function messageReducer (state=initialState,action){
+export default function messageReducer(state = initialState, action) {
     let newState;
-    switch(action.type){
-        case LOAD_MESSAGES:{
+    switch (action.type) {
+        case LOAD_MESSAGES: {
             newState = {}
-            action.messages.forEach(message=> newState[message.id]= message)
+            action.messages.forEach(message => newState[message.id] = message)
             return newState
         }
-        case LOAD_MESSAGE : {
-            newState = {...state}
+        case LOAD_MESSAGE: {
+            newState = { ...state }
             newState[action.message.id] = action.message
             return newState
         }
