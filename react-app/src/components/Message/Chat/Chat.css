@@ -92,20 +92,37 @@
 }
 
 .chat-edit-remove-menu{
-    margin-top: 20px;
-    padding: 5px;
-    border-radius: 10px;
-    border: 2px solid #1D3557;
-    background-color: #F1FAEE;
-    position: fixed;
+    top: max(2vh,20px);
+    position: relative;
+    width: 0px;
+    height: 0px;
+    right: max(3.5vw,69px);
+
 }
 
 .chat-edit-button-container{
+    background-color: #F1FAEE;
+    width: 3vw;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid #1D3557;
 }
-.chat-edit-button-container:hover{
+
+.chat-edit-remove-buttons{
+    font-size: max(.8vw, 16px);
+    margin: 0px;
+}
+
+.chat-edit-remove-buttons:hover {
     background-color: #A8DADC;
     box-shadow: 1px 1px 5px 1px #1d3557;
+}
+
+.chat-staff-new-message-container{
+    display: flex;
+    justify-content: center;
+    width: 95%;
 }
 
 .message-form{
@@ -113,6 +130,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-bottom: .5vw;
 }
 
 .message-input{

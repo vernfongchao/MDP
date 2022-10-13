@@ -51,16 +51,6 @@ const Message = () => {
         dispatch(getRooms(user?.id))
     },[dispatch])
 
-    useEffect(() => {
-        if(currStaff){
-            setIsLoaded(true)
-        }
-        else if(!currStaff){
-            setIsLoaded(false)
-        }
-    },[currStaff])
-
-
     return (
         <div className="message-page-container">
             <MessageList

@@ -23,7 +23,9 @@ def get_messages(id):
 def post_message(id):
     form = PostMessageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if(form.validate_on_submit()):
+    if form.validate_on_submit():
+        content = form.data['content']
+        print("=========================formdata", content  )
         message = Message()
         form.populate_obj(message)
         db.session.add(message)
@@ -38,8 +40,16 @@ def post_message(id):
 def edit_message(id):
     form = EditMessageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if(form.validate_on_submit()):
+    if form.validate_on_submit():
+        
         message = Message.query.get(id)
+
+        content = form.data['content']
+        db_content = message.content
+
+        if content == db_content :
+            return message.to_dict(), 200
+
         form.populate_obj(message)
         message.is_edited = True
         date = datetime.now()

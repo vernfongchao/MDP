@@ -1,5 +1,6 @@
 const LOAD_MESSAGES = 'messages/LOAD_MESSAGES'
 const LOAD_MESSAGE = 'messages/LOAD_MESSAGE'
+const REMOVE_MESSAGES = 'messages/REMOVE_MESSAGES'
 
 const loadMessages = messages => (
     {
@@ -12,6 +13,12 @@ export const loadMessage = message => (
     {
         type: LOAD_MESSAGE,
         message
+    }
+)
+
+export const removeMessages = () => (
+    {
+        type: REMOVE_MESSAGES
     }
 )
 
@@ -81,6 +88,9 @@ export default function messageReducer(state = initialState, action) {
             newState = { ...state }
             newState[action.message.id] = action.message
             return newState
+        }
+        case REMOVE_MESSAGES : {
+            return {}
         }
         default:
             return state
