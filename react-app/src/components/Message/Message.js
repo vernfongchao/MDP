@@ -19,8 +19,10 @@ const Message = () => {
     const [index, setIndex] = useState(-1)
     const [isLoaded, setIsLoaded] = useState(false)
     const [search, setSearch] = useState("")
+    const [isEdit, setIsEdit] = useState(false)
 
     const [currStaff,setCurrStaff] = useState(null)
+    
 
     const staffsWithUser = {}
     Object.values(rooms).forEach(room => {
@@ -49,16 +51,6 @@ const Message = () => {
         dispatch(getRooms(user?.id))
     },[dispatch])
 
-    useEffect(() => {
-        if(currStaff){
-            setIsLoaded(true)
-        }
-        else if(!currStaff){
-            setIsLoaded(false)
-        }
-    },[currStaff])
-
-
     return (
         <div className="message-page-container">
             <MessageList
@@ -66,10 +58,10 @@ const Message = () => {
                 index={index}
                 setIndex={setIndex}
                 isLoaded={isLoaded}
-                setIsLoaded={setIsLoaded}
                 setCurrStaff={setCurrStaff}
                 search={search}
-                setSearch={setSearch} />
+                setSearch={setSearch} 
+                setIsEdit={setIsEdit}/>
             <Chat
                 filteredStaffs={filteredStaffs}
                 currStaff={currStaff}
@@ -79,14 +71,15 @@ const Message = () => {
                 setIsLoaded={setIsLoaded}
                 search={search}
                 setSearch={setSearch}
+                isEdit={isEdit}
+                setIsEdit={setIsEdit}
             />
             <DiscoverList
                 currStaff={currStaff}
                 setCurrStaff={setCurrStaff} 
                 setIndex={setIndex}
                 isLoaded={isLoaded}
-                search={search}
-                setSearch={setSearch}
+                setIsEdit={setIsEdit}
             />
         </div>
     )

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 
 
 import './DiscoverList.css'
-const DiscoverList = ({ currStaff, setCurrStaff, isLoaded, setIndex }) => {
+const DiscoverList = ({ currStaff, setCurrStaff, isLoaded, setIndex,setIsEdit }) => {
 
     const user = useSelector(state => state.session.user)
     const staffs = Object.values(useSelector(state => state.staffs)).filter(staff => staff.id !== user?.id)
@@ -16,11 +16,12 @@ const DiscoverList = ({ currStaff, setCurrStaff, isLoaded, setIndex }) => {
     const handleStaff = (i) => {
         setIndex(-1)
         setCurrStaff(staffs[i])
+        setIsEdit(false)
     }
 
     return (
         <div className="discover-list-page-container">
-            {currStaff && isLoaded &&
+            {currStaff &&
                 <div className="discover-current-staff-card-container">
                     <div className="discover-staffs-card-container">
                         <div >

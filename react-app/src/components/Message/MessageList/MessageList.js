@@ -6,7 +6,7 @@ import * as VscIcons from 'react-icons/vsc'
 
 import './MessageList.css'
 
-const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex, setIsLoaded,search,setSearch }) => {
+const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex,search,setSearch,setIsEdit }) => {
 
     
     // useEffect(() => {
@@ -19,8 +19,8 @@ const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex, setIsLoade
     // },[search])
 
     const changeSearch = async(e) => {
-        setSearch(e.target.value)
-        setIndex(-1)
+        await setSearch(e.target.value)
+        await setIndex(-1)
     }
 
     const clearSearch = () => {
@@ -31,6 +31,7 @@ const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex, setIsLoade
         if (index === i) return
         setIndex(i)
         setCurrStaff(filteredStaffs[i])
+        setIsEdit(false)
     }
 
     return (

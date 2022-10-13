@@ -20,11 +20,7 @@ def get_rooms(id):
 @login_required
 def add_room():
     details = request.get_json()
-    print("PRINT===============",details)
     room = Room(staff_id_1 = details["staff_id_1"], staff_id_2 = details["staff_id_2"])
     db.session.add(room)
     db.session.commit()
-
-    print("================ NEW ROOM", room)
-
     return room.to_dict(),200
