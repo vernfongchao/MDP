@@ -22,6 +22,7 @@ const Message = () => {
     const [isEdit, setIsEdit] = useState(false)
 
     const [currStaff,setCurrStaff] = useState(null)
+    
 
     const staffsWithUser = {}
     Object.values(rooms).forEach(room => {
@@ -67,7 +68,6 @@ const Message = () => {
                 index={index}
                 setIndex={setIndex}
                 isLoaded={isLoaded}
-                // setIsLoaded={setIsLoaded}
                 setCurrStaff={setCurrStaff}
                 search={search}
                 setSearch={setSearch} 

@@ -75,6 +75,13 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
 
     }, [messageIdx])
 
+    useEffect(() => {
+        if(!isEdit){
+            setContent("")
+            setEditI(null)
+        }
+    },[isEdit])
+
     const handleMenu = (e) => {
         if (!menuRef.current[messageIdx]?.current?.contains(e.target)) {
             setMessageIdx(-1)
@@ -136,6 +143,8 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
             if (message.id) {
                 socket.emit("chat", message);
                 setContent("")
+                setEditI(null)
+                setIsEdit(false)
             }
         }
         else {
