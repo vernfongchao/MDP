@@ -51,9 +51,8 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                 setIsLoaded(true)
             }
             else if (!room) {
-                setIsLoaded(false)
+
                 dispatch(removeMessages())
-                // setIsLoaded(true)
             }
         })()
 
@@ -116,7 +115,9 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
             }
             else if (!content && isLoaded) {
                 const ele = await document.querySelector(".message-input")
-                ele.style.height = 'inherit'
+                if(ele){
+                    ele.style.height = 'inherit'
+                }
             }
         })()
     }, [content, isLoaded])
@@ -155,9 +156,9 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         console.log(id)
         const message = await dispatch(deleteMessage(id))
         if (message.id){
-            socket.emit("delete", message);
-            setEditI(-1)
-            setIsEdit(false)
+            await socket.emit("delete", message);
+            await setMessageIdx(-1)
+            await setIsEdit(false)
         }        
     }
 
