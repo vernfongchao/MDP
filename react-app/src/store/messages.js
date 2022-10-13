@@ -49,7 +49,6 @@ export const postMessage = (payload) => async dispatch => {
 }
 
 export const editMessage = (payload) => async dispatch => {
-    console.log(payload)
     const response = await fetch(`/api/messages/${payload.id}`, {
         method: 'PUT',
         headers: {
