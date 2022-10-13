@@ -24,13 +24,13 @@ const CreatorPicture = ({ index, creators }) => {
 
                     <ul className='creator-picture-contributions-ul'>
                         <li>
-                            Homogenized <strong>AWS</strong> cloud storage and Flask allowing users to upload or delete image file objects from my <strong>S3 bucket</strong> for patient and staff profiles.
-                        </li>
-                        <li>
-                            Refactored algorithm calls to help reduce function calls from quadratic time to linear time.
-                        </li>
-                        <li>
                             Constructed <strong>REST APIs</strong> and <strong>System Designs</strong> allowing app to reliably and efficiently read and send consistent data between User UI <strong>React</strong> server and Flask server.
+                        </li>
+                        <li>
+                            Assimilated <strong>WebSockets</strong> to frontend and backend allowing full text communication to be saved, sent, and updated in <string>real time</string> between staff members.
+                        </li>
+                        <li>
+                            Refactored algorithm calls to help reduce function calls from <strong>quadratic to linear</strong> time.
                         </li>
                     </ul>
                 }
