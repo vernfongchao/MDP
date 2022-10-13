@@ -9,6 +9,13 @@ const loadRooms = rooms => (
     }
 )
 
+const loadRoom = room => (
+    {
+        type: LOAD_ROOM,
+        room
+    }
+)
+
 export const getRooms = (id) => async dispatch => {
     const response = await fetch(`/api/rooms/staff/${id}`)
     if (response.ok) {
@@ -22,6 +29,25 @@ export const getRooms = (id) => async dispatch => {
     }
 }
 
+export const postRoom = (payload) => async dispatch => {
+    const response = await fetch('/api/rooms/',{
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const room = await response.json()
+        dispatch(loadRoom(room))
+        return room
+    }
+    else if (response.status < 500) {
+        const data = response.json()
+        return data
+    }
+}
+
 const initialState = {}
 
 export default function roomReducer (state = initialState, action) {
@@ -30,6 +56,11 @@ export default function roomReducer (state = initialState, action) {
         case LOAD_ROOMS : {
             newState = {...state}
             action.rooms.forEach(room => newState[room.id] = room)
+            return newState
+        }
+        case LOAD_ROOM : {
+            newState = { ...state }
+            newState[action.room.id] = action.room
             return newState
         }
         default:

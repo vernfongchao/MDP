@@ -5,21 +5,23 @@ import { io } from 'socket.io-client';
 import { getMessages } from "../../../store/messages";
 import { postMessage } from "../../../store/messages";
 import { loadMessage } from "../../../store/messages";
+import { postRoom } from "../../../store/room";
 
 
 import './Chat.css'
 
 let socket;
 
-const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
+const Chat = ({ filteredStaffs, currStaff, index, setIndex, isLoaded, setIsLoaded, setSearch }) => {
     const dispatch = useDispatch()
 
     const messages = Object.values(useSelector(state => state.messages))
     const [content, setContent] = useState("");
 
 
-    const [index, setIndex] = useState(-1)
+    const [messageIdx, setMessageIdx] = useState(-1)
     const menuRef = useRef()
+    const scrollRef = useRef()
 
     const user = useSelector(state => state.session.user)
     const staffs = useSelector(state => state.staffs)
@@ -33,11 +35,12 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
         }
     })[0]
 
+
     useEffect(() => {
 
         const handler = (e) => {
             if (!menuRef.current?.contains(e.target)) {
-                setIndex(-1)
+                setMessageIdx(-1)
             }
         }
         document.addEventListener("mousedown", handler);
@@ -48,20 +51,19 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
     })
 
     useEffect(() => {
-        
+
         socket = io();
         if (room) {
             dispatch(getMessages(room?.id))
             socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
             setIsLoaded(true)
         }
-        else if(!room){
-            setIsLoaded(false)
+        else if (!room) {
+            // setIsLoaded(false)
         }
 
 
         socket.on("chat", (chat) => {
-            console.log(chat)
             dispatch(loadMessage(chat))
         })
 
@@ -70,26 +72,55 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
         })
     }, [room])
 
+    useEffect(() => {
+        if (isLoaded) {
+            scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messages, isLoaded])
 
     const handleContent = (e) => {
         setContent(e.target.value)
+        e.target.style.height = 'inherit';
+        if (e.target.scrollHeight >= 175) return e.target.style.height = `175px`;
+        e.target.style.height = `${e.target.scrollHeight}px`;
     };
 
     const sendChat = async (e) => {
         e.preventDefault()
-        const message = await dispatch(postMessage({
-            'staff_id': user.id,
-            'room_id': room.id,
-            content,
-        }))
-
-        if (message.id) {
-            socket.emit("chat", message);
+        if (!room && currStaff) {
+            const room = await dispatch(postRoom({
+                "staff_id_1": user?.id,
+                "staff_id_2": currStaff?.id
+            }))
+            if (room) {
+                await socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
+                const message = await dispatch(postMessage({
+                    'staff_id': user.id,
+                    'room_id': room.id,
+                    content,
+                }))
+                if (message.id) {
+                    socket.emit("chat", message);
+                    setContent("")
+                    setSearch("")
+                }
+            }
+        }
+        else {
+            const message = await dispatch(postMessage({
+                'staff_id': user.id,
+                'room_id': room.id,
+                content,
+            }))
+            if (message.id) {
+                socket.emit("chat", message);
+                setContent("")
+            }
         }
     }
 
     const handleChange = (e, i) => {
-        setIndex(i)
+        setMessageIdx(i)
     }
 
     return (
@@ -100,7 +131,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
                     Message Log
                 </h1>
             </div>
-            {isLoaded &&
+            {(isLoaded && room) &&
                 <div className="chat-messages-container">
                     {messages.map((message, i) => {
                         const staff = staffs[message.staffId]
@@ -113,7 +144,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
                                     <div>
                                         <div className="chat-edit-remove-menu-container">
                                             <span className="chat-edit-remove-menu-button" ref={menuRef} onClick={e => handleChange(e, i)}> ...</span>
-                                            {index === i &&
+                                            {messageIdx === i &&
                                                 <div className="chat-edit-remove-menu">
                                                     <div>
                                                         edit
@@ -140,6 +171,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
                                         </div>
                                     )
                                 }
+                                <span ref={scrollRef}></span>
                             </div>
                         )
 
@@ -147,13 +179,16 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded }) => {
                     )}
                 </div>
             }
-            {isLoaded &&
-                < form onSubmit={sendChat}>
-                    <input
+            {(isLoaded && currStaff) &&
+                < form className="message-form" onSubmit={sendChat}>
+                    <textarea className="message-input"
                         value={content}
                         onChange={handleContent}
+
                     />
-                    <button type="submit">Send</button>
+                    <div className="message-form-submit-button-container">
+                        <button className="message-form-submit-button" type="submit">Send</button>
+                    </div>
                 </form>
             }
         </div >

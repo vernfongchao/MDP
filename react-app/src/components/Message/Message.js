@@ -16,8 +16,9 @@ const Message = () => {
     const staffs = useSelector(state => state.staffs)
     const rooms = useSelector(state => state.rooms)
 
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(-1)
     const [isLoaded, setIsLoaded] = useState(false)
+    const [search, setSearch] = useState("")
 
     const [currStaff,setCurrStaff] = useState(null)
 
@@ -36,32 +37,56 @@ const Message = () => {
     })
     const staffsArrays = Object.values(staffs).filter(staff => staffsWithUser[staff.id])
 
+    const filteredStaffs = staffsArrays.filter(staff => {
+        return (
+            staff.firstName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.lastName.toLowerCase().includes(search.toLowerCase()) ||
+            staff.id.toString().includes(search)
+        )
+    })
+
     useEffect(() => {
         dispatch(getRooms(user?.id))
-        setCurrStaff(staffsArrays[index])
-    },[dispatch,staffsArrays.length])
+    },[dispatch])
+
+    useEffect(() => {
+        if(currStaff){
+            setIsLoaded(true)
+        }
+        else if(!currStaff){
+            setIsLoaded(false)
+        }
+    },[currStaff])
 
 
     return (
         <div className="message-page-container">
             <MessageList
-                staffsArrays={staffsArrays}
+                filteredStaffs={filteredStaffs}
                 index={index}
                 setIndex={setIndex}
                 isLoaded={isLoaded}
                 setIsLoaded={setIsLoaded}
-                setCurrStaff={setCurrStaff} />
+                setCurrStaff={setCurrStaff}
+                search={search}
+                setSearch={setSearch} />
             <Chat
+                filteredStaffs={filteredStaffs}
                 currStaff={currStaff}
                 index={index}
+                setIndex={setIndex}
                 isLoaded={isLoaded}
                 setIsLoaded={setIsLoaded}
+                search={search}
+                setSearch={setSearch}
             />
             <DiscoverList
                 currStaff={currStaff}
                 setCurrStaff={setCurrStaff} 
-                index={index}
+                setIndex={setIndex}
                 isLoaded={isLoaded}
+                search={search}
+                setSearch={setSearch}
             />
         </div>
     )
