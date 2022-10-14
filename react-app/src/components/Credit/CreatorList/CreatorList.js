@@ -62,7 +62,6 @@ const CreatorList = ({index,setIndex ,creators}) => {
                         : "staff-card-container"}
                         onClick={e => changeCreator(i)}
                     >
-
                         <h3>
                             {creator.firstName} {creator.lastName}
                         </h3>

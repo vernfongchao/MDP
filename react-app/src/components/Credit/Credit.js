@@ -10,7 +10,7 @@ import CreatorSocial from './CreatorSocial/CreatorSocial'
 const Credit = () => {
 
     const creators = Object.values(useSelector(state => state.staffs)).filter(staff => {
-        return staff.id === 2 
+        return staff.id === 2 || staff.id === 9
         // || staff.id === 3 || staff.id === 4 || staff.id === 5 || staff.id === 6 || staff.id === 7
     })
 
