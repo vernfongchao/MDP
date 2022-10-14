@@ -11,3 +11,7 @@
 .staff-list-header-container h1 {
     font-size: max(1.67vw, 32px);
 }
+
+.creator-list-name{
+    font-size: max(.975vw, 18.72px);
+}
