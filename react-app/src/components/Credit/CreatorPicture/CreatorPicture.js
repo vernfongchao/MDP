@@ -34,6 +34,21 @@ const CreatorPicture = ({ index, creators }) => {
                         </li>
                     </ul>
                 }
+                {index === 1 &&
+
+                    <ul className='creator-picture-contributions-ul'>
+                        <li>
+                            User tested finding multiple bugs on message feature and made thoughtful suggestions like reversing reports.
+                        </li>
+                        {/* <li>
+                            Assimilated <strong>WebSockets</strong> to frontend and backend allowing full text communication to be saved, sent, and updated in <string>real time</string> between staff members.
+                        </li>
+                        <li>
+                            Refactored algorithm calls to help reduce function calls from <strong>quadratic to linear</strong> time.
+                        </li> */}
+                    </ul>
+                }
+
             </div>
         </div>
     )

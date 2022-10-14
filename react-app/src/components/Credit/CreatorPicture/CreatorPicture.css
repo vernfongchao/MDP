@@ -12,6 +12,7 @@
 .creator-picture{
     padding-top: 1vh;
     width: 96%;
+    aspect-ratio: 1/1;
 }
 
 .creator-picture-about-container{
