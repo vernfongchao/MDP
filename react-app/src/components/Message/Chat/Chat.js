@@ -161,7 +161,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         const message = await dispatch(deleteMessage(id))
         if (message.id) {
             await socket.emit("delete", message);
-            await setEditI(-1)
+            await setMessageIdx(-1)
             await setIsEdit(false)
         }
     }
