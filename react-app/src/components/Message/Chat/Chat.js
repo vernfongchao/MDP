@@ -227,7 +227,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                         const staff = staffs[message.staffId]
                         const tzId = Intl.DateTimeFormat().resolvedOptions().timeZone;
                         const date = new Date(message.createdAt)
-                        date.setMinutes(date.getMinutes() + 420)
+                        // date.setMinutes(date.getMinutes() + 420)
                         const timestamp = new Date(date).toLocaleString('en-US', { 'timeZone': tzId })
                         return (
                             <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
