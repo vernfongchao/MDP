@@ -38,7 +38,6 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         }
     })[0]
 
-
     //  SOCKET IO
     useEffect(() => {
         socket = io();
@@ -226,26 +225,35 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                 <div ref={scrollRef} className="chat-messages-container">
                     {messages?.map((message, i) => {
                         const staff = staffs[message.staffId]
+                        const tzId = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                        const date = new Date(message.createdAt)
+                        // date.setMinutes(date.getMinutes() + 420)
+                        const timestamp = new Date(date).toLocaleString('en-US', { 'timeZone': tzId })
                         return (
                             <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
                                 key={i}
                             >
                                 {message?.staffId === user?.id ?
                                     <div className="chat-user-edit-content-container">
-                                        <div className="chat-edit-remove-menu-container" ref={menuRef.current[i]} onClick={e => handleChange(e, i)}>
-                                            <span className="chat-edit-remove-menu-button" > ...</span>
-                                            {messageIdx === i &&
-                                                <div className="chat-edit-remove-menu">
-                                                    <div className="chat-edit-button-container" >
-                                                        <p className="chat-edit-remove-buttons" onClick={e => handleEdit(e, i, message.id)}>
-                                                            edit
-                                                        </p>
-                                                        <p className="chat-edit-remove-buttons" onClick={e => deleteChat(e, message.id)}>
-                                                            remove
-                                                        </p>
+                                        <div className="chat-user-timestamp-menu-container">
+                                            <span className="chat-user-timestamp">
+                                                Sent on {timestamp}
+                                            </span>
+                                            <div className="chat-edit-remove-menu-container" ref={menuRef.current[i]} onClick={e => handleChange(e, i)}>
+                                                <span className="chat-edit-remove-menu-button" > ...</span>
+                                                {messageIdx === i &&
+                                                    <div className="chat-edit-remove-menu">
+                                                        <div className="chat-edit-button-container" >
+                                                            <p className="chat-edit-remove-buttons" onClick={e => handleEdit(e, i, message.id)}>
+                                                                edit
+                                                            </p>
+                                                            <p className="chat-edit-remove-buttons" onClick={e => deleteChat(e, message.id)}>
+                                                                remove
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            }
+                                                }
+                                            </div>
                                         </div>
                                         <div className="chat-user-content-edit-container">
                                             <p className={editI === message.id ? "chat-user-content chat-user-edit-content" : "chat-user-content"}>
@@ -260,12 +268,14 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                                     :
                                     (
                                         <div className="chat-staff-name-content-container">
-                                            <span>
-                                                {staff.firstName} {staff.lastName}
+                                            <span className="chat-staff-name">
+                                                {staff.firstName} {staff.lastName} <span className="chat-staff-timestamp">sent on {timestamp}</span>
                                             </span>
-                                            <p className="chat-staff-content">
-                                                {message.content}
-                                            </p>
+                                            <div>
+                                                <p className="chat-staff-content">
+                                                    {message.content}
+                                                </p>
+                                            </div>
                                             {message.isEdited &&
                                                 <span className="chat-user-edited-text">
                                                     edited
