@@ -34,7 +34,7 @@ const CreatorPicture = ({ index, creators }) => {
                         </li>
                     </ul>
                 }
-                {index === 2 &&
+                {index === 1 &&
 
                     <ul className='creator-picture-contributions-ul'>
                         <li>
