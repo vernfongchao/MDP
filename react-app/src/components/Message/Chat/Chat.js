@@ -225,9 +225,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                 <div ref={scrollRef} className="chat-messages-container">
                     {messages?.map((message, i) => {
                         const staff = staffs[message.staffId]
-                        const clientTZ = Intl.DateTimeFormat().resolvedOptions()
-                        const timestamp = new Date(message.createdAt).toLocaleString({ 'timeZone': clientTZ })
-                        console.log(timestamp)
+                        const timestamp = new Date(message.createdAt).toLocaleString('en-US', { 'timeZone': 'GMT' })
                         return (
                             <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
                                 key={i}

@@ -83,6 +83,9 @@
 .chat-user-edited-text{
     font-size: max(.625vw, 12px);
 }
+.chat-staff-name{
+    font-size: max(.8vw, 16px);
+}
 
 .chat-staff-timestamp{
     font-size: max(.625vw, 12px);
