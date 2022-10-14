@@ -95,7 +95,7 @@ const Report = ({ index, setIndex, setSearch, report }) => {
 
             if (newReport.id) {
                 setSearch("")
-                setIndex(reportLength)
+                setIndex(0)
                 setSuccess("Saved")
                 setNewReport(false)
             }

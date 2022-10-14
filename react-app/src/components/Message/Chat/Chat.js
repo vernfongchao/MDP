@@ -45,14 +45,17 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
 
         (async () => {
             if (room) {
-                setIsLoaded(false)
+                await setIsLoaded(false)
                 let messages = await dispatch(getMessages(room?.id))
-                socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
-                setIsLoaded(true)
+                await socket.emit("join", { user: `${user?.firstName} ${user?.lastName}`, room: room?.id })
+                await setIsLoaded(true)
+                await setContent("")
             }
-            else if (!room) {
-
-                dispatch(removeMessages())
+            else if (!room && currStaff) {
+                await setIsLoaded(false)
+                await dispatch(removeMessages())
+                await setIsLoaded(true)
+                await setContent("")
             }
         })()
 
@@ -68,7 +71,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         return (() => {
             socket.disconnect()
         })
-    }, [room])
+    }, [room, currStaff])
 
     // SCROLL TO BOTTOM FOR CHAT WHEN LOADED AND WHEN NEW MESSAGE IS ADDED
     useEffect(() => {
@@ -77,7 +80,6 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                 menuRef.current = await messages.map((messages) => createRef())
                 scrollRef.current?.scrollTo(0, scrollRef.current?.scrollHeight)
                 scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-                setContent("")
             }
         })()
     }, [isLoaded, messages.length])
@@ -100,6 +102,8 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         }
     }, [isEdit])
 
+
+    //  deals with resizing the chat bar
     useEffect(() => {
         (async () => {
             if (content && isLoaded) {
@@ -115,7 +119,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
             }
             else if (!content && isLoaded) {
                 const ele = await document.querySelector(".message-input")
-                if(ele){
+                if (ele) {
                     ele.style.height = 'inherit'
                 }
             }
@@ -152,14 +156,14 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
         // e.target.style.height = `${e.target.scrollHeight}px`;
     };
 
-    const deleteChat = async (e ,id) => {
+    const deleteChat = async (e, id) => {
         console.log(id)
         const message = await dispatch(deleteMessage(id))
-        if (message.id){
+        if (message.id) {
             await socket.emit("delete", message);
-            await setMessageIdx(-1)
+            await setEditI(-1)
             await setIsEdit(false)
-        }        
+        }
     }
 
     const sendChat = async (e) => {
@@ -236,7 +240,7 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                                                         <p className="chat-edit-remove-buttons" onClick={e => handleEdit(e, i, message.id)}>
                                                             edit
                                                         </p>
-                                                        <p className="chat-edit-remove-buttons" onClick={e => deleteChat(e,message.id)}>
+                                                        <p className="chat-edit-remove-buttons" onClick={e => deleteChat(e, message.id)}>
                                                             remove
                                                         </p>
                                                     </div>
@@ -262,6 +266,10 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                                             <p className="chat-staff-content">
                                                 {message.content}
                                             </p>
+                                            {message.isEdited &&
+                                                <span className="chat-user-edited-text">
+                                                    edited
+                                                </span>}
                                         </div>
                                     )
                                 }
@@ -270,14 +278,14 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                         )
                     })
                     }
-                    
+
                 </div>
             }
-            {(isLoaded && !messages.length) && 
-                            
-            <div className="chat-staff-new-message-container">
-                <p>This is the very beginning of your direct message history with {currStaff?.firstName}. Only the two of you are in this conversation. </p>
-            </div>}
+            {(isLoaded && !messages.length) &&
+
+                <div className="chat-staff-new-message-container">
+                    <p>This is the very beginning of your direct message history with {currStaff?.firstName}. Only the two of you are in this conversation. </p>
+                </div>}
             {
                 (isLoaded && currStaff) &&
                 < form className="message-form" onSubmit={sendChat}>

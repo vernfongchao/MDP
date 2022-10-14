@@ -11,7 +11,7 @@ import * as VscIcons from 'react-icons/vsc'
 
 const ReportList = () => {
 
-    const reports = Object.values(useSelector(state => state.reports))
+    const reports = Object.values(useSelector(state => state.reports)).reverse()
 
     const [search, setSearch] = useState("")
     const [index, setIndex] = useState(0)

@@ -20,6 +20,7 @@
 
 .chat-staff-content-container {
     margin-left: max(1vw);
+    margin-bottom: 1vh;
     display: flex;
     margin-right: max(1vw);
     overflow-wrap: anywhere;
@@ -74,7 +75,7 @@
     padding: 5px;
     border: 2px solid #1D3557;
     border-radius: 15px;
-    margin-top: 0px;
+    margin: 0px;
 }
 
 .chat-user-staff-content-container{
