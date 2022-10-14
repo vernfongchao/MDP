@@ -19,5 +19,6 @@ class Message(db.Model):
             'staffId': self.staff_id,
             'roomId': self.room_id,
             'content': self.content,
-            'isEdited': self.is_edited
+            'isEdited': self.is_edited,
+            'createdAt': self.created_at
         }

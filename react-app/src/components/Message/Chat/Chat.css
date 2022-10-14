@@ -34,11 +34,13 @@
 
 
 .chat-user-content-container{
+    box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
     margin-left: max(1vw);
     margin-right: max(1vw);
     overflow-wrap: anywhere;
+    /* width: 100%; */
 }
 
 .chat-user-edit-content-container{
@@ -52,6 +54,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.chat-user-timestamp-menu-container{
+    display: flex;
+    justify-content: center;
+}
+
+.chat-user-timestamp{
+    font-size: max(.625vw, 12px);
+    margin-right: max(.5vw);
 }
 
 .chat-user-content{
@@ -72,6 +84,10 @@
     font-size: max(.625vw, 12px);
 }
 
+.chat-staff-timestamp{
+    font-size: max(.625vw, 12px);
+}
+
 .chat-staff-content {
     font-size: max(.8vw, 16px);
     display: inline-block;
@@ -89,13 +105,14 @@
 
 .chat-edit-remove-menu-container{
     font-size: max(.8vw, 16px);
-    width: max(1.45vw,55.297px);
+    width: max(1.45vw,29px);
     display: flex;
     justify-content: flex-end;
 }
 
 .chat-edit-remove-menu-button{
     cursor: pointer;
+    font-size: max(.625vw, 12px);
 }
 
 .chat-edit-remove-menu-button:hover{
