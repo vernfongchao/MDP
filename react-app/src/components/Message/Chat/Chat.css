@@ -42,6 +42,9 @@
 }
 
 .chat-user-edit-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     margin-bottom: 16px;
 }
 
@@ -86,7 +89,7 @@
 
 .chat-edit-remove-menu-container{
     font-size: max(.8vw, 16px);
-    width: 100%;
+    width: max(1.45vw,55.297px);
     display: flex;
     justify-content: flex-end;
 }
