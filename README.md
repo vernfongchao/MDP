@@ -44,7 +44,7 @@ List of features needed for the Minimum Viable Product (MVP) and its CRUD featur
 
 ## Technical Difficulties
 
-The most difficult challenge was finishing the Many to Many relationship feature. Because I wanted to the many to many relationships to be edited when a staff clicked on save, I had to keep in mind the current state so I can accurately pass in the correct data to my REST API to whether add or delete a relationship. Not only was this a challenge for the front-end but also the backend. I have to accurently parse the information making sure that the relationship must exist before deleteting and that the relationship must not exsist before deleting. I know there could be duplicates of relationships that can cause errors and break the server.
+The most difficult challenge was finishing the Many to Many relationship feature. Because I wanted many to many relationships to be edited when a staff clicked on save, I had to keep in mind the current state so I can accurately pass in the correct data to my REST API to whether add or delete a relationship. Not only was this a challenge for the front-end but also the backend. I have to accurently parse the information making sure that the relationship must exist before deleteting and that the relationship must not exsist before deleting. I know there could be duplicates of relationships that can cause errors and break the server.
 
 ### Screenshots
 
