@@ -37,6 +37,10 @@ List of features needed for the Minimum Viable Product (MVP) and its CRUD featur
 
 ![image](https://user-images.githubusercontent.com/91238232/194731278-2860fe5d-8397-4d18-b0b4-54a70a87e2b0.png)
 
+### Messages:
+![image](https://user-images.githubusercontent.com/91238232/196009482-cd6d42e5-7e50-453c-8b5f-020a9ee825ce.png)
+
+
 ### Many to Many Relationships:
 
 ![image](https://user-images.githubusercontent.com/91238232/194731285-d349be31-3be8-43da-bb9e-ee864d791528.png)
@@ -59,9 +63,10 @@ The most difficult challenge was finishing the Many to Many relationship feature
 - Full CRUD for Reports
 - Full CRUD for Patients
 - Full CRUD for Departments
-- Full CRUD for Patients Emergency Contact
+- Full CRUD for Messages
 - Full CRUD for Many to Many relationships between, Reports, Patients, Departments, Staffs
 - Setup AWS S3 to allow staffs to upload profile picture for themselves or patients.
+- Setup WebSockets to allow messaging between staff in real time.
 
 
 ### Future Features
@@ -77,6 +82,7 @@ The most difficult challenge was finishing the Many to Many relationship feature
 - Docker
 - PostgreSQL
 - AWS
+- WebSocket
 
 ## Local Installation
 
