@@ -4,9 +4,9 @@ WORKDIR /react-app
 COPY react-app/. .
 
 # You have to set this because it should be set during build time.
-# ENV REACT_APP_BASE_URL=https://mdp-application.herokuapp.com/
+ENV REACT_APP_BASE_URL=https://mdp-application.herokuapp.com/
 
-ENV REACT_APP_BASE_URL=https://medical-dashboard-portal.onrender.com/
+# ENV REACT_APP_BASE_URL=https://medical-dashboard-portal.onrender.com/
 
 # Build our React App
 RUN npm install
