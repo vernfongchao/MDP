@@ -12,6 +12,8 @@ from .staff_reports import seed_staff_reports,undo_staff_reports
 from .department_reports import seed_department_reports, undo_department_reports
 from .rooms import seed_rooms,undo_rooms
 from .messages import seed_messages,undo_messages
+from .conditions import seed_conditions,undo_conditions
+
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
@@ -33,6 +35,7 @@ def seed():
     seed_department_reports()
     seed_rooms()
     seed_messages()
+    seed_conditions()
     # Add other seed functions here
 
 
@@ -52,4 +55,5 @@ def undo():
     undo_department_reports()
     undo_rooms()
     undo_messages()
+    undo_conditions()
     # Add other undo functions here

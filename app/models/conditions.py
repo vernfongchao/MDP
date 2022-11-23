@@ -11,3 +11,10 @@ class Condition(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False,
                            server_default=db.func.now(), server_onupdate=db.func.now())
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'description': self.description,
+            'type': self.type
+    }
