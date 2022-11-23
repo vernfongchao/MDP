@@ -8,6 +8,10 @@ from sqlalchemy import pool
 
 from alembic import context
 
+import os
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get('SCHEMA')
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -55,16 +59,7 @@ def run_migrations_offline():
 
 
 def run_migrations_online():
-    """Run migrations in 'online' mode.
 
-    In this scenario we need to create an Engine
-    and associate a connection with the context.
-
-    """
-
-    # this callback is used to prevent an auto-migration from being generated
-    # when there are no changes to the schema
-    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html
     def process_revision_directives(context, revision, directives):
         if getattr(config.cmd_opts, 'autogenerate', False):
             script = directives[0]
@@ -86,7 +81,14 @@ def run_migrations_online():
             **current_app.extensions['migrate'].configure_args
         )
 
+        # Create a schema (only in production)
+        if environment == "production":
+            connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
+
+        # Set search path to your schema (only in production)
         with context.begin_transaction():
+            if environment == "production":
+                context.execute(f"SET search_path TO {SCHEMA}")
             context.run_migrations()
 
 
