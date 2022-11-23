@@ -1,7 +1,9 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Condition(db.Model):
     __tablename__='conditions'
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(),unique=True)
     description = db.Column(db.String())

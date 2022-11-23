@@ -1,5 +1,4 @@
-from app.models import departments
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .departmentstaffs import departmentstaffs
@@ -8,7 +7,8 @@ from .staffreports import staffreports
 
 class Staff(db.Model, UserMixin):
     __tablename__ = 'staffs'
-
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
@@ -16,7 +16,7 @@ class Staff(db.Model, UserMixin):
     last_name = db.Column(db.String(255), nullable=False)
     notes= db.Column(db.String(5000))
     hashed_password = db.Column(db.String(255), nullable=False)
-    position = db.Column(db.Integer(), db.ForeignKey('roles.id'), nullable=False)
+    position = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod('roles.id')), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False,
                            server_default=db.func.now())
     updated_at = db.Column(db.DateTime, nullable=False,
