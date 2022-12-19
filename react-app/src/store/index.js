@@ -14,6 +14,7 @@ import staffReportsReducer from './staffreport';
 import departmentReportsReducer from './departmentreport';
 import roomReducer from './room';
 import messageReducer from './messages';
+import conditionReducer from './condition';
 
 const rootReducer = combineReducers({
   session,
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   departmentReports: departmentReportsReducer,
   rooms: roomReducer,
   messages:messageReducer,
+  conditions:conditionReducer,
 });
 
 

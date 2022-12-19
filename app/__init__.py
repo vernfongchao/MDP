@@ -17,6 +17,7 @@ from .api.announcement_routes import announcement_routes
 from .api.department_routes import departments_routes
 from .api.room_routes import room_routes
 from .api.message_routes import message_routes
+from .api.conditions_routes import condition_routes
 
 from .seeds import seed_commands
 
@@ -47,6 +48,7 @@ app.register_blueprint(announcement_routes, url_prefix='/api/announcements')
 app.register_blueprint(departments_routes, url_prefix='/api/departments')
 app.register_blueprint(room_routes, url_prefix='/api/rooms')
 app.register_blueprint(message_routes, url_prefix='/api/messages')
+app.register_blueprint(condition_routes, url_prefix='/api/conditions')
 
 db.init_app(app)
 Migrate(app, db)

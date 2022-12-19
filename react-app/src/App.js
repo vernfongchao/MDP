@@ -9,6 +9,7 @@ import { getStaffs } from './store/staff';
 import { getDepartments } from './store/department';
 import { getPatients } from './store/patient';
 import { getReports } from './store/report';
+import { getConditions } from './store/condition'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -23,6 +24,7 @@ function App() {
       await dispatch(getReports())
       await dispatch(getAnnouncements())
       await dispatch(getDepartments())
+      await dispatch(getConditions())
       setLoaded(true);
     })();
   }, [dispatch]);

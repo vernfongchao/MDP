@@ -1,0 +1,33 @@
+.condition-page-container{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #F1FAEE;
+    height: 100%;
+    width: 100%;
+}
+
+.condition-header{
+    font-size: max(1.67vw, 32px);
+}
+
+.condition-page-conditions-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.condition-page-cards-container{
+    border: 2px solid #1D3557;
+    min-width: 300px;
+    margin-bottom: 10px;
+    
+}
+.condition-page-cards-container:hover{
+    background-color: #A8DADC;
+    cursor: pointer;
+}
+
+.condition-page-cards-container-name{
+    margin: 1rem;
+}
