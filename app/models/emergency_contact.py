@@ -1,14 +1,13 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 
 class EmergencyContact(db.Model):
     __tablename__= 'emergencycontacts'
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer(), primary_key=True)
     first_name = db.Column(db.String(255))
     last_name = db.Column(db.String(255))
     phone = db.Column(db.String(10))
-    patient_id = db.Column(db.Integer(), db.ForeignKey(add_prefix_for_prod('patients.id')))
+    patient_id = db.Column(db.Integer(), db.ForeignKey('patients.id'))
 
     patient = db.relationship('Patient', back_populates="contact")
 

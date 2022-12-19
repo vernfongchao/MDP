@@ -1,11 +1,7 @@
-
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from app.models.db import db
 
 staffreports = db.Table(
     'staffreports',
-    db.Column('staff_id', db.Integer, db.ForeignKey(add_prefix_for_prod('staffs.id'))),
-    db.Column('report_id', db.Integer, db.ForeignKey(add_prefix_for_prod('reports.id'))),
+    db.Column('staff_id', db.Integer, db.ForeignKey('staffs.id')),
+    db.Column('report_id', db.Integer, db.ForeignKey('reports.id')),
 )
-
-if environment == "production":
-    staffreports.schema = SCHEMA

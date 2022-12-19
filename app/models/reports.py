@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 from .staffreports import staffreports
 from .patientreports import patientreports
 from .departmentreports import departmentreports
@@ -6,8 +6,7 @@ from .departmentreports import departmentreports
 
 class Report(db.Model):
     __tablename__ = 'reports'
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.String())
