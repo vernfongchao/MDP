@@ -13,3 +13,4 @@ from .departmentstaffs import departmentstaffs
 from .emergency_contact import EmergencyContact
 from .rooms import Room
 from .messages import Message
+from .conditions import Condition
