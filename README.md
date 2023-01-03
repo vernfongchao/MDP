@@ -1,6 +1,5 @@
 # Medical Dashboard Portal(MDP)
-
-[MDP](https://mdp-application.herokuapp.com/) is a portal created for Hospital staff use. This app was tailored for ease of use and access for important hospital information consisting of patient and report information.
+[MDP](https://mdp.onrender.com/) is a portal created for Hospital staff use. This app was tailored for ease of use and access for important hospital information consisting of patient and report information.
 
 ## Wiki
 
@@ -68,7 +67,6 @@ The most difficult challenge was finishing the Many to Many relationship feature
 - Setup AWS S3 to allow staffs to upload profile picture for themselves or patients.
 - Setup WebSockets to allow messaging between staff in real time.
 
-
 ### Future Features
 
 - Canvas to allow highlight when hovering over department buildings
@@ -78,7 +76,7 @@ The most difficult challenge was finishing the Many to Many relationship feature
 - React.js
 - Python
 - Flask
-- Heroku
+- Render
 - Docker
 - PostgreSQL
 - AWS
