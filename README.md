@@ -1,5 +1,5 @@
 # Medical Dashboard Portal(MDP)
-[MDP](https://mdp.onrender.com/) is a portal created for Hospital staff use. This app was tailored for ease of use and access for important hospital information consisting of patient and report information.
+[MDP](https://mdp.onrender.com/) is a portal created for hospital staff use. This app was tailored for ease of use and access for important hospital information consisting of patient and report information.
 
 ## Wiki
 
