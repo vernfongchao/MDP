@@ -65,6 +65,7 @@ def edit_patient_profile(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
+        print('=========================================================================================================',request.files)
         if request.files:
             upload_image(request.files["image"], id)
         patient = Patient.query.get(id)
