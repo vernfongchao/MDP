@@ -67,7 +67,10 @@ def edit_patient_profile(id):
     if form.validate_on_submit():
         print('=========================================================================================================',request.files)
         if request.files:
-            upload_image(request.files["image"], id)
+            upload = upload_image(request.files["image"], id)
+            if upload.errors:
+                return {'errors': upload.errors},400
+
         patient = Patient.query.get(id)
         form.populate_obj(patient)
         date = datetime.now()
