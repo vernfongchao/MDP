@@ -13,7 +13,7 @@ const CreatorPicture = ({ index, creators }) => {
         <div className='creator-picture-page-container'>
             <img className='creator-picture'
                 alt='creator'
-                src={creator?.img}
+                src={"https://mdp-app.s3.amazonaws.com/5f56d0cbbc0b4ac6942eccde31ccc409.jpg"}
                 onError={handleImageError}
             ></img>
             <h2 className='creator-picture-contribution-header'>
