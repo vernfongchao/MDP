@@ -7,8 +7,6 @@ if os.environ.get("FLASK_ENV") == "production":
     origins = [
         'http://mdp.herokuapp.com',
         'https://mdp.herokuapp.com',
-        'http://mdp.onrender.com/',
-        'https://mdp.onrender.com/',
     ]
 else :
     origins = "*"
