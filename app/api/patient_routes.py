@@ -68,8 +68,6 @@ def edit_patient_profile(id):
         print('=========================================================================================================',request.files)
         if request.files:
             upload = upload_image(request.files["image"], id)
-            if upload.errors:
-                return {'errors': upload.errors},400
 
         patient = Patient.query.get(id)
         form.populate_obj(patient)
