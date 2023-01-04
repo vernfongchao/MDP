@@ -5,8 +5,10 @@ import os
 
 if os.environ.get("FLASK_ENV") == "production": 
     origins = [
-        'http://mdp-application.herokuapp.com',
-        'https://mdp-application.herokuapp.com'
+        'http://mdp.onrender.com/',
+        'https://mdp.onrender.com/',
+        'http://mdp.herokuapp.com',
+        'https://mdp.herokuapp.com'
     ]
 else :
     origins = "*"
