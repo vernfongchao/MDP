@@ -26,9 +26,7 @@ def get_unique_filename(filename):
 
 
 def upload_file_to_s3(file, acl="public-read"):
-
-    try:
-        s3.upload_fileobj(
+    s3.upload_fileobj(
             file,
             BUCKET_NAME,
             file.filename,
@@ -37,9 +35,19 @@ def upload_file_to_s3(file, acl="public-read"):
                 "ContentType": file.content_type
             }
         )
-    except Exception as e:
-        # in case the our s3 upload fails
-        return {"errors": str(e)}
+    # try:
+    #     s3.upload_fileobj(
+    #         file,
+    #         BUCKET_NAME,
+    #         file.filename,
+    #         ExtraArgs={
+    #             "ACL": acl,
+    #             "ContentType": file.content_type
+    #         }
+    #     )
+    # except Exception as e:
+    #     # in case the our s3 upload fails
+    #     return {"errors": str(e)}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
 
