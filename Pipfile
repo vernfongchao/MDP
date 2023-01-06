@@ -30,8 +30,9 @@ urllib3 = "==1.26.12"
 email-validator = "*"
 flask-socketio = "*"
 boto3 = "==1.25.1"
-greenlet = "==1.1.0"
 eventlet = "*"
+greenlet = "*"
+gevent = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
