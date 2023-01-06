@@ -32,7 +32,6 @@ flask-socketio = "*"
 boto3 = "==1.25.1"
 greenlet = "*"
 eventlet = "==0.30.2"
-gevent = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
