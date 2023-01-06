@@ -133,6 +133,7 @@ def upload_image(image, id):
         return {"errors": {"image": "file type not permitted"}}, 400
 
     image.filename = get_unique_filename(image.filename)
+    print("======================================================",image,type(image),type(image.filename) )
     upload = upload_file_to_s3(image)
     print("================================================================ upload",upload)
     if "url" not in upload:
