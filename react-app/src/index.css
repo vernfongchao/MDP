@@ -2,18 +2,21 @@
 html {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
 body {
-  margin: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
 #root {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
+
 
 /* ----- LOGIN/SIGNUP MODAL STYLES ------*/
 
