@@ -172,9 +172,9 @@ const SignUpForm = ({setShowModal}) => {
         <label htmlFor="role"
           className={positionError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
         >Role</label>
-        <select className={positionError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          onChange={updateRole} required >
-          <option disabled selected value> </option>
+        <select defaultValue={""} className={positionError.length ? 'form-input-user form-input-error' : "form-input-user"}
+          onChange={updateRole}>
+          <option disabled value={""}> </option>
           {roles?.map(singleRole => (
             <option key={singleRole.id} value={singleRole?.id}>{singleRole?.position_name}</option>
           ))}
