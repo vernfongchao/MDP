@@ -1,13 +1,12 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 
 class Announcement(db.Model):
     __tablename__ = 'announcements'
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(100) ,nullable=False)
     content = db.Column(db.String(5000) ,nullable=False)
-    staff_id = db.Column(db.Integer(),db.ForeignKey(add_prefix_for_prod('staffs.id')),nullable =False)
+    staff_id = db.Column(db.Integer(),db.ForeignKey('staffs.id'),nullable =False)
     created_at = db.Column(db.DateTime, nullable=False,
                            server_default=db.func.now())
     updated_at = db.Column(db.DateTime, nullable=False,

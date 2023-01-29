@@ -17,13 +17,13 @@ from .api.announcement_routes import announcement_routes
 from .api.department_routes import departments_routes
 from .api.room_routes import room_routes
 from .api.message_routes import message_routes
-from .api.condition_routes import condition_routes
+from .api.conditions_routes import condition_routes
 
 from .seeds import seed_commands
 
 from .config import Config
 
-app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
+app = Flask(__name__)
 
 # Setup login manager
 login = LoginManager(app)
@@ -83,11 +83,12 @@ def inject_csrf_token(response):
         httponly=True)
     return response
 
+
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def react_root(path):
     if path == 'favicon.ico':
-        return app.send_from_directory('public', 'favicon.ico')
+        return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
 
 if __name__ == '__main__':
