@@ -4,6 +4,7 @@ import './CreatorPicture.css'
 const CreatorPicture = ({ index, creators }) => {
 
     const creator = creators[index]
+    console.log(creator)
 
     const handleImageError = (e) => {
         e.target.src = "https://i.pinimg.com/474x/65/25/a0/6525a08f1df98a2e3a545fe2ace4be47.jpg"
@@ -13,7 +14,7 @@ const CreatorPicture = ({ index, creators }) => {
         <div className='creator-picture-page-container'>
             <img className='creator-picture'
                 alt='creator'
-                src={"https://mdp-app.s3.amazonaws.com/5f56d0cbbc0b4ac6942eccde31ccc409.jpg"}
+                src={creator.img}
                 onError={handleImageError}
             ></img>
             <h2 className='creator-picture-contribution-header'>
