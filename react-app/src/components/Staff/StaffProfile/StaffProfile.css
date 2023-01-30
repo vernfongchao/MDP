@@ -9,7 +9,7 @@
 
 .staff-profile-detail-container {
   width: 95%;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 /* .staff-profile-header-container{
@@ -28,12 +28,13 @@
 }
 
 .staff-profile-edit-success {
-  font-size: max(1.25vw, 24px);
+  font-size: 1.5rem;
+  color: red;
 }
 
 .staff-profile-edit-icon {
   cursor: pointer;
-  font-size: max(1.67vw, 32px);
+  font-size: 2rem;
 }
 
 .staff-profile-edit-icon:hover {
@@ -45,11 +46,9 @@
   justify-content: space-between;
 }
 
-/* .staff-profile-picture-container{
-    position: relative;
-    height: 0px;
-    width: 0px;
-} */
+.staff-profile-picture-container {
+  margin-right: 0.4rem;
+}
 
 .staff-profile-picture-icon-position {
   display: flex;
@@ -59,10 +58,10 @@
   width: 100%;
 }
 .staff-profile-picture-icon {
-  margin-top: max(0.4vh, 4px);
-  margin-right: max(0.4vh, 4px);
+  margin-top: 0.2rem;
+  margin-right: 0.2rem;
   cursor: pointer;
-  font-size: max(1.67vw, 32px);
+  font-size: 1.75rem;
   color: #1d3557;
 }
 
@@ -83,7 +82,7 @@
 }
 
 .staff-profile-id-name-update-container {
-  border-bottom: 2px black solid;
+  border-bottom: 0.2rem black solid;
   width: 100%;
   overflow-wrap: anywhere;
 }
@@ -99,21 +98,19 @@
 .staff-profile-info-header-text {
   margin: 0;
   font-weight: bold;
-  font-size: max(0.625vw, 12px);
+  font-size: 0.9rem;
 }
 
 .staff-profile-info-text {
   margin: 0;
-  font-size: max(0.8vw, 16px);
 }
 
 .staff-profile-edit-name-input {
   width: 95%;
-  font-size: max(0.8vw, 16px);
 }
 
 .staff-profile-role-select-container {
-  font-size: max(0.8vw, 16px);
+  font-size: 1rem;
 }
 
 .staff-profile-role-container {
@@ -129,8 +126,13 @@
 .staff-profile-notes-container {
   width: 95%;
   height: 60%;
-  overflow-wrap: anywhere;
-  overflow-y: auto;
+}
+
+@media only screen and (max-width: 1280px) {
+  .staff-profile-notes-container {
+    height: 50%;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .staff-profile-error {
@@ -139,7 +141,7 @@
 }
 
 .staff-profile-input-error {
-  border: 2px solid red;
+  border: .15px solid red;
 }
 
 .staff-profile-notes-container > h1 {

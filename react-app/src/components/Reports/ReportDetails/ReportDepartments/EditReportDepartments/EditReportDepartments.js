@@ -102,7 +102,7 @@ const EditReportDepartments = ({ report, setShowModal }) => {
                 <div className="edit-report-deparment-search-label-container">
                     <label
                         className="edit-report-deparment-search-label"
-                    >Search</label>
+                    >Search:</label>
                 </div>
                 <div className="edit-report-department-input-container">
                     <input className="edit-report-department-search-input"
