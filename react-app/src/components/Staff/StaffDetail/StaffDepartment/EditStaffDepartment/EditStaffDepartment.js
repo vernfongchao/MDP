@@ -95,7 +95,7 @@ const EditStaffDepartment = ({ staff, setShowModal }) => {
                 <div className="edit-staff-deparment-search-label-container">
                     <label
                         className="edit-staff-deparment-search-label"
-                    >Search</label>
+                    >Search:</label>
                 </div>
                 <div className="edit-staff-department-input-container">
                     <input className="edit-staff-department-search-input"

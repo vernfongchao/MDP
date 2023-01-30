@@ -69,8 +69,8 @@
 }
 
 .edit-staff-deparment-search-label-container {
-  /* display: flex;
-    align-items: center; */
+  display: flex;
+  align-items: center;
 }
 
 .edit-staff-deparment-search-label {
@@ -80,7 +80,7 @@
 
 .edit-staff-department-input-container {
   display: flex;
-  width: 80%;
+  width: 100%;
 }
 
 .edit-staff-department-search-input {

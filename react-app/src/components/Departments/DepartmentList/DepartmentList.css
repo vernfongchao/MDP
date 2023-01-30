@@ -1,119 +1,114 @@
-.department-list-page-container{
-    box-sizing: border-box;
-    background-color: #F1FAEE;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+.department-list-page-container {
+  box-sizing: border-box;
+  background-color: #f1faee;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.department-list-container{
-    box-sizing: border-box;
-    border-right: .625vw #1D3557 solid;
-    width: 33.3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.department-list-container {
+  box-sizing: border-box;
+  border-right: 0.625vw #1d3557 solid;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .department-list-header-search-container {
-    width: 83%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.department-list-header-container{
-    display: flex;
-    justify-content: center;
+.department-list-header-container {
+  display: flex;
+  justify-content: center;
 }
 
-.department-list-header{
-    font-size: max(1.67vw, 32px);
+.department-list-header {
 }
 
 .department-list-search-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 98%;
 }
 
 .department-search-label-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .department-search-label {
-    font-size: max(.8vw, 16px);
-    font-weight: bold;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-
-
 .department-search-icon-container {
-    display: flex;
-    width: 80%;
+  display: flex;
+  width: 100%;
 }
 
 .department-search-input-field {
-    font-size: max(.8vw, 16px);
-    border: none;
-    border-bottom: 2px black solid;
-    width: 100%;
+  border: none;
+  border-bottom: 0.2rem black solid;
+  width: 100%;
 }
 
 .department-search-input-field:focus {
-    outline: none;
+  outline: none;
 }
 
 .department-search-clear-icon {
-    font-size: max(1.25vw, 24px);
-    border-bottom: 2px black solid;
-    cursor: pointer;
+  font-size: 1.5rem;
+  border-bottom: 0.2rem black solid;
+  cursor: pointer;
 }
 
 .department-search-clear-icon:hover {
-    color: red;
+  color: red;
 }
 
 .department-list-card-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-
 .department-card-container {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1vh;
-    padding: 10px;
-    border: 2px black solid;
-    width: 83%;
-    box-shadow: 1px 1px 5px 1px #F1FAEE;
-    overflow-wrap: break-word;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0.8rem;
+  border: 0.2rem black solid;
+  width: 83%;
+  box-shadow: 1px 1px 5px 1px #f1faee;
+  overflow-wrap: break-word;
 }
 
 .department-card-container:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 2px solid #1D3557;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 1px #1d3557;
+  border: .2rem solid #1d3557;
 }
 
 .active-department {
-    background-color: #A8DADC;
+  background-color: #a8dadc;
 }
 
 .department-card-name-text {
-    font-size: max(.975vw, 18.72px);
-    width: 70%;
+
+  width: 70%;
 }
 
 .department-list-id {
-    font-size: max(.8vw, 16px);
+
 }

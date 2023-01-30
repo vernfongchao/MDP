@@ -108,7 +108,7 @@ const EditReportPatient = ({ report, setShowModal }) => {
                 <div className="edit-report-patient-search-label-container">
                     <label
                         className="edit-report-patient-search-label"
-                    >Search</label>
+                    >Search:</label>
                 </div>
                 <div className="edit-report-patient-input-container">
                     <input className="edit-report-patient-search-input"

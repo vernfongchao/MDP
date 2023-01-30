@@ -48,7 +48,7 @@ const DepartmentList = ({ idx }) => {
                             <label
                                 className="department-search-label"
                             >
-                                Search
+                                Search:
                             </label>
                         </div>
                         <div className="department-search-icon-container">

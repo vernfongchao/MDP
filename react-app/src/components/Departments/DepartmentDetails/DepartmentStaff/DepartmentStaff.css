@@ -1,38 +1,36 @@
-.department-staff-page-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border-bottom: .625vw #1D3557 solid;
+.department-staff-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 0.625vw #1d3557 solid;
 }
 
-.department-staff-header-container{
-    width: 95%;
+.department-staff-header-container {
+  width: 95%;
 }
 
-.department-staff-header{
-    font-size: max(1.67vw, 32px);
+.department-staff-header {
 }
 
-.department-staff-list-container{
-    width: 95%;
-    margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
+.department-staff-list-container {
+  width: 95%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.department-staff-name-container{
-    margin-top: max(.5vh, 6px);
-    padding-left: 3px;
-    padding-right: 3px;
-    display: flex;
-    background-color: #A8DADC;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-right: max(.5vw, 10px);
-    font-size: max(.8vw, 16px);
+.department-staff-name-container {
+  margin-top: 0.5rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  display: flex;
+  background-color: #a8dadc;
+  border: 0.2rem solid black;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .department-staff-name {
-    font-weight: bold;
+  font-weight: bold;
 }

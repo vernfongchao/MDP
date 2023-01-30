@@ -61,8 +61,8 @@
   padding-bottom: 1rem;
 }
 .edit-report-deparment-search-label-container {
-  /* display: flex;
-    align-items: center; */
+  display: flex;
+  align-items: center;
 }
 
 .edit-report-deparment-search-label {
@@ -70,7 +70,7 @@
 }
 .edit-report-department-input-container {
   display: flex;
-  width: 80%;
+  width: 100%;
 }
 .edit-report-department-search-input {
   width: 100%;
@@ -141,9 +141,9 @@
   display: flex;
   justify-content: space-between;
   width: 32rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   padding: 1rem;
-  border: .2rem black solid;
+  border: 0.2rem black solid;
   box-shadow: 1px 1px 5px 1px #f1faee;
   overflow-wrap: break-word;
 }
@@ -151,7 +151,7 @@
 .edit-report-department-card-container:hover {
   cursor: pointer;
   box-shadow: 1px 1px 5px 1px #1d3557;
-  border: .5rem solid #1d3557;
+  border: 0.5rem solid #1d3557;
   background-color: #a8dadc;
 }
 
