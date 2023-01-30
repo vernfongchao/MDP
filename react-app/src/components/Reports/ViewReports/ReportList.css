@@ -58,7 +58,7 @@
 
 .report-search-input-field {
   border: none;
-  border-bottom: 2px black solid;
+  border-bottom: .2rem black solid;
   width: 100%;
 }
 
@@ -67,8 +67,8 @@
 }
 
 .report-search-clear-icon {
-  font-size: 2rem;
-  border-bottom: 2px black solid;
+  font-size: 1.5rem;
+  border-bottom: .2rem black solid;
   cursor: pointer;
 }
 
@@ -93,9 +93,9 @@
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1vh;
+  margin-bottom: .5rem;
   padding: .8rem;
-  border: 0.15rem black solid;
+  border: 0.2rem black solid;
   width: 100%;
   box-shadow: 1px 1px 5px 1px #f1faee;
   overflow-wrap: break-word;
@@ -104,7 +104,7 @@
 .report-card-name-container:hover {
   cursor: pointer;
   box-shadow: 1px 1px 5px 1px #1d3557;
-  border: 2px solid #1d3557;
+  border: .2rem solid #1d3557;
 }
 
 .active-report {

@@ -1,130 +1,120 @@
 .patient-list-page-container {
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    background-color: #F1FAEE;
-    display: flex;
-
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: #f1faee;
+  display: flex;
 }
 
-
-
 .patient-list-container {
-    box-sizing: border-box;
-        border-right: .625vw #1D3557 solid;
-        height: 100%;
-        background-color: #F1FAEE;
-        display: flex;
-        width: 33.3%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  box-sizing: border-box;
+  border-right: 0.625vw #1d3557 solid;
+  height: 100%;
+  background-color: #f1faee;
+  display: flex;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .patient-list-header-search-container {
-    width: 83%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .patient-list-header-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .patient-list-header {
-    font-size: max(1.67vw, 32px);
+
 }
 
-
 .patient-list-search-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 98%;
 }
 
 .patient-search-label-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .patient-search-label {
-    font-size: max(.8vw, 16px);
-    font-weight: bold;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-
-
 .patient-search-icon-container {
-    display: flex;
-    width: 80%;
+  display: flex;
+  width: 100%;
 }
 
 .patient-search-input-field {
-    font-size: max(.8vw, 16px);
-    border: none;
-    border-bottom: 2px black solid;
-    width: 100%;
+  border: none;
+  border-bottom: .2rem black solid;
+  width: 100%;
 }
 
 .patient-search-input-field:focus {
-    outline: none;
+  outline: none;
 }
 
 .patient-search-clear-icon {
-    font-size: max(1.25vw, 24px);
-    border-bottom: 2px black solid;
-    cursor: pointer;
+  font-size: 1.5rem;
+  border-bottom: .2rem black solid;
+  cursor: pointer;
 }
 
 .patient-search-clear-icon:hover {
-    color: red;
+  color: red;
 }
 
 .patient-all-card-container {
-
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .patient-card-container {
-    width: 83%;
+  width: 83%;
 }
 
-
 .patient-card-name-container {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1vh;
-    padding: 10px;
-    border: 2px black solid;
-    width: 100%;
-    box-shadow: 1px 1px 5px 1px #F1FAEE;
-    overflow-wrap: break-word;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+  padding: .8rem;
+  border: 0.2rem black solid;
+  width: 100%;
+  box-shadow: 1px 1px 5px 1px #f1faee;
+  overflow-wrap: break-word;
 }
 
 .patient-card-name-container:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 2px solid #1D3557;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 1px #1d3557;
+  border: .2rem solid #1d3557;
 }
-
 
 .active-patient {
-    background-color: #A8DADC;
+  background-color: #a8dadc;
 }
 
-.patient-card-name-text{
-    font-size: max(.975vw, 18.72px);
-    width: 70%;
+.patient-card-name-text {
+
+  width: 70%;
 }
 .patient-list-id {
-    font-size: max(.8vw, 16px);
+
 }

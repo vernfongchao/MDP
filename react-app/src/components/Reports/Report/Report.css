@@ -10,9 +10,8 @@
 }
 
 .report-detail-container {
-  height: 90%;
+  height: 100%;
   width: 95%;
-  margin-bottom: 10px;
 }
 
 .report-header-container {
@@ -49,11 +48,9 @@
 }
 
 .report-title-label {
+  font-size: 0.9rem;
   font-weight: bold;
   margin-bottom: 0.1vh;
-}
-.report-title-error {
-  color: red;
 }
 
 .report-title-input {
@@ -61,7 +58,7 @@
 }
 
 .report-title-input-error {
-  border: 2px solid red;
+  border: 0.15rem solid red;
 }
 .report-title-max-text-container {
   position: relative;
@@ -72,18 +69,18 @@
 }
 
 .report-title-max-text {
+  font-size: 0.9rem;
   height: 0px;
-  font-size: max(0.625vw, 12px);
   color: red;
 }
 .report-title-error {
-  font-size: max(0.625vw, 12px);
   font-weight: bold;
+  color: red;
 }
 
 .report-title-error-text {
-  font-size: max(0.8vw, 16px);
   font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .report-updated-container {
@@ -97,5 +94,11 @@
 }
 
 .report-content-container {
-  height: 80%;
+  height: 68%;
+}
+
+@media only screen and (max-width: 1280px) {
+  .report-content-container {
+    height: 55%;
+  }
 }

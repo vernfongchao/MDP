@@ -58,7 +58,7 @@ const PatientList = () => {
                             <label
                                 className="patient-search-label"
                             >
-                                Search
+                                Search:
                             </label>
                         </div>
                         <div className="patient-search-icon-container">

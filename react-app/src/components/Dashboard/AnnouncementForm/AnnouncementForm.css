@@ -22,7 +22,7 @@
   flex-direction: column;
   /* justify-content: space-between; */
   width: 80%;
-  height: 75%;
+  height: 80%;
 }
 
 .form-error {
@@ -49,22 +49,80 @@
 }
 
 .announcement-form-content-container {
+  display: inline-block;
   width: 100%;
-  height: 70%;
+  height: 80%;
 }
 
 .announcement-form-content {
   box-sizing: border-box;
 }
 
+.announcement-form-button-container {
+  width: 100%;
+}
+.announcement-form-page-subcontainer {
+  margin-left: 50px;
+}
+
+.announcement-detail-writer-container {
+  font-size: max(0.8vw, 16px);
+}
+
+.announcement-form-errors-container {
+  margin-top: max(1.23vh, 12px);
+}
+
+.announcement-form-errors {
+  font-size: max(0.625vw, 12px);
+  color: red;
+  margin-bottom: max(0.625vw, 12px);
+}
+
+.annoucement-form-content-tracker-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.annoucement-form-content-tracker-text {
+}
+
+.announcement-form-button-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.announcement-buttons {
+  cursor: pointer;
+  background-color: #a8dadc;
+  border-radius: .5rem;
+  border: .1rem solid #1d3557;
+  margin-top: 5px;
+  padding: .2rem 0;
+}
+
+.announcement-buttons:hover {
+  box-shadow: 1px 1px 5px 1px #1d3557;
+  border: 1px solid #1d3557;
+}
+
+.announcement-add {
+  width: 100%;
+}
+
+
+
 .ql-container {
   height: 90%;
 }
-/* 
-.ql-snow.ql-toolbar {
-    height: 20%;
+
+@media only screen and (max-width: 1280px) {
+  .ql-container {
+    height: 80%;
+  }
 }
- */
 
 .ql-editor.ql-blank {
   background-color: white;
@@ -98,64 +156,4 @@
 
 .ql-snow .ql-editor > ul > li {
   font-size: 1rem;
-}
-
-.annoucement-form-content-tracker-text {
-  height: 0px;
-}
-
-.announcement-form-button-container {
-  width: 100%;
-}
-.announcement-form-page-subcontainer {
-  margin-left: 50px;
-}
-
-.announcement-detail-writer-container {
-  font-size: max(0.8vw, 16px);
-}
-
-.announcement-form-errors-container {
-  margin-top: max(1.23vh, 12px);
-}
-
-.announcement-form-errors {
-  font-size: max(0.625vw, 12px);
-  color: red;
-  margin-bottom: max(0.625vw, 12px);
-}
-
-.annoucement-form-content-tracker-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  height: 0px;
-}
-
-.announcement-form-button-container {
-  /* height: 3vh; */
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.announcement-buttons {
-  width: max(3vw, 60px);
-  height: max(2vh, 20px);
-  cursor: pointer;
-  background-color: #a8dadc;
-  border-radius: 3px;
-  border: 1px solid #1d3557;
-  margin-top: 5px;
-  font-size: max(0.625vw, 12px);
-}
-
-.announcement-buttons:hover {
-  box-shadow: 1px 1px 5px 1px #1d3557;
-  border: 1px solid #1d3557;
-}
-
-.announcement-add {
-  width: 100%;
 }

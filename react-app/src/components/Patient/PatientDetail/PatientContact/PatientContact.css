@@ -1,92 +1,89 @@
 .patient-contact-page-container {
-    padding-bottom: max(.5vh,6px);
-    border-bottom: .625vw #1D3557 solid;
-    width: 100%;
-    /* height: 160px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding-bottom: max(0.5vh, 6px);
+  border-bottom: 0.625vw #1d3557 solid;
+  width: 100%;
+  /* height: 160px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.patient-contact-header-container{
-    width: 95%;
+.patient-contact-header-container {
+  width: 95%;
 }
 
-.patient-contact-header{
-    font-size: max(1.25vw, 24px);
+.patient-contact-header {
 }
 
-.patient-contact-name-phone-container{
-    width: 95%;
-    display: flex;
-    flex-direction: column;
+.patient-contact-name-phone-container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
 }
 
-.patient-contact-save-icon-container{
-    height: 0px;
-    width: 95%;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    bottom: max(5vh,50px);
+.patient-contact-save-icon-container {
+  height: 0px;
+  width: 95%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  bottom: max(5vh, 50px);
 }
 
-.patient-contact-edit-success{
-    font-size: max(1.25vw, 24px);
+.patient-contact-edit-success {
+  font-size: 2rem;
 }
 
-.patient-contact-save-icon{
-    font-size: 1.75em;
-    cursor: pointer;
-    font-size: max(1.67vw, 32px);
+.patient-contact-save-icon {
+  font-size: 1.75em;
+  cursor: pointer;
+  font-size: 2rem;
 }
 
-.patient-contact-save-icon:hover{
-    color: #1D3557;
+.patient-contact-save-icon:hover {
+  color: #1d3557;
 }
 
-.patient-contact-name-container{
-    display: flex;
-    border-bottom: 2px black solid;
+.patient-contact-name-container {
+  display: flex;
+  border-bottom: 2px black solid;
 }
 
-.patient-contact-first-name-container{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+.patient-contact-first-name-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
-.patient-contact-first-name-header{
-        font-weight: bold;
-    font-size: max(.625vw, 12px);
+.patient-contact-first-name-header {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .patient-contact-last-name-container {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
-.patient-contact-last-name-header{
-        font-weight: bold;
-    font-size: max(.625vw, 12px);
+.patient-contact-last-name-header {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
-
 
 .patient-contact-phone-container {
-    width: 50%;
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px black solid;
-    margin-bottom: 5px;
+  width: 50%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px black solid;
+  margin-bottom: 5px;
 }
 
-.patient-contact-phone-header{
-    font-weight: bold;
-    font-size: max(.625vw, 12px);
+.patient-contact-phone-header {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-.patient-contact-input-fields{
-    font-size: max(.8vw, 16px);
+.patient-contact-input-fields {
 }

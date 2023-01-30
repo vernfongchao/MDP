@@ -1,134 +1,134 @@
 .patient-profile-page-container {
-    box-sizing: border-box;
-    width: 33.4%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-right: .625vw #1D3557 solid;
+  box-sizing: border-box;
+  width: 33.4%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 0.625vw #1d3557 solid;
 }
 
-.patient-profile-detail-container{
-    width: 95%;
-    margin-bottom: 10px;
+.patient-profile-detail-container {
+  width: 95%;
+  margin-bottom: 10px;
 }
 
 /* .patient-profile-header-container{
 
 } */
 
-.patient-profile-edit-position{
-    width: max(290px, 27.4vw);
-    position: absolute;
+.patient-profile-edit-position {
+  width: max(290px, 27.4vw);
+  position: absolute;
 }
 
-.patient-profile-edit-container{
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
+.patient-profile-edit-container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
 }
 
-.patient-profile-edit-success{
-    font-size: max(1.25vw, 24px);
+.patient-profile-edit-success {
+  font-size: 1.5rem;
+  color: red;
 }
 
-.patient-profile-edit-icon{
-    cursor: pointer;
-    font-size: max(1.67vw, 32px);
+.patient-profile-edit-icon {
+  cursor: pointer;
+  font-size: 2rem;
 }
 
 .patient-profile-edit-icon:hover {
-    color: #1D3557;
+  color: #1d3557;
 }
 
-.patient-profile-header{
-    font-size: max(1.67vw, 32px);
+.patient-profile-header {
 }
 
-
-.patient-profile-container{
-    display: flex;
-    justify-content: space-between;
+.patient-profile-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-/* .patient-profile-picture-container{
+.patient-profile-picture-container {
+  margin-right: 0.4rem;
+}
 
-} */
-
-
-.patient-profile-picture-icon-position{
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    height: 0px;
-    width: 100%;
+.patient-profile-picture-icon-position {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  height: 0px;
+  width: 100%;
 }
 
 .patient-profile-picture-icon {
-    margin-top: max(.4vh,4px);
-    margin-right: max(.4vh, 4px);
-    cursor: pointer;
-    font-size: max(1.67vw, 32px);
-    color: #1D3557;
+  margin-top: max(0.4vh, 4px);
+  margin-right: max(0.4vh, 4px);
+  cursor: pointer;
+  font-size: 1.75rem;
+  color: #1d3557;
 }
 .patient-profile-picture-icon:hover {
-    color: red;
+  color: red;
 }
 
-
-.patient-profile-picture{
-    width: 12rem;
-    aspect-ratio: 1/1;
+.patient-profile-picture {
+  width: 12rem;
+  aspect-ratio: 1/1;
 }
 
-
-.patient-profile-info-container{
-    height: 100%;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
+.patient-profile-info-container {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
 }
 
-.patient-profile-id-name-update-container{
-    border-bottom: 2px black solid;
+.patient-profile-id-name-update-container {
+  border-bottom: 0.2rem black solid;
 }
 
 .patient-profile-info-header-text {
-    margin: 0;
-    font-weight: bold;
-    font-size: max(.625vw, 12px);
+  margin: 0;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .patient-profile-info-text {
-    margin: 0;
-    font-size: max(.8vw, 16px);
+  margin: 0;
 }
 
 .patient-profile-edit-name-input {
-    width: 95%;
-    font-size: max(.8vw, 16px);
+  width: 95%;
 }
 
-.patient-profile-address-input{
-    width: 97%;
-    font-size: max(.8vw, 16px);
+.patient-profile-address-input {
+  width: 97%;
 }
-
 
 .patient-profile-notes-container {
-    width: 95%;
-    height: 60%;
+  width: 95%;
+  height: 55%;
+}
+
+@media only screen and (max-width: 1280px) {
+  .patient-profile-notes-container {
+    margin-bottom: .5rem;
+    height: 50%;
+  }
 }
 
 .patient-profile-error {
-    color: red;
+  color: red;
 }
-.patient-profile-input-error{
-    border: 2px red solid;
+.patient-profile-input-error {
+  border: 2px red solid;
 }
 
-.patient-profile-error-text{
-    color: red;
-    padding-bottom: max(.5vh,5px);
-    font-weight: bold;
-    font-size: max(.625vw, 12px);
+.patient-profile-error-text {
+  color: red;
+  padding-bottom: max(0.5vh, 5px);
+  font-weight: bold;
+  font-size: max(0.625vw, 12px);
 }
