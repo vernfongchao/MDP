@@ -40,10 +40,6 @@
   color: #1d3557;
 }
 
-.patient-profile-header {
-  font-size: max(1.67vw, 32px);
-}
-
 .staff-profile-container {
   display: flex;
   justify-content: space-between;
