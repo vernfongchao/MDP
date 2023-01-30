@@ -8,7 +8,7 @@
 }
 
 .condition-header{
-    font-size: max(1.67vw, 32px);
+    margin-left: 1rem;
 }
 
 .condition-page-conditions-container{
@@ -18,9 +18,9 @@
 }
 
 .condition-page-cards-container{
-    border: 2px solid #1D3557;
+    border: .2rem solid #1D3557;
     min-width: 300px;
-    margin-bottom: 10px;
+    margin-bottom: .5rem;
     
 }
 .condition-page-cards-container:hover{
@@ -29,5 +29,5 @@
 }
 
 .condition-page-cards-container-name{
-    margin: 1rem;
+    margin: .5rem;
 }

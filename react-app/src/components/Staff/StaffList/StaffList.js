@@ -49,7 +49,7 @@ const StaffList = ({ idx }) => {
                             <label
                                 className="staff-search-label"
                             >
-                                Search
+                                Search:
                             </label>
                         </div>
                         <div className="staff-search-icon-container">

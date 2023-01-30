@@ -12,7 +12,7 @@ const StaffDepartment = ({ staff }) => {
     const staffDepartments = Object.values(useSelector(state => state.departmentStaffs.staff))
     const departments = useSelector(state => state.departments)
 
-    const isEdit = user?.id === staff.id
+    const isEdit = user?.id === staff?.id
 
     useEffect(() => {
         if (staff) {
