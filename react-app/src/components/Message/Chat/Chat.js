@@ -229,62 +229,95 @@ const Chat = ({ currStaff, isLoaded, setIsLoaded, setSearch, isEdit, setIsEdit }
                         // date.setMinutes(date.getMinutes() + 420)
                         const timestamp = new Date(date).toLocaleString('en-US', { 'timeZone': tzId })
                         return (
-                            <div className={staff.firstName === user?.firstName ? "chat-user-content-container" : "chat-staff-content-container"}
-                                key={i}
-                            >
-                                {message?.staffId === user?.id ?
-                                    <div className="chat-user-edit-content-container">
-                                        <div className="chat-user-timestamp-menu-container">
-                                            <span className="chat-user-timestamp">
-                                                Sent on {timestamp}
-                                            </span>
-                                            <div className="chat-edit-remove-menu-container" ref={menuRef.current[i]} onClick={e => handleChange(e, i)}>
-                                                <span className="chat-edit-remove-menu-button" > ...</span>
-                                                {messageIdx === i &&
-                                                    <div className="chat-edit-remove-menu">
-                                                        <div className="chat-edit-button-container" >
-                                                            <p className="chat-edit-remove-buttons" onClick={e => handleEdit(e, i, message.id)}>
-                                                                edit
-                                                            </p>
-                                                            <p className="chat-edit-remove-buttons" onClick={e => deleteChat(e, message.id)}>
-                                                                remove
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                }
-                                            </div>
+                          <div
+                            className={
+                              staff.firstName === user?.firstName
+                                ? "chat-user-content-container"
+                                : "chat-staff-content-container"
+                            }
+                            key={i}
+                          >
+                            {message?.staffId === user?.id ? (
+                              <div className="chat-user-edit-content-container">
+                                <div className="chat-user-timestamp-menu-container">
+                                  <span className="chat-user-timestamp">
+                                    Sent on {timestamp}
+                                  </span>
+                                  <div
+                                    className="chat-edit-remove-menu-container"
+                                    ref={menuRef.current[i]}
+                                    onClick={(e) => handleChange(e, i)}
+                                  >
+                                    <span className="chat-edit-remove-menu-button">
+                                      {" "}
+                                      ...
+                                    </span>
+                                    {messageIdx === i && (
+                                      <div className="chat-edit-remove-menu">
+                                        <div className="chat-edit-button-container">
+                                          <p
+                                            className="chat-edit-remove-buttons"
+                                            onClick={(e) =>
+                                              handleEdit(e, i, message.id)
+                                            }
+                                          >
+                                            edit
+                                          </p>
+                                          <p
+                                            className="chat-edit-remove-buttons"
+                                            onClick={(e) =>
+                                              deleteChat(e, message.id)
+                                            }
+                                          >
+                                            remove
+                                          </p>
                                         </div>
-                                        <div className="chat-user-content-edit-container">
-                                            <p className={editI === message.id ? "chat-user-content chat-user-edit-content" : "chat-user-content"}>
-                                                {message.content}
-                                            </p>
-                                            {message.isEdited &&
-                                                <span className="chat-user-edited-text">
-                                                    edited
-                                                </span>}
-                                        </div>
-                                    </div>
-                                    :
-                                    (
-                                        <div className="chat-staff-name-content-container">
-                                            <span className="chat-staff-name">
-                                                {staff.firstName} {staff.lastName} <span className="chat-staff-timestamp">sent on {timestamp}</span>
-                                            </span>
-                                            <div>
-                                                <p className="chat-staff-content">
-                                                    {message.content}
-                                                </p>
-                                            </div>
-                                            {message.isEdited &&
-                                                <span className="chat-user-edited-text">
-                                                    edited
-                                                </span>}
-                                        </div>
-                                    )
-                                }
-                                <span ref={scrollRef}></span>
-                            </div>
-                        )
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                                <div className="chat-user-content-edit-container">
+                                  <p
+                                    className={
+                                      editI === message.id
+                                        ? "chat-user-content chat-user-edit-content"
+                                        : "chat-user-content"
+                                    }
+                                  >
+                                    {message.content}
+                                  </p>
+                                  {message.isEdited && (
+                                    <span className="chat-user-edited-text">
+                                      edited
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="chat-staff-name-content-container">
+                                <div className="chat-staff-name-container">
+                                  <span className="chat-staff-name">
+                                    {staff.firstName} {staff.lastName}
+                                  </span>
+                                  <span className="chat-staff-timestamp">
+                                    sent on {timestamp}
+                                  </span>
+                                </div>
+                                <div>
+                                  <p className="chat-staff-content">
+                                    {message.content}
+                                  </p>
+                                </div>
+                                {message.isEdited && (
+                                  <span className="chat-user-edited-text">
+                                    edited
+                                  </span>
+                                )}
+                              </div>
+                            )}
+                            <span ref={scrollRef}></span>
+                          </div>
+                        );
                     })
                     }
 

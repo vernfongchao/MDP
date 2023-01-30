@@ -1,199 +1,187 @@
-.chat-page-container{
-    box-sizing: border-box;
-    border-right: .625vw #1D3557 solid;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 33.3%;
-    overflow-y: auto;
+.chat-page-container {
+  box-sizing: border-box;
+  border-right: 0.625vw #1d3557 solid;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
+  overflow-y: auto;
 }
 
-.chat-header{
-    font-size: max(1.67vw, 32px);
+.chat-header {
 }
 
-.chat-messages-container{
-    width: 100%;
-    overflow-y: auto;
+.chat-messages-container {
+  width: 100%;
+  overflow-y: auto;
 }
 
 .chat-staff-content-container {
-    margin-left: max(1vw);
-    margin-bottom: 1vh;
-    display: flex;
-    margin-right: max(1vw);
-    overflow-wrap: anywhere;
+  margin-left: max(1vw);
+  margin-bottom: 1vh;
+  display: flex;
+  margin-right: max(1vw);
+  overflow-wrap: anywhere;
 }
 
-.chat-staff-name-content-container{
-    display: flex;
-    flex-direction: column;
-    overflow-wrap: anywhere;
+.chat-staff-name-content-container {
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: anywhere;
 }
 
-
-.chat-user-content-container{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: max(1vw);
-    margin-right: max(1vw);
-    overflow-wrap: anywhere;
-    /* width: 100%; */
+.chat-user-content-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: max(1vw);
+  margin-right: max(1vw);
+  overflow-wrap: anywhere;
+  /* width: 100%; */
 }
 
-.chat-user-edit-content-container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-bottom: 16px;
+.chat-user-edit-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 16px;
 }
 
-.chat-user-content-edit-container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.chat-user-content-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-.chat-user-timestamp-menu-container{
-    display: flex;
-    justify-content: center;
+.chat-user-timestamp-menu-container {
+  display: flex;
+  justify-content: center;
 }
 
-.chat-user-timestamp{
-    font-size: max(.625vw, 12px);
-    margin-right: max(.5vw);
+.chat-user-timestamp {
+  font-size: 0.9rem;
+  margin-right: max(0.5vw);
 }
 
-.chat-user-content{
-    display: inline-block;
-    padding: 5px;
-    border: 2px solid #A8DADC;
-    border-radius: 15px;
-    font-size: max(.8vw, 16px);
-    margin: 0px
-    
+.chat-user-content {
+  display: inline-block;
+  padding: 5px;
+  border: 2px solid #a8dadc;
+  border-radius: 15px;
+  margin: 0px;
 }
 
-.chat-user-edit-content{
-    border: 2px solid red;
+.chat-user-edit-content {
+  border: 2px solid red;
 }
 
-.chat-user-edited-text{
-    font-size: max(.625vw, 12px);
+.chat-user-edited-text {
+  font-size: 0.9rem;
 }
-.chat-staff-name{
-    font-size: max(.8vw, 16px);
+.chat-staff-name {
+  font-weight: bold;
 }
 
-.chat-staff-timestamp{
-    font-size: max(.625vw, 12px);
+.chat-staff-timestamp {
+  font-size: 0.9rem;
 }
 
 .chat-staff-content {
-    font-size: max(.8vw, 16px);
-    display: inline-block;
-    padding: 5px;
-    border: 2px solid #1D3557;
-    border-radius: 15px;
-    margin: 0px;
+  display: inline-block;
+  padding: 0.5rem;
+  border: 0.2rem solid #1d3557;
+  border-radius: 1rem;
+  margin: 0px;
 }
 
-.chat-user-staff-content-container{
-    font-size: max(.8vw, 16px);
-    display: flex;
-    flex-direction: column;
+.chat-staff-name-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.chat-edit-remove-menu-container{
-    font-size: max(.8vw, 16px);
-    width: max(1.45vw,29px);
-    display: flex;
-    justify-content: flex-end;
+.chat-edit-remove-menu-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.chat-edit-remove-menu-button{
-    cursor: pointer;
-    font-size: max(.625vw, 12px);
+.chat-edit-remove-menu-button {
+  cursor: pointer;
 }
 
-.chat-edit-remove-menu-button:hover{
-    color: red;
+.chat-edit-remove-menu-button:hover {
+  color: red;
 }
 
-.chat-edit-remove-menu{
-    top: max(2vh,20px);
-    position: relative;
-    width: 0px;
-    height: 0px;
-    right: max(3.5vw,69px);
-
+.chat-edit-remove-menu {
+  top: 1.5rem;
+  position: relative;
+  width: 0px;
+  height: 0px;
+  right: 6rem;
 }
 
-.chat-edit-button-container{
-    background-color: #F1FAEE;
-    width: 3vw;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 10px;
-    border: 2px solid #1D3557;
+.chat-edit-button-container {
+  background-color: #f1faee;
+  width: 4rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 10px;
+  border: 0.2rem solid #1d3557;
 }
 
-.chat-edit-remove-buttons{
-    font-size: max(.8vw, 16px);
-    margin: 0px;
+.chat-edit-remove-buttons {
+  margin: 0px;
 }
 
 .chat-edit-remove-buttons:hover {
-    background-color: #A8DADC;
-    box-shadow: 1px 1px 5px 1px #1d3557;
+  background-color: #a8dadc;
+  box-shadow: 1px 1px 5px 1px #1d3557;
 }
 
-.chat-staff-new-message-container{
-    display: flex;
-    justify-content: center;
-    width: 95%;
+.chat-staff-new-message-container {
+  display: flex;
+  justify-content: center;
+  width: 95%;
 }
 
-.message-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding-bottom: .5vw;
+.message-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.5vw;
 }
 
-.message-input{
-    box-sizing: border-box;
-    width: 95%;
-    resize: none;
-    font-size: max(.8vw, 16px);
-    border-radius: .5vw;
-    margin-bottom: 1vh;
+.message-input {
+  box-sizing: border-box;
+  width: 95%;
+  resize: none;
+  border-radius: 0.5vw;
+  margin-bottom: 1vh;
 }
 
-.message-form-submit-button-container{
-    width: 95%;
-    display: flex;
-    justify-content: flex-end;
+.message-form-submit-button-container {
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
 }
-.message-form-cancel-button{
-    margin-right: max(.625vw, 12px);
-    cursor: pointer;
-    font-size: max(.8vw, 16px);
-    background-color: #A8DADC;
-    border-radius: 3px;
+.message-form-cancel-button {
+  margin-right: 1rem;
+  cursor: pointer;
+  background-color: #a8dadc;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.5rem;
 }
 
-.message-form-submit-button{
-    cursor: pointer;
-    font-size: max(.8vw, 16px);
-    background-color: #A8DADC;
-    border-radius: 3px;
+.message-form-submit-button {
+  cursor: pointer;
+  background-color: #a8dadc;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.5rem;
 }
 
 .message-form-cancel-button:hover,
 .message-form-submit-button:hover {
-    box-shadow: 1px 1px 5px 1px #1d3557;
+  box-shadow: 1px 1px 5px 1px #1d3557;
 }

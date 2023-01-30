@@ -47,7 +47,7 @@ const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex,search,setS
                         <label
                             className="message-search-label"
                         >
-                            Search
+                            Search:
                         </label>
                     </div>
                     <div className="message-search-icon-container">
