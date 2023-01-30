@@ -13,16 +13,6 @@ const Tabs = () => {
 
     const [tabs, setTabs] = useState([{ title: "Dash...", idx: 0 }])
 
-    useEffect(() => {
-        if (!user) {
-            setTabs([{ title: "Dash... ", idx: 0 }])
-            setIndex(0)
-        }
-        // if(tabs){
-
-        // }
-    }, [user])
-
     const addTabs = async () => {
         setTabs([...tabs, { title: "Dash...", idx: 0 }])
         let currActive = await document.getElementsByClassName("active-tab")

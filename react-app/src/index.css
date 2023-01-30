@@ -3,6 +3,8 @@ html {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-size: 12px;
+  font-family: "Fira Mono", monospace;
 }
 
 body {
@@ -17,74 +19,77 @@ body {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
+span,
+p,
+input {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.17rem;
+}
+
+@media only screen and (min-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  html {
+    font-size: 21px;
+  }
+}
+
+@media only screen and (min-width: 3840px) {
+  html {
+    font-size: 32px;
+  }
+}
 
 /* ----- LOGIN/SIGNUP MODAL STYLES ------*/
-
-#signup-modal-main-page,
-#login-modal-main-page {
-  padding: 5px 7px;
-  border-radius: 5px;
-  border: 1px solid #f1faee;
-  background-color: #f1faee;
-  box-shadow: 1px 1px 4px 1px #f1faee;
-}
-
-.login-modal-page-container {
-  height: max(30%, 30px);
-  width: max(40%, 80px);
-}
-
-#login-modal-main-page {
-  margin-right: 20px;
-  height: 100%;
-  width: max(95%, 78px);
-  font-size: min(0.8vw, 36px);
-  border-radius: 5px;
-}
-
-.signup-modal-page-container {
-  height: max(30%, 30px);
-  width: max(45%, 85px);
-}
-
-#signup-modal-main-page {
-  height: 100%;
-  width: max(100%, 90px);
-  font-size: min(0.8vw, 36px);
-  border-radius: 5px;
-}
-
-#signup-modal-main-page:hover,
-#login-modal-main-page:hover,
-#logout-button-page-container {
-  background-color: #a8dadc;
-  border: 1px solid #a8dadc;
-  box-shadow: 1px 1px 5px 1px #a8dadc;
-  /* color: #F1FAEE; */
-  cursor: pointer;
-}
 
 .main-user-login,
 .main-user-signup {
   display: flex;
   flex-direction: column;
   background-color: #f1faee;
-  padding: 30px 40px;
+  padding: 1.5rem 3rem;
   justify-content: center;
   border-radius: 5px;
 }
 
 .form-input-user-label {
-  font-size: max(0.8vw, 16px);
+  font-size: 0.9rem;
 }
 
 .form-input-user {
-  font-size: max(0.8vw, 16px);
+  font-size: 1rem;
   width: 100%;
-  padding: 4px;
-  margin: 8px 0px;
+  padding: 0.3rem;
+  margin: 0.66rem 0px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 0.3rem;
+  background-color: white;
+}
+
+.form-input-user-select {
+  font-size: 1rem;
+  width: 103%;
+  padding: 0.3rem;
+  margin: 0.66rem 0px;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
   background-color: white;
 }
 
@@ -94,14 +99,13 @@ body {
 
 .user-buttons,
 .demo-button {
-  padding: 6px 10px;
+  font-size: 1rem;
+  padding: 0.5rem 0.6rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 5px;
+  border-radius: 0.5rem;
   background-color: white;
   color: black;
-  width: max(6vw, 115px);
-  font-size: max(0.8vw, 16px);
+  width: 7vw;
 }
 
 .user-buttons:hover,
@@ -115,9 +119,8 @@ body {
 .buttons-div {
   display: flex;
   align-items: center;
-  margin: 3px 0px px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .logout-button-page-container {
@@ -128,7 +131,6 @@ body {
 #logout-button {
   height: 100%;
   width: max(100%, 90px);
-  font-size: min(0.8vw, 36px);
   border: 2px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
@@ -143,27 +145,26 @@ body {
 
 .signup-error-text {
   padding-bottom: 5px;
-  font-size: max(0.625vw, 12px);
   font-weight: bold;
 }
 
 .login-form-to-signup-container {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
-  font-size: max(0.625vw, 12px);
+  padding-top: 1rem;
+}
+.swap-form-text {
+  font-size: 0.9rem;
 }
 
 .login-form-to-signup-text {
+  font-size: 0.9rem;
   color: #a8dadc;
   cursor: pointer;
 }
 
 .login-form-to-signup-text:hover {
   color: red;
-}
-
-.swap-form-text {
 }
 
 /* -------------- // ----------------- */

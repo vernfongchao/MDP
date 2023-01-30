@@ -27,14 +27,9 @@
 
 .navbar-header{
     box-sizing: border-box;
-    font-size: 1.40vw;
-    
     padding-left: 1vw;
     padding-top: .75vh;
     padding-bottom: .75vh;
-    /* padding-top: 10px;
-    padding-left: 20px;
-    padding-bottom: 10px; */
     margin: 0;
     cursor: pointer;
 }
@@ -56,6 +51,5 @@
     position: absolute;
     display: flex;
     flex-direction: row;
-    /* top: max(15.4vh, 140px); */
     left: 10vw
 }

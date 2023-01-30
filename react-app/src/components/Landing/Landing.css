@@ -8,11 +8,14 @@
 }
 
 .landing__form {
-  width: 500px;
+  width: 25%;
   border: 2px black solid;
   border-radius: 5px;
-  @media only screen and (max-width: 786px) {
-    width: 100%;
+}
+
+@media only screen and (max-width: 1280px) {
+  .landing__form {
+    width: 30%;
   }
 }
 

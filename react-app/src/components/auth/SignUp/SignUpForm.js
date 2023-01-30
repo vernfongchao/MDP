@@ -99,136 +99,227 @@ const SignUpForm = ({setShowModal}) => {
     return <Redirect to='/' />;
   }
 
-  return ( isSignup ?
+  return isSignup ? (
     <form className="main-user-signup" onSubmit={onSignUp}>
       <div>
         <label
-          className={usernameError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-        >Username</label>
+          className={
+            usernameError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          Username
+        </label>
         <input
-          className={usernameError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          type='text'
-          name='username'
+          className={
+            usernameError.length
+              ? "form-input-user form-input-error"
+              : "form-input-user"
+          }
+          type="text"
+          name="username"
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div className='signup-error-text'>
-        {usernameError.length ? usernameError.map(error => (
-          <span key={error}> {error}</span>
-        )) : null}
+      <div className="signup-error-text">
+        {usernameError.length
+          ? usernameError.map((error) => <span key={error}> {error}</span>)
+          : null}
       </div>
       <div>
         <label
-          className={emailError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-        >Email</label>
+          className={
+            emailError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          Email
+        </label>
         <input
-          className={emailError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          type='text'
-          name='email'
+          className={
+            emailError.length
+              ? "form-input-user form-input-error"
+              : "form-input-user"
+          }
+          type="text"
+          name="email"
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
-      <div className='signup-error-text'>
-        {emailError.length ? emailError.map(error => (
-          <span key={error}> {error}</span>
-        )) : null}
+      <div className="signup-error-text">
+        {emailError.length
+          ? emailError.map((error) => <span key={error}> {error}</span>)
+          : null}
       </div>
       <div>
-        <label className={firstNameError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-        >First Name</label>
+        <label
+          className={
+            firstNameError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          First Name
+        </label>
         <input
-          className={firstNameError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          type='text'
-          name='firstName'
+          className={
+            firstNameError.length
+              ? "form-input-user form-input-error"
+              : "form-input-user"
+          }
+          type="text"
+          name="firstName"
           onChange={updateFirstName}
           value={firstName}
         ></input>
       </div>
-      <div className='signup-error-text'>
-        {firstNameError.length ? firstNameError.map(error => (
-          <span key={error}> {error}</span>
-        )) : null}
+      <div className="signup-error-text">
+        {firstNameError.length
+          ? firstNameError.map((error) => <span key={error}> {error}</span>)
+          : null}
       </div>
       <div>
         <label
-          className={lastNameError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-        >Last Name</label>
+          className={
+            lastNameError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          Last Name
+        </label>
         <input
-          className={lastNameError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          type='text'
-          name='lastName'
+          className={
+            lastNameError.length
+              ? "form-input-user form-input-error"
+              : "form-input-user"
+          }
+          type="text"
+          name="lastName"
           onChange={updateLastName}
           value={lastName}
         ></input>
       </div>
-      <div className='signup-error-text'>
-        {lastNameError.length ? lastNameError.map(error => (
-          <span key={error}> {error}</span>
-        )) : null}
-      </div>
-      <div>
-        <label htmlFor="role"
-          className={positionError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-        >Role</label>
-        <select defaultValue={""} className={positionError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          onChange={updateRole}>
-          <option disabled value={""}> </option>
-          {roles?.map(singleRole => (
-            <option key={singleRole.id} value={singleRole?.id}>{singleRole?.position_name}</option>
-          ))}
-        </select>
-      </div>
-      <div className='signup-error-text'>
-        {positionError.length ? positionError.map(error => (
-          <span key={error}> {error}</span>
-        )) : null}
+      <div className="signup-error-text">
+        {lastNameError.length
+          ? lastNameError.map((error) => <span key={error}> {error}</span>)
+          : null}
       </div>
       <div>
         <label
-          className={passwordError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-          >Password</label>
+          htmlFor="role"
+          className={
+            positionError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          Role
+        </label>
+        <select
+          defaultValue={""}
+          className={
+            positionError.length
+              ? "form-input-user-select form-input-error"
+              : "form-input-user-select"
+          }
+          onChange={updateRole}
+        >
+          <option disabled value={""}>
+            {" "}
+          </option>
+          {roles?.map((singleRole) => (
+            <option key={singleRole.id} value={singleRole?.id}>
+              {singleRole?.position_name}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="signup-error-text">
+        {positionError.length
+          ? positionError.map((error) => <span key={error}> {error}</span>)
+          : null}
+      </div>
+      <div>
+        <label
+          className={
+            passwordError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          Password
+        </label>
         <input
-          className={passwordError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          type='password'
-          name='password'
+          className={
+            passwordError.length
+              ? "form-input-user form-input-error"
+              : "form-input-user"
+          }
+          type="password"
+          name="password"
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div className='signup-error-text'>
-        {passwordError.length ? passwordError.map(error => (
-          <p key={error}> {error}</p>
-        )) : null}
+      <div className="signup-error-text">
+        {passwordError.length
+          ? passwordError.map((error) => <p key={error}> {error}</p>)
+          : null}
       </div>
       <div>
         <label
-          className={repeatPasswordError.length ? "form-input-user-label signup-error" : "form-input-user-label "}
-        >Repeat Password</label>
+          className={
+            repeatPasswordError.length
+              ? "form-input-user-label signup-error"
+              : "form-input-user-label "
+          }
+        >
+          Repeat Password
+        </label>
         <input
-          className={repeatPasswordError.length ? 'form-input-user form-input-error' : "form-input-user"}
-          type='password'
-          name='repeat_password'
+          className={
+            repeatPasswordError.length
+              ? "form-input-user form-input-error"
+              : "form-input-user"
+          }
+          type="password"
+          name="repeat_password"
           onChange={updateRepeatPassword}
           value={repeatPassword}
         ></input>
       </div>
-      <div className='signup-error-text'>
-        {repeatPasswordError.length ? repeatPasswordError.map(error => (
-          <span key={error}> {error}</span>
-        )) : null}
+      <div className="signup-error-text">
+        {repeatPasswordError.length
+          ? repeatPasswordError.map((error) => (
+              <span key={error}> {error}</span>
+            ))
+          : null}
       </div>
-      <div className='buttons-div'>
-        <button className='user-buttons' type='submit'>Sign Up</button>
+      <div className="buttons-div">
+        <button className="user-buttons" type="submit">
+          Sign Up
+        </button>
       </div>
-      <div className='login-form-to-signup-container'>
+      <div className="login-form-to-signup-container">
         <span>
-          Already a staff member? <span className='login-form-to-signup-text' onClick={() => setIsSignup(false)}>Login</span> here
+          Already a staff member?{" "}
+          <span
+            className="login-form-to-signup-text"
+            onClick={() => setIsSignup(false)}
+          >
+            Login
+          </span>{" "}
+          here
         </span>
       </div>
-    </form > :
-    (!isSignup && <LoginForm setShowModal={setShowModal}/>)
+    </form>
+  ) : (
+    !isSignup && <LoginForm setShowModal={setShowModal} />
   );
 };
 
