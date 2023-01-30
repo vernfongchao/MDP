@@ -10,18 +10,16 @@
 }
 
 .creator-picture{
-    padding-top: 1vh;
-    width: 96%;
+    padding-top: 2rem;
+    width: 50%;
     aspect-ratio: 1/1;
 }
 
 .creator-picture-about-container{
-
     width: 96%;
 }
 
 .creator-picture-contribution-header{
-    font-size: max(1.25vw, 24px);
 }
 
 .creator-picture-contributions-ul{
@@ -29,5 +27,5 @@
 }
 
 .creator-picture-about-container li {
-    font-size: max(.8vw, 16px);
+    margin-bottom: 1rem;
 }

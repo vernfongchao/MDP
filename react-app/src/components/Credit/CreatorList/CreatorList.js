@@ -37,7 +37,7 @@ const CreatorList = ({index,setIndex ,creators}) => {
                         <label
                             className="staff-search-label"
                         >
-                            Search
+                            Search:
                         </label>
                     </div>
                     <div className="staff-search-icon-container">
