@@ -9,14 +9,14 @@ import './MessageList.css'
 const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex,search,setSearch,setIsEdit }) => {
 
     
-    // useEffect(() => {
-    //     if(search){
-    //         setCurrStaff(filteredStaffs[0])
-    //     }
-    //     else if(!search){
-    //         setCurrStaff(filteredStaffs[0])
-    //     }
-    // },[search])
+    useEffect(() => {
+        if(search){
+            setCurrStaff(filteredStaffs[0])
+        }
+        else if(!search){
+            setCurrStaff(filteredStaffs[0])
+        }
+    },[search])
 
     const changeSearch = async(e) => {
         await setSearch(e.target.value)
