@@ -156,6 +156,7 @@
 .message-input {
   box-sizing: border-box;
   width: 95%;
+  font-size: 1rem;
   resize: none;
   border-radius: 0.5vw;
   margin-bottom: 1vh;
