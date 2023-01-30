@@ -25,7 +25,9 @@ p {
 
 span,
 p,
-input {
+input,
+button,
+li {
   font-size: 1rem;
 }
 

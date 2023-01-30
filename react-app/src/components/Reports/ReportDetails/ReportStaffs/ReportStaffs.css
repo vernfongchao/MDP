@@ -1,55 +1,50 @@
 .report-staffs-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border-bottom: 10px #1D3557 solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 10px #1d3557 solid;
 }
 
-
 .report-staff-add-icon:hover {
-    cursor: pointer;
-    color: #1D3557;
+  cursor: pointer;
+  color: #1d3557;
 }
 
 .report-staffs-header-container {
-    width: 95%;
+  width: 95%;
 }
 
-.report-staffs-header{
-    font-size: max(1.25vw, 24px);
+.report-staffs-header {
 }
+
 .report-staffs-card-container {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .report-staff-card-id-name-container {
-    width: 60%;
+  margin: 0rem 0.5rem;
+  width: 100%;
 }
 
 .report-staff-card-id-container {
-    border-bottom: #1D3557 solid 2px;
-
+  border-bottom: #1d3557 solid 2px;
 }
 
 .report-staff-card-id-name-header {
-    font-weight: bold;
-        margin: 0%;
-        font-size: max(.625vw, 12px);
+  font-weight: bold;
 }
 
 .report-staff-card-id {
-    margin: 0%;
-        font-size: max(.8vw, 16px);
 }
 
 .report-staff-card-name-container {
-    display: flex;
-    border-bottom: #1D3557 solid 2px;
+  display: flex;
+  border-bottom: #1d3557 solid 2px;
 }
 
 .report-staff-name-container {
-    width: 50%;
+  width: 50%;
 }

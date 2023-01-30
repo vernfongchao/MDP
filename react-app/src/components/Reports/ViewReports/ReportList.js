@@ -54,7 +54,7 @@ const ReportList = () => {
                             <label
                                 className="report-search-label"
                             >
-                                Search
+                                Search:
                             </label>
                         </div>
                         <div className="report-search-icon-container">

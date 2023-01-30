@@ -1,81 +1,46 @@
-.announcement-details-page-container{
-    box-sizing: border-box;
-    border-right: .625vw #1D3557 solid;
-    height: 100%;
-    width: 33.3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-wrap: break-word;
-
-}   
-
-
-.announcement-detail-header-container{
-    width: 100%;
-}
-.announcement-information{
-    display: flex;
-    justify-content: center;
-    font-size: max(1.67vw, 32px);
+.announcement-details-page-container {
+  box-sizing: border-box;
+  border-right: 0.625vw #1d3557 solid;
+  height: 100%;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: break-word;
 }
 
-.announcement-detail-content-container{
-    width: 95%;
-    overflow-wrap: break-word;
-    overflow-y: auto;
+.announcement-detail-header-container {
+  width: 100%;
+}
+.announcement-information {
+  display: flex;
+  justify-content: center;
 }
 
-.announcement-detail-content-container > h1 {
-    font-size: max(1.67vw, 32px);
-}
-.announcement-detail-content-container>h2 {
-    font-size: max(1.25vw, 24px);
-}
-.announcement-detail-content-container>h3 {
-    font-size: max(.975vw, 18.72px);
-}
-.announcement-detail-content-container>p{
-    font-size: max(.8vw, 16px);
-}
-.announcement-detail-content-container>span {
-font-size: max(.8vw, 16px);
-}
-.announcement-detail-content-container>ol >li {
-font-size: max(.8vw, 16px);
+.announcement-detail-content-container {
+  width: 95%;
+  overflow-wrap: break-word;
+  overflow-y: auto;
 }
 
-.announcement-detail-content-container>ul>li {
-font-size: max(.8vw, 16px);
+.announcement-edit-button-position {
+  height: 0px;
+  width: 98%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
 }
 
-.announcement-detail-writer-container{
-    font-size: max(.8vw, 16px);
+.announcement-edit-button {
+  position: absolute;
+  cursor: pointer;
+  background-color: #a8dadc;
+  border: 0.2rem solid #1d3557;
+  border-radius: 0.3rem;
+  margin-top: 0.5rem;
+  padding: 0.3rem .6rem;
 }
 
-/* font-size: max(.625vw, 12px); */
-
-
-.announcement-edit-button-position{
-    height: 0px;
-    width: 98%;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-}
-
-.announcement-edit-button{
-    cursor: pointer;
-    background-color: #A8DADC;
-    border: 1px solid #1D3557;
-    border-radius: 3px;
-    margin-top: 5px;
-    width: max(3vw, 60px);
-    height: max(2vh, 20px);
-    font-size: max(.625vw, 12px);
-}
-
-.announcement-edit-button:hover{
-    box-shadow: 1px 1px 5px 1px #1D3557;
-    /* border: 1px solid #1D3557; */
+.announcement-edit-button:hover {
+  box-shadow: 1px 1px 5px 1px #1d3557;
 }

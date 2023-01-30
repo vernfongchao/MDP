@@ -15,9 +15,6 @@ import "./Report.css"
 const Report = ({ index, setIndex, setSearch, report }) => {
     const dispatch = useDispatch()
 
-    const reportLength = Object.values(useSelector(state => state.reports)).length
-
-
     const [lastIndex, setLastIndex] = useState(index)
 
     const [newReport, setNewReport] = useState(false)

@@ -76,7 +76,7 @@
 
 
 .patient-profile-picture{
-    height: max(10vw,200px);
+    width: 12rem;
     aspect-ratio: 1/1;
 }
 

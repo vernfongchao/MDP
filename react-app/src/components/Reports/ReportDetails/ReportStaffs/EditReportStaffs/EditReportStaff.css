@@ -1,228 +1,206 @@
 /* Modal */
 
 .report-staff-edit-icon-modal-container {
-    width: 95%;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    height: 0px;
-    top: 10px;
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  height: 0px;
+  top: 10px;
 }
 
 .report-staff-edit-icon {
-    font-size: max(1.25vw, 24px);
+  font-size: 2rem;
 }
 
 .report-staff-edit-icon:hover {
-    cursor: pointer;
-    color: #1D3557;
+  cursor: pointer;
+  color: #1d3557;
 }
 
 /* Inside-Modal */
 
-.edit-report-staff-page-container{
-    height: max(72vh, 700px);
-    width: max(29.6vw, 568.75px);
-    background-color: #F1FAEE;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.edit-report-staff-page-container {
+  height: 50rem;
+  width: 40rem;
+  background-color: #f1faee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.edit-report-staff-icon-container{
-    position: relative;
-    width: 95%;
-    height: 0px;
-    top: 10px;
-    display: flex;
-    justify-content: flex-end;
+.edit-report-staff-icon-container {
+  position: relative;
+  width: 95%;
+  height: 0px;
+  top: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.edit-report-staff-save-icon{
-font-size: max(1.67vw, 32px);
-    cursor: pointer;
+.edit-report-staff-save-icon {
+  font-size: 2rem;
+  cursor: pointer;
 }
 
-.edit-report-staff-save-icon:hover{
-    color:#1D3557
+.edit-report-staff-save-icon:hover {
+  color: #1d3557;
 }
 
-.edit-report-staff-cancel-icon{
-    cursor: pointer;
-font-size: max(1.67vw, 32px);
-    color: red;
+.edit-report-staff-cancel-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  color: red;
 }
 
 .edit-report-staff-cancel-icon:hover {
-    box-shadow: 1px 1px 5px 1px red;
+  box-shadow: 1px 1px 5px 1px red;
 }
 
-.edit-report-staff-header-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.edit-report-staff-header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.edit-report-staff-header{
-        font-size: max(1.67vw, 32px);
+.edit-report-staff-header {
 }
 
 .edit-report-staff-search-container {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: max(10px,1vh);
-
+  width: 80%;
+  display: flex;
+  padding-bottom: 1rem;
 }
 
 .edit-report-staff-search-label-container {
-    /* display: flex;
-    align-items: center; */
+  display: flex;
+  align-items: center;
 }
 
 .edit-report-staff-search-label {
-    font-weight: bold;
-        font-size: max(.8vw, 16px);
+  font-weight: bold;
 }
 
 .edit-report-staff-input-container {
-    display: flex;
-    width: 80%;
+  display: flex;
+  width: 100%;
 }
 
 .edit-report-staff-search-input {
-    font-size: max(.8vw, 16px);
-    width: 100%;
-    border: none;
-    border-bottom: 2px black solid;
+  width: 100%;
+  border: none;
+  border-bottom: 0.2rem black solid;
 }
 
 .edit-report-staff-search-input:hover {
-    outline: none;
+  outline: none;
 }
 
 .edit-report-staff-search-clear-icon {
-    font-size: max(1.25vw, 24px);
-        border-bottom: 2px black solid;
-        cursor: pointer;
+  font-size: 2rem;
+  border-bottom: 2px black solid;
+  cursor: pointer;
 }
 
 .edit-report-staff-search-clear-icon:hover {
-    color: red;
+  color: red;
 }
 
-
-.edit-report-staff-remove-container{
-    box-sizing: border-box;
-    padding-left: max(3vw, 57px);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.edit-report-staff-remove-container {
+  box-sizing: border-box;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
-.edit-report-staff-name-container{
-    box-sizing: border-box;
-    width: 88.5%;
-    margin-top: max(1vh, 10px);
-    display: flex;
-    padding-left: 3px;
-    padding-right: 3px;
-    background-color: #A8DADC;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-right: max(.5vw, 10px);
-    font-size: max(.8vw, 16px);
-    overflow-wrap: anywhere;
+.edit-report-staff-name-container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: .5rem;
+  display: flex;
+  padding: 0.2rem;
+  background-color: #a8dadc;
+  border: 0.2rem solid black;
+  border-radius: 5px;
+  margin-right: max(0.5vw, 10px);
+  overflow-wrap: anywhere;
 }
 
 .edit-report-staff-name-id-container {
-    width: 100%;
+  width: 100%;
 }
-
-.edit-report-staff-name{
-    /* box-sizing: border-box;
-    overflow-x: hidden;
-    width: 22.5vw; */
-}
-
-
-
 
 .edit-report-staff-remove-icon-container {
-    display: flex;
-    justify-content: flex-end;
-    height: 0%;
-    position: relative;
-    left: .5vw;
-    bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  height: 0%;
+  position: relative;
+  left: 0.5vw;
+  bottom: 10px;
 }
 
 .edit-report-staff-remove-icon {
-    border-radius: 5px;
-    border: #1D3557 solid 2px;
-    font-size: .75em;
-    bottom: 10px;
-    right: 3px;
-    z-index: 1;
-    background-color: #1D3557;
-    color: white;
-
+  border-radius: 0.5rem;
+  border: #1d3557 solid 0.2rem;
+  font-size: 0.75em;
+  bottom: 10px;
+  right: 3px;
+  z-index: 1;
+  background-color: #1d3557;
+  color: white;
 }
 
 .edit-report-staff-remove-icon:hover {
-    background-color: white;
-    color: red;
-    cursor: pointer;
+  background-color: white;
+  color: red;
+  cursor: pointer;
 }
 
-.edit-report-staff-cards-container{
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: max(2.68vw, 52px);
-    overflow-y: auto;
-    overflow-x: hidden;
+.edit-report-staff-cards-container {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .edit-report-staff-card-container {
-    box-sizing: border-box;
-    margin-top: max(.5vh, 5px);
-    margin-left: max(.25vw, 5px);
-    display: flex;
-    justify-content: space-between;
-    padding: max(.5vw, 10px);
-    border: 2px black solid;
-    width: max(23.6vw, 422px);
-    box-shadow: 1px 1px 5px 1px #F1FAEE;
-    overflow-wrap: break-word;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  margin-top: max(0.5vh, 5px);
+  padding: max(0.5vw, 10px);
+  border: 0.2rem black solid;
+  box-shadow: 1px 1px 5px 1px #f1faee;
+  overflow-wrap: break-word;
 }
 
 .edit-report-staff-card-container:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 1px solid #1D3557;
-    background-color: #A8DADC;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 1px #1d3557;
+  border: 1px solid #1d3557;
+  background-color: #a8dadc;
 }
 
-.edit-report-staff-img{
-    width: max(7.81vh, 100px);
-    aspect-ratio: 1/1;
+.edit-report-staff-img {
+  width: 9rem;
+  aspect-ratio: 1/1;
 }
 
-
-.edit-report-staff-card-id-name-container{
-    width: 75%;
-    display: flex;
-    flex-direction: column;
+.edit-report-staff-card-id-name-container {
+  margin: 0 0.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.edit-report-staff-id-name-header{
-    font-size: max(.625vw, 12px);
-        font-weight: bold;
+.edit-report-staff-id-name-header {
+  font-weight: bold;
 }
-.edit-report-staff-id-name{
-    font-size: max(.8vw, 16px);
-        width: 100%;
-        border-bottom: 2px black solid;
+.edit-report-staff-id-name {
+  width: 100%;
+  border-bottom: .2rem black solid;
 }

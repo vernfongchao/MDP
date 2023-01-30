@@ -1,129 +1,116 @@
-
 .hidden {
-    display:none;
+  display: none;
 }
 
-.report-list-page-container{
-    
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    background-color: #F1FAEE;
-    display: flex;
+.report-list-page-container {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: #f1faee;
+  display: flex;
 }
 
-.report-list-container{
-    box-sizing: border-box;
-    border-right: .625vw #1D3557 solid;
-    height: 100%;
-    background-color: #F1FAEE;
-    display: flex;
-    width: 33.3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.report-list-container {
+  box-sizing: border-box;
+  border-right: 0.625vw #1d3557 solid;
+  height: 100%;
+  background-color: #f1faee;
+  display: flex;
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.report-list-header-search-container{
-    width: 83%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
+.report-list-header-search-container {
+  width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
 .report-list-header-container {
-    display: flex;
-    justify-content: center;
-}
-
-.report-list-header{
-    font-size: max(1.67vw, 32px);
+  display: flex;
+  justify-content: center;
 }
 
 .report-list-search-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 98%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 98%;
 }
 
 .report-search-label-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .report-search-label {
-    font-size: max(.8vw, 16px);
-    font-weight: bold;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .report-search-icon-container {
-    display: flex;
-    width: 80%;
+  display: flex;
+  width: 100%;
 }
 
 .report-search-input-field {
-    font-size: max(.8vw, 16px);
-    border: none;
-    border-bottom: 2px black solid;
-    width: 100%;
+  border: none;
+  border-bottom: 2px black solid;
+  width: 100%;
 }
 
 .report-search-input-field:focus {
-    outline: none;
+  outline: none;
 }
 
 .report-search-clear-icon {
-    font-size: max(1.25vw, 24px);
-    border-bottom: 2px black solid;
-    cursor: pointer;
+  font-size: 2rem;
+  border-bottom: 2px black solid;
+  cursor: pointer;
 }
 
 .report-search-clear-icon:hover {
-    color: red;
+  color: red;
 }
 
 .report-all-card-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto;
-    overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.report-card-container{
-    width: 83%;
+.report-card-container {
+  width: 83%;
 }
 
 .report-card-name-container {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1vh;
-    padding: 10px;
-    border: 2px black solid;
-    width: 100%;
-    box-shadow: 1px 1px 5px 1px #F1FAEE;
-    overflow-wrap: break-word;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1vh;
+  padding: .8rem;
+  border: 0.15rem black solid;
+  width: 100%;
+  box-shadow: 1px 1px 5px 1px #f1faee;
+  overflow-wrap: break-word;
 }
 
 .report-card-name-container:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 2px solid #1D3557;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 1px #1d3557;
+  border: 2px solid #1d3557;
 }
-
 
 .active-report {
-    background-color: #A8DADC;
+  background-color: #a8dadc;
 }
 
-.report-list-title{
-font-size: max(.975vw, 18.72px);
-    width: 70%;
-}
-
-.report-list-id{
-    font-size: max(.8vw, 16px);
+.report-list-title {
+  width: 70%;
 }

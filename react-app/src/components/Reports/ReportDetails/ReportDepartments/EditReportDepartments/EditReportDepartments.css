@@ -1,174 +1,163 @@
 /* Modal */
-.report-department-edit-modal-container{
-    display: flex;
-    width: 100%;
-    top: 10px;
-    justify-content: flex-end;
-    position: relative;
-    height: 0px;
+.report-department-edit-modal-container {
+  display: flex;
+  width: 100%;
+  top: 10px;
+  justify-content: flex-end;
+  position: relative;
+  height: 0px;
 }
 
-.report-department-edit-icon{
-    cursor: pointer;
-    font-size: max(1.25vw, 24px);
+.report-department-edit-icon {
+  cursor: pointer;
+  font-size: 2rem;
 }
 
-.report-department-edit-icon:hover{
-    color: #1D3557;
+.report-department-edit-icon:hover {
+  color: #1d3557;
 }
 
 /* Inside-Modal */
 
-.edit-report-department-page-container{
-    height: max(72vh, 700px);
-    width: max(29.6vw, 568.75px);
-    background-color: #F1FAEE;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.edit-report-department-page-container {
+  height: 50rem;
+  width: 40rem;
+  background-color: #f1faee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.edit-report-department-icon-container{
-    position: relative;
-    width: 95%;
-    height: 0px;
-    top: 10px;
-    display: flex;
-    justify-content: flex-end;
+.edit-report-department-icon-container {
+  position: relative;
+  width: 95%;
+  height: 0px;
+  top: 1rem;
+  display: flex;
+  justify-content: flex-end;
 }
-.edit-report-department-cancel-icon{
-    cursor: pointer;
-    font-size: max(1.67vw, 32px);
-    color: red;
-}
-
-.edit-report-department-cancel-icon:hover{
-    box-shadow: 1px 1px 5px 1px red;
+.edit-report-department-cancel-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  color: red;
 }
 
-.edit-report-department-header-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.edit-report-department-cancel-icon:hover {
+  box-shadow: 1px 1px 5px 1px red;
 }
 
-.edit-report-department-header{
-    font-size: max(1.67vw, 32px);
+.edit-report-department-header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.edit-report-department-search-container{
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 10px;
-
+.edit-report-department-header {
 }
-.edit-report-deparment-search-label-container{
-    /* display: flex;
+
+.edit-report-department-search-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+.edit-report-deparment-search-label-container {
+  /* display: flex;
     align-items: center; */
 }
 
-.edit-report-deparment-search-label{
-    font-weight: bold;
-    font-size: max(.8vw, 16px);
-        
+.edit-report-deparment-search-label {
+  font-weight: bold;
 }
-.edit-report-department-input-container{
-    display: flex;
-    width: 80%;
+.edit-report-department-input-container {
+  display: flex;
+  width: 80%;
 }
-.edit-report-department-search-input{
-    font-size: max(.8vw, 16px);
-    width: 100%;
-    border:none;
-    border-bottom: 2px black solid;
+.edit-report-department-search-input {
+  width: 100%;
+  border: none;
+  border-bottom: 0.2rem black solid;
 }
-.edit-report-department-search-input:hover{
-    outline: none;
+.edit-report-department-search-input:hover {
+  outline: none;
 }
 
-.edit-report-department-search-clear-icon{
-    font-size: max(1.25vw, 24px);
-    border-bottom: 2px black solid;
-    cursor: pointer;
+.edit-report-department-search-clear-icon {
+  font-size: 2rem;
+  border-bottom: 0.2rem black solid;
+  cursor: pointer;
 }
-.edit-report-department-search-clear-icon:hover{
-    color: red;
-}
-
-.edit-report-department-remove-container{
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
+.edit-report-department-search-clear-icon:hover {
+  color: red;
 }
 
-.edit-report-department-name-container{
-    margin-top: max(.5vh, 5px);
-    display: flex;
-    padding-left: 3px;
-    padding-right: 3px;
-    background-color: #A8DADC;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-right: max(.625vw, 12px);
-    font-size: max(.8vw, 16px);
-    height: max(1.8vh,22px);
+.edit-report-department-remove-container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.edit-report-department-remove-icon-container{
-    width: 0px;
-}
-.edit-report-department-remove-icon{
-    border-radius: 5px;
-    border: #1D3557 solid 2px;
-    position: relative;
-    font-size: .75em;
-    bottom: 10px;
-    right: 3px;
-    z-index: 1;
-    background-color: #1D3557;
-    color: white;
-
-}
-.edit-report-department-remove-icon:hover{
-    background-color: white;
-    color: red;
-    cursor: pointer;
+.edit-report-department-name-container {
+  margin-top: max(0.5vh, 5px);
+  display: flex;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #a8dadc;
+  border: 0.2rem solid black;
+  border-radius: 5px;
+  margin-right: 0.5rem;
 }
 
-.edit-report-department-cards-container{
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: max(2.68vw, 52px);
-    overflow-y: auto;
-    overflow-x: hidden;
+.edit-report-department-remove-icon-container {
+  width: 0px;
 }
-.edit-report-department-card-container{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    width: max(23.6vw, 422px);
-    margin-top: max(.5vh, 5px);
-    margin-left: max(.25vw, 5px);
-    padding: max(.5vw, 10px);
-    border: 2px black solid;
-    box-shadow: 1px 1px 5px 1px #F1FAEE;
-    overflow-wrap: break-word;
+.edit-report-department-remove-icon {
+  border-radius: 0.5rem;
+  border: #1d3557 solid 0.2rem;
+  position: relative;
+  font-size: 0.6rem;
+  bottom: 0.5rem;
+  right: 0.2rem;
+  z-index: 1;
+  background-color: #1d3557;
+  color: white;
+}
+.edit-report-department-remove-icon:hover {
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
+
+.edit-report-department-cards-container {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.edit-report-department-card-container {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 32rem;
+  margin-top: .5rem;
+  padding: 1rem;
+  border: .2rem black solid;
+  box-shadow: 1px 1px 5px 1px #f1faee;
+  overflow-wrap: break-word;
 }
 
 .edit-report-department-card-container:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 5px 1px #1D3557;
-    border: 1px solid #1D3557;
-    background-color: #A8DADC;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px 1px #1d3557;
+  border: .5rem solid #1d3557;
+  background-color: #a8dadc;
 }
 
-.edit-report-department-card-name{
-    font-size: max(.8vw, 16px);
+.edit-report-department-card-name {
 }
 
-.edit-report-department-card-id{
-    font-size: max(.625vw, 12px);
-    font-weight: bold;
+.edit-report-department-card-id {
+  font-weight: bold;
 }

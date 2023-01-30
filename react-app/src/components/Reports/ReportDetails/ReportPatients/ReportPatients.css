@@ -1,68 +1,48 @@
 .report-patients-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border-bottom: 10px #1D3557 solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 10px #1d3557 solid;
 }
 
-.report-patient-add-icon-container{
-    width: 95%;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    height: 0px;
-    top: 10px;
-}
-
-.report-patient-add-icon{
-    font-size: 2em;
-}
-
-.report-patient-add-icon:hover{
-    cursor: pointer;
-    color: #1D3557;
-}
 
 .report-patients-header-container {
-    width: 95%;
+  width: 95%;
 }
 
-.report-patients-header{
-    font-size: max(1.25vw, 24px);
-}
+/* .report-patients-header {
+  font-size: max(1.25vw, 24px);
+} */
 
 .report-patients-card-container {
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .report-patient-card-id-name-container {
-    width: 60%;
+  margin: 0rem 0.5rem;
+  width: 100%;
 }
 
 .report-patient-card-id-container {
-    border-bottom: #1D3557 solid 2px;
-
+  border-bottom: #1d3557 solid .2rem;
 }
 
 .report-patient-card-id-name-header {
-    font-weight: bold;
-    margin: 0%;
-font-size: max(.625vw, 12px);
+  font-weight: bold;
 }
 
-.report-patient-card-id {
-    margin: 0%;
-font-size: max(.8vw, 16px);
-}
+/* .report-patient-card-id {
+
+} */
 
 .report-patient-card-name-container {
-    display: flex;
-    border-bottom: #1D3557 solid 2px;
+  display: flex;
+  border-bottom: #1d3557 solid .2rem;
 }
 
 .report-patient-name-container {
-    width: 50%;
+  width: 50%;
 }
