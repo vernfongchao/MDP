@@ -335,7 +335,7 @@ const Chat = ({
           </p>
         </div>
       )}
-      {!room && <div>Please click on a staff to start messaging!</div>}
+      {!room && !isLoaded && <div>Please click on a staff to start messaging!</div>}
       {isLoaded && currStaff && (
         <form className="message-form" onSubmit={sendChat}>
           <textarea
