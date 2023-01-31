@@ -10,13 +10,8 @@ const MessageList = ({ filteredStaffs, setCurrStaff, index, setIndex,search,setS
 
     
     useEffect(() => {
-        if(search){
-            setCurrStaff(filteredStaffs[0])
-        }
-        else if(!search){
-            setCurrStaff(filteredStaffs[0])
-        }
-    },[search])
+        setCurrStaff(filteredStaffs[0]);
+    }, []);
 
     const changeSearch = async(e) => {
         await setSearch(e.target.value)
