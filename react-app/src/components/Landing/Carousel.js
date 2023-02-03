@@ -6,10 +6,13 @@ import ImageThree from "./Image/operation.jpg";
 import ImageFour from "./Image/heart.jpg";
 import "./Landing.css";
 
-const Carousel = () => {
+const Carousel = ({ setLoading }) => {
   const [idx, setIdx] = useState(0);
+
   useEffect(() => {
-    let timer = setInterval(() => setIdx((state) => state + 1), 3000);
+    let timer = setInterval(() => {
+      setIdx((state) => state + 1);
+    }, 3000);
     if (idx > 3) {
       setIdx(0);
     }
@@ -27,6 +30,7 @@ const Carousel = () => {
         }
         src={ImageOne}
         alt={"Baby"}
+        onLoad={() => setLoading(true)}
       />
       <img
         className={
