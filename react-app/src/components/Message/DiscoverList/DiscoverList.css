@@ -58,7 +58,7 @@
 .discover-staff-card-container:hover {
   cursor: pointer;
   box-shadow: 1px 1px 5px 1px #1d3557;
-  border: 1px solid #1d3557;
+  border: .2rem solid #1d3557;
   background-color: #a8dadc;
 }
 
@@ -81,7 +81,7 @@
 
 .discover-staff-id-name {
   width: 100%;
-  border-bottom: 2px black solid;
+  border-bottom: .15rem black solid;
 }
 
 .discover-staff-list-header {

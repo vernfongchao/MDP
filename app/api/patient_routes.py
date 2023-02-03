@@ -63,9 +63,9 @@ def add_patient():
 def edit_patient_profile(id):
     form = EditPatientForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("=====================",request)
 
     if form.validate_on_submit():
-        print('=========================================================================================================',request.files)
         if request.files:
             upload = upload_image(request.files["image"], id)
 
@@ -128,14 +128,11 @@ def delete_patient(id):
     
 
 def upload_image(image, id):
-    print("======================================================== Image name",image.filename)
     if not allowed_file(image.filename):
         return {"errors": {"image": "file type not permitted"}}, 400
 
     image.filename = get_unique_filename(image.filename)
-    print("======================================================",image,type(image),type(image.filename) )
     upload = upload_file_to_s3(image)
-    print("================================================================ upload",upload)
     if "url" not in upload:
         # if the dictionary doesn't have a url key
         # it means that there was an error when we tried to upload
@@ -143,7 +140,6 @@ def upload_image(image, id):
         return upload, 400
 
     url = upload["url"]
-    print("====================================================================== image url",url)
     if request.form.get("img_id"):
 
         name = request.form['imgDelete'].split('/')[-1]
