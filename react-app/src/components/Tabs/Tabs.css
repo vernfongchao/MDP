@@ -56,9 +56,9 @@
   }
 }
 
-@media only screen and (min-height: 976px) {
+@media only screen and (min-height: 975px) {
   .tab-container {
-    height: 84.7%;
+    height: 84.6%;
   }
 }
 
