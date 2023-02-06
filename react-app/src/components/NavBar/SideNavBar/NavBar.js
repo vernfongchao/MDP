@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Announcement from "../../Announcement/Announcement";
 import Reports from "../../Reports/Report";
-import PatientList from "../../Patient/PatientList/PatientList";
+import Patient from "../../Patient/Patient";
 import StaffList from "../../Staff/StaffList/StaffList";
 import DepartmentList from "../../Departments/DepartmentList/DepartmentList";
 import Condition from "../../Conditions/Conditions";
@@ -125,14 +125,14 @@ const NavBar = ({ tab, tabs, setTabs, tabIndex }) => {
         )}
       </div>
       <div className="main-info-container">
-        {tab.idx === 0 && <Announcement idx={tab.idx} />}
-        {tab.idx === 1 && <Reports idx={tab.idx} />}
-        {tab.idx === 2 && <PatientList idx={tab.idx} />}
-        {tab.idx === 3 && <Condition idx={tab.idx} />}
-        {tab.idx === 4 && <StaffList idx={tab.idx} />}
-        {tab.idx === 5 && <DepartmentList idx={tab.idx} />}
-        {tab.idx === 6 && <Message idx={tab.idx} />}
-        {tab.idx === 7 && <Credit idx={tab.idx} />}
+        {tab.idx === 0 && <Announcement />}
+        {tab.idx === 1 && <Reports/>}
+        {tab.idx === 2 && <Patient/>}
+        {tab.idx === 3 && <Condition/>}
+        {tab.idx === 4 && <StaffList/>}
+        {tab.idx === 5 && <DepartmentList/>}
+        {tab.idx === 6 && <Message/>}
+        {tab.idx === 7 && <Credit/>}
       </div>
     </div>
   );

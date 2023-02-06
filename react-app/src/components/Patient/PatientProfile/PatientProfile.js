@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addPatient } from '../../../store/patient'
 import { editPatient } from '../../../store/patient'
 
@@ -15,8 +15,6 @@ import './PatientProfile.css'
 
 const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
     const dispatch = useDispatch()
-
-    const patients = Object.values(useSelector(state => state.patients))
 
     const [lastIndex, setLastIndex] = useState(index)
 
@@ -180,7 +178,7 @@ const PatientProfile = ({ index, patient, setIndex, setSearch }) => {
                 setUploadPicture("")
 
                 setIsLoading("")
-                setIndex(patients.length)
+                setIndex(0)
             }
             else {
                 const errors = newPatient.errors
