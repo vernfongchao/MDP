@@ -25,8 +25,6 @@ const PortalPage = () => {
       await dispatch(getRoles());
       await dispatch(getStaffs());
       await dispatch(getPatients());
-      await dispatch(getReports());
-      await dispatch(getAnnouncements());
       await dispatch(getDepartments());
       await dispatch(getConditions());
       setLoaded(true);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addReport } from "../../../store/report";
 import { patchReport } from "../../../store/report";
 
@@ -10,15 +10,15 @@ import * as FcIcons from "react-icons/fc";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-import "./Report.css";
+import "./ReportDetail.css";
 
-const Report = ({ index, setIndex, setSearch, report }) => {
+const ReportDetail = ({ index, setIndex, setSearch, report }) => {
   const dispatch = useDispatch();
 
   const [lastIndex, setLastIndex] = useState(index);
 
   const [newReport, setNewReport] = useState(false);
-  const [title, setTitle] = useState(report?.title);
+  const [title, setTitle] = useState(report?.title || "");
   const [maxTitle, setMaxTitle] = useState("");
   const [content, setContent] = useState("");
   const [delta, setDelta] = useState("");
@@ -207,4 +207,4 @@ const Report = ({ index, setIndex, setSearch, report }) => {
   );
 };
 
-export default Report;
+export default ReportDetail;

@@ -2,9 +2,9 @@ import ReportPatients from "./ReportPatients/ReportPatients"
 import ReportStaffs from "./ReportStaffs/ReportStaffs"
 import ReportDepartments from "./ReportDepartments/ReportDepartments"
 
-import './ReportDetails.css'
+import './ReportRelations.css'
 
-const ReportDetails = ({ index, report }) => {
+const ReportRelations = ({ index, report }) => {
 
     return (
         <div className="report-details-page-container">
@@ -19,4 +19,4 @@ const ReportDetails = ({ index, report }) => {
     )
 }
 
-export default ReportDetails
+export default ReportRelations

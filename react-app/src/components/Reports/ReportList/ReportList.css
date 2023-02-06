@@ -2,14 +2,6 @@
   display: none;
 }
 
-.report-list-page-container {
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  background-color: #f1faee;
-  display: flex;
-}
-
 .report-list-container {
   box-sizing: border-box;
   border-right: 0.625vw #1d3557 solid;

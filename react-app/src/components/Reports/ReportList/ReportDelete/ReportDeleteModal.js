@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal } from "../../../context/Modal/Modal";
+import { Modal } from "../../../../context/Modal/Modal";
 import ReportDelete from "./ReportDelete";
 
 

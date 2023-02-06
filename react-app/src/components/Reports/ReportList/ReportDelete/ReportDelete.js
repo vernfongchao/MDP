@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteReport } from "../../../store/report";
+import { deleteReport } from "../../../../store/report";
 
 const ReportDelete = ({ id, setShowModal, setIndex, i, index }) => {
     const dispatch = useDispatch()
