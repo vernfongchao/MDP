@@ -35,10 +35,10 @@
   position: absolute;
   cursor: pointer;
   background-color: #a8dadc;
-  border: 0.2rem solid #1d3557;
+  border: 0.15rem solid #1d3557;
   border-radius: 0.3rem;
   margin-top: 0.5rem;
-  padding: 0.3rem .6rem;
+  padding: 0.2rem 1rem;
 }
 
 .announcement-edit-button:hover {

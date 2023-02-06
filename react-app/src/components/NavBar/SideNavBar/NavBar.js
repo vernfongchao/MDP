@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Announcement from "../../Dashboard/Announcement/Announcement";
+import Announcement from "../../Announcement/Announcement";
 import ReportList from "../../Reports/ViewReports/ReportList";
 import PatientList from "../../Patient/PatientList/PatientList";
 import StaffList from "../../Staff/StaffList/StaffList";
